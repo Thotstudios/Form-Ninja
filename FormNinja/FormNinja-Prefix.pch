@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'Form Ninja' target in the 'Form Ninja' project
+// Prefix header for all source files of the 'FormNinja' target in the 'FormNinja' project
 //
 
 #import <Availability.h>
@@ -9,6 +9,6 @@
 #endif
 
 #ifdef __OBJC__
-	#import <UIKit/UIKit.h>
-	#import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
 #endif
