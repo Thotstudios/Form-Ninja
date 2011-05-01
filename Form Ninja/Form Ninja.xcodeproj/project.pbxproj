@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F72B290C136D304000131266 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72B290B136D304000131266 /* UIKit.framework */; };
+		F72B290E136D304000131266 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72B290D136D304000131266 /* Foundation.framework */; };
+		F72B2910136D304000131266 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72B290F136D304000131266 /* CoreGraphics.framework */; };
+		F72B2916136D304000131266 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F72B2914136D304000131266 /* InfoPlist.strings */; };
+		F72B2919136D304000131266 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F72B2918136D304000131266 /* main.m */; };
+		F72B291C136D304000131266 /* Form_NinjaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F72B291B136D304000131266 /* Form_NinjaAppDelegate.m */; };
+		F72B291F136D304000131266 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72B291D136D304000131266 /* MainWindow.xib */; };
+		F72B2922136D304000131266 /* Form_NinjaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72B2921136D304000131266 /* Form_NinjaViewController.m */; };
+		F72B2925136D304000131266 /* Form_NinjaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72B2923136D304000131266 /* Form_NinjaViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F72B2907136D304000131266 /* Form Ninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Form Ninja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F72B290B136D304000131266 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F72B290D136D304000131266 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F72B290F136D304000131266 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F72B2913136D304000131266 /* Form Ninja-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Form Ninja-Info.plist"; sourceTree = "<group>"; };
+		F72B2915136D304000131266 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F72B2917136D304000131266 /* Form Ninja-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Form Ninja-Prefix.pch"; sourceTree = "<group>"; };
+		F72B2918136D304000131266 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F72B291A136D304000131266 /* Form_NinjaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Form_NinjaAppDelegate.h; sourceTree = "<group>"; };
+		F72B291B136D304000131266 /* Form_NinjaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Form_NinjaAppDelegate.m; sourceTree = "<group>"; };
+		F72B291E136D304000131266 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		F72B2920136D304000131266 /* Form_NinjaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Form_NinjaViewController.h; sourceTree = "<group>"; };
+		F72B2921136D304000131266 /* Form_NinjaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Form_NinjaViewController.m; sourceTree = "<group>"; };
+		F72B2924136D304000131266 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Form_NinjaViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F72B2904136D304000131266 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F72B290C136D304000131266 /* UIKit.framework in Frameworks */,
+				F72B290E136D304000131266 /* Foundation.framework in Frameworks */,
+				F72B2910136D304000131266 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F72B28FC136D304000131266 = {
+			isa = PBXGroup;
+			children = (
+				F72B2911136D304000131266 /* Form Ninja */,
+				F72B290A136D304000131266 /* Frameworks */,
+				F72B2908136D304000131266 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F72B2908136D304000131266 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F72B2907136D304000131266 /* Form Ninja.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F72B290A136D304000131266 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F72B290B136D304000131266 /* UIKit.framework */,
+				F72B290D136D304000131266 /* Foundation.framework */,
+				F72B290F136D304000131266 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F72B2911136D304000131266 /* Form Ninja */ = {
+			isa = PBXGroup;
+			children = (
+				F72B291A136D304000131266 /* Form_NinjaAppDelegate.h */,
+				F72B291B136D304000131266 /* Form_NinjaAppDelegate.m */,
+				F72B291D136D304000131266 /* MainWindow.xib */,
+				F72B2920136D304000131266 /* Form_NinjaViewController.h */,
+				F72B2921136D304000131266 /* Form_NinjaViewController.m */,
+				F72B2923136D304000131266 /* Form_NinjaViewController.xib */,
+				F72B2912136D304000131266 /* Supporting Files */,
+			);
+			path = "Form Ninja";
+			sourceTree = "<group>";
+		};
+		F72B2912136D304000131266 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F72B2913136D304000131266 /* Form Ninja-Info.plist */,
+				F72B2914136D304000131266 /* InfoPlist.strings */,
+				F72B2917136D304000131266 /* Form Ninja-Prefix.pch */,
+				F72B2918136D304000131266 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F72B2906136D304000131266 /* Form Ninja */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F72B2928136D304000131266 /* Build configuration list for PBXNativeTarget "Form Ninja" */;
+			buildPhases = (
+				F72B2903136D304000131266 /* Sources */,
+				F72B2904136D304000131266 /* Frameworks */,
+				F72B2905136D304000131266 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Form Ninja";
+			productName = "Form Ninja";
+			productReference = F72B2907136D304000131266 /* Form Ninja.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F72B28FE136D304000131266 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = F72B2901136D304000131266 /* Build configuration list for PBXProject "Form Ninja" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F72B28FC136D304000131266;
+			productRefGroup = F72B2908136D304000131266 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F72B2906136D304000131266 /* Form Ninja */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F72B2905136D304000131266 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F72B2916136D304000131266 /* InfoPlist.strings in Resources */,
+				F72B291F136D304000131266 /* MainWindow.xib in Resources */,
+				F72B2925136D304000131266 /* Form_NinjaViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F72B2903136D304000131266 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F72B2919136D304000131266 /* main.m in Sources */,
+				F72B291C136D304000131266 /* Form_NinjaAppDelegate.m in Sources */,
+				F72B2922136D304000131266 /* Form_NinjaViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F72B2914136D304000131266 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F72B2915136D304000131266 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F72B291D136D304000131266 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F72B291E136D304000131266 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		F72B2923136D304000131266 /* Form_NinjaViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F72B2924136D304000131266 /* en */,
+			);
+			name = Form_NinjaViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F72B2926136D304000131266 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		F72B2927136D304000131266 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		F72B2929136D304000131266 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Form Ninja/Form Ninja-Prefix.pch";
+				INFOPLIST_FILE = "Form Ninja/Form Ninja-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F72B292A136D304000131266 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Form Ninja/Form Ninja-Prefix.pch";
+				INFOPLIST_FILE = "Form Ninja/Form Ninja-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F72B2901136D304000131266 /* Build configuration list for PBXProject "Form Ninja" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F72B2926136D304000131266 /* Debug */,
+				F72B2927136D304000131266 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F72B2928136D304000131266 /* Build configuration list for PBXNativeTarget "Form Ninja" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F72B2929136D304000131266 /* Debug */,
+				F72B292A136D304000131266 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F72B28FE136D304000131266 /* Project object */;
+}
