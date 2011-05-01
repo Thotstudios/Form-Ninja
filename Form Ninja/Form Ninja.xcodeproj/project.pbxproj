@@ -16,6 +16,7 @@
 		F72B291F136D304000131266 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72B291D136D304000131266 /* MainWindow.xib */; };
 		F72B2922136D304000131266 /* Form_NinjaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72B2921136D304000131266 /* Form_NinjaViewController.m */; };
 		F72B2925136D304000131266 /* Form_NinjaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72B2923136D304000131266 /* Form_NinjaViewController.xib */; };
+		F72B2934136D320200131266 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = F72B2933136D320200131266 /* test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		F72B2920136D304000131266 /* Form_NinjaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Form_NinjaViewController.h; sourceTree = "<group>"; };
 		F72B2921136D304000131266 /* Form_NinjaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Form_NinjaViewController.m; sourceTree = "<group>"; };
 		F72B2924136D304000131266 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Form_NinjaViewController.xib; sourceTree = "<group>"; };
+		F72B2933136D320200131266 /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				F72B2920136D304000131266 /* Form_NinjaViewController.h */,
 				F72B2921136D304000131266 /* Form_NinjaViewController.m */,
 				F72B2923136D304000131266 /* Form_NinjaViewController.xib */,
+				F72B2933136D320200131266 /* test.m */,
 				F72B2912136D304000131266 /* Supporting Files */,
 			);
 			path = "Form Ninja";
@@ -164,6 +167,7 @@
 				F72B2919136D304000131266 /* main.m in Sources */,
 				F72B291C136D304000131266 /* Form_NinjaAppDelegate.m in Sources */,
 				F72B2922136D304000131266 /* Form_NinjaViewController.m in Sources */,
+				F72B2934136D320200131266 /* test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +282,7 @@
 				F72B292A136D304000131266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
