@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F78DD3AD136CE83F0083796A /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F78DD3AB136CE83F0083796A /* test.cpp */; };
 		F7D2B23F136CDF0C00AEEBD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D2B23E136CDF0C00AEEBD4 /* UIKit.framework */; };
 		F7D2B241136CDF0C00AEEBD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D2B240136CDF0C00AEEBD4 /* Foundation.framework */; };
 		F7D2B243136CDF0C00AEEBD4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D2B242136CDF0C00AEEBD4 /* CoreGraphics.framework */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F78DD3AB136CE83F0083796A /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
+		F78DD3AC136CE83F0083796A /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		F7D2B23A136CDF0C00AEEBD4 /* Form Ninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Form Ninja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7D2B23E136CDF0C00AEEBD4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7D2B240136CDF0C00AEEBD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,6 +88,8 @@
 				F7D2B253136CDF0C00AEEBD4 /* Form_NinjaViewController.h */,
 				F7D2B254136CDF0C00AEEBD4 /* Form_NinjaViewController.m */,
 				F7D2B256136CDF0C00AEEBD4 /* Form_NinjaViewController.xib */,
+				F78DD3AB136CE83F0083796A /* test.cpp */,
+				F78DD3AC136CE83F0083796A /* test.h */,
 				F7D2B245136CDF0C00AEEBD4 /* Supporting Files */,
 			);
 			path = "Form Ninja";
@@ -164,6 +169,7 @@
 				F7D2B24C136CDF0C00AEEBD4 /* main.m in Sources */,
 				F7D2B24F136CDF0C00AEEBD4 /* Form_NinjaAppDelegate.m in Sources */,
 				F7D2B255136CDF0C00AEEBD4 /* Form_NinjaViewController.m in Sources */,
+				F78DD3AD136CE83F0083796A /* test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +284,7 @@
 				F7D2B25D136CDF0C00AEEBD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
