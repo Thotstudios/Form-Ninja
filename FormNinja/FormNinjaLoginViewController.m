@@ -37,7 +37,8 @@
 #pragma mark - Instance Methods
 
 - (IBAction) loginButtonAction{
-    NSLog(@"login");
+    NSLog(@"login (%@:%@)", [usernameField text], [passwordField text]);
+	
 }
 
 

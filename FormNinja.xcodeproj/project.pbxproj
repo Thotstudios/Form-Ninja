@@ -16,6 +16,8 @@
 		D922CEA4136C926300233C48 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D922CEA2136C926300233C48 /* MainWindow.xib */; };
 		D922CEA7136C926300233C48 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */; };
 		D922CEAA136C926300233C48 /* FormNinjaLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = D922CEA8136C926300233C48 /* FormNinjaLogin.xib */; };
+		F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D8AFB9136E289500FE0F76 /* MainMenu.m */; };
+		F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D8AFBA136E289500FE0F76 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,9 @@
 		D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaLoginViewController.h; sourceTree = "<group>"; };
 		D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaLoginViewController.m; sourceTree = "<group>"; };
 		D922CEA9136C926300233C48 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FormNinjaLogin.xib; sourceTree = "<group>"; };
+		F7D8AFB8136E289500FE0F76 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		F7D8AFB9136E289500FE0F76 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		F7D8AFBA136E289500FE0F76 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +85,7 @@
 		D922CE96136C926300233C48 /* FormNinja */ = {
 			isa = PBXGroup;
 			children = (
+				F7D8AFBE136E289A00FE0F76 /* MainMenu */,
 				D922CE9F136C926300233C48 /* FormNinjaAppDelegate.h */,
 				D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */,
 				D922CEA2136C926300233C48 /* MainWindow.xib */,
@@ -108,6 +114,16 @@
 			);
 			name = XIB;
 			path = FormNinja;
+			sourceTree = "<group>";
+		};
+		F7D8AFBE136E289A00FE0F76 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F7D8AFB8136E289500FE0F76 /* MainMenu.h */,
+				F7D8AFB9136E289500FE0F76 /* MainMenu.m */,
+				F7D8AFBA136E289500FE0F76 /* MainMenu.xib */,
+			);
+			name = MainMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +176,7 @@
 				D922CE9B136C926300233C48 /* InfoPlist.strings in Resources */,
 				D922CEA4136C926300233C48 /* MainWindow.xib in Resources */,
 				D922CEAA136C926300233C48 /* FormNinjaLogin.xib in Resources */,
+				F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +190,7 @@
 				D922CE9E136C926300233C48 /* main.m in Sources */,
 				D922CEA1136C926300233C48 /* FormNinjaAppDelegate.m in Sources */,
 				D922CEA7136C926300233C48 /* FormNinjaLoginViewController.m in Sources */,
+				F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +305,7 @@
 				D922CEAF136C926300233C48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
