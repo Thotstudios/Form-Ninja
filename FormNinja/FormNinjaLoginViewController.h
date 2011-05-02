@@ -11,10 +11,12 @@
 @interface FormNinjaLoginViewController : UIViewController {
     IBOutlet UITextField *usernameField;
     IBOutlet UITextField *passwordField;
+	UIViewController *mainMenuViewController;
 }
 
 
 @property(nonatomic, retain) UITextField *usernameField, *passwordField;
+@property (nonatomic, retain) IBOutlet UIViewController *mainMenuViewController;
 
 
 - (IBAction) loginButtonAction;

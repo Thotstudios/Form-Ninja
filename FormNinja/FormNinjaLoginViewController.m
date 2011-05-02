@@ -9,6 +9,7 @@
 #import "FormNinjaLoginViewController.h"
 
 @implementation FormNinjaLoginViewController
+@synthesize mainMenuViewController;
 
 
 #pragma mark - View lifecycle
@@ -39,6 +40,7 @@
 - (IBAction) loginButtonAction{
     NSLog(@"login (%@:%@)", [usernameField text], [passwordField text]);
 	
+	[self presentModalViewController:mainMenuViewController animated:YES];
 }
 
 
@@ -56,6 +58,7 @@
 
 - (void)viewDidUnload
 {
+	[self setMainMenuViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -68,6 +71,7 @@
 {
     [usernameField release];
     [passwordField release];
+	[mainMenuViewController release];
     [super dealloc];
 }
 
