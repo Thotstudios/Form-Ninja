@@ -12,9 +12,16 @@
 @interface MainMenu : UIViewController
 {
     
+	UIViewController *templateEditorViewController;
 }
+@property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
+
 - (IBAction)buttonPressedForms:(id)sender;
 - (IBAction)buttonPressedManagement:(id)sender;
 - (IBAction)buttonPressedAccount:(id)sender;
+
+
+// TODO: temporary
+- (IBAction)buttonPressedTemplateEditor:(id)sender;
 
 @end
