@@ -9,6 +9,7 @@
 #import "FormNinjaLoginViewController.h"
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
+#import "JSON.h"
 
 @implementation FormNinjaLoginViewController
 @synthesize mainMenuViewController;
@@ -59,8 +60,19 @@
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request{	
-    NSString *response = [request responseString];
-    NSLog(@"repsonse %@", response);
+    //Get intial dict from response string
+	NSDictionary *jsonDict = [[request responseString] JSONValue];
+    
+    NSString *userAccepted = [jsonDict objectForKey:@"accepted"];
+    NSLog(@"repsonse %@", userAccepted);
+
+    if([userAccepted isEqualToString:@"True"]){
+        NSLog(@"ACCEPTED");
+    }
+    
+    else{
+        NSLog(@"NOT ACCEPETED");
+    }
 }
 
 #pragma mark - Memory Management
