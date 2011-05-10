@@ -10,6 +10,8 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
+#import "CustomLoadAlertViewController.h"
+
 
 @implementation FormNinjaLoginViewController
 @synthesize mainMenuViewController;
@@ -19,6 +21,7 @@
 
 
 @synthesize usernameField, passwordField, statusLabel;
+@synthesize loadAlert;
 
 //git://github.com/Thotsudios/Form-Ninja.git
 
@@ -28,6 +31,10 @@
 {
     [super viewDidLoad];
     [self.usernameField becomeFirstResponder];
+    
+    //Add load alert view to window
+    self.loadAlert.view.hidden = YES;
+	[self.view addSubview:self.loadAlert.view];
 }
 
 
@@ -40,6 +47,20 @@
 
 #pragma mark - Instance Methods
 
+//Pushes alert view
+- (void) pushAlertView{
+    self.loadAlert.view.hidden = FALSE;
+	[self.loadAlert startActivityIndicator];
+}
+
+
+//Removes alert view
+- (void) removeAlertView{
+	[self.loadAlert stopActivityIndicator];
+    self.loadAlert.view.hidden = TRUE;	
+}
+
+
 - (IBAction) loginButtonAction{
     //Test account info
     //un:test pass:test
@@ -48,6 +69,10 @@
     //Dismiss keyboard
     [self.usernameField resignFirstResponder];
     [self.passwordField resignFirstResponder];
+
+    //Push alert view
+    self.loadAlert.alertLabel.text = @"Logging in";
+    [self pushAlertView];
     
     //Prepare form
     NSURL *urlToSend = [[[NSURL alloc] initWithString: @"http://www.rilburskryler.net/mobile/login.php"] autorelease];
@@ -63,13 +88,14 @@
 
 //Called when user has been authenticated
 - (void) userAuthenticated{
-    NSLog(@"ACCEPTED");
+    [self removeAlertView];
     [self presentModalViewController:mainMenuViewController animated:YES];
 }
 
 
 //Called when user has failed authenticated
 - (void) userAuthenticatedFailed:(NSString *)error{
+    [self removeAlertView];
     self.statusLabel.text = error;
 }
 
@@ -78,7 +104,8 @@
 #pragma mark ASIHTTPRequest Delegate Methods
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
-    NSLog(@"REQUEST FAIELD");
+    [self removeAlertView];
+    self.statusLabel.text = @"Error connecting to server";
 }
 
 
@@ -88,11 +115,15 @@
     NSString *userAccepted = [jsonDict objectForKey:@"accepted"]; //Get response
 
     if([userAccepted isEqualToString:@"True"]){
-        [self userAuthenticated];
+        self.loadAlert.alertLabel.text = @"Login successful";
+        [self.loadAlert stopActivityIndicator];
+        [self performSelector:@selector(userAuthenticated) withObject:nil afterDelay:3];
     }
     
     else{
-        [self userAuthenticatedFailed:[jsonDict objectForKey:@"error"]];
+        self.loadAlert.alertLabel.text = @"Login failed";
+        [self.loadAlert stopActivityIndicator];
+        [self performSelector:@selector(userAuthenticatedFailed:) withObject:[jsonDict objectForKey:@"error"] afterDelay:3];
     }
 }
 
@@ -119,6 +150,7 @@
     self.usernameField = nil;
     self.passwordField = nil;
     self.statusLabel = nil;
+    self.loadAlert = nil;
 }
 
 
@@ -128,6 +160,7 @@
     [passwordField release];
     [statusLabel release];
 	[mainMenuViewController release];
+    [loadAlert release];
     [super dealloc];
 }
 
