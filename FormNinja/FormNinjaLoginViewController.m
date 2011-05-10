@@ -45,27 +45,23 @@
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
     [request setPostValue:self.usernameField.text forKey:@"username"];  
     [request setPostValue:self.passwordField.text forKey:@"password"];  
-    
-    [request startSynchronous];  
-    NSError *error = [request error];  
-    if (!error) {  
-        NSString *response = [request responseString];
-        NSLog(@"repsonse %@", response);
-    }
-    
-    /*
-    NSURL *url = [NSURL URLWithString:@"http://allseeing-i.com"];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request startSynchronous];
-    NSError *error = [request error];
-    if (!error) {
-        NSString *response = [request responseString];
-        NSLog(@"repsonse %@", response);
-    }*/
-
+        
+    request.delegate = self;
+    [request startAsynchronous];  
 	//[self presentModalViewController:mainMenuViewController animated:YES];
 }
 
+
+#pragma mark ASIHTTPRequest Delegate Methods
+
+- (void)requestFailed:(ASIHTTPRequest *)request {
+    NSLog(@"REQUEST FAIELD");
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request{	
+    NSString *response = [request responseString];
+    NSLog(@"repsonse %@", response);
+}
 
 #pragma mark - Memory Management
 
