@@ -8,6 +8,7 @@
 
 #import "FormNinjaLoginViewController.h"
 #import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 
 @implementation FormNinjaLoginViewController
 @synthesize mainMenuViewController;
@@ -40,8 +41,29 @@
 
 - (IBAction) loginButtonAction{
     NSLog(@"login (%@:%@)", [usernameField text], [passwordField text]);
-	
-	[self presentModalViewController:mainMenuViewController animated:YES];
+    NSURL *urlToSend = [[[NSURL alloc] initWithString: @"http://www.rilburskryler.net/mobile/login.php"] autorelease];
+    ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
+    [request setPostValue:self.usernameField.text forKey:@"username"];  
+    [request setPostValue:self.passwordField.text forKey:@"password"];  
+    
+    [request startSynchronous];  
+    NSError *error = [request error];  
+    if (!error) {  
+        NSString *response = [request responseString];
+        NSLog(@"repsonse %@", response);
+    }
+    
+    /*
+    NSURL *url = [NSURL URLWithString:@"http://allseeing-i.com"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        NSString *response = [request responseString];
+        NSLog(@"repsonse %@", response);
+    }*/
+
+	//[self presentModalViewController:mainMenuViewController animated:YES];
 }
 
 

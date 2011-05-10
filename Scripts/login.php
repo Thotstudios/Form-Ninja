@@ -62,7 +62,8 @@ if($_POST['username'])
 
 else
 {
-	// send 404 -- page not found
+		$response['accepted'] = 'False';
+		$response['error'] = 'No username or password entered';
+		print json_encode($response);
 }
-
 ?>
