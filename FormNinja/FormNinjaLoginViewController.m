@@ -18,7 +18,7 @@
 #pragma mark - View lifecycle
 
 
-@synthesize usernameField, passwordField;
+@synthesize usernameField, passwordField, statusLabel;
 
 //git://github.com/Thotsudios/Form-Ninja.git
 
@@ -41,16 +41,38 @@
 #pragma mark - Instance Methods
 
 - (IBAction) loginButtonAction{
+    //Test account info
+    //un:test pass:test
     NSLog(@"login (%@:%@)", [usernameField text], [passwordField text]);
+    
+    //Dismiss keyboard
+    [self.usernameField resignFirstResponder];
+    [self.passwordField resignFirstResponder];
+    
+    //Prepare form
     NSURL *urlToSend = [[[NSURL alloc] initWithString: @"http://www.rilburskryler.net/mobile/login.php"] autorelease];
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
     [request setPostValue:self.usernameField.text forKey:@"username"];  
     [request setPostValue:self.passwordField.text forKey:@"password"];  
         
+    //Send request
     request.delegate = self;
     [request startAsynchronous];  
-	//[self presentModalViewController:mainMenuViewController animated:YES];
 }
+
+
+//Called when user has been authenticated
+- (void) userAuthenticated{
+    NSLog(@"ACCEPTED");
+    [self presentModalViewController:mainMenuViewController animated:YES];
+}
+
+
+//Called when user has failed authenticated
+- (void) userAuthenticatedFailed:(NSString *)error{
+    self.statusLabel.text = error;
+}
+
 
 
 #pragma mark ASIHTTPRequest Delegate Methods
@@ -59,21 +81,22 @@
     NSLog(@"REQUEST FAIELD");
 }
 
+
 - (void)requestFinished:(ASIHTTPRequest *)request{	
     //Get intial dict from response string
-	NSDictionary *jsonDict = [[request responseString] JSONValue];
-    
-    NSString *userAccepted = [jsonDict objectForKey:@"accepted"];
-    NSLog(@"repsonse %@", userAccepted);
+	NSDictionary *jsonDict = [[request responseString] JSONValue];    
+    NSString *userAccepted = [jsonDict objectForKey:@"accepted"]; //Get response
 
     if([userAccepted isEqualToString:@"True"]){
-        NSLog(@"ACCEPTED");
+        [self userAuthenticated];
     }
     
     else{
-        NSLog(@"NOT ACCEPETED");
+        [self userAuthenticatedFailed:[jsonDict objectForKey:@"error"]];
     }
 }
+
+
 
 #pragma mark - Memory Management
 
@@ -95,6 +118,7 @@
     // e.g. self.myOutlet = nil;
     self.usernameField = nil;
     self.passwordField = nil;
+    self.statusLabel = nil;
 }
 
 
@@ -102,6 +126,7 @@
 {
     [usernameField release];
     [passwordField release];
+    [statusLabel release];
 	[mainMenuViewController release];
     [super dealloc];
 }
