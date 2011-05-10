@@ -7,6 +7,7 @@
 //
 
 #import "FormNinjaLoginViewController.h"
+#import "ASIHTTPRequest.h"
 
 @implementation FormNinjaLoginViewController
 @synthesize mainMenuViewController;

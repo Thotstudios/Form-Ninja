@@ -19,6 +19,11 @@
 		D917B40E1378D0E900E75140 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B4061378D0E900E75140 /* SBJsonBase.m */; };
 		D917B40F1378D0E900E75140 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B4081378D0E900E75140 /* SBJsonParser.m */; };
 		D917B4101378D0E900E75140 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B40A1378D0E900E75140 /* SBJsonWriter.m */; };
+		D917B44D1378DEFB00E75140 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B44C1378DEFB00E75140 /* Reachability.m */; };
+		D917B44F1378E04F00E75140 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D917B44E1378E04F00E75140 /* SystemConfiguration.framework */; };
+		D917B4591378E14A00E75140 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D917B4581378E14A00E75140 /* libz.1.2.3.dylib */; };
+		D917B45B1378E1BE00E75140 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D917B45A1378E1BE00E75140 /* CFNetwork.framework */; };
+		D917B45D1378E1C800E75140 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D917B45C1378E1C800E75140 /* MobileCoreServices.framework */; };
 		D922CE91136C926300233C48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922CE90136C926300233C48 /* UIKit.framework */; };
 		D922CE93136C926300233C48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922CE92136C926300233C48 /* Foundation.framework */; };
 		D922CE95136C926300233C48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922CE94136C926300233C48 /* CoreGraphics.framework */; };
@@ -64,6 +69,12 @@
 		D917B4081378D0E900E75140 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = FormNinja/JSON/SBJsonParser.m; sourceTree = "<group>"; };
 		D917B4091378D0E900E75140 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = FormNinja/JSON/SBJsonWriter.h; sourceTree = "<group>"; };
 		D917B40A1378D0E900E75140 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = FormNinja/JSON/SBJsonWriter.m; sourceTree = "<group>"; };
+		D917B44B1378DEFB00E75140 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		D917B44C1378DEFB00E75140 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		D917B44E1378E04F00E75140 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D917B4581378E14A00E75140 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
+		D917B45A1378E1BE00E75140 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D917B45C1378E1C800E75140 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D922CE8C136C926300233C48 /* FormNinja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormNinja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D922CE90136C926300233C48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D922CE92136C926300233C48 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,9 +102,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D917B45D1378E1C800E75140 /* MobileCoreServices.framework in Frameworks */,
+				D917B45B1378E1BE00E75140 /* CFNetwork.framework in Frameworks */,
+				D917B4591378E14A00E75140 /* libz.1.2.3.dylib in Frameworks */,
 				D922CE91136C926300233C48 /* UIKit.framework in Frameworks */,
 				D922CE93136C926300233C48 /* Foundation.framework in Frameworks */,
 				D922CE95136C926300233C48 /* CoreGraphics.framework in Frameworks */,
+				D917B44F1378E04F00E75140 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,10 +158,21 @@
 			name = ASI;
 			sourceTree = "<group>";
 		};
+		D917B44A1378DEFB00E75140 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				D917B44B1378DEFB00E75140 /* Reachability.h */,
+				D917B44C1378DEFB00E75140 /* Reachability.m */,
+			);
+			name = Reachability;
+			path = FormNinja/Reachability;
+			sourceTree = "<group>";
+		};
 		D922CE81136C926300233C48 = {
 			isa = PBXGroup;
 			children = (
 				D917B3E71378D0A000E75140 /* ASI */,
+				D917B44A1378DEFB00E75140 /* Reachability */,
 				D917B3D01378D06200E75140 /* JSON */,
 				D922CE96136C926300233C48 /* FormNinja */,
 				D922CEB0136CAB1F00233C48 /* XIB */,
@@ -166,6 +192,10 @@
 		D922CE8F136C926300233C48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D917B45C1378E1C800E75140 /* MobileCoreServices.framework */,
+				D917B45A1378E1BE00E75140 /* CFNetwork.framework */,
+				D917B4581378E14A00E75140 /* libz.1.2.3.dylib */,
+				D917B44E1378E04F00E75140 /* SystemConfiguration.framework */,
 				D922CE90136C926300233C48 /* UIKit.framework */,
 				D922CE92136C926300233C48 /* Foundation.framework */,
 				D922CE94136C926300233C48 /* CoreGraphics.framework */,
@@ -259,6 +289,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = D922CE81136C926300233C48;
 			productRefGroup = D922CE8D136C926300233C48 /* Products */;
@@ -307,6 +338,7 @@
 				D917B40E1378D0E900E75140 /* SBJsonBase.m in Sources */,
 				D917B40F1378D0E900E75140 /* SBJsonParser.m in Sources */,
 				D917B4101378D0E900E75140 /* SBJsonWriter.m in Sources */,
+				D917B44D1378DEFB00E75140 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
