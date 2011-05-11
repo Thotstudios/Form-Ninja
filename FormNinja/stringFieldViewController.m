@@ -1,16 +1,19 @@
 //
-//  TemplateEditorViewController.m
+//  stringFieldViewController.m
 //  FormNinja
 //
-//  Created by Hackenslacker on 5/7/11.
+//  Created by Programmer on 5/9/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "TemplateEditorViewController.h"
+#import "stringFieldViewController.h"
 
 
-@implementation TemplateEditorViewController
-@synthesize scrollView;
+@implementation stringFieldViewController
+@synthesize delegate;
+@synthesize minLengthLabel, maxLengthLabel;
+@synthesize minLengthSlider, maxLengthSlider;
+@synthesize fieldNameTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,14 +58,13 @@
 	return YES;
 }
 
--(IBAction)newFieldButtonTouched
+-(IBAction) changeTypeButtonPressed
 {
     
-    CGRect myRect=CGRectMake(20, 88, 728, 134);
+}
+-(IBAction) removeButtonPressed
+{
     
-    stringFieldViewController *aCont=[[stringFieldViewController alloc] initWithNibName:@"stringFieldViewController" bundle:[NSBundle mainBundle]];
-    aCont.view.frame=myRect;
-    [scrollView addSubview:aCont.view];
 }
 
 @end

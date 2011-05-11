@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "stringFieldViewController.h"
 
 
 @interface TemplateEditorViewController : UIViewController {
-    
+    IBOutlet UIScrollView *scrollView;
 }
+
+@property(nonatomic, retain) IBOutlet UIScrollView *scrollView;
+
+-(IBAction) newFieldButtonTouched;
 
 @end
