@@ -13,6 +13,7 @@
 @synthesize scrollView;
 @synthesize templateData, fieldViews;
 @synthesize addFieldButton;
+@synthesize currentField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,6 +54,92 @@
     // e.g. self.myOutlet = nil;
 }
 
+
+
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] 
+     addObserver:self
+     selector:@selector
+     (keyboardWillShow:) 
+     name: UIKeyboardDidShowNotification
+     object:nil];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self 
+     selector:@selector
+     (keyboardWillHide:) name:
+     UIKeyboardDidHideNotification
+     object:nil];
+    
+}
+
+//Keyboard control functions
+
+- (void)keyboardWillShow:(NSNotification *)aNotification {
+    if (!displayKeyboard) {
+        [self moveTextViewForKeyboard:aNotification up:YES];
+        displayKeyboard=YES;
+    }
+}
+
+- (void)keyboardWillHide:(NSNotification *)aNotification {
+    if(displayKeyboard)
+    {
+        [self moveTextViewForKeyboard:aNotification up:NO]; 
+        displayKeyboard=NO;
+    }
+}
+
+- (void) moveTextViewForKeyboard:(NSNotification*)aNotification up: (BOOL) up{
+    NSDictionary* userInfo = [aNotification userInfo];
+    
+    // Get animation info from userInfo
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    
+    CGRect keyboardEndFrame;
+    
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    
+    
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    
+    
+    // Animate up or down
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+    CGRect newFrame = scrollView.frame;
+    CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
+    
+    newFrame.size.height -= keyboardFrame.size.height * (up? 1 : -1);
+    scrollView.frame = newFrame;
+    
+    [UIView commitAnimations];
+}
+
+
+
+-(void) keyboardDidHide: (NSNotification *)notif {
+    if (!displayKeyboard) {
+        return; 
+    }
+    
+    self.scrollView.frame = CGRectMake(0, 0, 768, 1004);
+    
+    self.scrollView.contentOffset =offset;
+    
+    displayKeyboard = NO;
+    
+}
+
+
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -82,6 +169,7 @@
     newVC.view.frame=CGRectMake(20, newPosition, 728, newHeight);
     //[newVC.view autoresizingMask]
     newVC.view.autoresizingMask=(UIViewAutoresizingFlexibleWidth);
+    [newVC setDelegate:self];
     
     [newFieldDictionary setObject:newVC forKey:@"fieldVC"];
     
@@ -102,6 +190,50 @@
      
     */
     
+}
+
+//UITextField Delegate
+-(void) textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.currentField=textField;
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.currentField=nil;
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+#pragma mark Template Field Delegate Functions
+
+-(void) removeButtonPressed:(stringFieldViewController *)field
+{
+    
+}
+
+-(void) moveUpButtonPressed:(stringFieldViewController *)field
+{
+    
+}
+
+-(void) moveDownButtonPressed:(stringFieldViewController *)field
+{
+    
+}
+
+-(void) changeButtonPressed:(stringFieldViewController *)field
+{
+    
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *) textField fromStringField:(stringFieldViewController *) field
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

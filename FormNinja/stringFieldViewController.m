@@ -43,6 +43,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self sliderUpdated:minLengthSlider];
+    [self sliderUpdated:maxLengthSlider];
 }
 
 - (void)viewDidUnload
@@ -58,22 +60,51 @@
 	return YES;
 }
 
+
+#pragma mark UI Functionality
+//These all need to be reported 'up' the chain via delegate methods
 -(IBAction) changeTypeButtonPressed
 {
-    
+    [[self delegate] changeButtonPressed:self];
 }
+
 -(IBAction) removeButtonPressed
 {
-    
+    [[self delegate] removeButtonPressed:self];
 }
 -(IBAction) moveUpButtonPressed
 {
-    
+    [[self delegate] moveUpButtonPressed:self];
 }
 
 -(IBAction) moveDownButtonPressed
 {
-    
+    [[self delegate] moveDownButtonPressed:self];
+}
+
+//these methods act 'internally' -- their data can be queried later by the delegate at it's discretion
+
+//This function is sent by the slider when it's updated.
+//Use it to query against the slider and find out it's value
+-(IBAction) sliderUpdated:(UISlider *)theSlider
+{
+    int newCharCount=[[NSNumber numberWithFloat:theSlider.value] intValue];
+    if (theSlider==minLengthSlider) {
+        self.minLengthLabel.text=[NSString stringWithFormat:@"%i characters",newCharCount];
+    }
+    else
+        self.maxLengthLabel.text=[NSString stringWithFormat:@"%i characters",newCharCount];
+}
+
+#pragma mark Own Delegate Functionality
+
+//originaly had setDelegate here; caused infinite loop when it collided with the @synthesized function of same name
+
+#pragma mark other delegates
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    return [delegate textFieldShouldReturn:textField fromStringField:self];
 }
 
 @end
