@@ -20,7 +20,7 @@
 #pragma mark - View lifecycle
 
 
-@synthesize usernameField, passwordField, statusLabel;
+@synthesize usernameField, passwordField, statusLabel, loginButton;
 @synthesize loadAlert;
 
 //git://github.com/Thotsudios/Form-Ninja.git
@@ -30,11 +30,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.usernameField becomeFirstResponder];
     
     //Add load alert view to window
     self.loadAlert.view.hidden = YES;
 	[self.view addSubview:self.loadAlert.view];
+}
+
+
+- (void) viewDidAppear:(BOOL)animated{
+    //Make sure the title text field is not empty before enabling save button when view appears
+	if([self.usernameField.text length] == 0 || [self.usernameField.text isEqualToString:@" "] || 
+	   ([[self.usernameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)){
+        //Disable save button
+        self.loginButton.userInteractionEnabled = FALSE;
+        self.loginButton.alpha = .7; 
+        [self.usernameField becomeFirstResponder];
+	}
 }
 
 
@@ -129,6 +140,41 @@
 
 
 
+#pragma mark -
+#pragma mark UITextField Delegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+	NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    NSString *otherText;
+    
+    if (textField == self.usernameField) {
+        otherText = self.passwordField.text;
+    }
+    
+    else
+        otherText = self.usernameField.text;
+	
+	//Make sure both fields have text before allowing attempted login
+	if(([text length] == 0 || [text isEqualToString:@" "] || 
+	   ([[text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)) ||
+       ([otherText length] == 0 || [otherText isEqualToString:@" "] || 
+        ([[otherText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0))){
+        //Disable save button
+        self.loginButton.userInteractionEnabled = FALSE;
+        self.loginButton.alpha = .7; 
+	}
+	
+	else {
+        //Enable save button
+        self.loginButton.userInteractionEnabled = TRUE;
+        self.loginButton.alpha = 1;  	
+	}	
+	
+	return TRUE;
+}
+
+
+
 #pragma mark - Memory Management
 
 
@@ -151,6 +197,7 @@
     self.passwordField = nil;
     self.statusLabel = nil;
     self.loadAlert = nil;
+    self.loginButton = nil;
 }
 
 
@@ -161,6 +208,8 @@
     [statusLabel release];
 	[mainMenuViewController release];
     [loadAlert release];
+    [loginButton release];
+    
     [super dealloc];
 }
 

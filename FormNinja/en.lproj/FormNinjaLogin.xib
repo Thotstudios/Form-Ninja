@@ -199,7 +199,7 @@
 						<string key="NSFrame">{{177, 577}, {450, 100}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="956993916"/>
+						<reference key="NSNextKeyView" ref="116492153"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -224,7 +224,7 @@
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
 					</object>
-					<object class="IBUILabel" id="956993916">
+					<object class="IBUILabel" id="116492153">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">319</int>
 						<string key="NSFrame">{{177, 797}, {450, 100}}</string>
@@ -276,7 +276,7 @@
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
 			</object>
-			<object class="IBUIViewController" id="790151564">
+			<object class="IBUIViewController" id="33358187">
 				<string key="IBUINibName">CustomLoadAlert</string>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
 					<int key="IBUIStatusBarStyle">2</int>
@@ -338,7 +338,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">statusLabel</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="956993916"/>
+						<reference key="destination" ref="116492153"/>
 					</object>
 					<int key="connectionID">18</int>
 				</object>
@@ -346,9 +346,33 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">loadAlert</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="790151564"/>
+						<reference key="destination" ref="33358187"/>
 					</object>
 					<int key="connectionID">22</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">loginButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="655076547"/>
+					</object>
+					<int key="connectionID">23</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="923234937"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="838344369"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">25</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -384,7 +408,7 @@
 							<reference ref="427435626"/>
 							<reference ref="1025322422"/>
 							<reference ref="655076547"/>
-							<reference ref="956993916"/>
+							<reference ref="116492153"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -435,12 +459,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">17</int>
-						<reference key="object" ref="956993916"/>
+						<reference key="object" ref="116492153"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
-						<reference key="object" ref="790151564"/>
+						<reference key="object" ref="33358187"/>
 						<reference key="parent" ref="0"/>
 					</object>
 				</object>
@@ -500,7 +524,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">22</int>
+			<int key="maxID">25</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -564,6 +588,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>loadAlert</string>
+							<string>loginButton</string>
 							<string>mainMenuViewController</string>
 							<string>passwordField</string>
 							<string>statusLabel</string>
@@ -571,7 +596,8 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UIViewController</string>
+							<string>CustomLoadAlertViewController</string>
+							<string>UIButton</string>
 							<string>UIViewController</string>
 							<string>UITextField</string>
 							<string>UILabel</string>
@@ -583,6 +609,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>loadAlert</string>
+							<string>loginButton</string>
 							<string>mainMenuViewController</string>
 							<string>passwordField</string>
 							<string>statusLabel</string>
@@ -592,7 +619,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">loadAlert</string>
-								<string key="candidateClassName">UIViewController</string>
+								<string key="candidateClassName">CustomLoadAlertViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">loginButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">mainMenuViewController</string>
