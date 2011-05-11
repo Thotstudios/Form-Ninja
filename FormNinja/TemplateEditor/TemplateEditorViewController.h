@@ -12,9 +12,13 @@
 
 @interface TemplateEditorViewController : UIViewController {
     IBOutlet UIScrollView *scrollView;
+    NSMutableArray *templateData, *fieldViews;
+    IBOutlet UIButton *addFieldButton;
 }
 
 @property(nonatomic, retain) IBOutlet UIScrollView *scrollView;
+@property(nonatomic, retain) NSMutableArray *templateData, *fieldViews;
+@property(nonatomic, retain) IBOutlet UIButton *addFieldButton;
 
 -(IBAction) newFieldButtonTouched;
 

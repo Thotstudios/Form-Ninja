@@ -30,5 +30,7 @@
 
 -(IBAction) changeTypeButtonPressed;
 -(IBAction) removeButtonPressed;
+-(IBAction) moveUpButtonPressed;
+-(IBAction) moveDownButtonPressed;
 
 @end

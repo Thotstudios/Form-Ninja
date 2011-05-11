@@ -66,5 +66,14 @@
 {
     
 }
+-(IBAction) moveUpButtonPressed
+{
+    
+}
+
+-(IBAction) moveDownButtonPressed
+{
+    
+}
 
 @end
