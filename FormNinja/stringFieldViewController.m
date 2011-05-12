@@ -7,7 +7,7 @@
 //
 
 #import "stringFieldViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @implementation stringFieldViewController
 @synthesize delegate;
@@ -45,6 +45,7 @@
     // Do any additional setup after loading the view from its nib.
     [self sliderUpdated:minLengthSlider];
     [self sliderUpdated:maxLengthSlider];
+    self.view.layer.cornerRadius=20;
 }
 
 - (void)viewDidUnload

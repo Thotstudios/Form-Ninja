@@ -16,13 +16,11 @@
     IBOutlet UIButton *addFieldButton;
     BOOL displayKeyboard;
     CGPoint offset;
-    UITextField *currentField;
 }
 
 @property(nonatomic, retain) IBOutlet UIScrollView *scrollView;
 @property(nonatomic, retain) NSMutableArray *templateData, *fieldViews;
 @property(nonatomic, retain) IBOutlet UIButton *addFieldButton;
-@property(nonatomic, retain) UITextField *currentField;
 
 -(IBAction) newFieldButtonTouched;
 - (void) moveTextViewForKeyboard:(NSNotification*)aNotification up: (BOOL) up;

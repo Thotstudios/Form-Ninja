@@ -13,7 +13,6 @@
 @synthesize scrollView;
 @synthesize templateData, fieldViews;
 @synthesize addFieldButton;
-@synthesize currentField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -153,20 +152,37 @@
     //For the moment, I intend to make this a constant just for ease-of-programming, in the end
     //I'll need to reprogram it to be variable.  Which WILL make life difficult.
     const float newHeight=134;
-    float newPosition;
+    float newPosition=self.addFieldButton.frame.origin.y;
     NSMutableDictionary *newFieldDictionary;
-    newPosition=self.addFieldButton.frame.origin.y;
     newFieldDictionary=[[NSMutableDictionary alloc] init];
     [newFieldDictionary setObject:@"string" forKey:@"type"];
     [newFieldDictionary setObject:[NSNumber numberWithFloat:newHeight] forKey:@"height"];
     self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
-                                         self.addFieldButton.frame.origin.y+newHeight+20, 
+                                         self.addFieldButton.frame.origin.y+newHeight+10, 
                                          self.addFieldButton.frame.size.width,  
                                          self.addFieldButton.frame.size.height);
     self.scrollView.contentSize=CGSizeMake(768, self.addFieldButton.frame.origin.y+37+20);
     
     stringFieldViewController *newVC=[[stringFieldViewController alloc] initWithNibName:@"stringFieldViewController" bundle:[NSBundle mainBundle]];
-    newVC.view.frame=CGRectMake(20, newPosition, 728, newHeight);
+    CGRect newFrame;
+    if(self.interfaceOrientation==UIInterfaceOrientationPortrait | 
+       self.interfaceOrientation== UIInterfaceOrientationPortraitUpsideDown)
+    {
+        newFrame=CGRectMake(20, 
+                            newPosition, 
+                            (self.view.frame.size.width-40), 
+                            newHeight);
+        
+    }
+    else
+    {
+        newFrame=CGRectMake(20, 
+                            newPosition, 
+                            (self.view.frame.size.height-40), 
+                            newHeight);
+        
+    }
+    newVC.view.frame=newFrame;
     //[newVC.view autoresizingMask]
     newVC.view.autoresizingMask=(UIViewAutoresizingFlexibleWidth);
     [newVC setDelegate:self];
@@ -193,14 +209,7 @@
 }
 
 //UITextField Delegate
--(void) textFieldDidBeginEditing:(UITextField *)textField
-{
-    self.currentField=textField;
-}
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-    self.currentField=nil;
-}
+
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
@@ -212,7 +221,51 @@
 
 -(void) removeButtonPressed:(stringFieldViewController *)field
 {
-    
+    NSDictionary *current;
+    int currentIndex;
+    for (int i=0; i<[fieldViews count]; i++) {
+        current=[fieldViews objectAtIndex:i];
+        NSLog(@"removeButtonPressed first loop");
+        if([current valueForKey:@"fieldVC"]==field)
+        {
+            [fieldViews removeObject:current];
+            [field.view removeFromSuperview];
+            currentIndex=i;
+        }
+    }
+    float newPosition = 88, newHeight;
+    CGRect newFrame;
+    for (int i=0; i<[fieldViews count]; i++) {
+        NSLog(@"removeButtonPressed second loop");
+        current=[fieldViews objectAtIndex:i];
+        newHeight=[[current objectForKey:@"height"] floatValue];
+        if(i>=currentIndex)
+        {
+            if(self.interfaceOrientation==UIInterfaceOrientationPortrait | 
+               self.interfaceOrientation== UIInterfaceOrientationPortraitUpsideDown)
+            {
+                newFrame=CGRectMake(20, 
+                                    newPosition, 
+                                    (self.view.frame.size.width-40), 
+                                    newHeight);
+                
+            }
+            else
+            {
+                newFrame=CGRectMake(20, 
+                                    newPosition, 
+                                    (self.view.frame.size.height-40), 
+                                    newHeight);
+                
+            }
+            ((stringFieldViewController*)[current objectForKey:@"fieldVC"]).view.frame=newFrame;
+        }
+        newPosition+=newHeight+10;
+    }
+    self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
+                                        newPosition+10, 
+                                        self.addFieldButton.frame.size.width,  
+                                        self.addFieldButton.frame.size.height);
 }
 
 -(void) moveUpButtonPressed:(stringFieldViewController *)field
