@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42362F2A137C5C0700D3A363 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42362F29137C5C0700D3A363 /* QuartzCore.framework */; };
 		425CA0BF137AE78700BBCBEA /* stringFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 425CA0BD137AE78700BBCBEA /* stringFieldViewController.m */; };
 		425CA0C0137AE78700BBCBEA /* stringFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425CA0BE137AE78700BBCBEA /* stringFieldViewController.xib */; };
 		D917B3F81378D0B000E75140 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42362F29137C5C0700D3A363 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		425CA0BC137AE78700BBCBEA /* stringFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringFieldViewController.h; sourceTree = "<group>"; };
 		425CA0BD137AE78700BBCBEA /* stringFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stringFieldViewController.m; sourceTree = "<group>"; };
 		425CA0BE137AE78700BBCBEA /* stringFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = stringFieldViewController.xib; sourceTree = "<group>"; };
@@ -112,12 +114,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42362F2A137C5C0700D3A363 /* QuartzCore.framework in Frameworks */,
 				D917B45D1378E1C800E75140 /* MobileCoreServices.framework in Frameworks */,
+				D922CE95136C926300233C48 /* CoreGraphics.framework in Frameworks */,
 				D917B45B1378E1BE00E75140 /* CFNetwork.framework in Frameworks */,
 				D917B4591378E14A00E75140 /* libz.1.2.3.dylib in Frameworks */,
 				D922CE91136C926300233C48 /* UIKit.framework in Frameworks */,
 				D922CE93136C926300233C48 /* Foundation.framework in Frameworks */,
-				D922CE95136C926300233C48 /* CoreGraphics.framework in Frameworks */,
 				D917B44F1378E04F00E75140 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +234,7 @@
 		D922CE8F136C926300233C48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42362F29137C5C0700D3A363 /* QuartzCore.framework */,
 				D917B45C1378E1C800E75140 /* MobileCoreServices.framework */,
 				D917B45A1378E1BE00E75140 /* CFNetwork.framework */,
 				D917B4581378E14A00E75140 /* libz.1.2.3.dylib */,

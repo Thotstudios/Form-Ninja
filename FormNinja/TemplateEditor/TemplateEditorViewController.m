@@ -7,6 +7,7 @@
 //
 
 #import "TemplateEditorViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @implementation TemplateEditorViewController
@@ -270,12 +271,99 @@
 
 -(void) moveUpButtonPressed:(stringFieldViewController *)field
 {
-    
+    NSDictionary *current=Nil, *last=Nil;
+    stringFieldViewController *currentView=nil, *lastView=nil;
+    int index;
+    for (int i=0; i<[fieldViews count]; i++) {
+        last=current;
+        lastView=currentView;
+        current=[fieldViews objectAtIndex:i];
+        currentView=[current objectForKey:@"fieldVC"];
+        if (currentView==field) {
+            index=i;
+            i=[fieldViews count];
+        }
+    }
+    if(index==0)
+        return;
+    [fieldViews removeObject:current];
+    [fieldViews insertObject:current atIndex:index-1];
+    currentView.view.frame=CGRectMake(lastView.view.frame.origin.x,
+                                      lastView.view.frame.origin.y,
+                                      currentView.view.frame.size.width,
+                                      currentView.view.frame.size.height);
+    lastView.view.frame=CGRectMake(lastView.view.frame.origin.x,
+                                   lastView.view.frame.origin.y+10+([[current valueForKey:@"height"] floatValue]),
+                                   lastView.view.frame.size.width,
+                                   lastView.view.frame.size.height);
 }
 
 -(void) moveDownButtonPressed:(stringFieldViewController *)field
 {
+    NSDictionary *current=Nil, *last=Nil;
+    stringFieldViewController *currentView=nil, *lastView=nil;
+    int index;
+    for (int i=0; i<[fieldViews count]; i++) {
+        last=current;
+        lastView=currentView;
+        current=[fieldViews objectAtIndex:i];
+        currentView=[current objectForKey:@"fieldVC"];
+        if (lastView==field) {
+            index=i;
+            i=[fieldViews count];
+        }
+        else if(i==[fieldViews count]-1)
+            return;
+    }
+    [fieldViews removeObject:last];
+    [fieldViews insertObject:last atIndex:index];
     
+    
+    //CGRect currentStart=currentView.view.frame, lastStart=lastView.view.frame;
+    CGRect currentStop=CGRectMake(lastView.view.frame.origin.x,
+                                  lastView.view.frame.origin.y,
+                                  currentView.view.frame.size.width,
+                                  currentView.view.frame.size.height);
+    CGRect lastStop=CGRectMake(lastView.view.frame.origin.x,
+                               lastView.view.frame.origin.y+10+([[current valueForKey:@"height"] floatValue]),
+                               lastView.view.frame.size.width,
+                               lastView.view.frame.size.height);
+    
+    /*CABasicAnimation *frameAnimation = [CABasicAnimation animation];
+    frameAnimation.duration = 2.5;
+    frameAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    currentView.view.layer.actions = [NSDictionary dictionaryWithObjectsAndKeys:frameAnimation, @"frame", nil];
+    lastView.view.layer.actions = [NSDictionary dictionaryWithObjectsAndKeys:frameAnimation, @"frame", nil];*/
+    
+    /*CABasicAnimation *currentViewAnimation =[CABasicAnimation animationWithKeyPath:@"frame"];
+    CABasicAnimation *lastViewAnimation=[CABasicAnimation animationWithKeyPath:@"frame"];
+    
+    currentViewAnimation.duration=1;
+    lastViewAnimation.duration=1;
+    currentViewAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    lastViewAnimation .timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    currentViewAnimation.fromValue=[NSValue valueWithCGRect:currentStart];
+    lastViewAnimation.fromValue=[NSValue valueWithCGRect:lastStart];
+    currentViewAnimation.toValue=[NSValue valueWithCGRect:currentStop];
+    lastViewAnimation.toValue=[NSValue valueWithCGRect:lastStop];*/
+    
+    
+    //[currentView.view.layer addAnimation:currentViewAnimation forKey:@"frame"];
+    //[lastView.view.layer addAnimation:lastViewAnimation forKey:@"frame"];
+    
+    
+    currentView.view.frame=currentStop/*CGRectMake(lastView.view.frame.origin.x,
+                                      lastView.view.frame.origin.y,
+                                      currentView.view.frame.size.width,
+                                      currentView.view.frame.size.height)*/;
+    
+    
+    lastView.view.frame=lastStop/*CGRectMake(lastView.view.frame.origin.x,
+                                   lastView.view.frame.origin.y+10+([[current valueForKey:@"height"] floatValue]),
+                                   lastView.view.frame.size.width,
+                                   lastView.view.frame.size.height)*/;
+     
 }
 
 -(void) changeButtonPressed:(stringFieldViewController *)field
