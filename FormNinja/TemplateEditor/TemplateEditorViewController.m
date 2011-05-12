@@ -288,14 +288,38 @@
         return;
     [fieldViews removeObject:current];
     [fieldViews insertObject:current atIndex:index-1];
-    currentView.view.frame=CGRectMake(lastView.view.frame.origin.x,
+    
+    CGRect currentStart=currentView.view.frame;
+    CGRect lastStart=lastView.view.frame;
+    
+    CGRect currentStop=CGRectMake(lastView.view.frame.origin.x,
                                       lastView.view.frame.origin.y,
                                       currentView.view.frame.size.width,
                                       currentView.view.frame.size.height);
-    lastView.view.frame=CGRectMake(lastView.view.frame.origin.x,
-                                   lastView.view.frame.origin.y+10+([[current valueForKey:@"height"] floatValue]),
-                                   lastView.view.frame.size.width,
-                                   lastView.view.frame.size.height);
+    
+    CGRect lastStop=CGRectMake(lastView.view.frame.origin.x,
+                               lastView.view.frame.origin.y+10+([[current valueForKey:@"height"] floatValue]),
+                               lastView.view.frame.size.width,
+                               lastView.view.frame.size.height);
+    
+    
+    CABasicAnimation *currentViewAnimation =[CABasicAnimation animationWithKeyPath:@"position"];
+    CABasicAnimation *lastViewAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    
+    currentViewAnimation.duration=1;
+    lastViewAnimation.duration=1;
+    currentViewAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    lastViewAnimation .timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    currentViewAnimation.fromValue=[NSValue valueWithCGPoint:currentStart.origin];
+    lastViewAnimation.fromValue=[NSValue valueWithCGPoint:lastStart.origin];
+    currentViewAnimation.toValue=[NSValue valueWithCGPoint:currentStop.origin];
+    lastViewAnimation.toValue=[NSValue valueWithCGPoint:lastStop.origin];
+    [currentView.view.layer addAnimation:currentViewAnimation forKey:@"position"];
+    [lastView.view.layer addAnimation:lastViewAnimation forKey:@"position"];
+    
+    
+    currentView.view.frame=currentStop;
+    lastView.view.frame=lastStop;
 }
 
 -(void) moveDownButtonPressed:(stringFieldViewController *)field
@@ -319,7 +343,7 @@
     [fieldViews insertObject:last atIndex:index];
     
     
-    //CGRect currentStart=currentView.view.frame, lastStart=lastView.view.frame;
+    CGRect currentStart=currentView.view.frame, lastStart=lastView.view.frame;
     CGRect currentStop=CGRectMake(lastView.view.frame.origin.x,
                                   lastView.view.frame.origin.y,
                                   currentView.view.frame.size.width,
@@ -328,6 +352,20 @@
                                lastView.view.frame.origin.y+10+([[current valueForKey:@"height"] floatValue]),
                                lastView.view.frame.size.width,
                                lastView.view.frame.size.height);
+    
+    CABasicAnimation *currentViewAnimation =[CABasicAnimation animationWithKeyPath:@"position"];
+    CABasicAnimation *lastViewAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    
+    currentViewAnimation.duration=1;
+    lastViewAnimation.duration=1;
+    currentViewAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    lastViewAnimation .timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    currentViewAnimation.fromValue=[NSValue valueWithCGPoint:currentStart.origin];
+    lastViewAnimation.fromValue=[NSValue valueWithCGPoint:lastStart.origin];
+    currentViewAnimation.toValue=[NSValue valueWithCGPoint:currentStop.origin];
+    lastViewAnimation.toValue=[NSValue valueWithCGPoint:lastStop.origin];
+    [currentView.view.layer addAnimation:currentViewAnimation forKey:@"position"];
+    [lastView.view.layer addAnimation:lastViewAnimation forKey:@"position"];
     
     /*CABasicAnimation *frameAnimation = [CABasicAnimation animation];
     frameAnimation.duration = 2.5;
@@ -353,13 +391,15 @@
     //[lastView.view.layer addAnimation:lastViewAnimation forKey:@"frame"];
     
     
-    currentView.view.frame=currentStop/*CGRectMake(lastView.view.frame.origin.x,
+    currentView.view.frame=currentStop
+    /*CGRectMake(lastView.view.frame.origin.x,
                                       lastView.view.frame.origin.y,
                                       currentView.view.frame.size.width,
                                       currentView.view.frame.size.height)*/;
     
     
-    lastView.view.frame=lastStop/*CGRectMake(lastView.view.frame.origin.x,
+    lastView.view.frame=lastStop
+    /*CGRectMake(lastView.view.frame.origin.x,
                                    lastView.view.frame.origin.y+10+([[current valueForKey:@"height"] floatValue]),
                                    lastView.view.frame.size.width,
                                    lastView.view.frame.size.height)*/;
