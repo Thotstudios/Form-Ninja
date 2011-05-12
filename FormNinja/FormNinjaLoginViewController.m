@@ -13,6 +13,14 @@
 #import "CustomLoadAlertViewController.h"
 
 
+#define LOGIN 0 //0 skips login screen
+
+//private methods
+@interface FormNinjaLoginViewController()
+- (void) userAuthenticated;
+@end
+
+
 @implementation FormNinjaLoginViewController
 @synthesize mainMenuViewController;
 
@@ -38,6 +46,10 @@
 
 
 - (void) viewDidAppear:(BOOL)animated{
+    if (!LOGIN) {
+        [self userAuthenticated];
+    }
+    
     //Make sure the title text field is not empty before enabling save button when view appears
 	if([self.usernameField.text length] == 0 || [self.usernameField.text isEqualToString:@" "] || 
 	   ([[self.usernameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)){
