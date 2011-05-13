@@ -1,17 +1,15 @@
 //
-//  MainMenu.m
+//  AccountEditorViewController.m
 //  FormNinja
 //
-//  Created by Hackenslacker on 5/1/11.
+//  Created by Hackenslacker on 5/7/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "MainMenu.h"
+#import "AccountEditorViewController.h"
 
 
-@implementation MainMenu
-@synthesize templateEditorViewController;
-@synthesize accountEditor;
+@implementation AccountEditorViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,8 +22,6 @@
 
 - (void)dealloc
 {
-	[templateEditorViewController release];
-	[accountEditor release];
     [super dealloc];
 }
 
@@ -47,8 +43,6 @@
 
 - (void)viewDidUnload
 {
-	[self setTemplateEditorViewController:nil];
-	[self setAccountEditor:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -58,23 +52,5 @@
 {
     // Return YES for supported orientations
 	return YES;
-}
-
-- (IBAction)buttonPressedForms:(id)sender{
-}
-
-- (IBAction)buttonPressedManagement:(id)sender {
-}
-
-- (IBAction)buttonPressedAccount:(id)sender
-{
-	[self.navigationController pushViewController:accountEditor animated:YES];
-}
-
-// TODO temporary
-- (IBAction)buttonPressedTemplateEditor:(id)sender
-{
-//[self presentModalViewController:templateEditorViewController animated:YES];
-	[self.navigationController pushViewController:templateEditorViewController animated:YES];
 }
 @end

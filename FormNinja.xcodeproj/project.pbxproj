@@ -36,6 +36,8 @@
 		D922CEA4136C926300233C48 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D922CEA2136C926300233C48 /* MainWindow.xib */; };
 		D922CEA7136C926300233C48 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */; };
 		D922CEAA136C926300233C48 /* FormNinjaLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = D922CEA8136C926300233C48 /* FormNinjaLogin.xib */; };
+		F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F768C5AD137DE85800191858 /* AccountEditorViewController.m */; };
+		F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F768C5AE137DE85800191858 /* AccountEditorViewController.xib */; };
 		F778DD55137DC60E00B444F6 /* TemplateManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F778DD53137DC60E00B444F6 /* TemplateManagerViewController.m */; };
 		F778DD56137DC60E00B444F6 /* TemplateManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F778DD54137DC60E00B444F6 /* TemplateManagerViewController.xib */; };
 		F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F778DD58137DC69400B444F6 /* CustomLoadAlert.xib */; };
@@ -100,6 +102,9 @@
 		D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaLoginViewController.h; sourceTree = "<group>"; };
 		D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaLoginViewController.m; sourceTree = "<group>"; };
 		D922CEA9136C926300233C48 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FormNinjaLogin.xib; sourceTree = "<group>"; };
+		F768C5AC137DE85800191858 /* AccountEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditorViewController.h; sourceTree = "<group>"; };
+		F768C5AD137DE85800191858 /* AccountEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditorViewController.m; sourceTree = "<group>"; };
+		F768C5AE137DE85800191858 /* AccountEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountEditorViewController.xib; sourceTree = "<group>"; };
 		F778DD52137DC60E00B444F6 /* TemplateManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateManagerViewController.h; sourceTree = "<group>"; };
 		F778DD53137DC60E00B444F6 /* TemplateManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateManagerViewController.m; sourceTree = "<group>"; };
 		F778DD54137DC60E00B444F6 /* TemplateManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateManagerViewController.xib; sourceTree = "<group>"; };
@@ -246,6 +251,7 @@
 				D917B3D01378D06200E75140 /* JSON */,
 				F778DD51137DC60E00B444F6 /* TemplateManager */,
 				F77FDA501375F5AB00DC694D /* TemplateEditor */,
+				F768C5AB137DE85800191858 /* AccountEditor */,
 				F7D8AFBE136E289A00FE0F76 /* MainMenu */,
 				D922CE9F136C926300233C48 /* FormNinjaAppDelegate.h */,
 				D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */,
@@ -275,6 +281,16 @@
 			);
 			name = XIB;
 			path = FormNinja;
+			sourceTree = "<group>";
+		};
+		F768C5AB137DE85800191858 /* AccountEditor */ = {
+			isa = PBXGroup;
+			children = (
+				F768C5AC137DE85800191858 /* AccountEditorViewController.h */,
+				F768C5AD137DE85800191858 /* AccountEditorViewController.m */,
+				F768C5AE137DE85800191858 /* AccountEditorViewController.xib */,
+			);
+			path = AccountEditor;
 			sourceTree = "<group>";
 		};
 		F778DD50137DC40B00B444F6 /* Networking */ = {
@@ -384,6 +400,7 @@
 				425CA0C0137AE78700BBCBEA /* stringFieldViewController.xib in Resources */,
 				F778DD56137DC60E00B444F6 /* TemplateManagerViewController.xib in Resources */,
 				F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */,
+				F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +432,7 @@
 				425CA0BF137AE78700BBCBEA /* stringFieldViewController.m in Sources */,
 				F778DD55137DC60E00B444F6 /* TemplateManagerViewController.m in Sources */,
 				F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */,
+				F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

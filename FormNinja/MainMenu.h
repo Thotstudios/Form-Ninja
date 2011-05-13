@@ -13,8 +13,10 @@
 {
     
 	UIViewController *templateEditorViewController;
+	UIViewController *accountEditor;
 }
 @property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
+@property (nonatomic, retain) IBOutlet UIViewController *accountEditor;
 
 - (IBAction)buttonPressedForms:(id)sender;
 - (IBAction)buttonPressedManagement:(id)sender;
