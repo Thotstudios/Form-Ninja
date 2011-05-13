@@ -45,10 +45,12 @@
 }
 
 
-- (void) viewDidAppear:(BOOL)animated{
-    if (!LOGIN) {
+- (void) viewDidAppear:(BOOL)animated
+{
+    if (!LOGIN)
+		{
         [self userAuthenticated];
-    }
+		}
     
     //Make sure the title text field is not empty before enabling save button when view appears
 	if([self.usernameField.text length] == 0 || [self.usernameField.text isEqualToString:@" "] || 
@@ -110,9 +112,11 @@
 
 
 //Called when user has been authenticated
-- (void) userAuthenticated{
+- (void) userAuthenticated
+{
     [self removeAlertView];
-    [self presentModalViewController:mainMenuViewController animated:YES];
+	[self.navigationController pushViewController:mainMenuViewController animated:YES];
+//    [self presentModalViewController:mainMenuViewController animated:YES];
 }
 
 
