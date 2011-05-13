@@ -14,6 +14,7 @@
 @synthesize scrollView;
 @synthesize templateData, fieldViews;
 @synthesize addFieldButton;
+@synthesize labelField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,9 +54,6 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-
-
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -146,6 +144,19 @@
 	return YES;
 }
 
+
+-(void) setTemplateDataWithArray:(NSMutableArray *)newData
+{
+    /*
+    self.templateData=[newData mutableCopy];
+    NSDictionary *currentFieldDic=[templateData objectAtIndex:0];
+    
+    labelField.text=[currentFieldDic objectForKey:@"stringValue"];
+    for (int i=1; i<[templateData count]; i++) {
+        currentFieldDic=[templateData objectAtIndex:i];
+    }*/
+}
+
 -(IBAction)newFieldButtonTouched
 {
     
@@ -158,10 +169,20 @@
     newFieldDictionary=[[NSMutableDictionary alloc] init];
     [newFieldDictionary setObject:@"string" forKey:@"type"];
     [newFieldDictionary setObject:[NSNumber numberWithFloat:newHeight] forKey:@"height"];
+    
+    CGPoint buttonStartPosition=CGPointMake(self.addFieldButton.frame.origin.x+self.addFieldButton.frame.size.width/2,
+                                            self.addFieldButton.frame.origin.y+self.addFieldButton.frame.size.height/2);
+    
+    
     self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
                                          self.addFieldButton.frame.origin.y+newHeight+10, 
                                          self.addFieldButton.frame.size.width,  
                                          self.addFieldButton.frame.size.height);
+    
+    CGPoint buttonEndPosition=CGPointMake(self.addFieldButton.frame.origin.x+self.addFieldButton.frame.size.width/2,
+                                          self.addFieldButton.frame.origin.y+self.addFieldButton.frame.size.height/2);
+    
+    
     self.scrollView.contentSize=CGSizeMake(768, self.addFieldButton.frame.origin.y+37+20);
     
     stringFieldViewController *newVC=[[stringFieldViewController alloc] initWithNibName:@"stringFieldViewController" bundle:[NSBundle mainBundle]];
@@ -192,6 +213,26 @@
     
     [self.fieldViews addObject:newFieldDictionary];
     [self.scrollView addSubview:newVC.view];
+    
+    self.addFieldButton.layer.zPosition=newVC.view.layer.zPosition+1;
+    
+    CABasicAnimation *newFieldAnimation =[CABasicAnimation animationWithKeyPath:@"opacity"];
+    CABasicAnimation *moveButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    
+    newFieldAnimation.duration=.5;
+    moveButtonAnimation.duration=.50;
+    newFieldAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    moveButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    newFieldAnimation.fromValue=[NSNumber numberWithFloat:0];
+    moveButtonAnimation.fromValue=[NSValue valueWithCGPoint:buttonStartPosition];
+    newFieldAnimation.toValue=[NSNumber numberWithFloat:1];
+    moveButtonAnimation.toValue=[NSValue valueWithCGPoint:buttonEndPosition];
+    
+    [addFieldButton.layer addAnimation:moveButtonAnimation forKey:@"position"];
+    [newVC.view.layer addAnimation:newFieldAnimation forKey:@"opacity"];
+    
+    
+    
     /*
     
     NSMutableDictionary *newField=[[NSMutableDictionary alloc] init];
@@ -289,6 +330,8 @@
     [fieldViews removeObject:current];
     [fieldViews insertObject:current atIndex:index-1];
     
+    //as documented http://developer.apple.com/library/mac/#qa/qa1620/_index.html
+    
     CGRect currentStart=currentView.view.frame;
     CGRect lastStart=lastView.view.frame;
     
@@ -303,17 +346,29 @@
                                lastView.view.frame.size.height);
     
     
+    
+    CGPoint currentAnimPositionStart=CGPointMake(currentStart.origin.x+currentStart.size.width/2,
+                                                 currentStart.origin.y+currentStart.size.height/2);
+    CGPoint lastAnimPositionStart=CGPointMake(lastStart.origin.x+lastStart.size.width/2,
+                                              lastStart.origin.y+lastStart.size.height/2);
+    
+    CGPoint currentAnimPositionStop=CGPointMake(currentStop.origin.x+currentStart.size.width/2,
+                                                currentStop.origin.y+currentStart.size.height/2);
+    CGPoint lastAnimPositionStop=CGPointMake(lastStop.origin.x+lastStop.size.width/2,
+                                             lastStop.origin.y+lastStop.size.height/2);
+    
+    
     CABasicAnimation *currentViewAnimation =[CABasicAnimation animationWithKeyPath:@"position"];
     CABasicAnimation *lastViewAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
     
-    currentViewAnimation.duration=1;
-    lastViewAnimation.duration=1;
+    currentViewAnimation.duration=.5;
+    lastViewAnimation.duration=.5;
     currentViewAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     lastViewAnimation .timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    currentViewAnimation.fromValue=[NSValue valueWithCGPoint:currentStart.origin];
-    lastViewAnimation.fromValue=[NSValue valueWithCGPoint:lastStart.origin];
-    currentViewAnimation.toValue=[NSValue valueWithCGPoint:currentStop.origin];
-    lastViewAnimation.toValue=[NSValue valueWithCGPoint:lastStop.origin];
+    currentViewAnimation.fromValue=[NSValue valueWithCGPoint:currentAnimPositionStart];
+    lastViewAnimation.fromValue=[NSValue valueWithCGPoint:lastAnimPositionStart];
+    currentViewAnimation.toValue=[NSValue valueWithCGPoint:currentAnimPositionStop];
+    lastViewAnimation.toValue=[NSValue valueWithCGPoint:lastAnimPositionStop];
     [currentView.view.layer addAnimation:currentViewAnimation forKey:@"position"];
     [lastView.view.layer addAnimation:lastViewAnimation forKey:@"position"];
     
@@ -342,6 +397,7 @@
     [fieldViews removeObject:last];
     [fieldViews insertObject:last atIndex:index];
     
+    //as documented http://developer.apple.com/library/mac/#qa/qa1620/_index.html
     
     CGRect currentStart=currentView.view.frame, lastStart=lastView.view.frame;
     CGRect currentStop=CGRectMake(lastView.view.frame.origin.x,
@@ -353,6 +409,16 @@
                                lastView.view.frame.size.width,
                                lastView.view.frame.size.height);
     
+    CGPoint currentAnimPositionStart=CGPointMake(currentStart.origin.x+currentStart.size.width/2,
+                                                 currentStart.origin.y+currentStart.size.height/2);
+    CGPoint lastAnimPositionStart=CGPointMake(lastStart.origin.x+lastStart.size.width/2,
+                                                 lastStart.origin.y+lastStart.size.height/2);
+    
+    CGPoint currentAnimPositionStop=CGPointMake(currentStop.origin.x+currentStart.size.width/2,
+                                                 currentStop.origin.y+currentStart.size.height/2);
+    CGPoint lastAnimPositionStop=CGPointMake(lastStop.origin.x+lastStop.size.width/2,
+                                              lastStop.origin.y+lastStop.size.height/2);
+    
     CABasicAnimation *currentViewAnimation =[CABasicAnimation animationWithKeyPath:@"position"];
     CABasicAnimation *lastViewAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
     
@@ -360,10 +426,10 @@
     lastViewAnimation.duration=1;
     currentViewAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     lastViewAnimation .timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    currentViewAnimation.fromValue=[NSValue valueWithCGPoint:currentStart.origin];
-    lastViewAnimation.fromValue=[NSValue valueWithCGPoint:lastStart.origin];
-    currentViewAnimation.toValue=[NSValue valueWithCGPoint:currentStop.origin];
-    lastViewAnimation.toValue=[NSValue valueWithCGPoint:lastStop.origin];
+    currentViewAnimation.fromValue=[NSValue valueWithCGPoint:currentAnimPositionStart];
+    lastViewAnimation.fromValue=[NSValue valueWithCGPoint:lastAnimPositionStart];
+    currentViewAnimation.toValue=[NSValue valueWithCGPoint:currentAnimPositionStop];
+    lastViewAnimation.toValue=[NSValue valueWithCGPoint:lastAnimPositionStop];
     [currentView.view.layer addAnimation:currentViewAnimation forKey:@"position"];
     [lastView.view.layer addAnimation:lastViewAnimation forKey:@"position"];
     

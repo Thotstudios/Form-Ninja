@@ -21,8 +21,10 @@
 @property(nonatomic, retain) IBOutlet UIScrollView *scrollView;
 @property(nonatomic, retain) NSMutableArray *templateData, *fieldViews;
 @property(nonatomic, retain) IBOutlet UIButton *addFieldButton;
+@property(nonatomic, retain) IBOutlet UITextField *labelField;
 
 -(IBAction) newFieldButtonTouched;
 - (void) moveTextViewForKeyboard:(NSNotification*)aNotification up: (BOOL) up;
+-(void) setTemplateDataWithArray:(NSMutableArray *)newData;
 
 @end
