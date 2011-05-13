@@ -1,0 +1,23 @@
+TODO:
+This file is intended to track jobs which have yet to be finished.
+This is not official or required in any way.
+It's more like quick notes to ourselves and each other.
+
+Chad:
+* Create Account class to contain account profile information
+- including user info and group info
+* Create template management view
+- including table of existing templates; delete/duplicate buttons
+* Create form management view
+- first, a list of groups including "All Groups"
+- second, depending on group selection, is a list of available templates
+- third, a template was selected, and user can start filling out form.
+- fourth, at any point, user can change to Signature mdoe
+* Signatures: Must create system for capturing signature and storing in file.
+- import existing work from paint program.
+
+Paul:
+* Optionally write a TODO list here.
+
+Ron:
+* Optionally write a TODO list here.
