@@ -63,9 +63,10 @@
 
 -(void)setByDictionary:(NSDictionary *) aDictionary
 {
-    fieldNameTextField.text=[aDictionary valueForKey:@"label"];
-    maxLengthSlider.value=[[aDictionary valueForKey:@"maxLength"] floatValue];
-    minLengthSlider.value=[[aDictionary valueForKey:@"minLength"] floatValue];
+    NSLog(@"%@",[aDictionary valueForKey:@"label"]);
+    self.fieldNameTextField.text=[aDictionary valueForKey:@"label"];
+    self.maxLengthSlider.value=[[aDictionary valueForKey:@"maxLength"] floatValue];
+    self.minLengthSlider.value=[[aDictionary valueForKey:@"minLength"] floatValue];
     [self sliderUpdated:maxLengthSlider];
     [self sliderUpdated:minLengthSlider];
     
@@ -76,6 +77,7 @@
     NSMutableDictionary *fieldDictionary=[NSMutableDictionary dictionary];
     
     [fieldDictionary setValue:@"string" forKey:@"type"];
+    NSLog(@"Setting up text: %@ forKey:label",fieldNameTextField.text);
     [fieldDictionary setValue:fieldNameTextField.text forKey:@"label"];
     [fieldDictionary setValue:[NSNumber numberWithFloat:minLengthSlider.value] forKey:@"minLength"];
     [fieldDictionary setValue:[NSNumber numberWithFloat:maxLengthSlider.value] forKey:@"maxLength"];

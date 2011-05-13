@@ -46,6 +46,7 @@
     self.fieldViews=[[NSMutableArray alloc] init];
     // Do any additional setup after loading the view from its nib.
     self.scrollView.contentSize=CGSizeMake(768, 88+37+20);
+    testArray=nil;
 }
 
 - (void)viewDidUnload
@@ -73,7 +74,14 @@
     
 }
 
-//Keyboard control functions
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+	return YES;
+}
+
+#pragma mark Keyboard control functions
 
 - (void)keyboardWillShow:(NSNotification *)aNotification {
     if (!displayKeyboard) {
@@ -135,29 +143,25 @@
     
 }
 
-
-
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-	return YES;
-}
-
+#pragma mark load and save data
 
 -(void) setTemplateDataWithArray:(NSArray *)newData
 {
+    if (newData==nil) {
+        return;
+    }
     self.fieldViews=nil;
     self.fieldViews=[NSMutableArray array];
     self.templateData=[newData mutableCopy];
     NSDictionary *currentFieldDic=[templateData objectAtIndex:0];
     NSMutableDictionary *currentViewDic;
     CGRect newFrame;float newHeight, newPosition;
-    UIViewController *lastController, *currentView;
+    UIViewController *lastController=nil, *currentView=nil;
     
     labelField.text=[currentFieldDic objectForKey:@"label"];
     for (int i=1; i<[templateData count]; i++) {
         currentFieldDic=[templateData objectAtIndex:i];
+        currentViewDic=[NSMutableDictionary dictionary];
         if ([[currentFieldDic valueForKey:@"type"] isEqualToString:@"string"]) 
         {
             stringFieldViewController *newStringVC=[[stringFieldViewController alloc] 
@@ -172,6 +176,7 @@
         [currentViewDic setValue:[NSNumber numberWithFloat:newHeight] forKey:@"height"];
         if (lastController!=nil) 
         {
+            NSLog(@"%f",lastController.view.frame.origin.y);
             newPosition=lastController.view.frame.origin.y+lastController.view.frame.size.height+10;
         }
         else
@@ -201,25 +206,31 @@
         
     }
     
-    addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
-                                    lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
-                                    self.addFieldButton.frame.size.width,
-                                    self.addFieldButton.frame.size.height);
-    
-    saveButton.frame=CGRectMake(self.saveButton.frame.origin.x,
-                                    lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
-                                    self.saveButton.frame.size.width,
-                                    self.saveButton.frame.size.height);
-    
-    publishButton.frame=CGRectMake(self.publishButton.frame.origin.x,
-                                    lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
-                                    self.publishButton.frame.size.width,
-                                    self.publishButton.frame.size.height);
-    
-    deleteButton.frame=CGRectMake(self.deleteButton.frame.origin.x,
-                                    lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
-                                    self.deleteButton.frame.size.width,
-                                    self.deleteButton.frame.size.height);
+    if (lastController==nil) {
+        return;
+    }
+    else
+    {
+        self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
+                                             lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
+                                             self.addFieldButton.frame.size.width,
+                                             self.addFieldButton.frame.size.height);
+        
+        self.saveButton.frame=CGRectMake(self.saveButton.frame.origin.x,
+                                         lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
+                                         self.saveButton.frame.size.width,
+                                         self.saveButton.frame.size.height);
+        
+        self.publishButton.frame=CGRectMake(self.publishButton.frame.origin.x,
+                                            lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
+                                            self.publishButton.frame.size.width,
+                                            self.publishButton.frame.size.height);
+        
+        self.deleteButton.frame=CGRectMake(self.deleteButton.frame.origin.x,
+                                           lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
+                                           self.deleteButton.frame.size.width,
+                                           self.deleteButton.frame.size.height);
+    }
 }
 
 
@@ -235,6 +246,8 @@
     }
     return [NSArray arrayWithArray:templateDataArray];
 }
+
+#pragma mark interface
 
 -(IBAction)newFieldButtonTouched
 {
@@ -408,7 +421,7 @@
     
 }
 
-//UITextField Delegate
+#pragma mark Own delegate functions
 
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
@@ -743,6 +756,28 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+#pragma mark Temporary Functions
+
+-(IBAction) testLoadButtonPressed
+{
+    NSMutableArray *temporaryArray=[NSMutableArray array];
+    for (NSDictionary *aDictionary in fieldViews) {
+        [temporaryArray addObject:[aDictionary objectForKey:@"fieldVC"]];
+        //[self removeButtonPressed:[aDictionary objectForKey:@"fieldVC"]];
+    }
+    for (stringFieldViewController *currentVC in temporaryArray) {
+        [self removeButtonPressed:currentVC];
+    }
+    [self setTemplateDataWithArray:testArray];
+}
+
+-(IBAction) testSaveButtonPressed
+{
+    [testArray release];
+    testArray=[[self reduceTemplateToArray] retain];
+    [testArray retain];
 }
 
 @end

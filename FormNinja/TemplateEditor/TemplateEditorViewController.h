@@ -17,6 +17,8 @@
     BOOL displayKeyboard;
     CGPoint offset;
     IBOutlet UITextField *labelField;
+    
+    NSArray *testArray;//TEMPORARY PROPERTY, NOT BACKED BY @PROPERTY!
 }
 
 @property(nonatomic, retain) IBOutlet UIScrollView *scrollView;
@@ -31,6 +33,10 @@
 -(IBAction) saveButtonPressed;
 -(IBAction) deleteButtonPressed;
 -(IBAction) publishButtonPressed;
+
+-(IBAction) testLoadButtonPressed;
+-(IBAction) testSaveButtonPressed;
+
 
 
 @end
