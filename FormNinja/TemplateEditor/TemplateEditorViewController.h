@@ -13,7 +13,7 @@
 @interface TemplateEditorViewController : UIViewController <UITextFieldDelegate, stringFieldViewControllerDelegate> {
     IBOutlet UIScrollView *scrollView;
     NSMutableArray *templateData, *fieldViews;
-    IBOutlet UIButton *addFieldButton;
+    IBOutlet UIButton *addFieldButton, *saveButton, *publishButton, *deleteButton;
     BOOL displayKeyboard;
     CGPoint offset;
     IBOutlet UITextField *labelField;
@@ -21,12 +21,16 @@
 
 @property(nonatomic, retain) IBOutlet UIScrollView *scrollView;
 @property(nonatomic, retain) NSMutableArray *templateData, *fieldViews;
-@property(nonatomic, retain) IBOutlet UIButton *addFieldButton;
+@property(nonatomic, retain) IBOutlet UIButton *addFieldButton, *saveButton, *publishButton, *deleteButton;
 @property(nonatomic, retain) IBOutlet UITextField *labelField;
 
 -(IBAction) newFieldButtonTouched;
 - (void) moveTextViewForKeyboard:(NSNotification*)aNotification up: (BOOL) up;
--(void) setTemplateDataWithArray:(NSMutableArray *)newData;
+-(void) setTemplateDataWithArray:(NSArray *)newData;
 -(NSArray *) reduceTemplateToArray;
+-(IBAction) saveButtonPressed;
+-(IBAction) deleteButtonPressed;
+-(IBAction) publishButtonPressed;
+
 
 @end
