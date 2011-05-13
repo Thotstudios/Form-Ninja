@@ -13,7 +13,7 @@
 @implementation TemplateEditorViewController
 @synthesize scrollView;
 @synthesize templateData, fieldViews;
-@synthesize addFieldButton;
+@synthesize addFieldButton, saveButton, deleteButton, publishButton;
 @synthesize labelField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -145,7 +145,7 @@
 }
 
 
--(void) setTemplateDataWithArray:(NSMutableArray *)newData
+-(void) setTemplateDataWithArray:(NSArray *)newData
 {
     self.fieldViews=nil;
     self.fieldViews=[NSMutableArray array];
@@ -153,7 +153,7 @@
     NSDictionary *currentFieldDic=[templateData objectAtIndex:0];
     NSMutableDictionary *currentViewDic;
     CGRect newFrame;float newHeight, newPosition;
-    UIViewController *lastController;
+    UIViewController *lastController, *currentView;
     
     labelField.text=[currentFieldDic objectForKey:@"label"];
     for (int i=1; i<[templateData count]; i++) {
@@ -167,42 +167,59 @@
             [newStringVC setByDictionary:currentFieldDic];
             [currentViewDic setValue:newStringVC forKey:@"fieldVC"];
             newHeight=(newStringVC.view.layer.bounds.size.height);
-            [currentViewDic setValue:[NSNumber numberWithFloat:newHeight] forKey:@"height"];
-            if (lastController!=nil) 
-            {
-                newPosition=lastController.view.frame.origin.y+lastController.view.frame.size.height+10;
-            }
-            else
-            {
-                newPosition=88;
-            }
-            if(self.interfaceOrientation==UIInterfaceOrientationPortrait | 
-               self.interfaceOrientation== UIInterfaceOrientationPortraitUpsideDown)
-            {
-                newFrame=CGRectMake(20, 
-                                    newPosition, 
-                                    (self.view.frame.size.width-40), 
-                                    newHeight);
-                
-            }
-            else
-            {
-                newFrame=CGRectMake(20, 
-                                    newPosition, 
-                                    (self.view.frame.size.height-40), 
-                                    newHeight);
-                
-            }
-            newStringVC.view.frame=newFrame;
-            [self.view addSubview:newStringVC.view];
-            lastController=newStringVC;
+            currentView=newStringVC;
         }
+        [currentViewDic setValue:[NSNumber numberWithFloat:newHeight] forKey:@"height"];
+        if (lastController!=nil) 
+        {
+            newPosition=lastController.view.frame.origin.y+lastController.view.frame.size.height+10;
+        }
+        else
+        {
+            newPosition=88;
+        }
+        if(self.interfaceOrientation==UIInterfaceOrientationPortrait | 
+           self.interfaceOrientation== UIInterfaceOrientationPortraitUpsideDown)
+        {
+            newFrame=CGRectMake(20, 
+                                newPosition, 
+                                (self.view.frame.size.width-40), 
+                                newHeight);
+            
+        }
+        else
+        {
+            newFrame=CGRectMake(20, 
+                                newPosition, 
+                                (self.view.frame.size.height-40), 
+                                newHeight);
+            
+        }
+        currentView.view.frame=newFrame;
+        [self.view addSubview:currentView.view];
+        lastController=currentView;
+        
     }
     
     addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
                                     lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
                                     self.addFieldButton.frame.size.width,
                                     self.addFieldButton.frame.size.height);
+    
+    saveButton.frame=CGRectMake(self.saveButton.frame.origin.x,
+                                    lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
+                                    self.saveButton.frame.size.width,
+                                    self.saveButton.frame.size.height);
+    
+    publishButton.frame=CGRectMake(self.publishButton.frame.origin.x,
+                                    lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
+                                    self.publishButton.frame.size.width,
+                                    self.publishButton.frame.size.height);
+    
+    deleteButton.frame=CGRectMake(self.deleteButton.frame.origin.x,
+                                    lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
+                                    self.deleteButton.frame.size.width,
+                                    self.deleteButton.frame.size.height);
 }
 
 
@@ -216,7 +233,7 @@
     for (int i=0; i<[fieldViews count]; i++) {
         [templateDataArray addObject:[[[fieldViews objectAtIndex:i] objectForKey:@"fieldVC"] dictionaryValue]];
     }
-    return nil;
+    return [NSArray arrayWithArray:templateDataArray];
 }
 
 -(IBAction)newFieldButtonTouched
@@ -226,22 +243,69 @@
     newFieldDictionary=[[NSMutableDictionary alloc] init];
     [newFieldDictionary setObject:@"string" forKey:@"type"];
     
-    CGPoint buttonStartPosition=CGPointMake(self.addFieldButton.frame.origin.x+self.addFieldButton.frame.size.width/2,
-                                            self.addFieldButton.frame.origin.y+self.addFieldButton.frame.size.height/2);
-    
+        
     
     stringFieldViewController *newVC=[[stringFieldViewController alloc] initWithNibName:@"stringFieldViewController" bundle:[NSBundle mainBundle]];
     float newHeight=newVC.view.layer.bounds.size.height;
     [newFieldDictionary setObject:[NSNumber numberWithFloat:newHeight] forKey:@"height"];
     [newFieldDictionary setObject:newVC forKey:@"fieldVC"];
     
+    
+    
+    
+    //Generate animation positions for add field button and relocate it
+    CGPoint addFieldButtonStartPosition=CGPointMake(self.addFieldButton.frame.origin.x+self.addFieldButton.frame.size.width/2,
+                                                    self.addFieldButton.frame.origin.y+self.addFieldButton.frame.size.height/2);
+    
     self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
                                          self.addFieldButton.frame.origin.y+newHeight+10, 
                                          self.addFieldButton.frame.size.width,  
                                          self.addFieldButton.frame.size.height);
     
-    CGPoint buttonEndPosition=CGPointMake(self.addFieldButton.frame.origin.x+self.addFieldButton.frame.size.width/2,
-                                          self.addFieldButton.frame.origin.y+self.addFieldButton.frame.size.height/2);
+    CGPoint addFieldButtonStopPosition=CGPointMake(self.addFieldButton.frame.origin.x+self.addFieldButton.frame.size.width/2,
+                                                   self.addFieldButton.frame.origin.y+self.addFieldButton.frame.size.height/2);
+    
+    
+    //generate animation positions for delete button and relocate it
+    CGPoint deleteButtonStartPosition=CGPointMake(self.deleteButton.frame.origin.x+self.deleteButton.frame.size.width/2,
+                                                  self.deleteButton.frame.origin.y+self.deleteButton.frame.size.height/2);
+    
+    self.deleteButton.frame=CGRectMake(self.deleteButton.frame.origin.x,
+                                       self.deleteButton.frame.origin.y+newHeight+10, 
+                                       self.deleteButton.frame.size.width,  
+                                       self.deleteButton.frame.size.height);
+    
+    CGPoint deleteButtonStopPosition=CGPointMake(self.deleteButton.frame.origin.x+self.deleteButton.frame.size.width/2,
+                                                 self.deleteButton.frame.origin.y+self.deleteButton.frame.size.height/2);
+    
+    
+    //generate animation positions for publish button and relocate it
+    CGPoint publishButtonStartPosition=CGPointMake(self.publishButton.frame.origin.x+self.publishButton.frame.size.width/2,
+                                                   self.publishButton.frame.origin.y+self.publishButton.frame.size.height/2);
+    
+    self.publishButton.frame=CGRectMake(self.publishButton.frame.origin.x,
+                                        self.publishButton.frame.origin.y+newHeight+10, 
+                                        self.publishButton.frame.size.width,  
+                                        self.publishButton.frame.size.height);
+    
+    CGPoint publishButtonStopPosition=CGPointMake(self.publishButton.frame.origin.x+self.publishButton.frame.size.width/2,
+                                                  self.publishButton.frame.origin.y+self.publishButton.frame.size.height/2);
+    
+    
+    //generate animation positions for save button and relocate it
+    CGPoint saveButtonStartPosition=CGPointMake(self.saveButton.frame.origin.x+self.saveButton.frame.size.width/2,
+                                                self.saveButton.frame.origin.y+self.saveButton.frame.size.height/2);
+    
+    self.saveButton.frame=CGRectMake(self.saveButton.frame.origin.x,
+                                     self.saveButton.frame.origin.y+newHeight+10, 
+                                     self.saveButton.frame.size.width,  
+                                     self.saveButton.frame.size.height);
+    
+    CGPoint saveButtonStopPosition=CGPointMake(self.saveButton.frame.origin.x+self.saveButton.frame.size.width/2,
+                                               self.saveButton.frame.origin.y+self.saveButton.frame.size.height/2);
+    
+    
+    
     
     
     self.scrollView.contentSize=CGSizeMake(768, self.addFieldButton.frame.origin.y+37+20);
@@ -276,18 +340,36 @@
     self.addFieldButton.layer.zPosition=newVC.view.layer.zPosition+1;
     
     CABasicAnimation *newFieldAnimation =[CABasicAnimation animationWithKeyPath:@"opacity"];
-    CABasicAnimation *moveButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    CABasicAnimation *moveAddFieldButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    CABasicAnimation *saveButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    CABasicAnimation *deleteButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    CABasicAnimation *publishButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
     
     newFieldAnimation.duration=.5;
-    moveButtonAnimation.duration=.50;
+    moveAddFieldButtonAnimation.duration=.50;
+    saveButtonAnimation.duration=.50;
+    deleteButtonAnimation.duration=.50;
+    publishButtonAnimation.duration=.50;
     newFieldAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    moveButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    moveAddFieldButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    saveButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    deleteButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    publishButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     newFieldAnimation.fromValue=[NSNumber numberWithFloat:0];
-    moveButtonAnimation.fromValue=[NSValue valueWithCGPoint:buttonStartPosition];
+    moveAddFieldButtonAnimation.fromValue=[NSValue valueWithCGPoint:addFieldButtonStartPosition];
+    saveButtonAnimation.fromValue=[NSValue valueWithCGPoint:saveButtonStartPosition];
+    deleteButtonAnimation.fromValue=[NSValue valueWithCGPoint:deleteButtonStartPosition];
+    publishButtonAnimation.fromValue=[NSValue valueWithCGPoint:publishButtonStartPosition];
     newFieldAnimation.toValue=[NSNumber numberWithFloat:1];
-    moveButtonAnimation.toValue=[NSValue valueWithCGPoint:buttonEndPosition];
+    moveAddFieldButtonAnimation.toValue=[NSValue valueWithCGPoint:addFieldButtonStopPosition];
+    saveButtonAnimation.toValue=[NSValue valueWithCGPoint:saveButtonStopPosition];
+    deleteButtonAnimation.toValue=[NSValue valueWithCGPoint:deleteButtonStopPosition];
+    publishButtonAnimation.toValue=[NSValue valueWithCGPoint:publishButtonStopPosition];
     
-    [addFieldButton.layer addAnimation:moveButtonAnimation forKey:@"position"];
+    [addFieldButton.layer addAnimation:moveAddFieldButtonAnimation forKey:@"position"];
+    [deleteButton.layer addAnimation:deleteButtonAnimation forKey:@"position"];
+    [saveButton.layer addAnimation:saveButtonAnimation forKey:@"position"];
+    [publishButton.layer addAnimation:publishButtonAnimation forKey:@"position"];
     [newVC.view.layer addAnimation:newFieldAnimation forKey:@"opacity"];
     
     
@@ -309,6 +391,23 @@
     
 }
 
+
+
+-(IBAction) deleteButtonPressed
+{
+    
+}
+
+-(IBAction) saveButtonPressed
+{
+    
+}
+
+-(IBAction) publishButtonPressed
+{
+    
+}
+
 //UITextField Delegate
 
 
@@ -323,11 +422,8 @@
 -(void) removeButtonPressed:(stringFieldViewController *)field
 {
     
-    
-
-    
-    CABasicAnimation *moveButtonAnimation, *moveViewAnimation;
-    CGPoint moveStart, moveStop;
+    CABasicAnimation *moveAddFieldButtonAnimation, *moveDeleteButtonAnimation, *movePublishButtonAnimation, *moveSaveButtonAnimation, *moveViewAnimation;
+    CGPoint moveStart, moveStop, moveAddFieldButtonStart, moveAddFieldButtonStop, moveDeleteButtonStart, moveDeleteButtonStop, movePublishButtonStart, movePublishButtonStop, moveSaveButtonStart, moveSaveButtonStop;
     CGRect oldFrame;
     
     NSDictionary *current;
@@ -394,29 +490,86 @@
         newPosition+=newHeight+10;
     }
     
-    moveStart=CGPointMake(addFieldButton.frame.origin.x+addFieldButton.frame.size.width/2,
-                          addFieldButton.frame.origin.y+addFieldButton.frame.size.height/2);
+    
+    //create move animation points for addFieldButton and move it
+    moveAddFieldButtonStart=CGPointMake(addFieldButton.frame.origin.x+addFieldButton.frame.size.width/2,
+                                        addFieldButton.frame.origin.y+addFieldButton.frame.size.height/2);
     
     self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
                                          newPosition+10, 
                                          self.addFieldButton.frame.size.width,  
                                          self.addFieldButton.frame.size.height);
     
-    moveStop=CGPointMake(addFieldButton.frame.origin.x+addFieldButton.frame.size.width/2,
-                          addFieldButton.frame.origin.y+addFieldButton.frame.size.height/2);
+    moveAddFieldButtonStop=CGPointMake(addFieldButton.frame.origin.x+addFieldButton.frame.size.width/2,
+                                       addFieldButton.frame.origin.y+addFieldButton.frame.size.height/2);
     
-    moveButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
-    moveButtonAnimation.duration=.50;
-    moveButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    moveButtonAnimation.fromValue=[NSValue valueWithCGPoint:moveStart];
-    moveButtonAnimation.toValue=[NSValue valueWithCGPoint:moveStop];
-
-    [addFieldButton.layer addAnimation:moveButtonAnimation forKey:@"position"];
+    //create move animation points for deleteButton and move it
+    moveDeleteButtonStart=CGPointMake(deleteButton.frame.origin.x+deleteButton.frame.size.width/2,
+                                        deleteButton.frame.origin.y+deleteButton.frame.size.height/2);
     
-    self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
-                                        newPosition+10, 
-                                        self.addFieldButton.frame.size.width,  
-                                        self.addFieldButton.frame.size.height);
+    self.deleteButton.frame=CGRectMake(self.deleteButton.frame.origin.x,
+                                         newPosition+10, 
+                                         self.deleteButton.frame.size.width,  
+                                         self.deleteButton.frame.size.height);
+    
+    moveDeleteButtonStop=CGPointMake(deleteButton.frame.origin.x+deleteButton.frame.size.width/2,
+                                       deleteButton.frame.origin.y+deleteButton.frame.size.height/2);
+    
+    //create move animation points for addFieldButton and move it
+    moveSaveButtonStart=CGPointMake(saveButton.frame.origin.x+saveButton.frame.size.width/2,
+                                    saveButton.frame.origin.y+saveButton.frame.size.height/2);
+    
+    self.saveButton.frame=CGRectMake(self.saveButton.frame.origin.x,
+                                         newPosition+10, 
+                                         self.saveButton.frame.size.width,  
+                                         self.saveButton.frame.size.height);
+    
+    moveSaveButtonStop=CGPointMake(saveButton.frame.origin.x+saveButton.frame.size.width/2,
+                                       saveButton.frame.origin.y+saveButton.frame.size.height/2);
+    
+    //create move animation points for publishButton and move it
+    movePublishButtonStart=CGPointMake(publishButton.frame.origin.x+publishButton.frame.size.width/2,
+                                        publishButton.frame.origin.y+publishButton.frame.size.height/2);
+    
+    self.publishButton.frame=CGRectMake(self.publishButton.frame.origin.x,
+                                         newPosition+10, 
+                                         self.publishButton.frame.size.width,  
+                                         self.publishButton.frame.size.height);
+    
+    movePublishButtonStop=CGPointMake(publishButton.frame.origin.x+publishButton.frame.size.width/2,
+                                       publishButton.frame.origin.y+publishButton.frame.size.height/2);
+    
+    
+    
+    moveAddFieldButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    moveSaveButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    moveDeleteButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    movePublishButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    
+    moveAddFieldButtonAnimation.duration=.50;
+    moveSaveButtonAnimation.duration=.50;
+    moveDeleteButtonAnimation.duration=.50;
+    movePublishButtonAnimation.duration=.50;
+    
+    moveAddFieldButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    moveSaveButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    moveDeleteButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    movePublishButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    moveAddFieldButtonAnimation.fromValue=[NSValue valueWithCGPoint:moveAddFieldButtonStart];
+    moveSaveButtonAnimation.fromValue=[NSValue valueWithCGPoint:moveSaveButtonStart];
+    moveDeleteButtonAnimation.fromValue=[NSValue valueWithCGPoint:moveDeleteButtonStart];
+    movePublishButtonAnimation.fromValue=[NSValue valueWithCGPoint:movePublishButtonStart];
+    
+    moveAddFieldButtonAnimation.toValue=[NSValue valueWithCGPoint:moveAddFieldButtonStop];
+    moveSaveButtonAnimation.toValue=[NSValue valueWithCGPoint:moveSaveButtonStop];
+    moveDeleteButtonAnimation.toValue=[NSValue valueWithCGPoint:moveDeleteButtonStop];
+    movePublishButtonAnimation.toValue=[NSValue valueWithCGPoint:movePublishButtonStop];
+    
+    [addFieldButton.layer addAnimation:moveAddFieldButtonAnimation forKey:@"position"];
+    [deleteButton.layer addAnimation:moveDeleteButtonAnimation forKey:@"position"];
+    [saveButton.layer addAnimation:moveSaveButtonAnimation forKey:@"position"];
+    [publishButton.layer addAnimation:movePublishButtonAnimation forKey:@"position"];
 }
 
 -(void) moveUpButtonPressed:(stringFieldViewController *)field
