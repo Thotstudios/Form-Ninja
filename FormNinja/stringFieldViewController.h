@@ -27,12 +27,16 @@
     IBOutlet UISlider *minLengthSlider, *maxLengthSlider;
     IBOutlet UILabel *minLengthLabel, *maxLengthLabel;
     IBOutlet UITextField *fieldNameTextField;
+    
 }
 
 @property (nonatomic, retain) IBOutlet UISlider *minLengthSlider, *maxLengthSlider;
 @property (nonatomic, retain) IBOutlet UILabel *minLengthLabel, *maxLengthLabel;
 @property (nonatomic, retain) IBOutlet UITextField *fieldNameTextField;
 @property (nonatomic, assign) id <stringFieldViewControllerDelegate> delegate;
+
+-(void)setByDictionary:(NSDictionary *) aDictionary;
+-(NSDictionary *) dictionaryValue;
 
 //UI functionality
 -(IBAction) changeTypeButtonPressed;

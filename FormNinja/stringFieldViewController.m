@@ -61,6 +61,28 @@
 	return YES;
 }
 
+-(void)setByDictionary:(NSDictionary *) aDictionary
+{
+    fieldNameTextField.text=[aDictionary valueForKey:@"label"];
+    maxLengthSlider.value=[[aDictionary valueForKey:@"maxLength"] floatValue];
+    minLengthSlider.value=[[aDictionary valueForKey:@"minLength"] floatValue];
+    [self sliderUpdated:maxLengthSlider];
+    [self sliderUpdated:minLengthSlider];
+    
+}
+
+-(NSDictionary *) dictionaryValue
+{
+    NSMutableDictionary *fieldDictionary=[NSMutableDictionary dictionary];
+    
+    [fieldDictionary setValue:@"string" forKey:@"type"];
+    [fieldDictionary setValue:fieldNameTextField.text forKey:@"label"];
+    [fieldDictionary setValue:[NSNumber numberWithFloat:minLengthSlider.value] forKey:@"minLength"];
+    [fieldDictionary setValue:[NSNumber numberWithFloat:maxLengthSlider.value] forKey:@"maxLength"];
+    
+    return [NSDictionary dictionaryWithDictionary:fieldDictionary];
+}
+
 
 #pragma mark UI Functionality
 //These all need to be reported 'up' the chain via delegate methods

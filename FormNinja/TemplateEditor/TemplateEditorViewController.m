@@ -147,32 +147,93 @@
 
 -(void) setTemplateDataWithArray:(NSMutableArray *)newData
 {
-    /*
+    self.fieldViews=nil;
+    self.fieldViews=[NSMutableArray array];
     self.templateData=[newData mutableCopy];
     NSDictionary *currentFieldDic=[templateData objectAtIndex:0];
+    NSMutableDictionary *currentViewDic;
+    CGRect newFrame;float newHeight, newPosition;
+    UIViewController *lastController;
     
-    labelField.text=[currentFieldDic objectForKey:@"stringValue"];
+    labelField.text=[currentFieldDic objectForKey:@"label"];
     for (int i=1; i<[templateData count]; i++) {
         currentFieldDic=[templateData objectAtIndex:i];
-    }*/
+        if ([[currentFieldDic valueForKey:@"type"] isEqualToString:@"string"]) 
+        {
+            stringFieldViewController *newStringVC=[[stringFieldViewController alloc] 
+                                                    initWithNibName:@"stringFieldViewController" 
+                                                    bundle:[NSBundle mainBundle]];
+            
+            [newStringVC setByDictionary:currentFieldDic];
+            [currentViewDic setValue:newStringVC forKey:@"fieldVC"];
+            newHeight=(newStringVC.view.layer.bounds.size.height);
+            [currentViewDic setValue:[NSNumber numberWithFloat:newHeight] forKey:@"height"];
+            if (lastController!=nil) 
+            {
+                newPosition=lastController.view.frame.origin.y+lastController.view.frame.size.height+10;
+            }
+            else
+            {
+                newPosition=88;
+            }
+            if(self.interfaceOrientation==UIInterfaceOrientationPortrait | 
+               self.interfaceOrientation== UIInterfaceOrientationPortraitUpsideDown)
+            {
+                newFrame=CGRectMake(20, 
+                                    newPosition, 
+                                    (self.view.frame.size.width-40), 
+                                    newHeight);
+                
+            }
+            else
+            {
+                newFrame=CGRectMake(20, 
+                                    newPosition, 
+                                    (self.view.frame.size.height-40), 
+                                    newHeight);
+                
+            }
+            newStringVC.view.frame=newFrame;
+            [self.view addSubview:newStringVC.view];
+            lastController=newStringVC;
+        }
+    }
+    
+    addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
+                                    lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
+                                    self.addFieldButton.frame.size.width,
+                                    self.addFieldButton.frame.size.height);
+}
+
+
+-(NSArray *) reduceTemplateToArray
+{
+    NSMutableArray *templateDataArray=[NSMutableArray array];
+    NSMutableDictionary *currentDictionary=[NSMutableDictionary dictionary];
+    [currentDictionary setValue:labelField.text forKey:@"label"];
+    [currentDictionary setValue:@"template" forKey:@"type"];
+    [templateDataArray addObject:currentDictionary];
+    for (int i=0; i<[fieldViews count]; i++) {
+        [templateDataArray addObject:[[[fieldViews objectAtIndex:i] objectForKey:@"fieldVC"] dictionaryValue]];
+    }
+    return nil;
 }
 
 -(IBAction)newFieldButtonTouched
 {
-    
-    //this is the defined hieght for field view controllers.
-    //For the moment, I intend to make this a constant just for ease-of-programming, in the end
-    //I'll need to reprogram it to be variable.  Which WILL make life difficult.
-    const float newHeight=134;
     float newPosition=self.addFieldButton.frame.origin.y;
     NSMutableDictionary *newFieldDictionary;
     newFieldDictionary=[[NSMutableDictionary alloc] init];
     [newFieldDictionary setObject:@"string" forKey:@"type"];
-    [newFieldDictionary setObject:[NSNumber numberWithFloat:newHeight] forKey:@"height"];
     
     CGPoint buttonStartPosition=CGPointMake(self.addFieldButton.frame.origin.x+self.addFieldButton.frame.size.width/2,
                                             self.addFieldButton.frame.origin.y+self.addFieldButton.frame.size.height/2);
     
+    
+    stringFieldViewController *newVC=[[stringFieldViewController alloc] initWithNibName:@"stringFieldViewController" bundle:[NSBundle mainBundle]];
+    float newHeight=newVC.view.layer.bounds.size.height;
+    [newFieldDictionary setObject:[NSNumber numberWithFloat:newHeight] forKey:@"height"];
+    [newFieldDictionary setObject:newVC forKey:@"fieldVC"];
     
     self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
                                          self.addFieldButton.frame.origin.y+newHeight+10, 
@@ -184,8 +245,6 @@
     
     
     self.scrollView.contentSize=CGSizeMake(768, self.addFieldButton.frame.origin.y+37+20);
-    
-    stringFieldViewController *newVC=[[stringFieldViewController alloc] initWithNibName:@"stringFieldViewController" bundle:[NSBundle mainBundle]];
     CGRect newFrame;
     if(self.interfaceOrientation==UIInterfaceOrientationPortrait | 
        self.interfaceOrientation== UIInterfaceOrientationPortraitUpsideDown)
@@ -209,7 +268,7 @@
     newVC.view.autoresizingMask=(UIViewAutoresizingFlexibleWidth);
     [newVC setDelegate:self];
     
-    [newFieldDictionary setObject:newVC forKey:@"fieldVC"];
+    
     
     [self.fieldViews addObject:newFieldDictionary];
     [self.scrollView addSubview:newVC.view];
