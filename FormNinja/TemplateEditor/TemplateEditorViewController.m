@@ -322,14 +322,29 @@
 
 -(void) removeButtonPressed:(stringFieldViewController *)field
 {
+    
+    
+
+    
+    CABasicAnimation *moveButtonAnimation, *moveViewAnimation;
+    CGPoint moveStart, moveStop;
+    CGRect oldFrame;
+    
     NSDictionary *current;
     int currentIndex;
     for (int i=0; i<[fieldViews count]; i++) {
         current=[fieldViews objectAtIndex:i];
-        NSLog(@"removeButtonPressed first loop");
         if([current valueForKey:@"fieldVC"]==field)
         {
             [fieldViews removeObject:current];
+            
+            CABasicAnimation *newFieldAnimation =[CABasicAnimation animationWithKeyPath:@"opacity"];
+            newFieldAnimation.duration=.5;
+            newFieldAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+            newFieldAnimation.fromValue=[NSNumber numberWithFloat:0];
+            newFieldAnimation.toValue=[NSNumber numberWithFloat:1];
+            [field.view.layer addAnimation:newFieldAnimation forKey:@"opacity"];
+            
             [field.view removeFromSuperview];
             currentIndex=i;
         }
@@ -337,7 +352,6 @@
     float newPosition = 88, newHeight;
     CGRect newFrame;
     for (int i=0; i<[fieldViews count]; i++) {
-        NSLog(@"removeButtonPressed second loop");
         current=[fieldViews objectAtIndex:i];
         newHeight=[[current objectForKey:@"height"] floatValue];
         if(i>=currentIndex)
@@ -359,10 +373,46 @@
                                     newHeight);
                 
             }
+            
+            moveStop=CGPointMake(newFrame.origin.x+newFrame.size.width/2, newFrame.origin.y+newFrame.size.height/2);
+            
+            oldFrame=((stringFieldViewController*)[current objectForKey:@"fieldVC"]).view.frame;
+            moveStart=CGPointMake(oldFrame.origin.x+oldFrame.size.width/2, oldFrame.origin.y+oldFrame.size.height/2);
+            moveStop=CGPointMake(20+newFrame.size.width/2, newPosition+oldFrame.size.height/2);
+            
+            moveViewAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+            moveViewAnimation.duration=.50;
+            moveViewAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            moveViewAnimation.fromValue=[NSValue valueWithCGPoint:moveStart];
+            moveViewAnimation.toValue=[NSValue valueWithCGPoint:moveStop];
+            
+            [((stringFieldViewController*)[current objectForKey:@"fieldVC"]).view.layer addAnimation:moveViewAnimation forKey:@"position"];
+            
+            
             ((stringFieldViewController*)[current objectForKey:@"fieldVC"]).view.frame=newFrame;
         }
         newPosition+=newHeight+10;
     }
+    
+    moveStart=CGPointMake(addFieldButton.frame.origin.x+addFieldButton.frame.size.width/2,
+                          addFieldButton.frame.origin.y+addFieldButton.frame.size.height/2);
+    
+    self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
+                                         newPosition+10, 
+                                         self.addFieldButton.frame.size.width,  
+                                         self.addFieldButton.frame.size.height);
+    
+    moveStop=CGPointMake(addFieldButton.frame.origin.x+addFieldButton.frame.size.width/2,
+                          addFieldButton.frame.origin.y+addFieldButton.frame.size.height/2);
+    
+    moveButtonAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    moveButtonAnimation.duration=.50;
+    moveButtonAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    moveButtonAnimation.fromValue=[NSValue valueWithCGPoint:moveStart];
+    moveButtonAnimation.toValue=[NSValue valueWithCGPoint:moveStop];
+
+    [addFieldButton.layer addAnimation:moveButtonAnimation forKey:@"position"];
+    
     self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
                                         newPosition+10, 
                                         self.addFieldButton.frame.size.width,  
@@ -481,8 +531,8 @@
     CABasicAnimation *currentViewAnimation =[CABasicAnimation animationWithKeyPath:@"position"];
     CABasicAnimation *lastViewAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
     
-    currentViewAnimation.duration=1;
-    lastViewAnimation.duration=1;
+    currentViewAnimation.duration=.5;
+    lastViewAnimation.duration=.5;
     currentViewAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     lastViewAnimation .timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     currentViewAnimation.fromValue=[NSValue valueWithCGPoint:currentAnimPositionStart];
