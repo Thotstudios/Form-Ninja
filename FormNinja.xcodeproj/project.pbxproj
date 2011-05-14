@@ -212,6 +212,7 @@
 			children = (
 				D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */,
 				D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */,
+				D922CEA8136C926300233C48 /* FormNinjaLogin.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -283,7 +284,6 @@
 		D922CEB0136CAB1F00233C48 /* XIB */ = {
 			isa = PBXGroup;
 			children = (
-				D922CEA8136C926300233C48 /* FormNinjaLogin.xib */,
 			);
 			name = XIB;
 			path = FormNinja;

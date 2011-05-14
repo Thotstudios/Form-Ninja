@@ -36,6 +36,6 @@
 
 
 - (IBAction) loginButtonAction;
-
+- (IBAction) userAuthenticated; // TODO temporary
 
 @end

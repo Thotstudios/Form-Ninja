@@ -13,7 +13,7 @@
 #import "CustomLoadAlertViewController.h"
 
 
-#define LOGIN 0 //0 skips login screen
+#define LOGIN 1 //0 skips login screen
 
 //private methods
 @interface FormNinjaLoginViewController()
