@@ -8,13 +8,44 @@
 
 #import <UIKit/UIKit.h>
 
+@class AccountClass;
 
-@interface AccountEditorViewController : UIViewController {
-    
+@interface AccountEditorViewController : UIViewController
+{
+    AccountClass * account;
+	UITextField *usernameTextField;
+	UITextField *passwordTextField;
+	UITextField *passwordChangeTextField;
+	UITextField *passwordConfirmTextField;
+	UITextField *firstNameTextField;
+	UITextField *lastNameTextField;
+	UITextField *emailAddressTextField;
+	UITextField *companyNameTextField;
+	UITextField *phoneNumberTextField;
+	// security question
+	// security answer
+	UITextField *zipCodeTextField;
+	UITextField *zipCodeExtTextField;
 }
+@property (retain, nonatomic) AccountClass * account;
+@property (nonatomic, retain) IBOutlet UITextField *usernameTextField;
+@property (nonatomic, retain) IBOutlet UITextField *passwordTextField;
+@property (nonatomic, retain) IBOutlet UITextField *passwordChangeTextField;
+@property (nonatomic, retain) IBOutlet UITextField *passwordConfirmTextField;
+@property (nonatomic, retain) IBOutlet UITextField *firstNameTextField;
+@property (nonatomic, retain) IBOutlet UITextField *lastNameTextField;
+@property (nonatomic, retain) IBOutlet UITextField *emailAddressTextField;
+@property (nonatomic, retain) IBOutlet UITextField *companyNameTextField;
+@property (nonatomic, retain) IBOutlet UITextField *phoneNumberTextField;
+// security question
+// security answer
+@property (nonatomic, retain) IBOutlet UITextField *zipCodeTextField;
+@property (nonatomic, retain) IBOutlet UITextField *zipCodeExtTextField;
+
+- (IBAction)pressedConfirm:(id)sender;
+- (IBAction)pressedCancel:(id)sender;
 
 @end
-
 
 /*
  USERID
@@ -30,4 +61,4 @@
  ZIPCODE
  ZIPCODEEXT
  
-*/
+ */

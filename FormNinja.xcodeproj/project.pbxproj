@@ -38,6 +38,7 @@
 		D922CEAA136C926300233C48 /* FormNinjaLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = D922CEA8136C926300233C48 /* FormNinjaLogin.xib */; };
 		F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F768C5AD137DE85800191858 /* AccountEditorViewController.m */; };
 		F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F768C5AE137DE85800191858 /* AccountEditorViewController.xib */; };
+		F768C5B8137DEFEB00191858 /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = F768C5B7137DEFEB00191858 /* TODO.txt */; };
 		F778DD55137DC60E00B444F6 /* TemplateManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F778DD53137DC60E00B444F6 /* TemplateManagerViewController.m */; };
 		F778DD56137DC60E00B444F6 /* TemplateManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F778DD54137DC60E00B444F6 /* TemplateManagerViewController.xib */; };
 		F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F778DD58137DC69400B444F6 /* CustomLoadAlert.xib */; };
@@ -46,6 +47,7 @@
 		F77FDA561375F5DD00DC694D /* TemplateEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F77FDA541375F5DD00DC694D /* TemplateEditorViewController.xib */; };
 		F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D8AFB9136E289500FE0F76 /* MainMenu.m */; };
 		F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D8AFBA136E289500FE0F76 /* MainMenu.xib */; };
+		F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2B560137E49D000EA89D0 /* AccountClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +107,7 @@
 		F768C5AC137DE85800191858 /* AccountEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditorViewController.h; sourceTree = "<group>"; };
 		F768C5AD137DE85800191858 /* AccountEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditorViewController.m; sourceTree = "<group>"; };
 		F768C5AE137DE85800191858 /* AccountEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountEditorViewController.xib; sourceTree = "<group>"; };
+		F768C5B7137DEFEB00191858 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		F778DD52137DC60E00B444F6 /* TemplateManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateManagerViewController.h; sourceTree = "<group>"; };
 		F778DD53137DC60E00B444F6 /* TemplateManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateManagerViewController.m; sourceTree = "<group>"; };
 		F778DD54137DC60E00B444F6 /* TemplateManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateManagerViewController.xib; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 		F7D8AFB8136E289500FE0F76 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		F7D8AFB9136E289500FE0F76 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		F7D8AFBA136E289500FE0F76 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		F7E2B55F137E49D000EA89D0 /* AccountClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountClass.h; path = AccountClass/AccountClass.h; sourceTree = "<group>"; };
+		F7E2B560137E49D000EA89D0 /* AccountClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountClass.m; path = AccountClass/AccountClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +219,7 @@
 		D922CE81136C926300233C48 = {
 			isa = PBXGroup;
 			children = (
+				F768C5B7137DEFEB00191858 /* TODO.txt */,
 				D922CE96136C926300233C48 /* FormNinja */,
 				D922CEB0136CAB1F00233C48 /* XIB */,
 				D922CE8F136C926300233C48 /* Frameworks */,
@@ -251,7 +257,7 @@
 				D917B3D01378D06200E75140 /* JSON */,
 				F778DD51137DC60E00B444F6 /* TemplateManager */,
 				F77FDA501375F5AB00DC694D /* TemplateEditor */,
-				F768C5AB137DE85800191858 /* AccountEditor */,
+				F7E2B563137E49D600EA89D0 /* Account */,
 				F7D8AFBE136E289A00FE0F76 /* MainMenu */,
 				D922CE9F136C926300233C48 /* FormNinjaAppDelegate.h */,
 				D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */,
@@ -344,6 +350,16 @@
 			name = MainMenu;
 			sourceTree = "<group>";
 		};
+		F7E2B563137E49D600EA89D0 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				F7E2B55F137E49D000EA89D0 /* AccountClass.h */,
+				F7E2B560137E49D000EA89D0 /* AccountClass.m */,
+				F768C5AB137DE85800191858 /* AccountEditor */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -401,6 +417,7 @@
 				F778DD56137DC60E00B444F6 /* TemplateManagerViewController.xib in Resources */,
 				F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */,
 				F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */,
+				F768C5B8137DEFEB00191858 /* TODO.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +450,7 @@
 				F778DD55137DC60E00B444F6 /* TemplateManagerViewController.m in Sources */,
 				F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */,
 				F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */,
+				F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
