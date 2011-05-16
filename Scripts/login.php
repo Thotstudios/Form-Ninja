@@ -43,11 +43,18 @@ if($_POST['username'])
 			$row = mysql_fetch_array($queryResult);
   			$response['firstName'] = $row['FNAME'];
   			$response['lastName'] = $row['LNAME'];
-  			$response['email'] = $row['EMAIL'];
-  			$response['company'] = $row['COMPANY'];
-  			$response['phoneNumber'] = $row['PHONENUMBER'];
+  			$response['email'] = $row['EMAIL'];  				
   			$response['zipCode'] = $row['ZIPCODE'];
-  			$response['zipeCodeExt'] = $row['ZIPCODEEXT'];
+  			
+  			//Not required fields
+  			if(!is_null($row['COMPANY']))
+	  			$response['company'] = $row['COMPANY'];
+  			
+  			if(!is_null($row['PHONENUMBER']))
+  				$response['phoneNumber'] = $row['PHONENUMBER'];
+  				
+  			if(!is_null($row['ZIPCODEEXT']))
+  				$response['zipeCodeExt'] = $row['ZIPCODEEXT'];
   						
 			print json_encode($response);
 		}
