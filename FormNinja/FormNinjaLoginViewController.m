@@ -22,7 +22,7 @@
 
 
 @implementation FormNinjaLoginViewController
-@synthesize mainMenuViewController;
+//@synthesize mainMenuViewController;
 
 
 #pragma mark - View lifecycle
@@ -37,6 +37,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+	NSLog(@"Login did load");
     [super viewDidLoad];
     
     //Add load alert view to window
@@ -47,6 +48,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+	NSLog(@"Login did appear");
     if (!LOGIN)
 		{
         [self userAuthenticated];
@@ -73,20 +75,23 @@
 #pragma mark - Instance Methods
 
 //Pushes alert view
-- (void) pushAlertView{
+- (void) pushAlertView
+{
     self.loadAlert.view.hidden = FALSE;
 	[self.loadAlert startActivityIndicator];
 }
 
 
 //Removes alert view
-- (void) removeAlertView{
+- (void) removeAlertView
+{
 	[self.loadAlert stopActivityIndicator];
     self.loadAlert.view.hidden = TRUE;	
 }
 
 
-- (IBAction) loginButtonAction{
+- (IBAction) loginButtonAction
+{
     //Test account info
     //un:test pass:test
     NSLog(@"login (%@:%@)", [usernameField text], [passwordField text]);
@@ -115,7 +120,8 @@
 - (void) userAuthenticated
 {
     [self removeAlertView];
-	[self.navigationController pushViewController:mainMenuViewController animated:YES];
+	[self.navigationController popViewControllerAnimated:YES];
+	// TODO: set current account info. -Chad
 //    [self presentModalViewController:mainMenuViewController animated:YES];
 }
 
@@ -205,7 +211,7 @@
 
 - (void)viewDidUnload
 {
-	[self setMainMenuViewController:nil];
+	//[self setMainMenuViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -222,7 +228,7 @@
     [usernameField release];
     [passwordField release];
     [statusLabel release];
-	[mainMenuViewController release];
+	//[mainMenuViewController release];
     [loadAlert release];
     [loginButton release];
     

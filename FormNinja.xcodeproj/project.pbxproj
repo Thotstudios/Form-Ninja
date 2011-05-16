@@ -35,7 +35,7 @@
 		D922CEA1136C926300233C48 /* FormNinjaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */; };
 		D922CEA4136C926300233C48 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D922CEA2136C926300233C48 /* MainWindow.xib */; };
 		D922CEA7136C926300233C48 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */; };
-		D922CEAA136C926300233C48 /* FormNinjaLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = D922CEA8136C926300233C48 /* FormNinjaLogin.xib */; };
+		D922CEAA136C926300233C48 /* FormNinjaLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D922CEA8136C926300233C48 /* FormNinjaLoginViewController.xib */; };
 		F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F768C5AD137DE85800191858 /* AccountEditorViewController.m */; };
 		F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F768C5AE137DE85800191858 /* AccountEditorViewController.xib */; };
 		F768C5B8137DEFEB00191858 /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = F768C5B7137DEFEB00191858 /* TODO.txt */; };
@@ -103,7 +103,7 @@
 		D922CEA3136C926300233C48 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaLoginViewController.h; sourceTree = "<group>"; };
 		D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaLoginViewController.m; sourceTree = "<group>"; };
-		D922CEA9136C926300233C48 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FormNinjaLogin.xib; sourceTree = "<group>"; };
+		D922CEA9136C926300233C48 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FormNinjaLoginViewController.xib; sourceTree = "<group>"; };
 		F768C5AC137DE85800191858 /* AccountEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditorViewController.h; sourceTree = "<group>"; };
 		F768C5AD137DE85800191858 /* AccountEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditorViewController.m; sourceTree = "<group>"; };
 		F768C5AE137DE85800191858 /* AccountEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountEditorViewController.xib; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 			children = (
 				D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */,
 				D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */,
-				D922CEA8136C926300233C48 /* FormNinjaLogin.xib */,
+				D922CEA8136C926300233C48 /* FormNinjaLoginViewController.xib */,
 			);
 			name = OldLogin;
 			sourceTree = "<group>";
@@ -410,7 +410,7 @@
 			files = (
 				D922CE9B136C926300233C48 /* InfoPlist.strings in Resources */,
 				D922CEA4136C926300233C48 /* MainWindow.xib in Resources */,
-				D922CEAA136C926300233C48 /* FormNinjaLogin.xib in Resources */,
+				D922CEAA136C926300233C48 /* FormNinjaLoginViewController.xib in Resources */,
 				F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */,
 				F77FDA561375F5DD00DC694D /* TemplateEditorViewController.xib in Resources */,
 				425CA0C0137AE78700BBCBEA /* stringFieldViewController.xib in Resources */,
@@ -473,12 +473,12 @@
 			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
-		D922CEA8136C926300233C48 /* FormNinjaLogin.xib */ = {
+		D922CEA8136C926300233C48 /* FormNinjaLoginViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D922CEA9136C926300233C48 /* en */,
 			);
-			name = FormNinjaLogin.xib;
+			name = FormNinjaLoginViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
