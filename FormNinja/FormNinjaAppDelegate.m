@@ -8,14 +8,14 @@
 
 #import "FormNinjaAppDelegate.h"
 
-#import "FormNinjaLoginViewController.h"
+//#import "FormNinjaLoginViewController.h"
 
 @implementation FormNinjaAppDelegate
 
 
 @synthesize window=_window;
 
-@synthesize viewController=_viewController;
+//@synthesize viewController=_viewController;
 @synthesize navigationController = _navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -69,7 +69,7 @@
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
+    //[_viewController release];
     [_navigationController release];
     [super dealloc];
 }

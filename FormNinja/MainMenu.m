@@ -12,6 +12,7 @@
 @implementation MainMenu
 @synthesize templateEditorViewController;
 @synthesize accountEditor;
+@synthesize loginViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +27,7 @@
 {
 	[templateEditorViewController release];
 	[accountEditor release];
+	[loginViewController release];
     [super dealloc];
 }
 
@@ -49,6 +51,7 @@
 {
 	[self setTemplateEditorViewController:nil];
 	[self setAccountEditor:nil];
+	[self setLoginViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -71,10 +74,14 @@
 	[self.navigationController pushViewController:accountEditor animated:YES];
 }
 
+- (IBAction)requireLogin:(id)sender
+{
+	[self.navigationController pushViewController:loginViewController animated:YES];
+}
+
 // TODO temporary
 - (IBAction)buttonPressedTemplateEditor:(id)sender
 {
-//[self presentModalViewController:templateEditorViewController animated:YES];
 	[self.navigationController pushViewController:templateEditorViewController animated:YES];
 }
 @end

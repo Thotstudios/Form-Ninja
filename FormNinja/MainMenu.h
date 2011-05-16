@@ -14,13 +14,17 @@
     
 	UIViewController *templateEditorViewController;
 	UIViewController *accountEditor;
+	UIViewController *loginViewController;
 }
 @property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
 @property (nonatomic, retain) IBOutlet UIViewController *accountEditor;
+@property (nonatomic, retain) IBOutlet UIViewController *loginViewController;
 
 - (IBAction)buttonPressedForms:(id)sender;
 - (IBAction)buttonPressedManagement:(id)sender;
 - (IBAction)buttonPressedAccount:(id)sender;
+
+- (IBAction)requireLogin:(id)sender;
 
 
 // TODO: temporary
