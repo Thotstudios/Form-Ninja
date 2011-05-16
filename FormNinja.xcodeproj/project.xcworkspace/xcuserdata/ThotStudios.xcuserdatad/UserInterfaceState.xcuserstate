@@ -5422,9 +5422,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>327277501.933743</real>
-		<string>{5022, 1055}</string>
-		<string>{5643, 0}</string>
+		<real>327279120.373285</real>
+		<string>{5016, 1310}</string>
+		<string>{5396, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7580,9 +7580,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>327277501.93432999</real>
-		<string>{5022, 1055}</string>
-		<string>{5643, 0}</string>
+		<real>327279120.37396502</real>
+		<string>{5016, 1310}</string>
+		<string>{5396, 0}</string>
 		<string>-requestFinished:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
@@ -13016,7 +13016,7 @@
 				<integer>969</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>327277500.87385201</real>
+			<real>327279117.83284098</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -13027,7 +13027,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 3:25 PM</string>
+		<string>Today at 3:51 PM</string>
 		<integer>106</integer>
 		<dict>
 			<key>$class</key>
@@ -24494,9 +24494,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>327277501.93653297</real>
-		<string>{5022, 1055}</string>
-		<string>{5643, 0}</string>
+		<real>327279120.37696099</real>
+		<string>{5016, 1310}</string>
+		<string>{5396, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>

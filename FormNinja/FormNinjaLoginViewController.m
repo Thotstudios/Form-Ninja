@@ -153,7 +153,7 @@
 //Called when user has been authenticated
 - (void) userAuthenticated
 {
-    NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *opt = [NSUserDefaults standardUserDefaults];
 
 	
 	{ // set login expiration
@@ -205,17 +205,33 @@
     if([userAccepted isEqualToString:@"True"]){
         self.loadAlert.alertLabel.text = @"Login successful";
         [self.loadAlert stopActivityIndicator];
-        //NSString *userAccepted = [jsonDict objectForKey:@"accepted"];
+        
+        //If there is no user information stored locally, store it
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if([defaults dictionaryForKey:@"userInformation"] == nil){
+            NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
+            [userDict setObject:self.usernameField.text forKey:@"username"];
+            [userDict setObject:self.passwordField.text forKey:@"password"];
+            [userDict setObject:@"thot" forKey:@"company"];
+            [userDict setObject:[jsonDict objectForKey:@"email"] forKey:@"email"];
+            [userDict setObject:[jsonDict objectForKey:@"firstName"] forKey:@"firstName"];
+            [userDict setObject:[jsonDict objectForKey:@"lastName"] forKey:@"lastName"];
+            [userDict setObject:@"55949" forKey:@"phoneNumber"];
+            [userDict setObject:[jsonDict objectForKey:@"zipCode"] forKey:@"zipCode"];
+            [userDict setObject:@"456" forKey:@"zipeCodeExt"];
+            
+            [defaults setObject:userDict forKey:@"userInformation"];
+            [defaults synchronize];
+        }
         
         [self performSelector:@selector(userAuthenticated) withObject:nil afterDelay:3];
     }
     
-    else
-		{
+    else{
         self.loadAlert.alertLabel.text = @"Login failed";
         [self.loadAlert stopActivityIndicator];
         [self performSelector:@selector(userAuthenticatedFailed:) withObject:[jsonDict objectForKey:@"error"] afterDelay:3];
-		}
+    }
 }
 
 
