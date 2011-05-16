@@ -15,6 +15,7 @@
 @interface FormNinjaLoginViewController : UIViewController {
     IBOutlet UITextField *usernameField;
     IBOutlet UITextField *passwordField;
+	UISwitch *rememberSwitch;
    
     IBOutlet UIButton *loginButton;
     
@@ -26,6 +27,7 @@
 
 
 @property (nonatomic, retain) UITextField *usernameField, *passwordField;
+@property (nonatomic, retain) IBOutlet UISwitch *rememberSwitch;
 @property (nonatomic, retain) UIButton *loginButton;
 
 //@property (nonatomic, retain) IBOutlet UIViewController *mainMenuViewController; 
@@ -34,6 +36,7 @@
 @property (nonatomic, retain) UILabel *statusLabel;
 
 
+- (IBAction)rememberSwitchAction:(UISwitch*)sender;
 - (IBAction) loginButtonAction;
 - (IBAction) userAuthenticated; // TODO temporary
 

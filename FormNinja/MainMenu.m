@@ -13,6 +13,7 @@
 @synthesize templateEditorViewController;
 @synthesize accountEditor;
 @synthesize loginViewController;
+@synthesize loginExpirationLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +29,7 @@
 	[templateEditorViewController release];
 	[accountEditor release];
 	[loginViewController release];
+	[loginExpirationLabel release];
     [super dealloc];
 }
 
@@ -46,12 +48,60 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+-(void) viewDidAppear:(BOOL)animated
+{
+	NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
+	
+	long loginExpiration = [opt integerForKey:@"login expiration"]; // MAGIC: forget_me_key
+	
+	if(loginExpiration < time(0))
+		{
+		if(1) // TODO: has_internet_access
+			[self.navigationController pushViewController:loginViewController animated:YES];
+		// else
+		// extend expiration
+		}
+	
+	{ // set Login Expiration Label message
+		long count = loginExpiration - time(0);
+		NSString * units = @"second";
+		
+		// Divide out the units (as float), and round up:
+		if(count > 60) // seconds
+			{
+			count = 0.50 + count / 60.;
+			units = @"minute";
+			if(count > 60) // minutes
+				{
+				count = 0.50 + count / 60.;
+				units = @"hour";
+				if(count > 24) // hours
+					{
+					count = 0.50 + count / 24.;
+					units = @"day";
+					if(count > 7) // days
+						{
+						count = 0.50 + count / 7.;
+						units = @"week";
+						}
+					}
+				}
+			}
+		
+		// make the units plural:
+		if(count > 1) units = [units stringByAppendingString:@"s"];
+		
+		// set the message
+		[loginExpirationLabel setText:[NSString stringWithFormat:@"Login expires in %i %@", count, units]];
+	} // end set Login Expiration Label message
+}
 
 - (void)viewDidUnload
 {
 	[self setTemplateEditorViewController:nil];
 	[self setAccountEditor:nil];
 	[self setLoginViewController:nil];
+	[self setLoginExpirationLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -63,10 +113,15 @@
 	return YES;
 }
 
-- (IBAction)buttonPressedForms:(id)sender{
+#pragma mark -
+#pragma mark - Interface Actions
+
+- (IBAction)buttonPressedForms:(id)sender
+{
 }
 
-- (IBAction)buttonPressedManagement:(id)sender {
+- (IBAction)buttonPressedManagement:(id)sender
+{
 }
 
 - (IBAction)buttonPressedAccount:(id)sender
@@ -74,8 +129,12 @@
 	[self.navigationController pushViewController:accountEditor animated:YES];
 }
 
-- (IBAction)requireLogin:(id)sender
+- (IBAction)requireLogin
 {
+	NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
+	[opt setInteger:0 forKey:@"login expiration"]; // MAGIC: forget_me_key
+	[opt synchronize];
+	
 	[self.navigationController pushViewController:loginViewController animated:YES];
 }
 

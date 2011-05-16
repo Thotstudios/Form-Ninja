@@ -11,20 +11,21 @@
 
 @interface MainMenu : UIViewController
 {
-    
 	UIViewController *templateEditorViewController;
 	UIViewController *accountEditor;
 	UIViewController *loginViewController;
+	UILabel *loginExpirationLabel;
 }
 @property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
 @property (nonatomic, retain) IBOutlet UIViewController *accountEditor;
 @property (nonatomic, retain) IBOutlet UIViewController *loginViewController;
+@property (nonatomic, retain) IBOutlet UILabel *loginExpirationLabel;
 
 - (IBAction)buttonPressedForms:(id)sender;
 - (IBAction)buttonPressedManagement:(id)sender;
 - (IBAction)buttonPressedAccount:(id)sender;
 
-- (IBAction)requireLogin:(id)sender;
+- (IBAction)requireLogin;
 
 
 // TODO: temporary
