@@ -21,11 +21,14 @@ if($_POST['username'])
 		
 		//SELECT to see if username / password combo exists
 		$queryResult=mysql_query('select * from USER where USERNAME="'.$_POST['username'].'" and PASSWORD="'.$_POST['password'].'"');
-		if(!$queryResult)
-			die("Select error: ".mysql_error());
-		//echo "\n Number of rows is ".mysql_num_rows($queryResult);
-		//$row=mysql_fetch_row($queryResult);
 		
+		if(!$queryResult){
+			$response['accepted'] = 'False';
+			$response['error'] = 'Database select error';
+			print json_encode($response);
+			exit;
+		}
+
 		//Start json array
 		$response = array();
 		
