@@ -166,13 +166,14 @@
 		[opt synchronize];
 	} // end set login expiration
 	
+    /*
     if([opt stringForKey:@"username"] == nil){
         self.loadAlert.alertLabel.text = @"Fetching account information";
         [self getUserInfo];
     }
     
-    else
-        [self performSelector:@selector(gotoMenu) withObject:nil afterDelay:3];
+    else*/
+    [self performSelector:@selector(gotoMenu) withObject:nil afterDelay:3];
 }
 
 
@@ -181,13 +182,6 @@
 {
     [self removeAlertView];
     self.statusLabel.text = error;
-}
-
-
-//Processes response from a user info request
-- (void) userInfoRequest:(NSDictionary *) jsonDict{
-    NSLog(@"%@", jsonDict);
-    [self performSelector:@selector(gotoMenu) withObject:nil afterDelay:2];
 }
 
 
@@ -204,21 +198,17 @@
 - (void)requestFinished:(ASIHTTPRequest *)request
 {	
     //Get intial dict from response string
-	NSDictionary *jsonDict = [[request responseString] JSONValue];    
+	NSDictionary *jsonDict = [[request responseString] JSONValue]; 
+    NSLog(@"%@", jsonDict);
     NSString *userAccepted = [jsonDict objectForKey:@"accepted"]; //Get response
-	
-    //If no accepted key then this is a user info request
-    if(userAccepted == nil){
-        NSLog(@"here");
-        [self userInfoRequest:jsonDict];
-        return;
-    }
     
-    if([userAccepted isEqualToString:@"True"])
-		{
+    if([userAccepted isEqualToString:@"True"]){
         self.loadAlert.alertLabel.text = @"Login successful";
-        [self userAuthenticated];
-		}
+        
+        //NSString *userAccepted = [jsonDict objectForKey:@"accepted"];
+        
+        [self performSelector:@selector(userAuthenticated) withObject:nil afterDelay:3];
+    }
     
     else
 		{
