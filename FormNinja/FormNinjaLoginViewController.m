@@ -204,7 +204,7 @@
     
     if([userAccepted isEqualToString:@"True"]){
         self.loadAlert.alertLabel.text = @"Login successful";
-        
+        [self.loadAlert stopActivityIndicator];
         //NSString *userAccepted = [jsonDict objectForKey:@"accepted"];
         
         [self performSelector:@selector(userAuthenticated) withObject:nil afterDelay:3];

@@ -39,6 +39,16 @@ if($_POST['username'])
 			
 			$response['accepted'] = 'True';
 			
+
+			$row = mysql_fetch_array($queryResult);
+  			$response['firstName'] = $row['FNAME'];
+  			$response['lastname'] = $row['LNAME'];
+  			$response['email'] = $row['EMAIL'];
+  			$response['company'] = $row['COMPANY'];
+  			$response['phoneNumber'] = $row['PHONENUMBER'];
+  			$response['zipCode'] = $row['ZIPCODE'];
+  			$response['zipeCodeExt'] = $row['ZIPCODEEXT'];
+  						
 			print json_encode($response);
 		}
 		
