@@ -93,6 +93,12 @@
 }
 
 
+- (void) gotoMenu{
+    [self removeAlertView];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 - (IBAction)rememberSwitchAction:(UISwitch*)sender
 {
 	BOOL remember = [sender isOn];
@@ -131,10 +137,24 @@
 }
 
 
+- (void) getUserInfo{
+    //Prepare form
+    NSURL *urlToSend = [[[NSURL alloc] initWithString: @"http://www.rilburskryler.net/mobile/userinfo.php"] autorelease];
+    ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
+    [request setPostValue:self.usernameField.text forKey:@"username"];  
+    [request setPostValue:self.passwordField.text forKey:@"password"];  
+	
+    //Send request
+    request.delegate = self;
+    [request startAsynchronous];  
+}
+
+
 //Called when user has been authenticated
 - (void) userAuthenticated
 {
-    [self removeAlertView];
+    NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
+
 	
 	{ // set login expiration
 		NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
@@ -146,9 +166,13 @@
 		[opt synchronize];
 	} // end set login expiration
 	
-	// TODO: set current account info. -Chad
-	
-	[self.navigationController popViewControllerAnimated:YES];
+    if([opt stringForKey:@"username"] == nil){
+        self.loadAlert.alertLabel.text = @"Fetching account information";
+        [self getUserInfo];
+    }
+    
+    else
+        [self performSelector:@selector(gotoMenu) withObject:nil afterDelay:3];
 }
 
 
@@ -157,6 +181,13 @@
 {
     [self removeAlertView];
     self.statusLabel.text = error;
+}
+
+
+//Processes response from a user info request
+- (void) userInfoRequest:(NSDictionary *) jsonDict{
+    NSLog(@"%@", jsonDict);
+    [self performSelector:@selector(gotoMenu) withObject:nil afterDelay:2];
 }
 
 
@@ -176,11 +207,17 @@
 	NSDictionary *jsonDict = [[request responseString] JSONValue];    
     NSString *userAccepted = [jsonDict objectForKey:@"accepted"]; //Get response
 	
+    //If no accepted key then this is a user info request
+    if(userAccepted == nil){
+        NSLog(@"here");
+        [self userInfoRequest:jsonDict];
+        return;
+    }
+    
     if([userAccepted isEqualToString:@"True"])
 		{
         self.loadAlert.alertLabel.text = @"Login successful";
-        [self.loadAlert stopActivityIndicator];
-        [self performSelector:@selector(userAuthenticated) withObject:nil afterDelay:3];
+        [self userAuthenticated];
 		}
     
     else
