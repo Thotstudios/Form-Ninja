@@ -7,12 +7,13 @@
 //
 
 #import "MainMenu.h"
-
+#import "Constants.h"
 
 @implementation MainMenu
 @synthesize templateEditorViewController;
 @synthesize accountEditor;
 @synthesize loginViewController;
+@synthesize templateManagerViewContoller;
 @synthesize loginExpirationLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,6 +31,7 @@
 	[accountEditor release];
 	[loginViewController release];
 	[loginExpirationLabel release];
+	[templateManagerViewContoller release];
     [super dealloc];
 }
 
@@ -52,7 +54,7 @@
 {
 	NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
 	
-	long loginExpiration = [opt integerForKey:@"login expiration"]; // MAGIC: forget_me_key
+	long loginExpiration = [opt integerForKey:loginExpirationKey];
 	
 	if(loginExpiration < time(0))
 		{
@@ -94,6 +96,8 @@
 		// set the message
 		[loginExpirationLabel setText:[NSString stringWithFormat:@"Login expires in %i %@", count, units]];
 	} // end set Login Expiration Label message
+	
+	
 }
 
 - (void)viewDidUnload
@@ -102,6 +106,7 @@
 	[self setAccountEditor:nil];
 	[self setLoginViewController:nil];
 	[self setLoginExpirationLabel:nil];
+	[self setTemplateManagerViewContoller:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -120,8 +125,9 @@
 {
 }
 
-- (IBAction)buttonPressedManagement:(id)sender
+- (IBAction)buttonPressedTemplateManagement:(id)sender
 {
+	[self.navigationController pushViewController:templateManagerViewContoller animated:YES];
 }
 
 - (IBAction)buttonPressedAccount:(id)sender
@@ -132,7 +138,7 @@
 - (IBAction)requireLogin
 {
 	NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
-	[opt setInteger:0 forKey:@"login expiration"]; // MAGIC: forget_me_key
+	[opt setInteger:0 forKey:loginExpirationKey];
 	[opt synchronize];
 	
 	[self.navigationController pushViewController:loginViewController animated:YES];
