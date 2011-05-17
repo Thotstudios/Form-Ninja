@@ -67,7 +67,7 @@
 }
 
 
-- (void) saveToFile:(NSDictionary *) userDict{
+- (void) saveWithDict:(NSDictionary *) userDict{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *saveDict = [NSMutableDictionary dictionary];
         

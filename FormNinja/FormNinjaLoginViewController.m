@@ -212,7 +212,7 @@
         AccountClass *account = [AccountClass sharedAccountClass];
         if(account.username == nil){
             NSDictionary *userDict = [jsonDict objectForKey:@"userInfo"];
-            [account saveToFile:userDict];
+            [account saveWithDict:userDict];
         }
         
         [self performSelector:@selector(userAuthenticated) withObject:nil afterDelay:3];
