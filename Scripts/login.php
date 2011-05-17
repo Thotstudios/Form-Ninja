@@ -28,7 +28,7 @@ if($_POST['username'])
 			print json_encode($response);
 			exit;
 		}
-
+	
 		//Start json array
 		$response = array();
 		

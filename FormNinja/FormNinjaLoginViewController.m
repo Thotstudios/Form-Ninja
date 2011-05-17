@@ -212,13 +212,20 @@
             NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
             [userDict setObject:self.usernameField.text forKey:@"username"];
             [userDict setObject:self.passwordField.text forKey:@"password"];
-            [userDict setObject:@"thot" forKey:@"company"];
             [userDict setObject:[jsonDict objectForKey:@"email"] forKey:@"email"];
             [userDict setObject:[jsonDict objectForKey:@"firstName"] forKey:@"firstName"];
             [userDict setObject:[jsonDict objectForKey:@"lastName"] forKey:@"lastName"];
-            [userDict setObject:@"55949" forKey:@"phoneNumber"];
             [userDict setObject:[jsonDict objectForKey:@"zipCode"] forKey:@"zipCode"];
-            [userDict setObject:@"456" forKey:@"zipeCodeExt"];
+            
+            //Optional values as of now
+            if([jsonDict objectForKey:@"company"])
+                [userDict setObject:[jsonDict objectForKey:@"company"] forKey:@"company"];
+            
+            if([jsonDict objectForKey:@"phoneNumber"])
+                [userDict setObject:[jsonDict objectForKey:@"phoneNumber"] forKey:@"phoneNumber"];
+            
+            if([jsonDict objectForKey:@"zipeCodeExt"])
+                [userDict setObject:[jsonDict objectForKey:@"zipeCodeExt"] forKey:@"zipeCodeExt"];
             
             [defaults setObject:userDict forKey:@"userInformation"];
             [defaults synchronize];
