@@ -72,25 +72,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //Get user information
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if([defaults dictionaryForKey:userInfo] == nil){
+    //Get user account class
+    self.account = [AccountClass sharedAccountClass];
+    
+    if(self.account.username == nil){ //if no username, there is no user info stored
         //regrab info
     }
     
-    //populate vc
-    else{
-        NSDictionary *userDict = [defaults dictionaryForKey:userInfo]; //get user info
-        
-        usernameTextField.text = [userDict objectForKey:userName];
-        firstNameTextField.text = [userDict objectForKey:userFirstName];
-        lastNameTextField.text = [userDict objectForKey:userLastName];
-        passwordTextField.text = [userDict objectForKey:userPassword];
-        companyNameTextField.text = [userDict objectForKey:userCompany];
-        emailAddressTextField.text = [userDict objectForKey:userEmail];
-        phoneNumberTextField.text = [userDict objectForKey:userPhoneNumber];
-        zipCodeTextField.text = [userDict objectForKey:userZipCode];
-        zipCodeExtTextField.text = [userDict objectForKey:zipCodeExtTextField];
+    //else populate vc
+    else{        
+        usernameTextField.text = self.account.username;
+        firstNameTextField.text = self.account.firstName;
+        lastNameTextField.text = self.account.lastName;
+        passwordTextField.text = self.account.passwordHash;
+        companyNameTextField.text = self.account.companyName;
+        emailAddressTextField.text = self.account.emailAddress;
+        phoneNumberTextField.text = self.account.phoneNumber;
+        zipCodeTextField.text = self.account.zipCode;
+        zipCodeExtTextField.text = self.account.zipCodeExt;
     }
 }
 

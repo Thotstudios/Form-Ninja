@@ -40,6 +40,8 @@
 @property (retain, nonatomic) NSString * zipCodeExt;
 
 
++ (AccountClass *) sharedAccountClass;
+
 @end
 
 /*
