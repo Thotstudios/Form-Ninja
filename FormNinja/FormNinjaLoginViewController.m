@@ -81,6 +81,7 @@
 //Pushes alert view
 - (void) pushAlertView
 {
+    self.navigationItem.hidesBackButton = TRUE;
     self.loadAlert.view.hidden = FALSE;
 	[self.loadAlert startActivityIndicator];
 }
@@ -89,6 +90,7 @@
 //Removes alert view
 - (void) removeAlertView
 {
+    self.navigationItem.hidesBackButton = FALSE;
 	[self.loadAlert stopActivityIndicator];
     self.loadAlert.view.hidden = TRUE;	
 }
@@ -154,8 +156,6 @@
 //Called when user has been authenticated
 - (void) userAuthenticated
 {
-    NSUserDefaults *opt = [NSUserDefaults standardUserDefaults];
-
 	
 	{ // set login expiration
 		NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
@@ -209,7 +209,7 @@
         
         //If there is no user information stored locally, store it
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        if([defaults dictionaryForKey:@"userInformation"] == nil){
+        if([defaults dictionaryForKey:userInfo] == nil){
             NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
             [userDict setObject:self.usernameField.text forKey:userName];
             [userDict setObject:self.passwordField.text forKey:userPassword];
@@ -228,7 +228,7 @@
             if([jsonDict objectForKey:userExtendedZip])
                 [userDict setObject:[jsonDict objectForKey:userExtendedZip] forKey:userExtendedZip];
             
-            [defaults setObject:userDict forKey:@"userInformation"];
+            [defaults setObject:userDict forKey:userInfo];
             [defaults synchronize];
         }
         

@@ -7,6 +7,8 @@
 //
 
 
+//User info 
+#define userInfo @"userInformation"
 #define userName @"username"
 #define userPassword @"password"
 #define userEmail @"email"
@@ -16,4 +18,3 @@
 #define userExtendedZip @"zipeCodeExt"
 #define userCompany @"company"
 #define userPhoneNumber @"phoneNumber"
-

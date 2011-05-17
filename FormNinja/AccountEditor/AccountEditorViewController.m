@@ -9,6 +9,7 @@
 #import "AccountEditorViewController.h"
 
 #import "AccountClass.h"
+#import "Constants.h"
 
 @implementation AccountEditorViewController
 
@@ -70,6 +71,27 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //Get user information
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([defaults dictionaryForKey:userInfo] == nil){
+        //regrab info
+    }
+    
+    //populate vc
+    else{
+        NSDictionary *userDict = [defaults dictionaryForKey:userInfo]; //get user info
+        
+        usernameTextField.text = [userDict objectForKey:userName];
+        firstNameTextField.text = [userDict objectForKey:userFirstName];
+        lastNameTextField.text = [userDict objectForKey:userLastName];
+        passwordTextField.text = [userDict objectForKey:userPassword];
+        companyNameTextField.text = [userDict objectForKey:userCompany];
+        emailAddressTextField.text = [userDict objectForKey:userEmail];
+        phoneNumberTextField.text = [userDict objectForKey:userPhoneNumber];
+        zipCodeTextField.text = [userDict objectForKey:userZipCode];
+        zipCodeExtTextField.text = [userDict objectForKey:zipCodeExtTextField];
+    }
 }
 
 - (void)viewDidUnload
