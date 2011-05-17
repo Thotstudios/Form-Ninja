@@ -55,6 +55,7 @@
 		425CA0BC137AE78700BBCBEA /* stringFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringFieldViewController.h; sourceTree = "<group>"; };
 		425CA0BD137AE78700BBCBEA /* stringFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stringFieldViewController.m; sourceTree = "<group>"; };
 		425CA0BE137AE78700BBCBEA /* stringFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = stringFieldViewController.xib; sourceTree = "<group>"; };
+		D90A13DC1382250200857A4C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D917B3E81378D0B000E75140 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = FormNinja/ASI/ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIAuthenticationDialog.m; path = FormNinja/ASI/ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		D917B3EA1378D0B000E75140 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASICacheDelegate.h; path = FormNinja/ASI/ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -254,6 +255,7 @@
 		D922CE96136C926300233C48 /* FormNinja */ = {
 			isa = PBXGroup;
 			children = (
+				D90A13DC1382250200857A4C /* Constants.h */,
 				F778DD50137DC40B00B444F6 /* Networking */,
 				D917B3D01378D06200E75140 /* JSON */,
 				F778DD51137DC60E00B444F6 /* TemplateManager */,

@@ -11,6 +11,7 @@
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
 #import "CustomLoadAlertViewController.h"
+#import "Constants.h"
 
 
 #define LOGIN 1 //0 skips login screen
@@ -210,22 +211,22 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         if([defaults dictionaryForKey:@"userInformation"] == nil){
             NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
-            [userDict setObject:self.usernameField.text forKey:@"username"];
-            [userDict setObject:self.passwordField.text forKey:@"password"];
-            [userDict setObject:[jsonDict objectForKey:@"email"] forKey:@"email"];
-            [userDict setObject:[jsonDict objectForKey:@"firstName"] forKey:@"firstName"];
-            [userDict setObject:[jsonDict objectForKey:@"lastName"] forKey:@"lastName"];
-            [userDict setObject:[jsonDict objectForKey:@"zipCode"] forKey:@"zipCode"];
+            [userDict setObject:self.usernameField.text forKey:userName];
+            [userDict setObject:self.passwordField.text forKey:userPassword];
+            [userDict setObject:[jsonDict objectForKey:userEmail] forKey:userEmail];
+            [userDict setObject:[jsonDict objectForKey:userFirstName] forKey:userFirstName];
+            [userDict setObject:[jsonDict objectForKey:userLastName] forKey:userLastName];
+            [userDict setObject:[jsonDict objectForKey:userZipCode] forKey:userZipCode];
             
             //Optional values as of now
-            if([jsonDict objectForKey:@"company"])
-                [userDict setObject:[jsonDict objectForKey:@"company"] forKey:@"company"];
+            if([jsonDict objectForKey:userCompany])
+                [userDict setObject:[jsonDict objectForKey:userCompany] forKey:userCompany];
             
-            if([jsonDict objectForKey:@"phoneNumber"])
-                [userDict setObject:[jsonDict objectForKey:@"phoneNumber"] forKey:@"phoneNumber"];
+            if([jsonDict objectForKey:userPhoneNumber])
+                [userDict setObject:[jsonDict objectForKey:userPhoneNumber] forKey:userPhoneNumber];
             
-            if([jsonDict objectForKey:@"zipeCodeExt"])
-                [userDict setObject:[jsonDict objectForKey:@"zipeCodeExt"] forKey:@"zipeCodeExt"];
+            if([jsonDict objectForKey:userExtendedZip])
+                [userDict setObject:[jsonDict objectForKey:userExtendedZip] forKey:userExtendedZip];
             
             [defaults setObject:userDict forKey:@"userInformation"];
             [defaults synchronize];
