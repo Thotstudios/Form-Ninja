@@ -39,22 +39,27 @@ if($_POST['username'])
 			
 			$response['accepted'] = 'True';
 			
+			$userInfo = array();
 
 			$row = mysql_fetch_array($queryResult);
-  			$response['firstName'] = $row['FNAME'];
-  			$response['lastName'] = $row['LNAME'];
-  			$response['email'] = $row['EMAIL'];  				
-  			$response['zipCode'] = $row['ZIPCODE'];
+			$userInfo['userName'] = $row['USERNAME'];
+			$userInfo['userPassword'] = $row['PASSWORD'];
+  			$userInfo['firstName'] = $row['FNAME'];
+  			$userInfo['lastName'] = $row['LNAME'];
+  			$userInfo['email'] = $row['EMAIL'];  				
+  			$userInfo['zipCode'] = $row['ZIPCODE'];
   			
   			//Not required fields
   			if(!is_null($row['COMPANY']))
-	  			$response['company'] = $row['COMPANY'];
+	  			$userInfo['company'] = $row['COMPANY'];
   			
   			if(!is_null($row['PHONENUMBER']))
-  				$response['phoneNumber'] = $row['PHONENUMBER'];
+  				$userInfo['phoneNumber'] = $row['PHONENUMBER'];
   				
   			if(!is_null($row['ZIPCODEEXT']))
-  				$response['zipeCodeExt'] = $row['ZIPCODEEXT'];
+  				$userInfo['zipeCodeExt'] = $row['ZIPCODEEXT'];
+  				
+  			$response['userInfo'] = $userInfo;
   						
 			print json_encode($response);
 		}

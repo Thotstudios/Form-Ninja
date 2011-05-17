@@ -40,6 +40,7 @@
 @property (retain, nonatomic) NSString * zipCodeExt;
 
 
+- (void) saveToFile:(NSDictionary *) userDict;
 + (AccountClass *) sharedAccountClass;
 
 @end

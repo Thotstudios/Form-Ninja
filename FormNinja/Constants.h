@@ -9,8 +9,8 @@
 
 //User info 
 #define userInfo @"userInformation"
-#define userName @"username"
-#define userPassword @"password"
+#define userName @"userName"
+#define userPassword @"userPassword"
 #define userEmail @"email"
 #define userFirstName @"firstName"
 #define userLastName @"lastName"

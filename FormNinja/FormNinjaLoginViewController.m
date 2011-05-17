@@ -12,6 +12,7 @@
 #import "JSON.h"
 #import "CustomLoadAlertViewController.h"
 #import "Constants.h"
+#import "AccountClass.h"
 
 
 #define LOGIN 1 //0 skips login screen
@@ -208,28 +209,10 @@
         [self.loadAlert stopActivityIndicator];
         
         //If there is no user information stored locally, store it
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        if([defaults dictionaryForKey:userInfo] == nil){
-            NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
-            [userDict setObject:self.usernameField.text forKey:userName];
-            [userDict setObject:self.passwordField.text forKey:userPassword];
-            [userDict setObject:[jsonDict objectForKey:userEmail] forKey:userEmail];
-            [userDict setObject:[jsonDict objectForKey:userFirstName] forKey:userFirstName];
-            [userDict setObject:[jsonDict objectForKey:userLastName] forKey:userLastName];
-            [userDict setObject:[jsonDict objectForKey:userZipCode] forKey:userZipCode];
-            
-            //Optional values as of now
-            if([jsonDict objectForKey:userCompany])
-                [userDict setObject:[jsonDict objectForKey:userCompany] forKey:userCompany];
-            
-            if([jsonDict objectForKey:userPhoneNumber])
-                [userDict setObject:[jsonDict objectForKey:userPhoneNumber] forKey:userPhoneNumber];
-            
-            if([jsonDict objectForKey:userExtendedZip])
-                [userDict setObject:[jsonDict objectForKey:userExtendedZip] forKey:userExtendedZip];
-            
-            [defaults setObject:userDict forKey:userInfo];
-            [defaults synchronize];
+        AccountClass *account = [AccountClass sharedAccountClass];
+        if(account.username == nil){
+            NSDictionary *userDict = [jsonDict objectForKey:@"userInfo"];
+            [account saveToFile:userDict];
         }
         
         [self performSelector:@selector(userAuthenticated) withObject:nil afterDelay:3];
