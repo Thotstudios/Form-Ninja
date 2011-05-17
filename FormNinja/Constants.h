@@ -18,3 +18,6 @@
 #define userExtendedZip @"zipeCodeExt"
 #define userCompany @"company"
 #define userPhoneNumber @"phoneNumber"
+
+#define loginExpirationKey @"loginExpiration"
+#define rememberUserKey	@"rememberUser"
