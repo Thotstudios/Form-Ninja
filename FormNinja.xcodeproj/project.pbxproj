@@ -45,8 +45,6 @@
 		F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F778DD5A137DC69400B444F6 /* CustomLoadAlertViewController.m */; };
 		F77FDA551375F5DD00DC694D /* TemplateEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FDA531375F5DD00DC694D /* TemplateEditorViewController.m */; };
 		F77FDA561375F5DD00DC694D /* TemplateEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F77FDA541375F5DD00DC694D /* TemplateEditorViewController.xib */; };
-		F7C158DE1383616A00394811 /* SectionedTemplateManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C158DC1383616900394811 /* SectionedTemplateManagerViewController.m */; };
-		F7C158DF1383616A00394811 /* SectionedTemplateManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C158DD1383616A00394811 /* SectionedTemplateManagerViewController.xib */; };
 		F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D8AFB9136E289500FE0F76 /* MainMenu.m */; };
 		F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D8AFBA136E289500FE0F76 /* MainMenu.xib */; };
 		F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2B560137E49D000EA89D0 /* AccountClass.m */; };
@@ -120,9 +118,6 @@
 		F77FDA521375F5DD00DC694D /* TemplateEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateEditorViewController.h; path = TemplateEditor/TemplateEditorViewController.h; sourceTree = "<group>"; };
 		F77FDA531375F5DD00DC694D /* TemplateEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateEditorViewController.m; path = TemplateEditor/TemplateEditorViewController.m; sourceTree = "<group>"; };
 		F77FDA541375F5DD00DC694D /* TemplateEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TemplateEditorViewController.xib; path = TemplateEditor/TemplateEditorViewController.xib; sourceTree = "<group>"; };
-		F7C158DB1383616900394811 /* SectionedTemplateManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionedTemplateManagerViewController.h; path = SectionedTemplateManager/SectionedTemplateManagerViewController.h; sourceTree = "<group>"; };
-		F7C158DC1383616900394811 /* SectionedTemplateManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionedTemplateManagerViewController.m; path = SectionedTemplateManager/SectionedTemplateManagerViewController.m; sourceTree = "<group>"; };
-		F7C158DD1383616A00394811 /* SectionedTemplateManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SectionedTemplateManagerViewController.xib; path = SectionedTemplateManager/SectionedTemplateManagerViewController.xib; sourceTree = "<group>"; };
 		F7D8AFB8136E289500FE0F76 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		F7D8AFB9136E289500FE0F76 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		F7D8AFBA136E289500FE0F76 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
@@ -263,7 +258,6 @@
 				D90A13DC1382250200857A4C /* Constants.h */,
 				F778DD50137DC40B00B444F6 /* Networking */,
 				D917B3D01378D06200E75140 /* JSON */,
-				F7C158E01383616D00394811 /* TemplateManager-Sectioned */,
 				F778DD51137DC60E00B444F6 /* TemplateManager-TwoTable */,
 				F77FDA501375F5AB00DC694D /* TemplateEditor */,
 				F7E2B563137E49D600EA89D0 /* Account */,
@@ -349,16 +343,6 @@
 			name = TemplateEditor;
 			sourceTree = "<group>";
 		};
-		F7C158E01383616D00394811 /* TemplateManager-Sectioned */ = {
-			isa = PBXGroup;
-			children = (
-				F7C158DB1383616900394811 /* SectionedTemplateManagerViewController.h */,
-				F7C158DC1383616900394811 /* SectionedTemplateManagerViewController.m */,
-				F7C158DD1383616A00394811 /* SectionedTemplateManagerViewController.xib */,
-			);
-			name = "TemplateManager-Sectioned";
-			sourceTree = "<group>";
-		};
 		F7D8AFBE136E289A00FE0F76 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,7 +421,6 @@
 				F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */,
 				F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */,
 				F768C5B8137DEFEB00191858 /* TODO.txt in Resources */,
-				F7C158DF1383616A00394811 /* SectionedTemplateManagerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +454,6 @@
 				F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */,
 				F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */,
 				F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */,
-				F7C158DE1383616A00394811 /* SectionedTemplateManagerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
