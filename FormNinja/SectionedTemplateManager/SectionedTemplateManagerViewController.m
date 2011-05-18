@@ -1,21 +1,22 @@
 //
-//  GroupTableViewController.m
+//  SectionedTemplateManagerViewController.m
 //  FormNinja
 //
 //  Created by Hackenslacker on 5/17/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "GroupTableViewController.h"
+#import "SectionedTemplateManagerViewController.h"
 
 
-@implementation GroupTableViewController
+@implementation SectionedTemplateManagerViewController
+@synthesize deleteButton;
+@synthesize editButton;
+@synthesize newButton;
 
-@synthesize groupNameList;
-
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -24,7 +25,9 @@
 
 - (void)dealloc
 {
-	[groupNameList release];
+    [deleteButton release];
+    [editButton release];
+    [newButton release];
     [super dealloc];
 }
 
@@ -41,41 +44,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-	
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	[self setGroupNameList:[[NSMutableArray alloc] initWithCapacity:1]];
-	[groupNameList addObject:@"All Groups"];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
-	[self setGroupNameList:nil];
-	
+    [self setDeleteButton:nil];
+    [self setEditButton:nil];
+    [self setNewButton:nil];
     [super viewDidUnload];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -84,38 +63,51 @@
 	return YES;
 }
 
+- (IBAction)pressedDeleteButton
+{
+}
+
+- (IBAction)pressedEditButton
+{
+}
+
+- (IBAction)pressedNewButton
+{
+}
+
+
+#pragma mark -
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 3; // the number of groups (plus one?)
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [groupNameList count];
+    return 3; // the number of templates in the group's section
 }
 
 -(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	return @"Template Groups";
+	return @"Section Title (Group Name)";
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil)
-		{
+    if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		}
+    }
     
     // Configure the cell...
-	[[cell textLabel] setText:[groupNameList objectAtIndex:[indexPath row]]];
-    
+	//	[[cell textLabel] setText:[groupNameList objectAtIndex:[indexPath row]]];
+	[[cell textLabel] setText:@"Cell Text (Template Name)"];
+	
     return cell;
 }
 

@@ -1,5 +1,5 @@
 //
-//  GroupTableViewController.h
+//  TemplateTableViewController.h
 //  FormNinja
 //
 //  Created by Hackenslacker on 5/17/11.
@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 
-@interface GroupTableViewController : UITableViewController
+@interface TemplateTableViewController : UITableViewController
 {
     
 }
 
-@property (retain, nonatomic) NSMutableArray * groupNameList;
+@property (retain, nonatomic) NSMutableArray * templateNameList;
 
 @end

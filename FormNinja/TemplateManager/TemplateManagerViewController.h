@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TemplateManagerViewController : UIViewController {
-    
+@interface TemplateManagerViewController : UIViewController
+{
+	UITableViewController *groupTableViewController;
+	UITableViewController *templateTableViewController;
 }
+@property (nonatomic, retain) IBOutlet UITableViewController *groupTableViewController;
+@property (nonatomic, retain) IBOutlet UITableViewController *templateTableViewController;
 
 @end

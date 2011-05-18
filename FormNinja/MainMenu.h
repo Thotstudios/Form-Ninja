@@ -15,16 +15,19 @@
 	UIViewController *accountEditor;
 	UIViewController *loginViewController;
 	UIViewController *templateManagerViewContoller;
+	UIViewController *sectionedTemplateManagerViewController;
 	UILabel *loginExpirationLabel;
 }
 @property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
 @property (nonatomic, retain) IBOutlet UIViewController *accountEditor;
 @property (nonatomic, retain) IBOutlet UIViewController *loginViewController;
 @property (nonatomic, retain) IBOutlet UIViewController *templateManagerViewContoller;
+@property (nonatomic, retain) IBOutlet UIViewController *sectionedTemplateManagerViewController;
 @property (nonatomic, retain) IBOutlet UILabel *loginExpirationLabel;
 
 - (IBAction)buttonPressedForms:(id)sender;
 - (IBAction)buttonPressedTemplateManagement:(id)sender;
+- (IBAction)pressedSectionedTemplateManagerButton;
 - (IBAction)buttonPressedAccount:(id)sender;
 
 - (IBAction)requireLogin;

@@ -10,6 +10,8 @@
 
 
 @implementation TemplateManagerViewController
+@synthesize groupTableViewController;
+@synthesize templateTableViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +24,8 @@
 
 - (void)dealloc
 {
+    [groupTableViewController release];
+	[templateTableViewController release];
     [super dealloc];
 }
 
@@ -43,6 +47,8 @@
 
 - (void)viewDidUnload
 {
+    [self setGroupTableViewController:nil];
+	[self setTemplateTableViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

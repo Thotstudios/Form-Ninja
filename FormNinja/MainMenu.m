@@ -14,6 +14,7 @@
 @synthesize accountEditor;
 @synthesize loginViewController;
 @synthesize templateManagerViewContoller;
+@synthesize sectionedTemplateManagerViewController;
 @synthesize loginExpirationLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,6 +33,7 @@
 	[loginViewController release];
 	[loginExpirationLabel release];
 	[templateManagerViewContoller release];
+	[sectionedTemplateManagerViewController release];
     [super dealloc];
 }
 
@@ -107,6 +109,7 @@
 	[self setLoginViewController:nil];
 	[self setLoginExpirationLabel:nil];
 	[self setTemplateManagerViewContoller:nil];
+	[self setSectionedTemplateManagerViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -128,6 +131,11 @@
 - (IBAction)buttonPressedTemplateManagement:(id)sender
 {
 	[self.navigationController pushViewController:templateManagerViewContoller animated:YES];
+}
+
+- (IBAction)pressedSectionedTemplateManagerButton
+{
+	[self.navigationController pushViewController:sectionedTemplateManagerViewController animated:YES];
 }
 
 - (IBAction)buttonPressedAccount:(id)sender
