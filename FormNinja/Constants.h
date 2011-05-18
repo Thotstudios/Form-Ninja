@@ -22,6 +22,7 @@
 //Form constants
 #define formUsername @"username"
 #define formPassword @"password"
+#define formLastName @"lastName"
 
 //Form reply
 #define formUserAccepted @"accepted"
@@ -31,6 +32,11 @@
 
 #define loginExpirationKey @"loginExpiration"
 #define rememberUserKey	@"rememberUser"
+
+//Form URLs
+#define updateAccountURL @"http://www.rilburskryler.net/mobile/accountUpdate.php"
+
+
 
 // Group Constants
 #define ALL_GROUPS_STR @"All Groups"

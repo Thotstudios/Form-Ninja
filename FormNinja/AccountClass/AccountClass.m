@@ -95,4 +95,30 @@
 }
 
 
+- (void) save{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *saveDict = [NSMutableDictionary dictionary];
+    
+    [saveDict setObject:self.username forKey:userName];
+    [saveDict setObject:self.passwordHash forKey:userPassword];
+    [saveDict setObject:self.emailAddress forKey:userEmail];
+    [saveDict setObject:self.firstName forKey:userFirstName];
+    [saveDict setObject:self.lastName forKey:userLastName];
+    [saveDict setObject:self.zipCode forKey:userZipCode];
+    
+    //Optional values as of now
+    if(self.companyName)
+        [saveDict setObject:self.companyName forKey:userCompany];
+    
+    if(self.phoneNumber)
+        [saveDict setObject:self.phoneNumber forKey:userPhoneNumber];
+    
+    if(self.zipCodeExt)
+        [saveDict setObject:self.zipCodeExt forKey:userExtendedZip];
+    
+    [defaults setObject:saveDict forKey:userInfo];
+    [defaults synchronize];
+}
+
+
 @end

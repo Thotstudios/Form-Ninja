@@ -41,6 +41,8 @@
 
 
 - (void) saveWithDict:(NSDictionary *) userDict;
+- (void) save;
+
 + (AccountClass *) sharedAccountClass;
 
 @end
