@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class AccountClass;
+@class AccountClass, CustomLoadAlertViewController;
 
 @interface AccountEditorViewController : UIViewController
 {
@@ -26,7 +26,10 @@
 	// security answer
 	UITextField *zipCodeTextField;
 	UITextField *zipCodeExtTextField;
+    
+    CustomLoadAlertViewController *loadAlert;
 }
+
 @property (retain, nonatomic) AccountClass * account;
 @property (nonatomic, retain) IBOutlet UITextField *usernameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *passwordTextField;
@@ -41,6 +44,8 @@
 // security answer
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeTextField;
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeExtTextField;
+
+@property (nonatomic, retain) IBOutlet CustomLoadAlertViewController *loadAlert;
 
 - (IBAction)pressedConfirm:(id)sender;
 - (IBAction)pressedCancel:(id)sender;
