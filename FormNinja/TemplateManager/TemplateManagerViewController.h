@@ -11,10 +11,20 @@
 
 @interface TemplateManagerViewController : UIViewController
 {
-	UITableViewController *groupTableViewController;
-	UITableViewController *templateTableViewController;
+	UITableView *templateTableView;
+	UITableView *groupTableView;
 }
-@property (nonatomic, retain) IBOutlet UITableViewController *groupTableViewController;
-@property (nonatomic, retain) IBOutlet UITableViewController *templateTableViewController;
 
+@property (nonatomic, retain) IBOutlet UITableView *groupTableView;
+@property (nonatomic, retain) NSMutableArray * groupNameList;
+@property (nonatomic, retain) NSString * selectedGroupName;
+
+@property (nonatomic, retain) IBOutlet UITableView *templateTableView;
+@property (nonatomic, retain) NSMutableArray * templateNameList;
+@property (nonatomic, retain) NSMutableArray * templatePathList;
+@property (nonatomic, retain) NSString * selectedTemplateName;
+@property (nonatomic, retain) NSString * selectedTemplatePath;
+
+
+- (IBAction)deleteSelectedTemplate;
 @end
