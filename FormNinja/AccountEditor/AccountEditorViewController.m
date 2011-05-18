@@ -107,10 +107,15 @@
     [self pushAlertView];
     [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
     
-    //Prepare form
+    //Save locally
+    self.account.lastName = self.lastNameTextField.text;
+    [self.account save];
+    
+    //Prepare form to save remotely 
     NSURL *urlToSend = [[[NSURL alloc] initWithString: updateAccountURL] autorelease];
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
-    [request setPostValue:self.account.username forKey:formUsername];  
+    [request setPostValue:self.account.username forKey:formUsername];
+    [request setPostValue:self.account.lastName forKey:formLastName];
 	
     //Send request
     request.delegate = self;

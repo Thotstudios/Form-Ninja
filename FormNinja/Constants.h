@@ -22,6 +22,7 @@
 //Form constants
 #define formUsername @"username"
 #define formPassword @"password"
+#define formLastName @"lastName"
 
 //Form reply
 #define formUserAccepted @"accepted"
