@@ -7,7 +7,9 @@
 //
 
 #import "AccountEditorViewController.h"
-
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+#import "JSON.h"
 #import "AccountClass.h"
 #import "Constants.h"
 #import "CustomLoadAlertViewController.h"
@@ -105,11 +107,38 @@
     [self pushAlertView];
     [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
     
+    //Prepare form
+    NSURL *urlToSend = [[[NSURL alloc] initWithString: updateAccountURL] autorelease];
+    ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
+    [request setPostValue:self.account.username forKey:formUsername];  
+	
+    //Send request
+    request.delegate = self;
+    [request startAsynchronous];  
+    
 }
 
 - (IBAction)pressedCancel:(id)sender {
 }
 
+
+
+#pragma mark - ASIHTTPRequest Delegate Methods
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    [self removeAlertView];
+    //self.statusLabel.text = @"Error connecting to server";
+}
+
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{	
+    //Get intial dict from response string
+	NSDictionary *jsonDict = [[request responseString] JSONValue]; 
+    NSLog(@"%@", jsonDict);
+    [self removeAlertView];
+}
 
 
 #pragma mark - Memory Management

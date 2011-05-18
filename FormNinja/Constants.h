@@ -31,3 +31,7 @@
 
 #define loginExpirationKey @"loginExpiration"
 #define rememberUserKey	@"rememberUser"
+
+
+//Form URLs
+#define updateAccountURL @"http://www.rilburskryler.net/mobile/accountUpdate.php"
