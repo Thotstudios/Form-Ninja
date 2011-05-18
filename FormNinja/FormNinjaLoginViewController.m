@@ -107,9 +107,12 @@
 {
 	BOOL remember = [sender isOn];
 	
+	
 	NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
-	[opt setBool:remember forKey:rememberUserKey];
+	[opt setBool:remember forKey:rememberUserKey]; 
 	[opt synchronize];
+	
+	//[opt boolForKey:@"remember user"]; // MAGIC: stay_logged_in_key
 }
 
 - (IBAction) loginButtonAction
@@ -129,8 +132,8 @@
     //Prepare form
     NSURL *urlToSend = [[[NSURL alloc] initWithString: @"http://www.rilburskryler.net/mobile/login.php"] autorelease];
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
-    [request setPostValue:self.usernameField.text forKey:@"username"];  // MAGIC KEY
-    [request setPostValue:self.passwordField.text forKey:@"password"];  // MAGIC KEY
+    [request setPostValue:self.usernameField.text forKey:formUsername];  
+    [request setPostValue:self.passwordField.text forKey:formPassword];  
 	
     //Send request
     request.delegate = self;
@@ -142,8 +145,8 @@
     //Prepare form
     NSURL *urlToSend = [[[NSURL alloc] initWithString: @"http://www.rilburskryler.net/mobile/userinfo.php"] autorelease];
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
-    [request setPostValue:self.usernameField.text forKey:@"username"];  // MAGIC KEY
-    [request setPostValue:self.passwordField.text forKey:@"password"];  // MAGIC KEY
+    [request setPostValue:self.usernameField.text forKey:formUsername];  
+    [request setPostValue:self.passwordField.text forKey:formPassword];  
 	
     //Send request
     request.delegate = self;
@@ -159,7 +162,7 @@
 		NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
 		int long_session = 1209600;	//	two weeks
 		int short_session = 86400;	//	one day
-		BOOL remember = [opt boolForKey:rememberUserKey];
+		BOOL remember = [opt boolForKey:rememberUserKey]; 
 		long loginExpiration = time(0) + (remember?long_session:short_session);
 		[opt setInteger:loginExpiration forKey:loginExpirationKey];
 		[opt synchronize];
@@ -199,7 +202,7 @@
     //Get intial dict from response string
 	NSDictionary *jsonDict = [[request responseString] JSONValue]; 
     NSLog(@"%@", jsonDict);
-    NSString *userAccepted = [jsonDict objectForKey:@"accepted"]; //Get response MAGIC KEY
+    NSString *userAccepted = [jsonDict objectForKey:formUserAccepted]; //Get response
     
     if([userAccepted isEqualToString:@"True"]){
         self.loadAlert.alertLabel.text = @"Login successful";
@@ -208,8 +211,8 @@
         //If there is no user information stored locally, store it
         AccountClass *account = [AccountClass sharedAccountClass];
         if(account.username == nil){
-            NSDictionary *userDict = [jsonDict objectForKey:@"userInfo"]; // MAGIC KEY
-            [account saveToFile:userDict];
+            NSDictionary *userDict = [jsonDict objectForKey:formUserInformation]; 
+            [account saveWithDict:userDict];
         }
         
         [self performSelector:@selector(userAuthenticated) withObject:nil afterDelay:3];
@@ -218,7 +221,7 @@
     else{
         self.loadAlert.alertLabel.text = @"Login failed";
         [self.loadAlert stopActivityIndicator];
-        [self performSelector:@selector(userAuthenticatedFailed:) withObject:[jsonDict objectForKey:@"error"] afterDelay:3]; // MAGIC KEY
+        [self performSelector:@selector(userAuthenticatedFailed:) withObject:[jsonDict objectForKey:formError] afterDelay:3];
     }
 }
 

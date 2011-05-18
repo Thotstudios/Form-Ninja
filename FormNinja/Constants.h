@@ -19,5 +19,15 @@
 #define userCompany @"company"
 #define userPhoneNumber @"phoneNumber"
 
+//Form constants
+#define formUsername @"username"
+#define formPassword @"password"
+
+//Form reply
+#define formUserAccepted @"accepted"
+#define formUserInformation @"userInfo"
+
+#define formError @"error"
+
 #define loginExpirationKey @"loginExpiration"
 #define rememberUserKey	@"rememberUser"
