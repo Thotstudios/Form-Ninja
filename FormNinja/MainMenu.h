@@ -29,7 +29,7 @@
 - (IBAction)buttonPressedTemplateManagement:(id)sender;
 - (IBAction)buttonPressedAccount:(id)sender;
 
-- (IBAction)requireLogin;
+- (IBAction)logout;
 
 
 // TODO: temporary

@@ -44,6 +44,7 @@
 - (void) save;
 
 + (AccountClass *) sharedAccountClass;
++ (void) invalidateAccountInformation;
 
 @end
 

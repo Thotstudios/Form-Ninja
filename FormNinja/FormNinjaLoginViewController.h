@@ -22,6 +22,7 @@
     IBOutlet UILabel *statusLabel;
     
     IBOutlet CustomLoadAlertViewController *loadAlert;
+	UIViewController *accountEditor;
 
 }
 
@@ -32,6 +33,7 @@
 
 //@property (nonatomic, retain) IBOutlet UIViewController *mainMenuViewController; 
 @property (nonatomic, retain) CustomLoadAlertViewController *loadAlert;
+@property (nonatomic, retain) IBOutlet UIViewController *accountEditor;
 
 @property (nonatomic, retain) UILabel *statusLabel;
 
@@ -39,5 +41,8 @@
 - (IBAction)rememberSwitchAction:(UISwitch*)sender;
 - (IBAction) loginButtonAction;
 - (IBAction) userAuthenticated; // TODO temporary
+
+
+- (IBAction)pressedRegisterButton;
 
 @end

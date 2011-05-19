@@ -33,6 +33,7 @@
 
 @synthesize usernameField, passwordField, statusLabel, loginButton;
 @synthesize loadAlert;
+@synthesize accountEditor;
 
 //git://github.com/Thotsudios/Form-Ninja.git
 
@@ -282,6 +283,7 @@
 {
 	//[self setMainMenuViewController:nil];
 	[self setRememberSwitch:nil];
+	[self setAccountEditor:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -303,8 +305,13 @@
     [loginButton release];
     
 	[rememberSwitch release];
+	[accountEditor release];
     [super dealloc];
 }
 
 
+- (IBAction)pressedRegisterButton
+{
+	[self.navigationController pushViewController:accountEditor animated:YES];
+}
 @end

@@ -8,6 +8,7 @@
 
 #import "MainMenu.h"
 #import "Constants.h"
+#import "AccountClass.h"
 
 @implementation MainMenu
 @synthesize templateEditorViewController;
@@ -138,11 +139,13 @@
 	[self.navigationController pushViewController:accountEditor animated:YES];
 }
 
-- (IBAction)requireLogin
+- (IBAction)logout
 {
 	NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
 	[opt setInteger:0 forKey:loginExpirationKey];
 	[opt synchronize];
+	
+	[AccountClass invalidateAccountInformation];
 	
 	[self.navigationController pushViewController:loginViewController animated:YES];
 }

@@ -67,6 +67,11 @@
 	return sharedAccountClass;
 }
 
++ (void) invalidateAccountInformation
+{
+	// TODO
+	NSLog(@"User Logged Out; Invalidate Account Information");
+}
 
 - (void) saveWithDict:(NSDictionary *) userDict{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
