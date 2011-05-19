@@ -29,6 +29,11 @@ if($_POST['username']){
 			
 		if(!empty($_POST['zipExt']))
 			$query .= ', ZIPCODEEXT="'.$_POST['zipExt'].'"';
+			
+		if(!empty($_POST['password'])){
+			$query = 'UPDATE USER set PASSWORD = "'.$_POST['password'].'"';
+			$response['passwordChanged'] = 'TRUE';
+		}
 		
 		$query.= ' where USERNAME="'.$_POST['username'].'"';
 		

@@ -19,6 +19,7 @@
 @interface AccountEditorViewController()
  
 - (BOOL) isEmpty:(NSString *)text;
+- (void) loadAccountInfo;
 
 @end
 
@@ -66,31 +67,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //Get user account class
-    self.account = [AccountClass sharedAccountClass];
+    [self loadAccountInfo];
     
-    if(self.account.username == nil){ //if no username, there is no user info stored
-        //regrab info
-    }
-    
-    //else populate vc
-    else{        
-        usernameTextField.text = self.account.username;
-        firstNameTextField.text = self.account.firstName;
-        lastNameTextField.text = self.account.lastName;
-        passwordTextField.text = self.account.passwordHash; // TODO: should not be shown
-        companyNameTextField.text = self.account.companyName;
-        emailAddressTextField.text = self.account.emailAddress;
-        phoneNumberTextField.text = self.account.phoneNumber;
-        zipCodeTextField.text = self.account.zipCode;
-        zipCodeExtTextField.text = self.account.zipCodeExt;
-		if(1) // account is being created/registered
-			{
-			// TODO: security question for new accounts
-			// TODO: security answer for new accounts
-			}
-    }
-	
     // Security Question view should hide or not:
 	{
 		// Do we allow users to view or edit their security details on iPad?
@@ -134,6 +112,33 @@
 
 
 #pragma mark - Instance Methods
+
+- (void) loadAccountInfo{
+    //Get user account class
+    self.account = [AccountClass sharedAccountClass];
+    
+    if(self.account.username == nil){ //if no username, there is no user info stored
+        //regrab info
+    }
+    
+    //else populate vc
+    else{        
+        usernameTextField.text = self.account.username;
+        firstNameTextField.text = self.account.firstName;
+        lastNameTextField.text = self.account.lastName;
+        passwordTextField.text = self.account.passwordHash; // TODO: should not be shown
+        companyNameTextField.text = self.account.companyName;
+        emailAddressTextField.text = self.account.emailAddress;
+        phoneNumberTextField.text = self.account.phoneNumber;
+        zipCodeTextField.text = self.account.zipCode;
+        zipCodeExtTextField.text = self.account.zipCodeExt;
+		if(1) // account is being created/registered
+        {
+			// TODO: security question for new accounts
+			// TODO: security answer for new accounts
+        }
+    }
+}
 
 //Pushes alert view
 - (void) pushAlertView
@@ -236,9 +241,17 @@
 - (IBAction)changePasswordConfirm
 {
 	// TODO: change password in database
-    self.account.passwordHash = self.passwordChangeTextField.text;
-    [self.account save]; //save locally
-	
+    //Prepare form to save remotely 
+    NSURL *urlToSend = [[[NSURL alloc] initWithString: updateAccountURL] autorelease];
+    ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];
+    [request setPostValue:self.account.username forKey:formUsername];
+    [request setPostValue:self.passwordConfirmTextField.text forKey:formPassword];
+   
+    [self pushAlertView];
+    
+    request.delegate = self;
+    [request startAsynchronous];
+
 	// then hide the fields:
 	[self changePasswordCancel];
 }
@@ -259,6 +272,13 @@
     //Get intial dict from response string
 	NSDictionary *jsonDict = [[request responseString] JSONValue]; 
     NSLog(@"%@", jsonDict);
+    
+    //Indicates a password change was successful
+    if ([jsonDict objectForKey:@"passwordChanged"]) {
+        self.passwordTextField.text = self.passwordConfirmTextField.text;
+        self.account.passwordHash = self.passwordConfirmTextField.text;
+        [self.account save];// save locally
+    }
     [self removeAlertView];
 }
 

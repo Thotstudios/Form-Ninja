@@ -74,7 +74,7 @@
     [defaults removeObjectForKey:userInfo];
     
     //Invalidate singleton 
-    [[self sharedAccountClass ] invalidate];
+    [[self sharedAccountClass] invalidate];
 }
 
 - (void) saveWithDict:(NSDictionary *) userDict{
@@ -141,6 +141,7 @@
     self.zipCode = nil;
     self.zipCodeExt = nil;
     self.phoneNumber = nil;
+    self.userID = nil;
 }
 
 
