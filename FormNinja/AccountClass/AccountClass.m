@@ -69,8 +69,12 @@
 
 + (void) invalidateAccountInformation
 {
-	// TODO
-	NSLog(@"User Logged Out; Invalidate Account Information");
+    //Remove user info locally
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:userInfo];
+    
+    //Invalidate singleton 
+    [[self sharedAccountClass ] invalidate];
 }
 
 - (void) saveWithDict:(NSDictionary *) userDict{
@@ -124,6 +128,19 @@
     
     [defaults setObject:saveDict forKey:userInfo];
     [defaults synchronize];
+}
+
+
+//Resets account info
+- (void) invalidate{
+    self.username = nil;
+    self.passwordHash = nil;
+    self.emailAddress = nil;
+    self.firstName = nil;
+    self.lastName = nil;
+    self.zipCode = nil;
+    self.zipCodeExt = nil;
+    self.phoneNumber = nil;
 }
 
 

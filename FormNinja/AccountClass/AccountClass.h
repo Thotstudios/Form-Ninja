@@ -42,6 +42,7 @@
 
 - (void) saveWithDict:(NSDictionary *) userDict;
 - (void) save;
+- (void) invalidate;
 
 + (AccountClass *) sharedAccountClass;
 + (void) invalidateAccountInformation;
