@@ -164,13 +164,7 @@
         return FALSE;
 }
 
-
-- (IBAction)pressedConfirm:(id)sender {
-    [self pushAlertView];
-    [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
-    
-    //Save locally
-    //Add validation later
+- (void) saveAccountInfoLocally{
     self.account.lastName = self.lastNameTextField.text;
     self.account.firstName = self.firstNameTextField.text;
     self.account.emailAddress = self.emailAddressTextField.text;
@@ -178,12 +172,24 @@
     self.account.companyName = self.companyNameTextField.text;
     self.account.phoneNumber = self.phoneNumberTextField.text;
     self.account.zipCodeExt = self.zipCodeExtTextField.text;
+    
+    [self.account save];
+}
+
+
+- (IBAction)pressedConfirm:(id)sender {
+    [self pushAlertView];
+    [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
+    
+    //Save locally
+    //Add validation later
+    [self saveAccountInfoLocally];
+    
 	if(1) // Account is being created/registered
 		{
 		// TODO: security question for new accounts
 		// TODO: security answer for new accounts
 		}
-    [self.account save];
     
     //Prepare form to save remotely 
     NSURL *urlToSend = [[[NSURL alloc] initWithString: updateAccountURL] autorelease];
@@ -229,13 +235,9 @@
 
 - (IBAction)changePasswordConfirm
 {
-	// TODO: verify old password
 	// TODO: change password in database
-	
-	// Looks like this will be like the code from
-	// pressedConfirm, above, maybe just the
-	// "Prepare form to save remotely" section, but with password included
-	// Refactor that? -Chad
+    self.account.passwordHash = self.passwordChangeTextField.text;
+    [self.account save]; //save locally
 	
 	// then hide the fields:
 	[self changePasswordCancel];
@@ -272,7 +274,8 @@
     }
     
     else if ((textField == self.passwordChangeTextField && [text isEqualToString:self.passwordConfirmTextField.text]) || 
-        (textField == self.passwordConfirmTextField && [text isEqualToString:self.passwordChangeTextField.text])){
+        (textField == self.passwordConfirmTextField && [text isEqualToString:self.passwordChangeTextField.text]) ||
+             (textField == self.passwordTextField && [text isEqualToString:self.account.passwordHash])){
         self.changePasswordConfirmButton.userInteractionEnabled = TRUE;
         self.changePasswordConfirmButton.alpha = 1; 
     }
