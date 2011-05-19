@@ -71,7 +71,6 @@
 }
 -(void) viewWillAppear:(BOOL)animated
 {
-	NSLog(@"will appear");
 	[super viewWillAppear:animated];
 	
 	{ // load group name list and select All Groups
@@ -137,7 +136,6 @@
 
 - (IBAction)deleteSelectedTemplate
 {
-	NSLog(@"Delete Selected Template: %@", selectedTemplateName);
 	if(1) // TODO: Confirm Deletion
 		{
 		
@@ -281,8 +279,6 @@
 	{
 		case 1: // group table
 		[self setSelectedGroupName:[groupNameList objectAtIndex:[indexPath row]]];
-		NSLog(@"Group Selected: %@", selectedGroupName);
-		
 		[templateTableView reloadData];
 		break;
 		
@@ -290,8 +286,6 @@
 		case 2: // template table
 		[self setSelectedTemplateName:[templateNameList objectAtIndex:[indexPath row]]];
 		[self setSelectedTemplatePath:[NSString stringWithFormat:@"%@/%@", TEMPLATE_PATH, selectedTemplateName]];
-		
-		NSLog(@"Template Selected: %@", selectedTemplateName);
 		break;
 		
 		

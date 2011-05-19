@@ -30,8 +30,12 @@
 // security answer
 @synthesize zipCodeTextField;
 @synthesize zipCodeExtTextField;
+
+@synthesize changePasswordButton;
 @synthesize changePasswordView;
+
 @synthesize loadAlert;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -131,7 +135,32 @@
     
 }
 
-- (IBAction)pressedCancel:(id)sender {
+- (IBAction)pressedCancel:(id)sender
+{
+	// TODO repopulate fields (currently done in ViewDidLoad)
+	// TODO refactor that. -Chad
+}
+
+- (IBAction)changePasswordEnable
+{
+	[changePasswordButton setHidden:YES];
+	[changePasswordView setHidden:NO];
+}
+
+- (IBAction)changePasswordCancel
+{
+	[changePasswordButton setHidden:NO];
+	[changePasswordView setHidden:YES];
+	// TODO: clear field text
+}
+
+- (IBAction)changePasswordConfirm
+{
+	// TODO: verify old password
+	// TODO: change password in database
+	
+	// then hide the fields:
+	[self changePasswordCancel];
 }
 
 
@@ -180,8 +209,12 @@
 	// security answer
 	[self setZipCodeTextField:nil];
 	[self setZipCodeExtTextField:nil];
-    self.loadAlert = nil;
+	
+    [self setChangePasswordButton:nil];
 	[self setChangePasswordView:nil];
+	
+    self.loadAlert = nil;
+	
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -204,8 +237,12 @@
 	// security answer
 	[zipCodeTextField release];
 	[zipCodeExtTextField release];
-    [loadAlert release];
+	
+    [changePasswordButton release];
 	[changePasswordView release];
+	
+    [loadAlert release];
+	
     [super dealloc];
 }
 
