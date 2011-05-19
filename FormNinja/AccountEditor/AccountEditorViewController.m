@@ -26,13 +26,15 @@
 @synthesize emailAddressTextField;
 @synthesize companyNameTextField;
 @synthesize phoneNumberTextField;
-// security question
-// security answer
 @synthesize zipCodeTextField;
 @synthesize zipCodeExtTextField;
 
 @synthesize changePasswordButton;
 @synthesize changePasswordView;
+
+@synthesize securityQuestionView;
+@synthesize securityQuestionTextField;
+@synthesize securityAnswerTextField;
 
 @synthesize loadAlert;
 
@@ -67,17 +69,42 @@
         usernameTextField.text = self.account.username;
         firstNameTextField.text = self.account.firstName;
         lastNameTextField.text = self.account.lastName;
-        passwordTextField.text = self.account.passwordHash;
+        passwordTextField.text = self.account.passwordHash; // TODO: should not be shown
         companyNameTextField.text = self.account.companyName;
         emailAddressTextField.text = self.account.emailAddress;
         phoneNumberTextField.text = self.account.phoneNumber;
         zipCodeTextField.text = self.account.zipCode;
         zipCodeExtTextField.text = self.account.zipCodeExt;
+		if(1) // account is being created/registered
+			{
+			// TODO: security question for new accounts
+			// TODO: security answer for new accounts
+			}
     }
-    
+	
+    // Security Question view should hide or not:
+	{
+		// Do we allow users to view or edit their security details on iPad?
+		// I think not; th point of the feature is account recovery. -Chad
+		if(1)	// Account is being created/registered
+			{
+			[securityQuestionView setHidden:NO];
+			// TODO: Do hide Change Password button for making new accounts
+			// [changePasswordButton setHidden:YES];
+			}
+		else	//	Account is being edited/updated
+			{
+			[securityQuestionView setHidden:YES];
+			// TODO: Don't hide Change Password button for existing accounts
+			// [changePasswordButton setHidden:NO];
+			}
+	} // end Security Question
+	
+	
     //Add load alert view to window
     self.loadAlert.view.hidden = YES;
 	[self.view addSubview:self.loadAlert.view];
+	
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -121,6 +148,11 @@
     self.account.companyName = self.companyNameTextField.text;
     self.account.phoneNumber = self.phoneNumberTextField.text;
     self.account.zipCodeExt = self.zipCodeExtTextField.text;
+	if(1) // Account is being created/registered
+		{
+		// TODO: security question for new accounts
+		// TODO: security answer for new accounts
+		}
     [self.account save];
     
     //Prepare form to save remotely 
@@ -134,7 +166,12 @@
     [request setPostValue:self.account.companyName forKey:formCompanyName];
     [request setPostValue:self.account.phoneNumber forKey:formPhoneNumber];
     [request setPostValue:self.account.zipCodeExt forKey:formZipCodeExt];
-
+	if(1) // Account is being created/registered
+		{
+		// TODO: security question for new accounts
+		// TODO: security answer for new accounts
+		}
+	
     //Send request
     request.delegate = self;
     [request startAsynchronous];  
@@ -143,8 +180,8 @@
 
 - (IBAction)pressedCancel:(id)sender
 {
-	// TODO repopulate fields (currently done in ViewDidLoad)
-	// TODO refactor that. -Chad
+	// TODO: repopulate fields (currently done in ViewDidLoad)
+	// TODO: refactor that. -Chad
 }
 
 - (IBAction)changePasswordEnable
@@ -164,6 +201,11 @@
 {
 	// TODO: verify old password
 	// TODO: change password in database
+	
+	// Looks like this will be like the code from
+	// pressedConfirm, above, maybe just the
+	// "Prepare form to save remotely" section, but with password included
+	// Refactor that? -Chad
 	
 	// then hide the fields:
 	[self changePasswordCancel];
@@ -211,13 +253,15 @@
 	[self setEmailAddressTextField:nil];
 	[self setCompanyNameTextField:nil];
 	[self setPhoneNumberTextField:nil];
-	// security question
-	// security answer
 	[self setZipCodeTextField:nil];
 	[self setZipCodeExtTextField:nil];
 	
     [self setChangePasswordButton:nil];
 	[self setChangePasswordView:nil];
+	
+    [self setSecurityQuestionView:nil];
+    [self setSecurityQuestionTextField:nil];
+    [self setSecurityAnswerTextField:nil];
 	
     self.loadAlert = nil;
 	
@@ -239,13 +283,15 @@
 	[emailAddressTextField release];
 	[companyNameTextField release];
 	[phoneNumberTextField release];
-	// security question
-	// security answer
 	[zipCodeTextField release];
 	[zipCodeExtTextField release];
 	
     [changePasswordButton release];
 	[changePasswordView release];
+	
+    [securityQuestionView release];
+    [securityQuestionTextField release];
+    [securityAnswerTextField release];
 	
     [loadAlert release];
 	

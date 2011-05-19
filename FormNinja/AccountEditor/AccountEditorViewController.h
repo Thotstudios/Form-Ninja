@@ -22,13 +22,15 @@
 	UITextField *emailAddressTextField;
 	UITextField *companyNameTextField;
 	UITextField *phoneNumberTextField;
-	// security question
-	// security answer
 	UITextField *zipCodeTextField;
 	UITextField *zipCodeExtTextField;
 	
 	UIButton *changePasswordButton;
 	UIView *changePasswordView;
+	
+	UIView *securityQuestionView;
+	UITextField *securityQuestionTextField;
+	UITextField *securityAnswerTextField;
     
     CustomLoadAlertViewController *loadAlert;
 }
@@ -43,13 +45,15 @@
 @property (nonatomic, retain) IBOutlet UITextField *emailAddressTextField;
 @property (nonatomic, retain) IBOutlet UITextField *companyNameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *phoneNumberTextField;
-// security question
-// security answer
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeTextField;
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeExtTextField;
 
 @property (nonatomic, retain) IBOutlet UIButton *changePasswordButton;
 @property (nonatomic, retain) IBOutlet UIView *changePasswordView;
+
+@property (nonatomic, retain) IBOutlet UIView *securityQuestionView;
+@property (nonatomic, retain) IBOutlet UITextField *securityQuestionTextField;
+@property (nonatomic, retain) IBOutlet UITextField *securityAnswerTextField;
 
 @property (nonatomic, retain) IBOutlet CustomLoadAlertViewController *loadAlert;
 
