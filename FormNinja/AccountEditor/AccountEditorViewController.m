@@ -110,13 +110,20 @@
     
     //Save locally
     self.account.lastName = self.lastNameTextField.text;
+    self.account.firstName = self.firstNameTextField.text;
+    self.account.emailAddress = self.emailAddressTextField.text;
+    self.account.zipCode = self.zipCodeTextField.text;
     [self.account save];
     
     //Prepare form to save remotely 
     NSURL *urlToSend = [[[NSURL alloc] initWithString: updateAccountURL] autorelease];
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
     [request setPostValue:self.account.username forKey:formUsername];
+    [request setPostValue:self.account.firstName forKey:formFirstName];
     [request setPostValue:self.account.lastName forKey:formLastName];
+    [request setPostValue:self.account.emailAddress forKey:formEmail];
+    [request setPostValue:self.account.zipCode forKey:formZipCode];
+
 	
     //Send request
     request.delegate = self;

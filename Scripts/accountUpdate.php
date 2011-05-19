@@ -18,8 +18,11 @@ if($_POST['username']){
 	
 	if(mysql_select_db('rilbur5_school')){
 		//Attempt to update user info
-		$queryResult=mysql_query('UPDATE USER set LNAME="'.$_POST['username'].'" where USERNAME="'.$_POST['username'].'"');
-//		$queryResult=mysql_query('select * from USER where USERNAME="'.$_POST['username'].'"');
+		$query = 'UPDATE USER set FNAME = "'.$_POST['firstName'].'", LNAME="'.$_POST['lastName'].'", EMAIL="'.$_POST['email'].'"';
+		$query .= ', ZIPCODE="'.$_POST['zipCode'].'"';
+		$query.= ' where USERNAME="'.$_POST['username'].'"';
+		
+		$queryResult=mysql_query($query);
 			
 		if(!$queryResult){
 			$response['updated'] = 'False';
