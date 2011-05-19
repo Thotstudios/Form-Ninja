@@ -24,6 +24,7 @@
 @synthesize templatePathList;
 @synthesize selectedTemplateName;
 @synthesize selectedTemplatePath;
+@synthesize templateEditorViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +47,7 @@
 	[selectedTemplateName release];
 	[selectedTemplatePath release];
 	
+    [templateEditorViewController release];
     [super dealloc];
 }
 
@@ -94,6 +96,7 @@
 	[self setSelectedTemplateName:nil];
 	[self setSelectedTemplatePath:nil];
 	
+    [self setTemplateEditorViewController:nil];
     [super viewDidUnload];
 }
 
@@ -127,6 +130,11 @@
 	
 } // end load template list
 
+- (IBAction)createNewTemplate
+{
+	[self.navigationController pushViewController:templateEditorViewController animated:YES];
+}
+
 - (IBAction)deleteSelectedTemplate
 {
 	NSLog(@"Delete Selected Template: %@", selectedTemplateName);
@@ -138,6 +146,11 @@
 		[self loadTemplateList];
 		// TODO: DROP from table
 		}
+}
+
+- (IBAction)duplicateSelectedTemplate
+{
+	// TODO
 }
 
 #pragma mark - Table view data source

@@ -133,11 +133,6 @@
 	[self.navigationController pushViewController:templateManagerViewContoller animated:YES];
 }
 
-- (IBAction)pressedSectionedTemplateManagerButton
-{
-	[self.navigationController pushViewController:sectionedTemplateManagerViewController animated:YES];
-}
-
 - (IBAction)buttonPressedAccount:(id)sender
 {
 	[self.navigationController pushViewController:accountEditor animated:YES];

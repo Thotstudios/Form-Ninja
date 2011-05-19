@@ -258,7 +258,7 @@
 				D90A13DC1382250200857A4C /* Constants.h */,
 				F778DD50137DC40B00B444F6 /* Networking */,
 				D917B3D01378D06200E75140 /* JSON */,
-				F778DD51137DC60E00B444F6 /* TemplateManager-TwoTable */,
+				F778DD51137DC60E00B444F6 /* TemplateManager */,
 				F77FDA501375F5AB00DC694D /* TemplateEditor */,
 				F7E2B563137E49D600EA89D0 /* Account */,
 				F7D8AFBE136E289A00FE0F76 /* MainMenu */,
@@ -311,14 +311,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		F778DD51137DC60E00B444F6 /* TemplateManager-TwoTable */ = {
+		F778DD51137DC60E00B444F6 /* TemplateManager */ = {
 			isa = PBXGroup;
 			children = (
 				F778DD52137DC60E00B444F6 /* TemplateManagerViewController.h */,
 				F778DD53137DC60E00B444F6 /* TemplateManagerViewController.m */,
 				F778DD54137DC60E00B444F6 /* TemplateManagerViewController.xib */,
 			);
-			name = "TemplateManager-TwoTable";
 			path = TemplateManager;
 			sourceTree = "<group>";
 		};

@@ -30,6 +30,7 @@
 // security answer
 @synthesize zipCodeTextField;
 @synthesize zipCodeExtTextField;
+@synthesize changePasswordView;
 @synthesize loadAlert;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -173,6 +174,7 @@
 	[self setZipCodeTextField:nil];
 	[self setZipCodeExtTextField:nil];
     self.loadAlert = nil;
+	[self setChangePasswordView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -196,6 +198,7 @@
 	[zipCodeTextField release];
 	[zipCodeExtTextField release];
     [loadAlert release];
+	[changePasswordView release];
     [super dealloc];
 }
 

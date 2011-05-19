@@ -4,10 +4,10 @@ This is not official or required in any way.
 It's more like quick notes to ourselves and each other.
 
 Chad:
-* Create Account class to contain account profile information
-- including user info and group info
-* Create template management view
-- including table of existing templates; delete/duplicate buttons
+* Update template management view
+- include update button
+- link duplicate button to something
+- should not be able to create a new template if no group (or All Groups) is selected.
 * Create form management view
 - first, a list of groups including "All Groups"
 - second, depending on group selection, is a list of available templates
@@ -21,3 +21,8 @@ Paul:
 
 Ron:
 * Optionally write a TODO list here.
+
+Other:
+* Account info should be cleared when user logs out.
+- currently, info is retained which is evident when using Login Bypass
+- second, there might be a conflict on the 'option' data for an account

@@ -27,7 +27,6 @@
 
 - (IBAction)buttonPressedForms:(id)sender;
 - (IBAction)buttonPressedTemplateManagement:(id)sender;
-- (IBAction)pressedSectionedTemplateManagerButton;
 - (IBAction)buttonPressedAccount:(id)sender;
 
 - (IBAction)requireLogin;

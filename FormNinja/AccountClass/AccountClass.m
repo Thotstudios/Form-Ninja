@@ -60,6 +60,7 @@
 	@synchronized(self)
 	{
 		if (!sharedAccountClass)
+			// Does this leak? -Chad
 			sharedAccountClass = [[AccountClass alloc] init];
 	}
 	

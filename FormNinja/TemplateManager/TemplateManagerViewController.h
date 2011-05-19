@@ -13,6 +13,7 @@
 {
 	UITableView *templateTableView;
 	UITableView *groupTableView;
+	UIViewController *templateEditorViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *groupTableView;
@@ -25,6 +26,9 @@
 @property (nonatomic, retain) NSString * selectedTemplateName;
 @property (nonatomic, retain) NSString * selectedTemplatePath;
 
+@property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
 
 - (IBAction)deleteSelectedTemplate;
+- (IBAction)duplicateSelectedTemplate;
+- (IBAction)createNewTemplate;
 @end

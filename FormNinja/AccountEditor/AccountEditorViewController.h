@@ -26,6 +26,8 @@
 	// security answer
 	UITextField *zipCodeTextField;
 	UITextField *zipCodeExtTextField;
+	
+	UIView *changePasswordView;
     
     CustomLoadAlertViewController *loadAlert;
 }
@@ -44,6 +46,8 @@
 // security answer
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeTextField;
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeExtTextField;
+
+@property (nonatomic, retain) IBOutlet UIView *changePasswordView;
 
 @property (nonatomic, retain) IBOutlet CustomLoadAlertViewController *loadAlert;
 
