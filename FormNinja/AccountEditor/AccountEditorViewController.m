@@ -14,6 +14,15 @@
 #import "Constants.h"
 #import "CustomLoadAlertViewController.h"
 
+
+//Private methods
+@interface AccountEditorViewController()
+ 
+- (BOOL) isEmpty:(NSString *)text;
+
+@end
+
+
 @implementation AccountEditorViewController
 
 @synthesize account;
@@ -29,7 +38,7 @@
 @synthesize zipCodeTextField;
 @synthesize zipCodeExtTextField;
 
-@synthesize changePasswordButton;
+@synthesize changePasswordButton, changePasswordConfirmButton;
 @synthesize changePasswordView;
 
 @synthesize securityQuestionView;
@@ -107,6 +116,15 @@
 	
 }
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    if ([self isEmpty:self.passwordChangeTextField.text] || [self isEmpty:self.passwordConfirmTextField.text]) {
+		self.changePasswordConfirmButton.userInteractionEnabled = FALSE;
+		self.changePasswordConfirmButton.alpha = .7;    
+    }
+}
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -132,6 +150,18 @@
     self.navigationItem.hidesBackButton = FALSE;
 	[self.loadAlert stopActivityIndicator];
     self.loadAlert.view.hidden = TRUE;	
+}
+
+
+//Checks for empty text
+- (BOOL) isEmpty:(NSString *) text{
+	if([text length] == 0 || [text isEqualToString:@" "] || 
+	   ([[text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)){
+        return TRUE;
+	}
+    
+    else
+        return FALSE;
 }
 
 
@@ -231,6 +261,31 @@
 }
 
 
+#pragma mark - UITextField Delegate Methods
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if ([self isEmpty:text]) {
+        self.changePasswordConfirmButton.userInteractionEnabled = FALSE;
+        self.changePasswordConfirmButton.alpha = .7; 
+    }
+    
+    else if ((textField == self.passwordChangeTextField && [text isEqualToString:self.passwordConfirmTextField.text]) || 
+        (textField == self.passwordConfirmTextField && [text isEqualToString:self.passwordChangeTextField.text])){
+        self.changePasswordConfirmButton.userInteractionEnabled = TRUE;
+        self.changePasswordConfirmButton.alpha = 1; 
+    }
+    
+    else{
+        self.changePasswordConfirmButton.userInteractionEnabled = FALSE;
+        self.changePasswordConfirmButton.alpha = .7; 
+    }
+        
+    return TRUE;
+}
+
+
 #pragma mark - Memory Management
 
 - (void)didReceiveMemoryWarning
@@ -257,6 +312,7 @@
 	[self setZipCodeExtTextField:nil];
 	
     [self setChangePasswordButton:nil];
+    [self setChangePasswordConfirmButton:nil];
 	[self setChangePasswordView:nil];
 	
     [self setSecurityQuestionView:nil];
@@ -287,6 +343,7 @@
 	[zipCodeExtTextField release];
 	
     [changePasswordButton release];
+    [changePasswordConfirmButton release];
 	[changePasswordView release];
 	
     [securityQuestionView release];

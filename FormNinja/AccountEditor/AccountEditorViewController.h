@@ -27,6 +27,7 @@
 	
 	UIButton *changePasswordButton;
 	UIView *changePasswordView;
+    UIButton *changePasswordConfirmButton;
 	
 	UIView *securityQuestionView;
 	UITextField *securityQuestionTextField;
@@ -48,7 +49,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeTextField;
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeExtTextField;
 
-@property (nonatomic, retain) IBOutlet UIButton *changePasswordButton;
+@property (nonatomic, retain) IBOutlet UIButton *changePasswordButton, *changePasswordConfirmButton;
 @property (nonatomic, retain) IBOutlet UIView *changePasswordView;
 
 @property (nonatomic, retain) IBOutlet UIView *securityQuestionView;
