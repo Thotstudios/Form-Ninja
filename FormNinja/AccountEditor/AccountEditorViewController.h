@@ -33,6 +33,8 @@
 	UITextField *securityQuestionTextField;
 	UITextField *securityAnswerTextField;
     
+    int type; //0 indicates registration and 1 regular update
+    
     CustomLoadAlertViewController *loadAlert;
 }
 
@@ -57,6 +59,8 @@
 @property (nonatomic, retain) IBOutlet UITextField *securityAnswerTextField;
 
 @property (nonatomic, retain) IBOutlet CustomLoadAlertViewController *loadAlert;
+
+@property (nonatomic) int type;
 
 - (IBAction)pressedConfirm:(id)sender;
 - (IBAction)pressedCancel:(id)sender;

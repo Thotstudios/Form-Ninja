@@ -13,6 +13,7 @@
 #import "CustomLoadAlertViewController.h"
 #import "Constants.h"
 #import "AccountClass.h"
+#import "AccountEditorViewController.h"
 
 
 #define LOGIN 1 //0 skips login screen
@@ -312,6 +313,7 @@
 
 - (IBAction)pressedRegisterButton
 {
+    accountEditor.type = 0;
 	[self.navigationController pushViewController:accountEditor animated:YES];
 }
 @end

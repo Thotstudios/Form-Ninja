@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@class CustomLoadAlertViewController;
+@class CustomLoadAlertViewController, AccountEditorViewController;
 
 
 @interface FormNinjaLoginViewController : UIViewController {
@@ -22,7 +22,7 @@
     IBOutlet UILabel *statusLabel;
     
     IBOutlet CustomLoadAlertViewController *loadAlert;
-	UIViewController *accountEditor;
+	AccountEditorViewController *accountEditor;
 
 }
 
@@ -33,7 +33,7 @@
 
 //@property (nonatomic, retain) IBOutlet UIViewController *mainMenuViewController; 
 @property (nonatomic, retain) CustomLoadAlertViewController *loadAlert;
-@property (nonatomic, retain) IBOutlet UIViewController *accountEditor;
+@property (nonatomic, retain) IBOutlet AccountEditorViewController *accountEditor;
 
 @property (nonatomic, retain) UILabel *statusLabel;
 

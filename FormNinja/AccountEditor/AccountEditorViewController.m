@@ -47,6 +47,7 @@
 @synthesize securityAnswerTextField;
 
 @synthesize loadAlert;
+@synthesize type;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -100,6 +101,13 @@
 		self.changePasswordConfirmButton.userInteractionEnabled = FALSE;
 		self.changePasswordConfirmButton.alpha = .7;    
     }
+    
+    if (type == 0) {
+        self.changePasswordButton.hidden = YES;
+    }
+    
+    else
+        self.changePasswordButton.hidden = NO;
 }
 
 

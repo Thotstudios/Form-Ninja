@@ -9,6 +9,7 @@
 #import "MainMenu.h"
 #import "Constants.h"
 #import "AccountClass.h"
+#import "AccountEditorViewController.h"
 
 @implementation MainMenu
 @synthesize templateEditorViewController;
@@ -136,6 +137,7 @@
 
 - (IBAction)buttonPressedAccount:(id)sender
 {
+    ((AccountEditorViewController *)accountEditor).type = 1;
 	[self.navigationController pushViewController:accountEditor animated:YES];
 }
 
