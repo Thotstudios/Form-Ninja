@@ -11,9 +11,15 @@
 
 @interface TemplateManagerViewController()
 -(void) loadTemplateList;
+-(void) disableButtons;
+-(void) enableButtons;
 @end
 
 @implementation TemplateManagerViewController
+@synthesize deleteButton;
+@synthesize modifyButton;
+@synthesize duplicateButton;
+@synthesize newButton;
 
 @synthesize groupTableView;
 @synthesize groupNameList;
@@ -48,6 +54,10 @@
 	[selectedTemplatePath release];
 	
     [templateEditorViewController release];
+	[deleteButton release];
+	[modifyButton release];
+	[duplicateButton release];
+	[newButton release];
     [super dealloc];
 }
 
@@ -81,6 +91,7 @@
 	} // end load group name list
 	
 	[self loadTemplateList];
+	[self disableButtons];
 }
 
 - (void)viewDidUnload
@@ -96,6 +107,10 @@
 	[self setSelectedTemplatePath:nil];
 	
     [self setTemplateEditorViewController:nil];
+	[self setDeleteButton:nil];
+	[self setModifyButton:nil];
+	[self setDuplicateButton:nil];
+	[self setNewButton:nil];
     [super viewDidUnload];
 }
 
@@ -126,29 +141,64 @@
 			}
 		}
 	[templateTableView reloadData];
-	
 } // end load template list
+
+-(void) disableButtons
+{
+	[deleteButton setEnabled:NO];		[deleteButton setAlpha:0.50];
+	[modifyButton setEnabled:NO];		[modifyButton setAlpha:0.50];
+	[duplicateButton setEnabled:NO];	[duplicateButton setAlpha:0.50];
+	
+	// TODO: check demo and template count:
+	//[newButton setEnabled:NO];		[newButton setAlpha:0.50];
+}
+
+-(void) enableButtons
+{
+	[deleteButton setEnabled:YES];		[deleteButton setAlpha:1.00];
+	[modifyButton setEnabled:YES];		[modifyButton setAlpha:1.00];
+	[duplicateButton setEnabled:YES];	[duplicateButton setAlpha:1.00];
+	
+	// TODO: check demo and template count:
+	//[newButton setEnabled:YES];		[newButton setAlpha:1.00];
+}
+
+#pragma mark Interface Methods
+
+- (IBAction)deleteSelectedTemplate
+{
+	if(1) // TODO: Confirm Deletion
+		{
+		[[NSFileManager defaultManager] removeItemAtPath:selectedTemplatePath error:NULL];
+		[self loadTemplateList];
+		
+		// TODO: DROP from table
+		}
+	[self disableButtons]; // because now there's no template selected
+}
+
+- (IBAction)modifySelectedTemplate
+{
+	// TODO
+}
+
+- (IBAction)duplicateSelectedTemplate
+{
+	// TODO
+}
 
 - (IBAction)createNewTemplate
 {
 	[self.navigationController pushViewController:templateEditorViewController animated:YES];
 }
 
-- (IBAction)deleteSelectedTemplate
-{
-	if(1) // TODO: Confirm Deletion
-		{
-		
-		[[NSFileManager defaultManager] removeItemAtPath:selectedTemplatePath error:NULL];
-		
-		[self loadTemplateList];
-		// TODO: DROP from table
-		}
-}
 
-- (IBAction)duplicateSelectedTemplate
+- (IBAction)testAddTemplateFile
 {
-	// TODO
+	// make new file
+	NSString * path = [NSString stringWithFormat:@"%@/%i.txt", DOCUMENTS_PATH, time(0)];
+	[[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
+	[self loadTemplateList];
 }
 
 #pragma mark - Table view data source
@@ -280,12 +330,14 @@
 		case 1: // group table
 		[self setSelectedGroupName:[groupNameList objectAtIndex:[indexPath row]]];
 		[templateTableView reloadData];
+		[self disableButtons];
 		break;
 		
 		
 		case 2: // template table
 		[self setSelectedTemplateName:[templateNameList objectAtIndex:[indexPath row]]];
 		[self setSelectedTemplatePath:[NSString stringWithFormat:@"%@/%@", TEMPLATE_PATH, selectedTemplateName]];
+		[self enableButtons];
 		break;
 		
 		

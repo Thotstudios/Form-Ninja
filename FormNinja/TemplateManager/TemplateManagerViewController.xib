@@ -13,9 +13,9 @@
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<string>IBUITableView</string>
-			<string>IBUIButton</string>
-			<string>IBUIView</string>
 			<string>IBUIViewController</string>
+			<string>IBUIView</string>
+			<string>IBUIButton</string>
 			<string>IBProxyObject</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -44,47 +44,6 @@
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUITableView" id="613129501">
-						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">306</int>
-						<string key="NSFrame">{{20, 20}, {728, 265}}</string>
-						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="623961694"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="622027297">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
-						</object>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<int key="IBUITag">1</int>
-						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<bool key="IBUIAlwaysBounceVertical">YES</bool>
-						<int key="IBUISeparatorStyle">1</int>
-						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
-						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-						<float key="IBUIRowHeight">44</float>
-						<float key="IBUISectionHeaderHeight">22</float>
-						<float key="IBUISectionFooterHeight">22</float>
-					</object>
-					<object class="IBUITableView" id="623961694">
-						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">314</int>
-						<string key="NSFrame">{{20, 293}, {728, 535}}</string>
-						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="634131786"/>
-						<reference key="IBUIBackgroundColor" ref="622027297"/>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<int key="IBUITag">2</int>
-						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<bool key="IBUIAlwaysBounceVertical">YES</bool>
-						<int key="IBUISeparatorStyle">1</int>
-						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
-						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-						<float key="IBUIRowHeight">44</float>
-						<float key="IBUISectionHeaderHeight">22</float>
-						<float key="IBUISectionFooterHeight">22</float>
-					</object>
 					<object class="IBUIView" id="634131786">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">282</int>
@@ -93,10 +52,9 @@
 							<object class="IBUIButton" id="1026946663">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">319</int>
-								<string key="NSFrame">{{20, 20}, {224, 64}}</string>
+								<string key="NSFrame">{{20, 20}, {166, 64}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1069956820"/>
+								<reference key="NSNextKeyView" ref="1001163567"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -108,8 +66,11 @@
 								</object>
 								<int key="IBUIButtonType">1</int>
 								<string key="IBUINormalTitle">Delete Template</string>
-								<reference key="IBUIHighlightedTitleColor" ref="622027297"/>
-								<object class="NSColor" key="IBUINormalTitleColor">
+								<object class="NSColor" key="IBUIHighlightedTitleColor" id="622027297">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MQA</bytes>
+								</object>
+								<object class="NSColor" key="IBUINormalTitleColor" id="687541570">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
@@ -121,9 +82,8 @@
 							<object class="IBUIButton" id="1069956820">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">319</int>
-								<string key="NSFrame">{{252, 20}, {224, 64}}</string>
+								<string key="NSFrame">{{368, 20}, {166, 64}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="208790328"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -142,9 +102,8 @@
 							<object class="IBUIButton" id="208790328">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">319</int>
-								<string key="NSFrame">{{484, 20}, {224, 64}}</string>
+								<string key="NSFrame">{{542, 20}, {166, 64}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -160,10 +119,26 @@
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="168668303"/>
 							</object>
+							<object class="IBUIButton" id="1001163567">
+								<reference key="NSNextResponder" ref="634131786"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{194, 20}, {166, 64}}</string>
+								<reference key="NSSuperview" ref="634131786"/>
+								<reference key="NSNextKeyView" ref="1069956820"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<reference key="IBUIFont" ref="1016713546"/>
+								<int key="IBUIButtonType">1</int>
+								<string key="IBUINormalTitle">Modify Template</string>
+								<reference key="IBUIHighlightedTitleColor" ref="622027297"/>
+								<reference key="IBUINormalTitleColor" ref="687541570"/>
+								<reference key="IBUINormalTitleShadowColor" ref="168668303"/>
+							</object>
 						</object>
 						<string key="NSFrame">{{20, 836}, {728, 104}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1026946663"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -171,10 +146,69 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
+					<object class="IBUITableView" id="613129501">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">306</int>
+						<string key="NSFrame">{{20, 20}, {728, 265}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSNextKeyView" ref="623961694"/>
+						<reference key="IBUIBackgroundColor" ref="622027297"/>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUITag">1</int>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIAlwaysBounceVertical">YES</bool>
+						<int key="IBUISeparatorStyle">1</int>
+						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
+						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
+						<float key="IBUIRowHeight">44</float>
+						<float key="IBUISectionHeaderHeight">22</float>
+						<float key="IBUISectionFooterHeight">22</float>
+					</object>
+					<object class="IBUITableView" id="623961694">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">314</int>
+						<object class="NSMutableArray" key="NSSubviews">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIButton" id="884158606">
+								<reference key="NSNextResponder" ref="623961694"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{0, 491}, {728, 44}}</string>
+								<reference key="NSSuperview" ref="623961694"/>
+								<reference key="NSNextKeyView" ref="634131786"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<reference key="IBUIFont" ref="1016713546"/>
+								<int key="IBUIButtonType">1</int>
+								<string key="IBUINormalTitle">Pretend to Add a New Template</string>
+								<reference key="IBUIHighlightedTitleColor" ref="622027297"/>
+								<object class="NSColor" key="IBUINormalTitleColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+								</object>
+								<reference key="IBUINormalTitleShadowColor" ref="168668303"/>
+							</object>
+						</object>
+						<string key="NSFrame">{{20, 293}, {728, 535}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSNextKeyView" ref="884158606"/>
+						<reference key="IBUIBackgroundColor" ref="622027297"/>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUITag">2</int>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIAlwaysBounceVertical">YES</bool>
+						<int key="IBUISeparatorStyle">1</int>
+						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
+						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
+						<float key="IBUIRowHeight">44</float>
+						<float key="IBUISectionHeaderHeight">22</float>
+						<float key="IBUISectionFooterHeight">22</float>
+						<reference key="IBUITableFooterView" ref="884158606"/>
+					</object>
 				</object>
 				<string key="NSFrame">{{0, 64}, {768, 960}}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="613129501"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -298,6 +332,56 @@
 					</object>
 					<int key="connectionID">47</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">deleteButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="1026946663"/>
+					</object>
+					<int key="connectionID">55</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">modifyButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="1001163567"/>
+					</object>
+					<int key="connectionID">56</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">duplicateButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="1069956820"/>
+					</object>
+					<int key="connectionID">57</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">newButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="208790328"/>
+					</object>
+					<int key="connectionID">58</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">modifySelectedTemplate</string>
+						<reference key="source" ref="1001163567"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">59</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">testAddTemplateFile</string>
+						<reference key="source" ref="884158606"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">63</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -324,47 +408,11 @@
 						<reference key="object" ref="766721923"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="634131786"/>
-							<reference ref="623961694"/>
 							<reference ref="613129501"/>
+							<reference ref="623961694"/>
+							<reference ref="634131786"/>
 						</object>
 						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">10</int>
-						<reference key="object" ref="623961694"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-						</object>
-						<reference key="parent" ref="766721923"/>
-						<string key="objectName">Template TableView</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">9</int>
-						<reference key="object" ref="634131786"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="208790328"/>
-							<reference ref="1069956820"/>
-							<reference ref="1026946663"/>
-						</object>
-						<reference key="parent" ref="766721923"/>
-						<string key="objectName">ButtonContainer View</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">5</int>
-						<reference key="object" ref="1026946663"/>
-						<reference key="parent" ref="634131786"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">6</int>
-						<reference key="object" ref="1069956820"/>
-						<reference key="parent" ref="634131786"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">8</int>
-						<reference key="object" ref="208790328"/>
-						<reference key="parent" ref="634131786"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
@@ -377,6 +425,54 @@
 						<reference key="object" ref="584365201"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Template Editor</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9</int>
+						<reference key="object" ref="634131786"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="1069956820"/>
+							<reference ref="1001163567"/>
+							<reference ref="1026946663"/>
+							<reference ref="208790328"/>
+						</object>
+						<reference key="parent" ref="766721923"/>
+						<string key="objectName">ButtonContainer View</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">6</int>
+						<reference key="object" ref="1069956820"/>
+						<reference key="parent" ref="634131786"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">48</int>
+						<reference key="object" ref="1001163567"/>
+						<reference key="parent" ref="634131786"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">5</int>
+						<reference key="object" ref="1026946663"/>
+						<reference key="parent" ref="634131786"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">8</int>
+						<reference key="object" ref="208790328"/>
+						<reference key="parent" ref="634131786"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">10</int>
+						<reference key="object" ref="623961694"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="884158606"/>
+						</object>
+						<reference key="parent" ref="766721923"/>
+						<string key="objectName">Template TableView</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">60</int>
+						<reference key="object" ref="884158606"/>
+						<reference key="parent" ref="623961694"/>
 					</object>
 				</object>
 			</object>
@@ -392,8 +488,10 @@
 					<string>4.IBPluginDependency</string>
 					<string>44.CustomClassName</string>
 					<string>44.IBPluginDependency</string>
+					<string>48.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
+					<string>60.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -405,6 +503,8 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>TemplateEditorViewController</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -423,227 +523,9 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">47</int>
+			<int key="maxID">63</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-				<object class="IBPartialClassDescription">
-					<string key="className">TemplateEditorViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>deleteButtonPressed</string>
-							<string>newFieldButtonTouched</string>
-							<string>publishButtonPressed</string>
-							<string>saveButtonPressed</string>
-							<string>testLoadButtonPressed</string>
-							<string>testSaveButtonPressed</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>deleteButtonPressed</string>
-							<string>newFieldButtonTouched</string>
-							<string>publishButtonPressed</string>
-							<string>saveButtonPressed</string>
-							<string>testLoadButtonPressed</string>
-							<string>testSaveButtonPressed</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">deleteButtonPressed</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">newFieldButtonTouched</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">publishButtonPressed</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">saveButtonPressed</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">testLoadButtonPressed</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">testSaveButtonPressed</string>
-								<string key="candidateClassName">id</string>
-							</object>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>addFieldButton</string>
-							<string>deleteButton</string>
-							<string>labelField</string>
-							<string>publishButton</string>
-							<string>saveButton</string>
-							<string>scrollView</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UITextField</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIScrollView</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>addFieldButton</string>
-							<string>deleteButton</string>
-							<string>labelField</string>
-							<string>publishButton</string>
-							<string>saveButton</string>
-							<string>scrollView</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">addFieldButton</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">deleteButton</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">labelField</string>
-								<string key="candidateClassName">UITextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">publishButton</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">saveButton</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">scrollView</string>
-								<string key="candidateClassName">UIScrollView</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TemplateEditorViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TemplateManagerViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>createNewTemplate</string>
-							<string>deleteSelectedTemplate</string>
-							<string>duplicateSelectedTemplate</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>createNewTemplate</string>
-							<string>deleteSelectedTemplate</string>
-							<string>duplicateSelectedTemplate</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">createNewTemplate</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">deleteSelectedTemplate</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">duplicateSelectedTemplate</string>
-								<string key="candidateClassName">id</string>
-							</object>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>groupTableView</string>
-							<string>templateEditorViewController</string>
-							<string>templateTableView</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UITableView</string>
-							<string>UIViewController</string>
-							<string>UITableView</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>groupTableView</string>
-							<string>templateEditorViewController</string>
-							<string>templateTableView</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">groupTableView</string>
-								<string key="candidateClassName">UITableView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">templateEditorViewController</string>
-								<string key="candidateClassName">UIViewController</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">templateTableView</string>
-								<string key="candidateClassName">UITableView</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TemplateManagerViewController.h</string>
-					</object>
-				</object>
-			</object>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
