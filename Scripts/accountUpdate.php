@@ -20,13 +20,23 @@ if($_POST['username']){
 		//Attempt to update user info
 		$query = 'UPDATE USER set FNAME = "'.$_POST['firstName'].'", LNAME="'.$_POST['lastName'].'", EMAIL="'.$_POST['email'].'"';
 		$query .= ', ZIPCODE="'.$_POST['zipCode'].'"';
+		
+		if(!empty($_POST['companyName']))
+			$query .= ', COMPANY="'.$_POST['companyName'].'"';
+			
+		if(!empty($_POST['phoneNumber']))
+			$query .= ', PHONENUMBER="'.$_POST['phoneNumber'].'"';
+			
+		if(!empty($_POST['zipExt']))
+			$query .= ', ZIPCODEEXT="'.$_POST['zipExt'].'"';
+		
 		$query.= ' where USERNAME="'.$_POST['username'].'"';
 		
 		$queryResult=mysql_query($query);
 			
 		if(!$queryResult){
 			$response['updated'] = 'False';
-			$response['error'] = mysql_error();
+			$response['error'] = 'Database select error';
 			print json_encode($response);
 			exit;
 		}

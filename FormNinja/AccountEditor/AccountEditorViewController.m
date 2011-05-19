@@ -113,10 +113,14 @@
     [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
     
     //Save locally
+    //Add validation later
     self.account.lastName = self.lastNameTextField.text;
     self.account.firstName = self.firstNameTextField.text;
     self.account.emailAddress = self.emailAddressTextField.text;
     self.account.zipCode = self.zipCodeTextField.text;
+    self.account.companyName = self.companyNameTextField.text;
+    self.account.phoneNumber = self.phoneNumberTextField.text;
+    self.account.zipCodeExt = self.zipCodeExtTextField.text;
     [self.account save];
     
     //Prepare form to save remotely 
@@ -127,8 +131,10 @@
     [request setPostValue:self.account.lastName forKey:formLastName];
     [request setPostValue:self.account.emailAddress forKey:formEmail];
     [request setPostValue:self.account.zipCode forKey:formZipCode];
+    [request setPostValue:self.account.companyName forKey:formCompanyName];
+    [request setPostValue:self.account.phoneNumber forKey:formPhoneNumber];
+    [request setPostValue:self.account.zipCodeExt forKey:formZipCodeExt];
 
-	
     //Send request
     request.delegate = self;
     [request startAsynchronous];  

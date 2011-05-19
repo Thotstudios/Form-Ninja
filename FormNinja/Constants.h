@@ -26,7 +26,9 @@
 #define formLastName @"lastName"
 #define formEmail @"email"
 #define formZipCode @"zipCode"
-
+#define formCompanyName @"companyName"
+#define formPhoneNumber @"phoneNumber"
+#define formZipCodeExt @"zipExt"
 
 //Form reply
 #define formUserAccepted @"accepted"
