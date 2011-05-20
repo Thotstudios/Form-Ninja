@@ -72,6 +72,7 @@
     //Remove user info locally
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:userInfo];
+    [defaults synchronize];
     
     //Invalidate singleton 
     [[self sharedAccountClass] invalidate];

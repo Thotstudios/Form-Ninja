@@ -108,6 +108,8 @@
     
     else
         self.changePasswordButton.hidden = NO;
+    
+    [self loadAccountInfo];
 }
 
 
@@ -126,7 +128,8 @@
     self.account = [AccountClass sharedAccountClass];
     
     if(self.account.username == nil){ //if no username, there is no user info stored
-        //regrab info
+        //clear fields
+        self.usernameTextField.text = self.firstNameTextField.text = self.lastNameTextField.text = self.passwordTextField.text = self.passwordConfirmTextField.text = self.passwordChangeTextField.text = self.companyNameTextField.text = self.emailAddressTextField.text = self.phoneNumberTextField.text = self.zipCodeTextField.text = self.zipCodeExtTextField.text = nil;
     }
     
     //else populate vc
