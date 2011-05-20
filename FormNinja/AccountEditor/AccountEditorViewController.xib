@@ -1022,6 +1022,108 @@
 					</object>
 					<int key="connectionID">87</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">confirmButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="468055617"/>
+					</object>
+					<int key="connectionID">88</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="504510336"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">89</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="730561150"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">90</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="182607140"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">91</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="642925026"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">92</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="346993444"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">93</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">textFieldDidChange</string>
+						<reference key="source" ref="504510336"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">18</int>
+					</object>
+					<int key="connectionID">94</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">textFieldDidChange</string>
+						<reference key="source" ref="142278068"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">18</int>
+					</object>
+					<int key="connectionID">95</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">textFieldDidChange</string>
+						<reference key="source" ref="730561150"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">18</int>
+					</object>
+					<int key="connectionID">96</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">textFieldDidChange</string>
+						<reference key="source" ref="182607140"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">18</int>
+					</object>
+					<int key="connectionID">97</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">textFieldDidChange</string>
+						<reference key="source" ref="642925026"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">18</int>
+					</object>
+					<int key="connectionID">98</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">textFieldDidChange</string>
+						<reference key="source" ref="346993444"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">18</int>
+					</object>
+					<int key="connectionID">99</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1358,7 +1460,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">87</int>
+			<int key="maxID">99</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1375,9 +1477,11 @@
 							<string>changePasswordEnable</string>
 							<string>pressedCancel:</string>
 							<string>pressedConfirm:</string>
+							<string>textFieldDidChange</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1394,6 +1498,7 @@
 							<string>changePasswordEnable</string>
 							<string>pressedCancel:</string>
 							<string>pressedConfirm:</string>
+							<string>textFieldDidChange</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1417,6 +1522,10 @@
 								<string key="name">pressedConfirm:</string>
 								<string key="candidateClassName">id</string>
 							</object>
+							<object class="IBActionInfo">
+								<string key="name">textFieldDidChange</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -1427,6 +1536,7 @@
 							<string>changePasswordConfirmButton</string>
 							<string>changePasswordView</string>
 							<string>companyNameTextField</string>
+							<string>confirmButton</string>
 							<string>emailAddressTextField</string>
 							<string>firstNameTextField</string>
 							<string>lastNameTextField</string>
@@ -1448,6 +1558,7 @@
 							<string>UIButton</string>
 							<string>UIView</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
@@ -1472,6 +1583,7 @@
 							<string>changePasswordConfirmButton</string>
 							<string>changePasswordView</string>
 							<string>companyNameTextField</string>
+							<string>confirmButton</string>
 							<string>emailAddressTextField</string>
 							<string>firstNameTextField</string>
 							<string>lastNameTextField</string>
@@ -1504,6 +1616,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">companyNameTextField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">confirmButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">emailAddressTextField</string>

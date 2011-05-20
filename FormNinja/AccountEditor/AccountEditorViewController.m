@@ -39,7 +39,7 @@
 @synthesize zipCodeTextField;
 @synthesize zipCodeExtTextField;
 
-@synthesize changePasswordButton, changePasswordConfirmButton;
+@synthesize changePasswordButton, changePasswordConfirmButton, confirmButton;
 @synthesize changePasswordView;
 
 @synthesize securityQuestionView;
@@ -104,6 +104,8 @@
     
     if (type == 0) {
         self.changePasswordButton.hidden = YES;
+        self.confirmButton.userInteractionEnabled = FALSE;
+		self.confirmButton.alpha = .7; 
     }
     
     else
@@ -217,6 +219,44 @@
     [self performSelector:@selector(gotoMenu) withObject:nil afterDelay:3];
 }
 
+
+- (void) validatePasswordChange:(NSString *) text withTextField:(UITextField *) textField{
+    if ([self isEmpty:text]) {
+        self.changePasswordConfirmButton.userInteractionEnabled = FALSE;
+        self.changePasswordConfirmButton.alpha = .7; 
+    }
+    
+    else if ((textField == self.passwordChangeTextField && [text isEqualToString:self.passwordConfirmTextField.text]) || 
+             (textField == self.passwordConfirmTextField && [text isEqualToString:self.passwordChangeTextField.text]) ||
+             (textField == self.passwordTextField && [text isEqualToString:self.account.passwordHash])){
+        self.changePasswordConfirmButton.userInteractionEnabled = TRUE;
+        self.changePasswordConfirmButton.alpha = 1; 
+    }
+    
+    else{
+        self.changePasswordConfirmButton.userInteractionEnabled = FALSE;
+        self.changePasswordConfirmButton.alpha = .7; 
+    }
+}
+
+
+//Called after every required text field has been edited
+- (IBAction) textFieldDidChange{
+    if (![self isEmpty:self.usernameTextField.text] && ![self isEmpty:self.passwordTextField.text ] 
+             && ![self isEmpty:self.firstNameTextField.text] && ![self isEmpty:self.lastNameTextField.text] 
+             && ![self isEmpty:self.emailAddressTextField.text ] && ![self isEmpty:self.zipCodeTextField.text]){
+        self.confirmButton.userInteractionEnabled = TRUE;
+		self.confirmButton.alpha = 1; 
+    }
+    
+    else{
+        self.confirmButton.userInteractionEnabled = FALSE;
+		self.confirmButton.alpha = .7;   
+    }
+}
+
+
+#pragma mark - Button Actions
 
 - (IBAction)pressedConfirm:(id)sender {
     [self pushAlertView];
@@ -345,21 +385,8 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-    if ([self isEmpty:text]) {
-        self.changePasswordConfirmButton.userInteractionEnabled = FALSE;
-        self.changePasswordConfirmButton.alpha = .7; 
-    }
-    
-    else if ((textField == self.passwordChangeTextField && [text isEqualToString:self.passwordConfirmTextField.text]) || 
-        (textField == self.passwordConfirmTextField && [text isEqualToString:self.passwordChangeTextField.text]) ||
-             (textField == self.passwordTextField && [text isEqualToString:self.account.passwordHash])){
-        self.changePasswordConfirmButton.userInteractionEnabled = TRUE;
-        self.changePasswordConfirmButton.alpha = 1; 
-    }
-    
-    else{
-        self.changePasswordConfirmButton.userInteractionEnabled = FALSE;
-        self.changePasswordConfirmButton.alpha = .7; 
+    if (textField == self.passwordChangeTextField || textField == self.passwordConfirmTextField || textField == self.passwordTextField && self.type!=0) {
+        [self validatePasswordChange:text withTextField:textField];
     }
         
     return TRUE;
@@ -390,6 +417,7 @@
 	[self setPhoneNumberTextField:nil];
 	[self setZipCodeTextField:nil];
 	[self setZipCodeExtTextField:nil];
+    [self setConfirmButton:nil];
 	
     [self setChangePasswordButton:nil];
     [self setChangePasswordConfirmButton:nil];
@@ -422,9 +450,11 @@
 	[zipCodeTextField release];
 	[zipCodeExtTextField release];
 	
+    [confirmButton release];
     [changePasswordButton release];
     [changePasswordConfirmButton release];
-	[changePasswordView release];
+	
+    [changePasswordView release];
 	
     [securityQuestionView release];
     [securityQuestionTextField release];

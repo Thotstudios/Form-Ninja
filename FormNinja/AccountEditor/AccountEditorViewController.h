@@ -24,6 +24,8 @@
 	UITextField *phoneNumberTextField;
 	UITextField *zipCodeTextField;
 	UITextField *zipCodeExtTextField;
+    
+    UIButton *confirmButton;
 	
 	UIButton *changePasswordButton;
 	UIView *changePasswordView;
@@ -51,7 +53,8 @@
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeTextField;
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeExtTextField;
 
-@property (nonatomic, retain) IBOutlet UIButton *changePasswordButton, *changePasswordConfirmButton;
+@property (nonatomic, retain) IBOutlet UIButton *changePasswordButton, *changePasswordConfirmButton, *confirmButton;
+
 @property (nonatomic, retain) IBOutlet UIView *changePasswordView;
 
 @property (nonatomic, retain) IBOutlet UIView *securityQuestionView;
@@ -61,6 +64,9 @@
 @property (nonatomic, retain) IBOutlet CustomLoadAlertViewController *loadAlert;
 
 @property (nonatomic) int type;
+
+
+- (IBAction) textFieldDidChange;
 
 - (IBAction)pressedConfirm:(id)sender;
 - (IBAction)pressedCancel:(id)sender;
