@@ -175,7 +175,7 @@
 }
 - (IBAction)deleteSelectedTemplate
 {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"YES" otherButtonTitles:nil];
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_TEMPLATE_TITLE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_TEMPLATE_BUTTON_STR otherButtonTitles:nil];
 	
     [popupQuery showInView:self.view];
 	
@@ -185,7 +185,7 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	if(buttonIndex != [actionSheet cancelButtonIndex] && [[actionSheet title] isEqualToString:CONFIRM_DELETE_STR])
+	if(buttonIndex != [actionSheet cancelButtonIndex] && [[actionSheet title] isEqualToString:CONFIRM_DELETE_TEMPLATE_TITLE_STR])
 		[self confirmDeleteSelectedTemplate];
 }
 
@@ -254,14 +254,14 @@
 		
 		
 		case 2: // template table
-		r = @"Available Templates";
+		r = @"Available Templates"; // TODO: localize
 		if([selectedGroupName length] > 0)
 			r = [r stringByAppendingFormat:@" (%@)", selectedGroupName];
 		break;
 		
 		
 		default:
-		r = @"Error Table Header Title";
+		r = @"Error Table Header Title"; // TODO: localize
 		break;
 	}
 	return r;

@@ -15,6 +15,7 @@ Chad:
 - fourth, at any point, user can change to Signature mdoe
 * Signatures: Must create system for capturing signature and storing in file.
 - import existing work from paint program.
+* Unpublished templates should have a 'Resume' button instead of a "Modify" button
 
 Paul:
 * Optionally write a TODO list here.
