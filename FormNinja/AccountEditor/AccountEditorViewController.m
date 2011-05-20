@@ -108,6 +108,8 @@
     
     else
         self.changePasswordButton.hidden = NO;
+    
+    [self loadAccountInfo];
 }
 
 
@@ -126,7 +128,8 @@
     self.account = [AccountClass sharedAccountClass];
     
     if(self.account.username == nil){ //if no username, there is no user info stored
-        //regrab info
+        //clear fields
+        self.usernameTextField.text = self.firstNameTextField.text = self.lastNameTextField.text = self.passwordTextField.text = self.passwordConfirmTextField.text = self.passwordChangeTextField.text = self.companyNameTextField.text = self.emailAddressTextField.text = self.phoneNumberTextField.text = self.zipCodeTextField.text = self.zipCodeExtTextField.text = nil;
     }
     
     //else populate vc
@@ -185,8 +188,33 @@
     self.account.companyName = self.companyNameTextField.text;
     self.account.phoneNumber = self.phoneNumberTextField.text;
     self.account.zipCodeExt = self.zipCodeExtTextField.text;
+    self.account.securityAnswer = @"test answer";
+    self.account.securityQuestion = @"test?";
     
     [self.account save];
+}
+
+- (void) gotoMenu{
+    [self removeAlertView];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+//Called when user has been created
+- (void) accountCreated{
+    self.account.username = self.usernameTextField.text;
+    self.account.passwordHash = self.passwordTextField.text;
+    [self saveAccountInfoLocally]; //save locally
+    
+    // set login expiration
+    NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
+    int long_session = 1209600;	//	two weeks
+    int short_session = 86400;	//	one day
+    BOOL remember = [opt boolForKey:rememberUserKey]; 
+    long loginExpiration = time(0) + (remember?long_session:short_session);
+    [opt setInteger:loginExpiration forKey:loginExpirationKey];
+    [opt synchronize];
+    
+    [self performSelector:@selector(gotoMenu) withObject:nil afterDelay:3];
 }
 
 
@@ -194,32 +222,45 @@
     [self pushAlertView];
     [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
     
-    //Save locally
-    //Add validation later
-    [self saveAccountInfoLocally];
+    NSURL *urlToSend;
+    ASIFormDataRequest *request;
     
-	if(1) // Account is being created/registered
-		{
+    
+    if(self.type == 0){ // Account is being registered
 		// TODO: security question for new accounts
 		// TODO: security answer for new accounts
-		}
+        urlToSend = [[[NSURL alloc] initWithString: accountRegisterURL] autorelease];
+        request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
+        [request setPostValue:self.usernameTextField.text forKey:formUsername];
+        [request setPostValue:self.passwordTextField.text forKey:formPassword];
+        [request setPostValue:self.firstNameTextField.text forKey:formFirstName];
+        [request setPostValue:self.lastNameTextField.text forKey:formLastName];
+        [request setPostValue:self.emailAddressTextField.text forKey:formEmail];
+        [request setPostValue:self.zipCodeTextField.text forKey:formZipCode];
+        [request setPostValue:self.companyNameTextField.text forKey:formCompanyName];
+        [request setPostValue:self.phoneNumberTextField.text forKey:formPhoneNumber];
+        [request setPostValue:self.zipCodeExtTextField.text forKey:formZipCodeExt];
+        [request setPostValue:@"test?" forKey:formSecretQuestion];
+        [request setPostValue:@"test answer" forKey:formSecretAnswer];
+    }
     
-    //Prepare form to save remotely 
-    NSURL *urlToSend = [[[NSURL alloc] initWithString: updateAccountURL] autorelease];
-    ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
-    [request setPostValue:self.account.username forKey:formUsername];
-    [request setPostValue:self.account.firstName forKey:formFirstName];
-    [request setPostValue:self.account.lastName forKey:formLastName];
-    [request setPostValue:self.account.emailAddress forKey:formEmail];
-    [request setPostValue:self.account.zipCode forKey:formZipCode];
-    [request setPostValue:self.account.companyName forKey:formCompanyName];
-    [request setPostValue:self.account.phoneNumber forKey:formPhoneNumber];
-    [request setPostValue:self.account.zipCodeExt forKey:formZipCodeExt];
-	if(1) // Account is being created/registered
-		{
-		// TODO: security question for new accounts
-		// TODO: security answer for new accounts
-		}
+    else{
+        //Save locally
+        //Add validation later
+        [self saveAccountInfoLocally];
+        
+        //Prepare form to save remotely 
+        urlToSend = [[[NSURL alloc] initWithString: updateAccountURL] autorelease];
+        request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
+        [request setPostValue:self.account.username forKey:formUsername];
+        [request setPostValue:self.account.firstName forKey:formFirstName];
+        [request setPostValue:self.account.lastName forKey:formLastName];
+        [request setPostValue:self.account.emailAddress forKey:formEmail];
+        [request setPostValue:self.account.zipCode forKey:formZipCode];
+        [request setPostValue:self.account.companyName forKey:formCompanyName];
+        [request setPostValue:self.account.phoneNumber forKey:formPhoneNumber];
+        [request setPostValue:self.account.zipCodeExt forKey:formZipCodeExt];
+    }
 	
     //Send request
     request.delegate = self;
@@ -287,6 +328,14 @@
         self.account.passwordHash = self.passwordConfirmTextField.text;
         [self.account save];// save locally
     }
+    
+    else if(self.type == 0){
+        self.loadAlert.alertLabel.text = @"Account Created";
+        [self.loadAlert stopActivityIndicator];
+        [self accountCreated];
+        return;
+    }
+    
     [self removeAlertView];
 }
 
