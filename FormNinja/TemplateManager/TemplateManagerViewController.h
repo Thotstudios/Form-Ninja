@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TemplateManagerViewController : UIViewController
+@interface TemplateManagerViewController : UIViewController <UIActionSheetDelegate>
 {
 	UITableView *templateTableView;
 	UITableView *groupTableView;

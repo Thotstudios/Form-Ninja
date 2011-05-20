@@ -51,3 +51,12 @@
 #define DOCUMENTS_PATH ([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0])
 #define TEMPLATE_DIR (@"/.")
 #define TEMPLATE_PATH ([NSString stringWithFormat:@"%@%@", DOCUMENTS_PATH, TEMPLATE_DIR])
+
+#define CONFIRM_DELETE_STR @"Really delete?"
+
+
+
+
+
+
+

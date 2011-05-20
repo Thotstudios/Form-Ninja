@@ -165,16 +165,28 @@
 
 #pragma mark Interface Methods
 
+-(void) confirmDeleteSelectedTemplate
+{
+	[[NSFileManager defaultManager] removeItemAtPath:selectedTemplatePath error:NULL];
+	[self loadTemplateList];
+	
+	// TODO: DROP from table
+	[self disableButtons]; // because now there's no template selected
+}
 - (IBAction)deleteSelectedTemplate
 {
-	if(1) // TODO: Confirm Deletion
-		{
-		[[NSFileManager defaultManager] removeItemAtPath:selectedTemplatePath error:NULL];
-		[self loadTemplateList];
-		
-		// TODO: DROP from table
-		}
-	[self disableButtons]; // because now there's no template selected
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"YES" otherButtonTitles:nil];
+	
+    [popupQuery showInView:self.view];
+	
+    [popupQuery release];
+	
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if(buttonIndex != [actionSheet cancelButtonIndex] && [[actionSheet title] isEqualToString:CONFIRM_DELETE_STR])
+		[self confirmDeleteSelectedTemplate];
 }
 
 - (IBAction)modifySelectedTemplate
