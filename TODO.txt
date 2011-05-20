@@ -26,3 +26,5 @@ Other:
 * Account info should be cleared when user logs out.
 - currently, info is retained which is evident when using Login Bypass
 - second, there might be a conflict on the 'option' data for an account
+
+* Localization support

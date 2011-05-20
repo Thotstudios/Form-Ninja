@@ -36,17 +36,17 @@
 		F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F768C5AD137DE85800191858 /* AccountEditorViewController.m */; };
 		F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F768C5AE137DE85800191858 /* AccountEditorViewController.xib */; };
 		F768C5B8137DEFEB00191858 /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = F768C5B7137DEFEB00191858 /* TODO.txt */; };
-		F778DD55137DC60E00B444F6 /* TemplateManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F778DD53137DC60E00B444F6 /* TemplateManagerViewController.m */; };
 		F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F778DD58137DC69400B444F6 /* CustomLoadAlert.xib */; };
 		F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F778DD5A137DC69400B444F6 /* CustomLoadAlertViewController.m */; };
 		F77FDA551375F5DD00DC694D /* TemplateEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FDA531375F5DD00DC694D /* TemplateEditorViewController.m */; };
-		F77FDA561375F5DD00DC694D /* TemplateEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F77FDA541375F5DD00DC694D /* TemplateEditorViewController.xib */; };
 		F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D8AFB9136E289500FE0F76 /* MainMenu.m */; };
 		F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D8AFBA136E289500FE0F76 /* MainMenu.xib */; };
 		F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2B560137E49D000EA89D0 /* AccountClass.m */; };
-		F7F248B51385DF4F00E0FD2A /* TemplateManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248B61385DF4F00E0FD2A /* TemplateManagerViewController.xib */; };
-		F7F248BD1385E0DC00E0FD2A /* FormNinjaLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248BE1385E0DC00E0FD2A /* FormNinjaLoginViewController.xib */; };
-		F7F248BF1385E0E900E0FD2A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248C01385E0E900E0FD2A /* MainWindow.xib */; };
+		F7F248C11385E1C600E0FD2A /* FormNinjaLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248C31385E1C600E0FD2A /* FormNinjaLoginViewController.xib */; };
+		F7F248C41385E1CB00E0FD2A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248C61385E1CB00E0FD2A /* MainWindow.xib */; };
+		F7F248CD1385E2D300E0FD2A /* TemplateEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248CE1385E2D300E0FD2A /* TemplateEditorViewController.xib */; };
+		F7F248D41385E8ED00E0FD2A /* TemplateManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F248D51385E8ED00E0FD2A /* TemplateManagerViewController.m */; };
+		F7F248D61385E8F800E0FD2A /* TemplateManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248D71385E8F800E0FD2A /* TemplateManagerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,21 +106,21 @@
 		F768C5AE137DE85800191858 /* AccountEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountEditorViewController.xib; sourceTree = "<group>"; };
 		F768C5B7137DEFEB00191858 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		F778DD52137DC60E00B444F6 /* TemplateManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateManagerViewController.h; sourceTree = "<group>"; };
-		F778DD53137DC60E00B444F6 /* TemplateManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateManagerViewController.m; sourceTree = "<group>"; };
 		F778DD58137DC69400B444F6 /* CustomLoadAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLoadAlert.xib; sourceTree = "<group>"; };
 		F778DD59137DC69400B444F6 /* CustomLoadAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLoadAlertViewController.h; sourceTree = "<group>"; };
 		F778DD5A137DC69400B444F6 /* CustomLoadAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLoadAlertViewController.m; sourceTree = "<group>"; };
 		F77FDA521375F5DD00DC694D /* TemplateEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateEditorViewController.h; path = TemplateEditor/TemplateEditorViewController.h; sourceTree = "<group>"; };
 		F77FDA531375F5DD00DC694D /* TemplateEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateEditorViewController.m; path = TemplateEditor/TemplateEditorViewController.m; sourceTree = "<group>"; };
-		F77FDA541375F5DD00DC694D /* TemplateEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TemplateEditorViewController.xib; path = TemplateEditor/TemplateEditorViewController.xib; sourceTree = "<group>"; };
 		F7D8AFB8136E289500FE0F76 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		F7D8AFB9136E289500FE0F76 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		F7D8AFBA136E289500FE0F76 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		F7E2B55F137E49D000EA89D0 /* AccountClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountClass.h; path = AccountClass/AccountClass.h; sourceTree = "<group>"; };
 		F7E2B560137E49D000EA89D0 /* AccountClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountClass.m; path = AccountClass/AccountClass.m; sourceTree = "<group>"; };
-		F7F248B61385DF4F00E0FD2A /* TemplateManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateManagerViewController.xib; sourceTree = "<group>"; };
-		F7F248BE1385E0DC00E0FD2A /* FormNinjaLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormNinjaLoginViewController.xib; sourceTree = "<group>"; };
-		F7F248C01385E0E900E0FD2A /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		F7F248C21385E1C600E0FD2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FormNinjaLoginViewController.xib; sourceTree = "<group>"; };
+		F7F248C51385E1CB00E0FD2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		F7F248CE1385E2D300E0FD2A /* TemplateEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TemplateEditorViewController.xib; path = TemplateEditor/TemplateEditorViewController.xib; sourceTree = "<group>"; };
+		F7F248D51385E8ED00E0FD2A /* TemplateManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemplateManagerViewController.m; sourceTree = "<group>"; };
+		F7F248D71385E8F800E0FD2A /* TemplateManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateManagerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +211,7 @@
 			children = (
 				D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */,
 				D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */,
-				F7F248BE1385E0DC00E0FD2A /* FormNinjaLoginViewController.xib */,
+				F7F248C31385E1C600E0FD2A /* FormNinjaLoginViewController.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 				F7D8AFBE136E289A00FE0F76 /* MainMenu */,
 				D922CE9F136C926300233C48 /* FormNinjaAppDelegate.h */,
 				D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */,
-				F7F248C01385E0E900E0FD2A /* MainWindow.xib */,
+				F7F248C61385E1CB00E0FD2A /* MainWindow.xib */,
 				D917B46C1379E09F00E75140 /* Login */,
 				F778DD57137DC69400B444F6 /* CustomLoadAlert */,
 				D922CE97136C926300233C48 /* Supporting Files */,
@@ -312,8 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				F778DD52137DC60E00B444F6 /* TemplateManagerViewController.h */,
-				F778DD53137DC60E00B444F6 /* TemplateManagerViewController.m */,
-				F7F248B61385DF4F00E0FD2A /* TemplateManagerViewController.xib */,
+				F7F248D51385E8ED00E0FD2A /* TemplateManagerViewController.m */,
+				F7F248D71385E8F800E0FD2A /* TemplateManagerViewController.xib */,
 			);
 			path = TemplateManager;
 			sourceTree = "<group>";
@@ -333,7 +333,7 @@
 			children = (
 				F77FDA521375F5DD00DC694D /* TemplateEditorViewController.h */,
 				F77FDA531375F5DD00DC694D /* TemplateEditorViewController.m */,
-				F77FDA541375F5DD00DC694D /* TemplateEditorViewController.xib */,
+				F7F248CE1385E2D300E0FD2A /* TemplateEditorViewController.xib */,
 				425CA0C2137AEB9600BBCBEA /* StringField */,
 			);
 			name = TemplateEditor;
@@ -391,6 +391,7 @@
 			knownRegions = (
 				en,
 				English,
+				es,
 			);
 			mainGroup = D922CE81136C926300233C48;
 			productRefGroup = D922CE8D136C926300233C48 /* Products */;
@@ -408,14 +409,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */,
-				F77FDA561375F5DD00DC694D /* TemplateEditorViewController.xib in Resources */,
+				F7F248CD1385E2D300E0FD2A /* TemplateEditorViewController.xib in Resources */,
 				425CA0C0137AE78700BBCBEA /* stringFieldViewController.xib in Resources */,
-				F7F248B51385DF4F00E0FD2A /* TemplateManagerViewController.xib in Resources */,
+				F7F248D61385E8F800E0FD2A /* TemplateManagerViewController.xib in Resources */,
 				F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */,
 				F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */,
 				F768C5B8137DEFEB00191858 /* TODO.txt in Resources */,
-				F7F248BF1385E0E900E0FD2A /* MainWindow.xib in Resources */,
-				F7F248BD1385E0DC00E0FD2A /* FormNinjaLoginViewController.xib in Resources */,
+				F7F248C41385E1CB00E0FD2A /* MainWindow.xib in Resources */,
+				F7F248C11385E1C600E0FD2A /* FormNinjaLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +446,7 @@
 				D917B4101378D0E900E75140 /* SBJsonWriter.m in Sources */,
 				D917B44D1378DEFB00E75140 /* Reachability.m in Sources */,
 				425CA0BF137AE78700BBCBEA /* stringFieldViewController.m in Sources */,
-				F778DD55137DC60E00B444F6 /* TemplateManagerViewController.m in Sources */,
+				F7F248D41385E8ED00E0FD2A /* TemplateManagerViewController.m in Sources */,
 				F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */,
 				F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */,
 				F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */,
@@ -453,6 +454,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F7F248C31385E1C600E0FD2A /* FormNinjaLoginViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7F248C21385E1C600E0FD2A /* en */,
+			);
+			name = FormNinjaLoginViewController.xib;
+			sourceTree = "<group>";
+		};
+		F7F248C61385E1CB00E0FD2A /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7F248C51385E1CB00E0FD2A /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D922CEAB136C926300233C48 /* Debug */ = {

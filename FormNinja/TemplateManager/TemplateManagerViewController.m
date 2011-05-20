@@ -248,7 +248,8 @@
 	switch ([tableView tag])
 	{
 		case 1: // group table
-		r = @"Template Groups";
+		//r = @"Template Groups";
+		r = NSLocalizedString(@"Template Groups", @"Section Header for Groups table");
 		break;
 		
 		
