@@ -29,6 +29,9 @@
 #define formCompanyName @"companyName"
 #define formPhoneNumber @"phoneNumber"
 #define formZipCodeExt @"zipExt"
+#define formSecretQuestion @"secretQuestion"
+#define formSecretAnswer @"secretAnswer"
+
 
 //Form reply
 #define formUserAccepted @"accepted"

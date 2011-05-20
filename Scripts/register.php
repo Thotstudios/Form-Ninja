@@ -23,9 +23,12 @@ if($_POST['username'])
 		//SELECT to see if username / email combo exists
 		$queryResult=mysql_query('select * from USER where USERNAME="'.$_POST['username'].'" OR EMAIL="'.$_POST['email'].'"');
 		
-		if(!$queryResult)
-			die("Select error: ".mysql_error());
-
+		if(!$queryResult){
+			$response['registered'] = 'False';
+			$response['error'] = 'Database select error';
+			print json_encode($response);
+			exit;
+		}
 
 		if(mysql_numrows($queryResult)==0)
 		{
@@ -42,29 +45,45 @@ if($_POST['username'])
 			$query=$query.$_POST['securityanswer']."', '";
 			$query=$query.$_POST['zipcode']."', '";
 			$query=$query.$_POST['zipcodeExt']."')";
+			
 			$queryReslut=mysql_query($query);
+			
+			if(!$queryResult){
+				$response['registered'] = 'False';
+				$response['error'] = mysql_error();
+				print json_encode($response);
+				exit;
+			}
+		
+			else{
+				$response['registered'] = 'True';
+				print json_encode($response);
+				exit;
+			}
 		}
 		
-		else
-		{
+		else{
 			//should check to see if username or email is already used, then report that
-			echo 'return 404';
+			$response['registered'] = 'False';
+			$response['error'] = 'Could not register account. Please try again or contact our tech support.';
+			print json_encode($response);
+			exit;
 		}
 	}
 	
 	else{
-		die ('error, no connection'.mysql_error());
+		$response['registered'] = 'False';
+		$response['error'] = 'Database connection error';
+		print json_encode($response);
+		exit;
+		//die ('error, no connection'.mysql_error());	
 	}
-	
-	
 	
 	//close out connection
 	mysql_close($link);
-
 }
 
-else
-{
+else{
 	$response['registered'] = 'False';
 	$response['error'] = 'Please make sure all form information is filled out properly';
 	print json_encode($response);

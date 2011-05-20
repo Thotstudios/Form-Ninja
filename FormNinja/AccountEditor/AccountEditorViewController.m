@@ -204,6 +204,19 @@
     if(self.type == 0){ // Account is being registered
 		// TODO: security question for new accounts
 		// TODO: security answer for new accounts
+        urlToSend = [[[NSURL alloc] initWithString: accountRegisterURL] autorelease];
+        request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
+        [request setPostValue:self.usernameTextField.text forKey:formUsername];
+        [request setPostValue:self.passwordTextField.text forKey:formPassword];
+        [request setPostValue:self.firstNameTextField.text forKey:formFirstName];
+        [request setPostValue:self.lastNameTextField.text forKey:formLastName];
+        [request setPostValue:self.emailAddressTextField.text forKey:formEmail];
+        [request setPostValue:self.zipCodeTextField.text forKey:formZipCode];
+        [request setPostValue:self.companyNameTextField.text forKey:formCompanyName];
+        [request setPostValue:self.phoneNumberTextField.text forKey:formPhoneNumber];
+        [request setPostValue:self.zipCodeExtTextField.text forKey:formZipCodeExt];
+        [request setPostValue:@"test?" forKey:formSecretQuestion];
+        [request setPostValue:@"test answer" forKey:formSecretAnswer];
     }
     
     else{
@@ -289,6 +302,10 @@
         self.passwordTextField.text = self.passwordConfirmTextField.text;
         self.account.passwordHash = self.passwordConfirmTextField.text;
         [self.account save];// save locally
+    }
+    
+    else if(self.type == 1){
+        
     }
     
     [self removeAlertView];
