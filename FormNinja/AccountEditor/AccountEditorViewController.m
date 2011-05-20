@@ -188,8 +188,33 @@
     self.account.companyName = self.companyNameTextField.text;
     self.account.phoneNumber = self.phoneNumberTextField.text;
     self.account.zipCodeExt = self.zipCodeExtTextField.text;
+    self.account.securityAnswer = @"test answer";
+    self.account.securityQuestion = @"test?";
     
     [self.account save];
+}
+
+- (void) gotoMenu{
+    [self removeAlertView];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+//Called when user has been created
+- (void) accountCreated{
+    self.account.username = self.usernameTextField.text;
+    self.account.passwordHash = self.passwordTextField.text;
+    [self saveAccountInfoLocally]; //save locally
+    
+    // set login expiration
+    NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
+    int long_session = 1209600;	//	two weeks
+    int short_session = 86400;	//	one day
+    BOOL remember = [opt boolForKey:rememberUserKey]; 
+    long loginExpiration = time(0) + (remember?long_session:short_session);
+    [opt setInteger:loginExpiration forKey:loginExpirationKey];
+    [opt synchronize];
+    
+    [self performSelector:@selector(gotoMenu) withObject:nil afterDelay:3];
 }
 
 
@@ -304,8 +329,11 @@
         [self.account save];// save locally
     }
     
-    else if(self.type == 1){
-        
+    else if(self.type == 0){
+        self.loadAlert.alertLabel.text = @"Account Created";
+        [self.loadAlert stopActivityIndicator];
+        [self accountCreated];
+        return;
     }
     
     [self removeAlertView];
