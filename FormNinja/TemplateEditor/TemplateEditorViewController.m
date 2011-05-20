@@ -8,6 +8,8 @@
 
 #import "TemplateEditorViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "JSON.h"
+#import "AccountClass.h"
 
 
 @implementation TemplateEditorViewController
@@ -777,7 +779,24 @@
 {
     [testArray release];
     testArray=[[self reduceTemplateToArray] retain];
-    [testArray retain];
+    
+    //Get current date
+    NSDate* date = [NSDate date];
+    //Create the dateformatter object    
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
+    //Set the required date format
+    [formatter setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    //Get the string date
+    NSString* str = [formatter stringFromDate:date];
+    
+    AccountClass *account = [AccountClass sharedAccountClass]; //get account info
+    
+    //Create filename
+    NSMutableString *filename = [NSMutableString stringWithFormat:@"%@_%@_%@", account.username,str, self.labelField.text];
+    NSLog(@"%@", filename);
+    
+    //Converted array to save to file
+    NSString* savedValue = [testArray JSONRepresentation];
 }
 
 @end
