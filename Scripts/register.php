@@ -34,19 +34,20 @@ if($_POST['username'])
 		{
 		//if so, create session
 			session_start();
-			$query="INSERT INTO `USER` (`USERID`, `USERNAME`, `PASSWORD`, `FNAME`, 'LNAME' , `EMAIL`, `COMPANY`, `PHONENUMBER`, `SECURITYQUESTION`, `SECURITYANSWER`, `ZIPCODE`, `ZIPCODEEXT`) values (NULL, '";
+			$query="INSERT INTO USER (USERID, USERNAME, PASSWORD, FNAME, LNAME, EMAIL, COMPANY, PHONENUMBER, SECURITYQUESTION, SECURITYANSWER, ZIPCODE, ZIPCODEEXT) values (NULL, '";
 			$query=$query.$_POST['username']."', '";
 			$query=$query.$_POST['password']."', '";
-			$query=$query.$_POST['name']."', '";
+			$query=$query.$_POST['firstName']."', '";
+			$query=$query.$_POST['lastName']."', '";
 			$query=$query.$_POST['email']."', '";
-			$query=$query.$_POST['company']."', '";
-			$query=$query.$_POST['phonenumber']."', '";
-			$query=$query.$_POST['securityquestion']."', '";
-			$query=$query.$_POST['securityanswer']."', '";
-			$query=$query.$_POST['zipcode']."', '";
-			$query=$query.$_POST['zipcodeExt']."')";
+			$query=$query.$_POST['companyName']."', '";
+			$query=$query.$_POST['phoneNumber']."', '";
+			$query=$query.$_POST['secretQuestion']."', '";
+			$query=$query.$_POST['secretAnswer']."', '";
+			$query=$query.$_POST['zipCode']."', '";
+			$query=$query.$_POST['zipExt']."')";
 			
-			$queryReslut=mysql_query($query);
+			$queryResult=mysql_query($query);
 			
 			if(!$queryResult){
 				$response['registered'] = 'False';
