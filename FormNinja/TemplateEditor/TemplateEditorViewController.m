@@ -764,6 +764,10 @@
 
 -(IBAction) testLoadButtonPressed
 {
+    //Load last saved file
+    NSString *savedContents = [[NSString alloc] initWithContentsOfFile:saveUrl encoding:NSUTF8StringEncoding error:nil];
+    testArray = [savedContents JSONValue];
+    
     NSMutableArray *temporaryArray=[NSMutableArray array];
     for (NSDictionary *aDictionary in fieldViews) {
         [temporaryArray addObject:[aDictionary objectForKey:@"fieldVC"]];
@@ -792,11 +796,17 @@
     AccountClass *account = [AccountClass sharedAccountClass]; //get account info
     
     //Create filename
-    NSMutableString *filename = [NSMutableString stringWithFormat:@"%@_%@_%@", account.username,str, self.labelField.text];
-    NSLog(@"%@", filename);
+    NSMutableString *filename = [NSMutableString stringWithFormat:@"%@_%@_%@.json", account.username,str, self.labelField.text];
     
     //Converted array to save to file
     NSString* savedValue = [testArray JSONRepresentation];
+    if (saveUrl) {
+        [saveUrl release];
+    }
+    saveUrl = [[NSString alloc] initWithString:filename];
+    
+    //Save locally
+    [savedValue writeToFile:filename atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 
 @end
