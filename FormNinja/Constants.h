@@ -41,7 +41,7 @@
 
 //Form URLs
 #define updateAccountURL @"http://www.rilburskryler.net/mobile/accountUpdate.php"
-
+#define accountRegisterURL @"http://www.rilburskryler.net/mobile/register.php"
 
 
 // Group Constants

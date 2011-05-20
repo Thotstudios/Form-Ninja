@@ -197,32 +197,32 @@
     [self pushAlertView];
     [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
     
-    //Save locally
-    //Add validation later
-    [self saveAccountInfoLocally];
+    NSURL *urlToSend;
+    ASIFormDataRequest *request;
     
-	if(1) // Account is being created/registered
-		{
+    
+    if(self.type == 0){ // Account is being registered
 		// TODO: security question for new accounts
 		// TODO: security answer for new accounts
-		}
+    }
     
-    //Prepare form to save remotely 
-    NSURL *urlToSend = [[[NSURL alloc] initWithString: updateAccountURL] autorelease];
-    ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
-    [request setPostValue:self.account.username forKey:formUsername];
-    [request setPostValue:self.account.firstName forKey:formFirstName];
-    [request setPostValue:self.account.lastName forKey:formLastName];
-    [request setPostValue:self.account.emailAddress forKey:formEmail];
-    [request setPostValue:self.account.zipCode forKey:formZipCode];
-    [request setPostValue:self.account.companyName forKey:formCompanyName];
-    [request setPostValue:self.account.phoneNumber forKey:formPhoneNumber];
-    [request setPostValue:self.account.zipCodeExt forKey:formZipCodeExt];
-	if(1) // Account is being created/registered
-		{
-		// TODO: security question for new accounts
-		// TODO: security answer for new accounts
-		}
+    else{
+        //Save locally
+        //Add validation later
+        [self saveAccountInfoLocally];
+        
+        //Prepare form to save remotely 
+        urlToSend = [[[NSURL alloc] initWithString: updateAccountURL] autorelease];
+        request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
+        [request setPostValue:self.account.username forKey:formUsername];
+        [request setPostValue:self.account.firstName forKey:formFirstName];
+        [request setPostValue:self.account.lastName forKey:formLastName];
+        [request setPostValue:self.account.emailAddress forKey:formEmail];
+        [request setPostValue:self.account.zipCode forKey:formZipCode];
+        [request setPostValue:self.account.companyName forKey:formCompanyName];
+        [request setPostValue:self.account.phoneNumber forKey:formPhoneNumber];
+        [request setPostValue:self.account.zipCodeExt forKey:formZipCodeExt];
+    }
 	
     //Send request
     request.delegate = self;
@@ -290,6 +290,7 @@
         self.account.passwordHash = self.passwordConfirmTextField.text;
         [self.account save];// save locally
     }
+    
     [self removeAlertView];
 }
 
