@@ -19,6 +19,8 @@
     IBOutlet UITextField *labelField;
     
     NSArray *testArray;//TEMPORARY PROPERTY, NOT BACKED BY @PROPERTY!
+    
+    NSString *saveUrl;
 }
 
 @property(nonatomic, retain) IBOutlet UIScrollView *scrollView;
