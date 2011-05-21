@@ -29,3 +29,5 @@ Other:
 - second, there might be a conflict on the 'option' data for an account
 
 * Localization support
+
+* version string on main menu

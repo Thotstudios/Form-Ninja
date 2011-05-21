@@ -11,14 +11,25 @@
 #import "AccountClass.h"
 #import "AccountEditorViewController.h"
 
+@interface MainMenu ()
+-(void) updateLoginExpirationLabel;
+@end
+
 @implementation MainMenu
-@synthesize signatureViewController;
-@synthesize templateEditorViewController;
-@synthesize accountEditor;
-@synthesize loginViewController;
-@synthesize templateManagerViewContoller;
-@synthesize sectionedTemplateManagerViewController;
+
 @synthesize loginExpirationLabel;
+
+@synthesize loginViewController;
+@synthesize formManagerViewController;
+@synthesize templateManagerViewContoller;
+@synthesize groupManagerViewController;
+@synthesize accountEditor;
+
+// TODO: temporary
+@synthesize templateEditorViewController;
+@synthesize temporaryFormEditorViewController;
+@synthesize signatureViewController;
+//
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,13 +42,20 @@
 
 - (void)dealloc
 {
-	[templateEditorViewController release];
-	[accountEditor release];
-	[loginViewController release];
 	[loginExpirationLabel release];
+	
+	[loginViewController release];
+	[formManagerViewController release];
 	[templateManagerViewContoller release];
-	[sectionedTemplateManagerViewController release];
+	[groupManagerViewController release];
+	[accountEditor release];
+	
+	// TODO: Temporary
+	[templateEditorViewController release];
+    [temporaryFormEditorViewController release];
     [signatureViewController release];
+	//
+	
     [super dealloc];
 }
 
@@ -58,63 +76,23 @@
 }
 -(void) viewDidAppear:(BOOL)animated
 {
-	NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
-	
-	long loginExpiration = [opt integerForKey:loginExpirationKey];
-	
-	if(loginExpiration < time(0))
-		{
-		if(1) // TODO: has_internet_access
-			[self.navigationController pushViewController:loginViewController animated:YES];
-		// else
-		// extend expiration
-		}
-	
-	{ // set Login Expiration Label message
-		long count = loginExpiration - time(0);
-		NSString * units = @"second";
-		
-		// Divide out the units (as float), and round up:
-		if(count > 60) // seconds
-			{
-			count = 0.50 + count / 60.;
-			units = @"minute";
-			if(count > 60) // minutes
-				{
-				count = 0.50 + count / 60.;
-				units = @"hour";
-				if(count > 24) // hours
-					{
-					count = 0.50 + count / 24.;
-					units = @"day";
-					if(count > 7) // days
-						{
-						count = 0.50 + count / 7.;
-						units = @"week";
-						}
-					}
-				}
-			}
-		
-		// make the units plural:
-		if(count > 1) units = [units stringByAppendingString:@"s"];
-		
-		// set the message
-		[loginExpirationLabel setText:[NSString stringWithFormat:@"Login expires in %i %@", count, units]];
-	} // end set Login Expiration Label message
-	
-	
+	[self updateLoginExpirationLabel];
 }
 
 - (void)viewDidUnload
 {
-	[self setTemplateEditorViewController:nil];
-	[self setAccountEditor:nil];
-	[self setLoginViewController:nil];
 	[self setLoginExpirationLabel:nil];
+	
+	[self setLoginViewController:nil];
+	[self setFormManagerViewController:nil];
 	[self setTemplateManagerViewContoller:nil];
-	[self setSectionedTemplateManagerViewController:nil];
+	[self setGroupManagerViewController:nil];
+	[self setAccountEditor:nil];
+	
+	[self setTemplateEditorViewController:nil];
+    [self setTemporaryFormEditorViewController:nil];
     [self setSignatureViewController:nil];
+	
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -126,19 +104,74 @@
 	return YES;
 }
 
-#pragma mark -
-#pragma mark - Interface Actions
 
-- (IBAction)buttonPressedForms:(id)sender
+
+#pragma mark - Interface Actions
+-(void) updateLoginExpirationLabel
 {
+	NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
+	long loginExpiration = [opt integerForKey:loginExpirationKey];
+	if(loginExpiration < time(0))
+		{
+		if(1) // TODO: has_internet_access
+			[self.navigationController pushViewController:loginViewController animated:YES];
+		// else
+		// extend expiration
+		}
+	
+	long count = loginExpiration - time(0);
+	NSString * units = @"second";
+	
+	// Divide out the units (as float), and round up:
+	if(count > 60) // seconds
+		{
+		count = 0.50 + count / 60.;
+		units = @"minute";
+		if(count > 60) // minutes
+			{
+			count = 0.50 + count / 60.;
+			units = @"hour";
+			if(count > 24) // hours
+				{
+				count = 0.50 + count / 24.;
+				units = @"day";
+				if(count > 7) // days
+					{
+					count = 0.50 + count / 7.;
+					units = @"week";
+					}
+				}
+			}
+		}
+	
+	// make the units plural:
+	if(count > 1) units = [units stringByAppendingString:@"s"];
+	
+	// set the message
+	if(count > 0)
+		[loginExpirationLabel setText:[NSString stringWithFormat:@"Login expires in %i %@", count, units]];
+	else
+		[loginExpirationLabel setText:[NSString stringWithFormat:@"Login expired."]];
 }
 
-- (IBAction)buttonPressedTemplateManagement:(id)sender
+#pragma mark - Push View Controllers
+
+- (IBAction)pushFormManagerViewController
+{
+	[self.navigationController pushViewController:formManagerViewController animated:YES];
+}
+
+- (IBAction)pushTemplateManagerViewController
 {
 	[self.navigationController pushViewController:templateManagerViewContoller animated:YES];
 }
 
-- (IBAction)buttonPressedAccount:(id)sender
+- (IBAction)pushGroupManagerViewController
+{
+	[self.navigationController pushViewController:groupManagerViewController animated:YES];
+}
+
+- (IBAction)pushAccountEditorViewController
 {
     ((AccountEditorViewController *)accountEditor).type = 1;
 	[self.navigationController pushViewController:accountEditor animated:YES];
@@ -155,7 +188,8 @@
 	[self.navigationController pushViewController:loginViewController animated:YES];
 }
 
-// TODO temporary
+#pragma mark - Temporary Methods
+
 - (IBAction)buttonPressedTemplateEditor:(id)sender
 {
 	[self.navigationController pushViewController:templateEditorViewController animated:YES];
@@ -164,4 +198,9 @@
 {
 	[self.navigationController pushViewController:signatureViewController animated:YES];
 }
+- (IBAction)pressedTemporaryFormEditorButton
+{
+	[self.navigationController pushViewController:temporaryFormEditorViewController animated:YES];
+}
+#pragma mark -
 @end

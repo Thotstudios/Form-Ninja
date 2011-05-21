@@ -1,19 +1,16 @@
 //
-//  SigTestView.m
+//  FormManagerViewController.m
 //  FormNinja
 //
-//  Created by Hackenslacker on 5/20/11.
+//  Created by Hackenslacker on 5/21/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SigTestView.h"
+#import "FormManagerViewController.h"
 
-@implementation SigTestView
-@synthesize signatureViewController;
 
-@synthesize resultImageHalfSize;
-@synthesize resultImageFullSize;
-
+@implementation FormManagerViewController
+@synthesize formEditorViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,9 +23,7 @@
 
 - (void)dealloc
 {
-	[signatureViewController release];
-	[resultImageHalfSize release];
-	[resultImageFullSize release];
+    [formEditorViewController release];
     [super dealloc];
 }
 
@@ -46,14 +41,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	
 }
 
 - (void)viewDidUnload
 {
-	[self setSignatureViewController:nil];
-	[self setResultImageHalfSize:nil];
-	[self setResultImageFullSize:nil];
+    [self setFormEditorViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -65,15 +57,9 @@
 	return YES;
 }
 
-- (IBAction)setResultImage
+- (IBAction)newFormWithSelectedTemplate
 {
-	[resultImageHalfSize setImage:[signatureViewController image]];
-	[resultImageFullSize setImage:[signatureViewController image]];
-}
-
-- (IBAction)clearSignature
-{
-	[signatureViewController clearSignature];
-	[self setResultImage];
+	[self.navigationController pushViewController:formEditorViewController animated:YES];
+	//TODO
 }
 @end

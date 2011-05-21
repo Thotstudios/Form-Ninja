@@ -60,7 +60,6 @@
 {
 	UITouch *touch = [touches anyObject];
 	lastPoint = [touch locationInView:self.view];
-	//lastPoint.y -= 20;
 }
 
 
@@ -69,8 +68,6 @@
 	
 	UITouch *touch = [touches anyObject];	
 	CGPoint currentPoint = [touch locationInView:self.view];
-	//currentPoint.y -= 20;
-	
 	
 	UIGraphicsBeginImageContext(self.view.frame.size);
 	[drawImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -107,10 +104,6 @@
 	rect.origin = CGPointZero;
 	rect.size = self.view.frame.size;
 	drawImage.frame = rect;
-	NSLog(@"origin (%.1f, %.1f), size (%.1f, %.1f)", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
-	
-	//drawImage.frame.origin = CGPointZero;
-	
 	[self.view addSubview:drawImage];
 	//self.view.backgroundColor = [UIColor lightGrayColor];
 }

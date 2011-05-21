@@ -1,19 +1,15 @@
 //
-//  SigTestView.m
+//  FormEditorViewController.m
 //  FormNinja
 //
-//  Created by Hackenslacker on 5/20/11.
+//  Created by Hackenslacker on 5/21/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SigTestView.h"
+#import "FormEditorViewController.h"
 
-@implementation SigTestView
-@synthesize signatureViewController;
 
-@synthesize resultImageHalfSize;
-@synthesize resultImageFullSize;
-
+@implementation FormEditorViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,9 +22,6 @@
 
 - (void)dealloc
 {
-	[signatureViewController release];
-	[resultImageHalfSize release];
-	[resultImageFullSize release];
     [super dealloc];
 }
 
@@ -46,14 +39,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	
 }
 
 - (void)viewDidUnload
 {
-	[self setSignatureViewController:nil];
-	[self setResultImageHalfSize:nil];
-	[self setResultImageFullSize:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -65,15 +54,4 @@
 	return YES;
 }
 
-- (IBAction)setResultImage
-{
-	[resultImageHalfSize setImage:[signatureViewController image]];
-	[resultImageFullSize setImage:[signatureViewController image]];
-}
-
-- (IBAction)clearSignature
-{
-	[signatureViewController clearSignature];
-	[self setResultImage];
-}
 @end

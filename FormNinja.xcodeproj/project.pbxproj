@@ -41,6 +41,12 @@
 		F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F778DD58137DC69400B444F6 /* CustomLoadAlert.xib */; };
 		F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F778DD5A137DC69400B444F6 /* CustomLoadAlertViewController.m */; };
 		F77FDA551375F5DD00DC694D /* TemplateEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FDA531375F5DD00DC694D /* TemplateEditorViewController.m */; };
+		F7BC423013886CB800911EB5 /* FormEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC422E13886CB800911EB5 /* FormEditorViewController.m */; };
+		F7BC423113886CB800911EB5 /* FormEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC422F13886CB800911EB5 /* FormEditorViewController.xib */; };
+		F7BC423713886CF300911EB5 /* FormManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC423513886CF300911EB5 /* FormManagerViewController.m */; };
+		F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC423613886CF300911EB5 /* FormManagerViewController.xib */; };
+		F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */; };
+		F7BC423E1388709F00911EB5 /* GroupManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC423C1388709F00911EB5 /* GroupManagerViewController.xib */; };
 		F7CDEDFC1386F25A000BA5AB /* SignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CDEDFA1386F25A000BA5AB /* SignatureViewController.m */; };
 		F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D8AFB9136E289500FE0F76 /* MainMenu.m */; };
 		F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D8AFBA136E289500FE0F76 /* MainMenu.xib */; };
@@ -117,6 +123,15 @@
 		F778DD5A137DC69400B444F6 /* CustomLoadAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLoadAlertViewController.m; sourceTree = "<group>"; };
 		F77FDA521375F5DD00DC694D /* TemplateEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateEditorViewController.h; path = TemplateEditor/TemplateEditorViewController.h; sourceTree = "<group>"; };
 		F77FDA531375F5DD00DC694D /* TemplateEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateEditorViewController.m; path = TemplateEditor/TemplateEditorViewController.m; sourceTree = "<group>"; };
+		F7BC422D13886CB800911EB5 /* FormEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormEditorViewController.h; path = FormEditor/FormEditorViewController.h; sourceTree = "<group>"; };
+		F7BC422E13886CB800911EB5 /* FormEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormEditorViewController.m; path = FormEditor/FormEditorViewController.m; sourceTree = "<group>"; };
+		F7BC422F13886CB800911EB5 /* FormEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormEditorViewController.xib; path = FormEditor/FormEditorViewController.xib; sourceTree = "<group>"; };
+		F7BC423413886CF300911EB5 /* FormManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormManagerViewController.h; path = FormManager/FormManagerViewController.h; sourceTree = "<group>"; };
+		F7BC423513886CF300911EB5 /* FormManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormManagerViewController.m; path = FormManager/FormManagerViewController.m; sourceTree = "<group>"; };
+		F7BC423613886CF300911EB5 /* FormManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormManagerViewController.xib; path = FormManager/FormManagerViewController.xib; sourceTree = "<group>"; };
+		F7BC423A1388709F00911EB5 /* GroupManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManagerViewController.h; path = GroupManager/GroupManagerViewController.h; sourceTree = "<group>"; };
+		F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManagerViewController.m; path = GroupManager/GroupManagerViewController.m; sourceTree = "<group>"; };
+		F7BC423C1388709F00911EB5 /* GroupManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupManagerViewController.xib; path = GroupManager/GroupManagerViewController.xib; sourceTree = "<group>"; };
 		F7CDEDF91386F25A000BA5AB /* SignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignatureViewController.h; path = Signature/SignatureViewController.h; sourceTree = "<group>"; };
 		F7CDEDFA1386F25A000BA5AB /* SignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignatureViewController.m; path = Signature/SignatureViewController.m; sourceTree = "<group>"; };
 		F7D8AFB8136E289500FE0F76 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
@@ -262,17 +277,20 @@
 			isa = PBXGroup;
 			children = (
 				D90A13DC1382250200857A4C /* Constants.h */,
-				F7CDEDFE1386F25F000BA5AB /* Signature */,
 				F778DD50137DC40B00B444F6 /* Networking */,
 				D917B3D01378D06200E75140 /* JSON */,
-				F778DD51137DC60E00B444F6 /* TemplateManager */,
-				F77FDA501375F5AB00DC694D /* TemplateEditor */,
+				D917B46C1379E09F00E75140 /* Login */,
 				F7E2B563137E49D600EA89D0 /* Account */,
 				F7D8AFBE136E289A00FE0F76 /* MainMenu */,
+				F778DD51137DC60E00B444F6 /* TemplateManager */,
+				F77FDA501375F5AB00DC694D /* TemplateEditor */,
+				F7BC423913886CF800911EB5 /* FormManager */,
+				F7BC423313886CBC00911EB5 /* FormEditor */,
+				F7CDEDFE1386F25F000BA5AB /* Signature */,
+				F7BC423F138870A200911EB5 /* GroupManager */,
 				D922CE9F136C926300233C48 /* FormNinjaAppDelegate.h */,
 				D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */,
 				F7F248C61385E1CB00E0FD2A /* MainWindow.xib */,
-				D917B46C1379E09F00E75140 /* Login */,
 				F778DD57137DC69400B444F6 /* CustomLoadAlert */,
 				D922CE97136C926300233C48 /* Supporting Files */,
 			);
@@ -330,9 +348,9 @@
 		F778DD57137DC69400B444F6 /* CustomLoadAlert */ = {
 			isa = PBXGroup;
 			children = (
-				F778DD58137DC69400B444F6 /* CustomLoadAlert.xib */,
 				F778DD59137DC69400B444F6 /* CustomLoadAlertViewController.h */,
 				F778DD5A137DC69400B444F6 /* CustomLoadAlertViewController.m */,
+				F778DD58137DC69400B444F6 /* CustomLoadAlert.xib */,
 			);
 			path = CustomLoadAlert;
 			sourceTree = "<group>";
@@ -346,6 +364,36 @@
 				425CA0C2137AEB9600BBCBEA /* StringField */,
 			);
 			name = TemplateEditor;
+			sourceTree = "<group>";
+		};
+		F7BC423313886CBC00911EB5 /* FormEditor */ = {
+			isa = PBXGroup;
+			children = (
+				F7BC422D13886CB800911EB5 /* FormEditorViewController.h */,
+				F7BC422E13886CB800911EB5 /* FormEditorViewController.m */,
+				F7BC422F13886CB800911EB5 /* FormEditorViewController.xib */,
+			);
+			name = FormEditor;
+			sourceTree = "<group>";
+		};
+		F7BC423913886CF800911EB5 /* FormManager */ = {
+			isa = PBXGroup;
+			children = (
+				F7BC423413886CF300911EB5 /* FormManagerViewController.h */,
+				F7BC423513886CF300911EB5 /* FormManagerViewController.m */,
+				F7BC423613886CF300911EB5 /* FormManagerViewController.xib */,
+			);
+			name = FormManager;
+			sourceTree = "<group>";
+		};
+		F7BC423F138870A200911EB5 /* GroupManager */ = {
+			isa = PBXGroup;
+			children = (
+				F7BC423A1388709F00911EB5 /* GroupManagerViewController.h */,
+				F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */,
+				F7BC423C1388709F00911EB5 /* GroupManagerViewController.xib */,
+			);
+			name = GroupManager;
 			sourceTree = "<group>";
 		};
 		F7CDEDFE1386F25F000BA5AB /* Signature */ = {
@@ -439,6 +487,9 @@
 				F7F248C41385E1CB00E0FD2A /* MainWindow.xib in Resources */,
 				F7F248C11385E1C600E0FD2A /* FormNinjaLoginViewController.xib in Resources */,
 				F75D8C3C13874291005DB2AE /* SigTestView.xib in Resources */,
+				F7BC423113886CB800911EB5 /* FormEditorViewController.xib in Resources */,
+				F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */,
+				F7BC423E1388709F00911EB5 /* GroupManagerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +525,9 @@
 				F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */,
 				F7CDEDFC1386F25A000BA5AB /* SignatureViewController.m in Sources */,
 				F75D8C3B13874291005DB2AE /* SigTestView.m in Sources */,
+				F7BC423013886CB800911EB5 /* FormEditorViewController.m in Sources */,
+				F7BC423713886CF300911EB5 /* FormManagerViewController.m in Sources */,
+				F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

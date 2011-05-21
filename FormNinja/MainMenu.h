@@ -11,30 +11,47 @@
 
 @interface MainMenu : UIViewController
 {
-	UIViewController *templateEditorViewController;
-	UIViewController *accountEditor;
-	UIViewController *loginViewController;
-	UIViewController *templateManagerViewContoller;
-	UIViewController *sectionedTemplateManagerViewController;
+	// Interface Elements:
 	UILabel *loginExpirationLabel;
+	
+	// View Controllers:
+	UIViewController *loginViewController;
+	UIViewController *formManagerViewController;
+	UIViewController *accountEditor;
+	UIViewController *templateManagerViewContoller;
+	UIViewController *groupManagerViewController;
+	
+	
+	// TODO: temporary members
+	UIViewController *templateEditorViewController;
 	UIViewController *signatureViewController;
+	UIViewController *temporaryFormEditorViewController;
 }
-@property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
-@property (nonatomic, retain) IBOutlet UIViewController *accountEditor;
-@property (nonatomic, retain) IBOutlet UIViewController *loginViewController;
-@property (nonatomic, retain) IBOutlet UIViewController *templateManagerViewContoller;
-@property (nonatomic, retain) IBOutlet UIViewController *sectionedTemplateManagerViewController;
+// Interface Elements:
 @property (nonatomic, retain) IBOutlet UILabel *loginExpirationLabel;
 
-- (IBAction)buttonPressedForms:(id)sender;
-- (IBAction)buttonPressedTemplateManagement:(id)sender;
-- (IBAction)buttonPressedAccount:(id)sender;
+// View Controllers:
+@property (nonatomic, retain) IBOutlet UIViewController *loginViewController;
+@property (nonatomic, retain) IBOutlet UIViewController *formManagerViewController;
+@property (nonatomic, retain) IBOutlet UIViewController *templateManagerViewContoller;
+@property (nonatomic, retain) IBOutlet UIViewController *groupManagerViewController;
+@property (nonatomic, retain) IBOutlet UIViewController *accountEditor;
 
+
+- (IBAction)pushFormManagerViewController;
+- (IBAction)pushTemplateManagerViewController;
+- (IBAction)pushGroupManagerViewController;
+- (IBAction)pushAccountEditorViewController;
 - (IBAction)logout;
 
 
-// TODO: temporary
+// TODO: Temporary properties and methods
+@property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
 - (IBAction)buttonPressedTemplateEditor:(id)sender;
+
+@property (nonatomic, retain) IBOutlet UIViewController *temporaryFormEditorViewController;
+- (IBAction)pressedTemporaryFormEditorButton;
+
 @property (nonatomic, retain) IBOutlet UIViewController *signatureViewController;
 - (IBAction)signatureTesting;
 

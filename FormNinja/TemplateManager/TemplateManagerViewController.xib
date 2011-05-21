@@ -104,7 +104,6 @@
 								<int key="NSvFlags">319</int>
 								<string key="NSFrame">{{542, 20}, {166, 64}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -413,6 +412,7 @@
 							<reference ref="634131786"/>
 						</object>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">View</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
