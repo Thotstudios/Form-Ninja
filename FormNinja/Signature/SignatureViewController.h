@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SignatureViewController : UIViewController {
-    
+@interface SignatureViewController : UIViewController
+{
+	CGPoint lastPoint;
+	UIImageView *drawImage;
 }
+
+@property (retain, nonatomic) UIImageView * drawImage;
+
+-(UIImage*) image;
+-(IBAction) clearSignature;
 
 @end

@@ -8,8 +8,9 @@
 
 #import "SignatureViewController.h"
 
-
 @implementation SignatureViewController
+
+@synthesize drawImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +23,7 @@
 
 - (void)dealloc
 {
+	[drawImage release];
     [super dealloc];
 }
 
@@ -38,14 +40,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	[self clearSignature];
 }
 
 - (void)viewDidUnload
 {
+	[self setDrawImage:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -54,4 +55,71 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark -
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	UITouch *touch = [touches anyObject];
+	lastPoint = [touch locationInView:self.view];
+	//lastPoint.y -= 20;
+}
+
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	
+	UITouch *touch = [touches anyObject];	
+	CGPoint currentPoint = [touch locationInView:self.view];
+	//currentPoint.y -= 20;
+	
+	
+	UIGraphicsBeginImageContext(self.view.frame.size);
+	[drawImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+	
+	CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+	CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 3.0);
+//	CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1.0, 0.0, 0.0, 1.0);
+	
+	CGContextBeginPath(UIGraphicsGetCurrentContext());
+	CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
+	CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+	CGContextStrokePath(UIGraphicsGetCurrentContext());
+	drawImage.image = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	lastPoint = currentPoint;
+	
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+}
+
+-(UIImage*) image
+{
+	return [drawImage image];
+}
+
+-(IBAction) clearSignature
+{
+	[drawImage setImage:nil];
+	[self setDrawImage:[[UIImageView alloc] initWithImage:nil]];
+	CGRect rect;
+	rect.origin = CGPointZero;
+	rect.size = self.view.frame.size;
+	drawImage.frame = rect;
+	NSLog(@"origin (%.1f, %.1f), size (%.1f, %.1f)", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+	
+	//drawImage.frame.origin = CGPointZero;
+	
+	[self.view addSubview:drawImage];
+	//self.view.backgroundColor = [UIColor lightGrayColor];
+}
+
 @end
+
+
+
+
+
+
+
