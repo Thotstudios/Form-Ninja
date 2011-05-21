@@ -33,12 +33,15 @@
 		D922CE9E136C926300233C48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CE9D136C926300233C48 /* main.m */; };
 		D922CEA1136C926300233C48 /* FormNinjaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */; };
 		D922CEA7136C926300233C48 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */; };
+		F75D8C3B13874291005DB2AE /* SigTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = F75D8C3913874291005DB2AE /* SigTestView.m */; };
+		F75D8C3C13874291005DB2AE /* SigTestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F75D8C3A13874291005DB2AE /* SigTestView.xib */; };
 		F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F768C5AD137DE85800191858 /* AccountEditorViewController.m */; };
 		F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F768C5AE137DE85800191858 /* AccountEditorViewController.xib */; };
 		F768C5B8137DEFEB00191858 /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = F768C5B7137DEFEB00191858 /* TODO.txt */; };
 		F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F778DD58137DC69400B444F6 /* CustomLoadAlert.xib */; };
 		F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F778DD5A137DC69400B444F6 /* CustomLoadAlertViewController.m */; };
 		F77FDA551375F5DD00DC694D /* TemplateEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FDA531375F5DD00DC694D /* TemplateEditorViewController.m */; };
+		F7CDEDFC1386F25A000BA5AB /* SignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CDEDFA1386F25A000BA5AB /* SignatureViewController.m */; };
 		F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D8AFB9136E289500FE0F76 /* MainMenu.m */; };
 		F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D8AFBA136E289500FE0F76 /* MainMenu.xib */; };
 		F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2B560137E49D000EA89D0 /* AccountClass.m */; };
@@ -101,6 +104,9 @@
 		D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaAppDelegate.m; sourceTree = "<group>"; };
 		D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaLoginViewController.h; sourceTree = "<group>"; };
 		D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaLoginViewController.m; sourceTree = "<group>"; };
+		F75D8C3813874291005DB2AE /* SigTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SigTestView.h; path = Signature/SigTestView.h; sourceTree = "<group>"; };
+		F75D8C3913874291005DB2AE /* SigTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SigTestView.m; path = Signature/SigTestView.m; sourceTree = "<group>"; };
+		F75D8C3A13874291005DB2AE /* SigTestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SigTestView.xib; path = Signature/SigTestView.xib; sourceTree = "<group>"; };
 		F768C5AC137DE85800191858 /* AccountEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditorViewController.h; sourceTree = "<group>"; };
 		F768C5AD137DE85800191858 /* AccountEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditorViewController.m; sourceTree = "<group>"; };
 		F768C5AE137DE85800191858 /* AccountEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountEditorViewController.xib; sourceTree = "<group>"; };
@@ -111,6 +117,8 @@
 		F778DD5A137DC69400B444F6 /* CustomLoadAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLoadAlertViewController.m; sourceTree = "<group>"; };
 		F77FDA521375F5DD00DC694D /* TemplateEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateEditorViewController.h; path = TemplateEditor/TemplateEditorViewController.h; sourceTree = "<group>"; };
 		F77FDA531375F5DD00DC694D /* TemplateEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateEditorViewController.m; path = TemplateEditor/TemplateEditorViewController.m; sourceTree = "<group>"; };
+		F7CDEDF91386F25A000BA5AB /* SignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignatureViewController.h; path = Signature/SignatureViewController.h; sourceTree = "<group>"; };
+		F7CDEDFA1386F25A000BA5AB /* SignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignatureViewController.m; path = Signature/SignatureViewController.m; sourceTree = "<group>"; };
 		F7D8AFB8136E289500FE0F76 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		F7D8AFB9136E289500FE0F76 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		F7D8AFBA136E289500FE0F76 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
@@ -254,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				D90A13DC1382250200857A4C /* Constants.h */,
+				F7CDEDFE1386F25F000BA5AB /* Signature */,
 				F778DD50137DC40B00B444F6 /* Networking */,
 				D917B3D01378D06200E75140 /* JSON */,
 				F778DD51137DC60E00B444F6 /* TemplateManager */,
@@ -339,6 +348,18 @@
 			name = TemplateEditor;
 			sourceTree = "<group>";
 		};
+		F7CDEDFE1386F25F000BA5AB /* Signature */ = {
+			isa = PBXGroup;
+			children = (
+				F7CDEDF91386F25A000BA5AB /* SignatureViewController.h */,
+				F7CDEDFA1386F25A000BA5AB /* SignatureViewController.m */,
+				F75D8C3813874291005DB2AE /* SigTestView.h */,
+				F75D8C3913874291005DB2AE /* SigTestView.m */,
+				F75D8C3A13874291005DB2AE /* SigTestView.xib */,
+			);
+			name = Signature;
+			sourceTree = "<group>";
+		};
 		F7D8AFBE136E289A00FE0F76 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +438,7 @@
 				F768C5B8137DEFEB00191858 /* TODO.txt in Resources */,
 				F7F248C41385E1CB00E0FD2A /* MainWindow.xib in Resources */,
 				F7F248C11385E1C600E0FD2A /* FormNinjaLoginViewController.xib in Resources */,
+				F75D8C3C13874291005DB2AE /* SigTestView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +472,8 @@
 				F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */,
 				F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */,
 				F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */,
+				F7CDEDFC1386F25A000BA5AB /* SignatureViewController.m in Sources */,
+				F75D8C3B13874291005DB2AE /* SigTestView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

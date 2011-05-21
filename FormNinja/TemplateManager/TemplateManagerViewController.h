@@ -19,6 +19,7 @@
 	UIButton *modifyButton;
 	UIButton *duplicateButton;
 	UIButton *newButton;
+	UIViewController *signatureViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *groupTableView;
@@ -49,5 +50,6 @@
 
 // TODO: Temporary test code.
 - (IBAction)testAddTemplateFile;
+
 
 @end

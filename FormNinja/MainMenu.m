@@ -12,6 +12,7 @@
 #import "AccountEditorViewController.h"
 
 @implementation MainMenu
+@synthesize signatureViewController;
 @synthesize templateEditorViewController;
 @synthesize accountEditor;
 @synthesize loginViewController;
@@ -36,6 +37,7 @@
 	[loginExpirationLabel release];
 	[templateManagerViewContoller release];
 	[sectionedTemplateManagerViewController release];
+    [signatureViewController release];
     [super dealloc];
 }
 
@@ -112,6 +114,7 @@
 	[self setLoginExpirationLabel:nil];
 	[self setTemplateManagerViewContoller:nil];
 	[self setSectionedTemplateManagerViewController:nil];
+    [self setSignatureViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -156,5 +159,9 @@
 - (IBAction)buttonPressedTemplateEditor:(id)sender
 {
 	[self.navigationController pushViewController:templateEditorViewController animated:YES];
+}
+- (IBAction)signatureTesting
+{
+	[self.navigationController pushViewController:signatureViewController animated:YES];
 }
 @end

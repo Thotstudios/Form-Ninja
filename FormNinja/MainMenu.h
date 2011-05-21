@@ -17,6 +17,7 @@
 	UIViewController *templateManagerViewContoller;
 	UIViewController *sectionedTemplateManagerViewController;
 	UILabel *loginExpirationLabel;
+	UIViewController *signatureViewController;
 }
 @property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
 @property (nonatomic, retain) IBOutlet UIViewController *accountEditor;
@@ -34,5 +35,7 @@
 
 // TODO: temporary
 - (IBAction)buttonPressedTemplateEditor:(id)sender;
+@property (nonatomic, retain) IBOutlet UIViewController *signatureViewController;
+- (IBAction)signatureTesting;
 
 @end
