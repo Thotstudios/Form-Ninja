@@ -271,7 +271,7 @@
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
 			</object>
-			<object class="IBUIViewController" id="982520800">
+			<object class="IBUIViewController" id="311311774">
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
 					<int key="IBUIStatusBarStyle">2</int>
 				</object>
@@ -293,7 +293,7 @@
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
 			</object>
-			<object class="IBUIViewController" id="326607387">
+			<object class="IBUIViewController" id="170658561">
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
 					<int key="IBUIStatusBarStyle">2</int>
 				</object>
@@ -494,7 +494,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">formManagerViewController</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="982520800"/>
+						<reference key="destination" ref="311311774"/>
 					</object>
 					<int key="connectionID">54</int>
 				</object>
@@ -502,7 +502,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">groupManagerViewController</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="326607387"/>
+						<reference key="destination" ref="170658561"/>
 					</object>
 					<int key="connectionID">55</int>
 				</object>
@@ -538,9 +538,9 @@
 							<reference ref="999724090"/>
 							<reference ref="607914908"/>
 							<reference ref="742392705"/>
+							<reference ref="1067831438"/>
 							<reference ref="564808286"/>
 							<reference ref="728590960"/>
-							<reference ref="1067831438"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -627,13 +627,13 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">52</int>
-						<reference key="object" ref="982520800"/>
+						<reference key="object" ref="311311774"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Form Manager</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">53</int>
-						<reference key="object" ref="326607387"/>
+						<reference key="object" ref="170658561"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Group Manager</string>
 					</object>
