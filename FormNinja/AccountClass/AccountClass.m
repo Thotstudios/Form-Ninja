@@ -29,7 +29,7 @@
 - (void) loadValuesFromFile{
     //Initial values based off current local user info
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *userDict = [defaults dictionaryForKey:userInfo]; //get user info
+    NSDictionary *userDict = [defaults dictionaryForKey:userInformation]; //get user info
     
     self.username = [userDict objectForKey:userName];
     self.firstName = [userDict objectForKey:userFirstName];
@@ -71,7 +71,7 @@
 {
     //Remove user info locally
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults removeObjectForKey:userInfo];
+    [defaults removeObjectForKey:userInformation];
     [defaults synchronize];
     
     //Invalidate singleton 
@@ -99,7 +99,7 @@
     if([userDict objectForKey:userExtendedZip])
         [saveDict setObject:[userDict objectForKey:userExtendedZip] forKey:userExtendedZip];
     
-    [defaults setObject:saveDict forKey:userInfo];
+    [defaults setObject:saveDict forKey:userInformation];
     [defaults synchronize];
     
     [self loadValuesFromFile];
@@ -127,7 +127,7 @@
     if(self.zipCodeExt)
         [saveDict setObject:self.zipCodeExt forKey:userExtendedZip];
     
-    [defaults setObject:saveDict forKey:userInfo];
+    [defaults setObject:saveDict forKey:userInformation];
     [defaults synchronize];
 }
 
