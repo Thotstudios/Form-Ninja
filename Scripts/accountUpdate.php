@@ -32,7 +32,7 @@ if($_POST['username']){
 			
 		if(!empty($_POST['password'])){
 			$query = 'UPDATE USER set PASSWORD = "'.$_POST['password'].'"';
-			$response['passwordChanged'] = 'TRUE';
+			$response['passwordChanged'] = 'True';
 		}
 		
 		$query.= ' where USERNAME="'.$_POST['username'].'"';

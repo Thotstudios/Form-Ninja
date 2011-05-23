@@ -260,7 +260,7 @@
 - (void) handleRegistrationResponse:(NSDictionary *) jsonDict{
     NSString *registered = [jsonDict objectForKey:formRegistrationAccepted];
     
-    if ([registered isEqualToString:fromTrue]){
+    if ([registered isEqualToString:formTrue]){
         self.loadAlert.alertLabel.text = @"Account Created";
         [self.loadAlert stopActivityIndicator];
         [self accountCreated];
@@ -269,17 +269,34 @@
     
     else{
         self.statusLabel.text = [jsonDict objectForKey:formError];
+        [self removeAlertView];
     }
 }
 
+
+- (void) handlePasswordChangeResponse:(NSDictionary *) jsonDict{
+    NSString *passwordChanged = [jsonDict objectForKey:formPasswordChangeAccepted];
+    
+    if ([passwordChanged isEqualToString:formTrue]) { //Sucessful change
+        self.passwordTextField.text = self.passwordConfirmTextField.text; //Change field to new pw
+        self.account.passwordHash = self.passwordConfirmTextField.text;
+        [self.account save];// save locally
+        self.loadAlert.alertLabel.text = @"Password Changed";
+        [self.loadAlert stopActivityIndicator];
+        [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
+    }
+    
+    else{
+        self.statusLabel.text = [jsonDict objectForKey:formError];
+        [self removeAlertView];
+    }
+}
 
 #pragma mark - Button Actions
 
 - (IBAction)pressedConfirm:(id)sender {
     [self.view endEditing:YES]; //dismiss keyboard
-    
     [self pushAlertView];
-    [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
     
     NSURL *urlToSend;
     ASIFormDataRequest *request;
@@ -288,6 +305,7 @@
     if(self.type == 0){ // Account is being registered
 		// TODO: security question for new accounts
 		// TODO: security answer for new accounts
+        self.loadAlert.alertLabel.text = @"Registering Account";
         urlToSend = [[[NSURL alloc] initWithString: accountRegisterURL] autorelease];
         request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
         [request setPostValue:self.usernameTextField.text forKey:formUsername];
@@ -304,6 +322,8 @@
     }
     
     else{
+        self.loadAlert.alertLabel.text = @"Saving Account Information";
+
         //Save locally
         //Add validation later
         [self saveAccountInfoLocally];
@@ -348,13 +368,15 @@
 
 - (IBAction)changePasswordConfirm
 {
-	// TODO: change password in database
+    [self.view endEditing:YES]; //dismiss keyboard
+
     //Prepare form to save remotely 
     NSURL *urlToSend = [[[NSURL alloc] initWithString: updateAccountURL] autorelease];
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];
     [request setPostValue:self.account.username forKey:formUsername];
     [request setPostValue:self.passwordConfirmTextField.text forKey:formPassword];
    
+    self.loadAlert.alertLabel.text = @"Changing Password";
     [self pushAlertView];
     
     request.delegate = self;
@@ -370,6 +392,13 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
+    if (self.type == 1){ //Inform user of saved information even when remoting data has failed
+        self.loadAlert.alertLabel.text = @"Information Saved";
+        [self.loadAlert.activityIndicator stopAnimating];
+        [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
+        return;
+    }
+    
     [self removeAlertView];
     self.statusLabel.text = @"Error connecting to server";
 }
@@ -382,17 +411,19 @@
     NSLog(@"%@", jsonDict);
     
     //Indicates a password change was successful
-    if ([jsonDict objectForKey:@"passwordChanged"]) {
-        self.passwordTextField.text = self.passwordConfirmTextField.text;
-        self.account.passwordHash = self.passwordConfirmTextField.text;
-        [self.account save];// save locally
+    if ([jsonDict objectForKey:formPasswordChangeAccepted]) {
+        [self handlePasswordChangeResponse:jsonDict];
     }
     
     else if(self.type == 0){
         [self handleRegistrationResponse:jsonDict];
     }
     
-    [self removeAlertView];
+    else if (self.type == 1){
+        self.loadAlert.alertLabel.text = @"Information Saved";
+        [self.loadAlert.activityIndicator stopAnimating];
+        [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
+    }
 }
 
 

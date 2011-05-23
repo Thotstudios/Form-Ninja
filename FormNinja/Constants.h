@@ -38,7 +38,9 @@
 #define formUserInformation @"userInfo"
 #define formRegistrationAccepted @"registered"
 #define formError @"error"
-#define fromTrue @"True"
+#define formTrue @"True"
+#define formPasswordChangeAccepted @"passwordChanged"
+
 
 #define loginExpirationKey @"loginExpiration"
 #define rememberUserKey	@"rememberUser"
