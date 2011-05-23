@@ -256,9 +256,27 @@
 }
 
 
+- (void) handleRegistrationResponse:(NSDictionary *) jsonDict{
+    NSString *registered = [jsonDict objectForKey:formRegistrationAccepted];
+    
+    if ([registered isEqualToString:fromTrue]){
+        self.loadAlert.alertLabel.text = @"Account Created";
+        [self.loadAlert stopActivityIndicator];
+        [self accountCreated];
+        return;
+    }
+    
+    else{
+        NSLog(@"Error :%@", [jsonDict objectForKey:formError]);
+    }
+}
+
+
 #pragma mark - Button Actions
 
 - (IBAction)pressedConfirm:(id)sender {
+    [self.view endEditing:YES]; //dismiss keyboard
+    
     [self pushAlertView];
     [self performSelector:@selector(removeAlertView) withObject:nil afterDelay:3];
     
@@ -370,10 +388,7 @@
     }
     
     else if(self.type == 0){
-        self.loadAlert.alertLabel.text = @"Account Created";
-        [self.loadAlert stopActivityIndicator];
-        [self accountCreated];
-        return;
+        [self handleRegistrationResponse:jsonDict];
     }
     
     [self removeAlertView];

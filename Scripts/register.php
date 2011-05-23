@@ -19,7 +19,7 @@ if($_POST['username'])
 		//echo "\ndatabase selected";
 		
 		//VALIDATE inputs!
-		$queryResult = mysql_query('delete from USER where USERNAME = "test2"');
+		//$queryResult = mysql_query('delete from USER where USERNAME = "test2"');
 		//SELECT to see if username / email combo exists
 		$queryResult=mysql_query('select * from USER where USERNAME="'.$_POST['username'].'" OR EMAIL="'.$_POST['email'].'"');
 		
@@ -66,7 +66,7 @@ if($_POST['username'])
 		else{
 			//should check to see if username or email is already used, then report that
 			$response['registered'] = 'False';
-			$response['error'] = 'Could not register account. Please try again or contact our tech support.';
+			$response['error'] = 'Username and/or email already registered.';
 			print json_encode($response);
 			exit;
 		}

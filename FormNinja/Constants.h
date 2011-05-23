@@ -33,11 +33,12 @@
 #define formSecretAnswer @"secretAnswer"
 
 
-//Form reply
+//Form reply keys
 #define formUserAccepted @"accepted"
 #define formUserInformation @"userInfo"
-
+#define formRegistrationAccepted @"registered"
 #define formError @"error"
+#define fromTrue @"True"
 
 #define loginExpirationKey @"loginExpiration"
 #define rememberUserKey	@"rememberUser"
