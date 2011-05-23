@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "JSON.h"
 #import "AccountClass.h"
+#import "Constants.h"
 
 
 @implementation TemplateEditorViewController
@@ -796,7 +797,7 @@
     AccountClass *account = [AccountClass sharedAccountClass]; //get account info
     
     //Create filename
-    NSMutableString *filename = [NSMutableString stringWithFormat:@"%@_%@_%@.json", account.username,str, self.labelField.text];
+    NSMutableString *filename = [NSMutableString stringWithFormat:@"%@/%@_%@_%@.tpl", TEMPLATE_PATH,account.username,str, self.labelField.text];
     
     //Converted array to save to file
     NSString* savedValue = [testArray JSONRepresentation];
