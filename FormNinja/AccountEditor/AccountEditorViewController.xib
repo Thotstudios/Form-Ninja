@@ -153,7 +153,7 @@
 						<string key="NSFrame">{{112, 408}, {42, 21}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="346993444"/>
+						<reference key="NSNextKeyView" ref="570381947"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -484,7 +484,7 @@
 						<string key="NSFrame">{{452, 448}, {128, 64}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="570381947"/>
+						<reference key="NSNextKeyView" ref="404134963"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -676,6 +676,7 @@
 								<string key="NSFrame">{{168, 54}, {97, 31}}</string>
 								<reference key="NSSuperview" ref="570381947"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="346993444"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -766,6 +767,32 @@
 							<reference key="NSCustomColorSpace" ref="203141368"/>
 						</object>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+					</object>
+					<object class="IBUILabel" id="404134963">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">319</int>
+						<string key="NSFrame">{{101, 703}, {566, 148}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">7</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<string key="IBUIText"/>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica</string>
+							<double key="NSSize">24</double>
+							<int key="NSfFlags">16</int>
+						</object>
+						<reference key="IBUITextColor" ref="1016047917"/>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">10</float>
+						<int key="IBUINumberOfLines">0</int>
+						<int key="IBUITextAlignment">1</int>
+						<int key="IBUILineBreakMode">0</int>
 					</object>
 				</object>
 				<string key="NSFrame">{{0, 64}, {768, 960}}</string>
@@ -1126,6 +1153,14 @@
 					</object>
 					<int key="connectionID">99</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">statusLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="404134963"/>
+					</object>
+					<int key="connectionID">101</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1175,6 +1210,7 @@
 							<reference ref="468055617"/>
 							<reference ref="692027359"/>
 							<reference ref="570381947"/>
+							<reference ref="404134963"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1365,6 +1401,11 @@
 						<reference key="object" ref="897843046"/>
 						<reference key="parent" ref="570381947"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100</int>
+						<reference key="object" ref="404134963"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1374,6 +1415,7 @@
 					<string>-1.CustomClassName</string>
 					<string>-2.CustomClassName</string>
 					<string>10.IBPluginDependency</string>
+					<string>100.IBPluginDependency</string>
 					<string>12.IBPluginDependency</string>
 					<string>14.IBPluginDependency</string>
 					<string>16.IBPluginDependency</string>
@@ -1413,6 +1455,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>AccountEditorViewController</string>
 					<string>UIResponder</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1462,7 +1505,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">99</int>
+			<int key="maxID">101</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1550,6 +1593,7 @@
 							<string>securityAnswerTextField</string>
 							<string>securityQuestionTextField</string>
 							<string>securityQuestionView</string>
+							<string>statusLabel</string>
 							<string>usernameTextField</string>
 							<string>zipCodeExtTextField</string>
 							<string>zipCodeTextField</string>
@@ -1572,6 +1616,7 @@
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UIView</string>
+							<string>UILabel</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
@@ -1597,6 +1642,7 @@
 							<string>securityAnswerTextField</string>
 							<string>securityQuestionTextField</string>
 							<string>securityQuestionView</string>
+							<string>statusLabel</string>
 							<string>usernameTextField</string>
 							<string>zipCodeExtTextField</string>
 							<string>zipCodeTextField</string>
@@ -1666,6 +1712,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">securityQuestionView</string>
 								<string key="candidateClassName">UIView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">statusLabel</string>
+								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">usernameTextField</string>

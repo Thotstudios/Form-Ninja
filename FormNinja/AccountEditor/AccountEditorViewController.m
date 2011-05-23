@@ -48,6 +48,7 @@
 
 @synthesize loadAlert;
 @synthesize type;
+@synthesize statusLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -267,7 +268,7 @@
     }
     
     else{
-        NSLog(@"Error :%@", [jsonDict objectForKey:formError]);
+        self.statusLabel.text = [jsonDict objectForKey:formError];
     }
 }
 
@@ -370,7 +371,7 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [self removeAlertView];
-    //self.statusLabel.text = @"Error connecting to server";
+    self.statusLabel.text = @"Error connecting to server";
 }
 
 
@@ -443,6 +444,7 @@
     [self setSecurityAnswerTextField:nil];
 	
     self.loadAlert = nil;
+    self.statusLabel = nil;
 	
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -474,6 +476,8 @@
     [securityQuestionView release];
     [securityQuestionTextField release];
     [securityAnswerTextField release];
+    
+    [statusLabel release];
 	
     [loadAlert release];
 	

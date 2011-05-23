@@ -35,6 +35,8 @@
 	UITextField *securityQuestionTextField;
 	UITextField *securityAnswerTextField;
     
+    UILabel *statusLabel;
+    
     int type; //0 indicates registration and 1 regular update
     
     CustomLoadAlertViewController *loadAlert;
@@ -62,6 +64,8 @@
 @property (nonatomic, retain) IBOutlet UITextField *securityAnswerTextField;
 
 @property (nonatomic, retain) IBOutlet CustomLoadAlertViewController *loadAlert;
+
+@property (nonatomic, retain) IBOutlet UILabel *statusLabel;
 
 @property (nonatomic) int type;
 
