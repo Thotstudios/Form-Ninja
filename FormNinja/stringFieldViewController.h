@@ -7,42 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "parentFieldViewController.h"
 
-@class stringFieldViewController;
-@protocol stringFieldViewControllerDelegate <NSObject>
-@required
 
--(void) removeButtonPressed:(stringFieldViewController *)field;
--(void) moveUpButtonPressed:(stringFieldViewController *)field;
--(void) moveDownButtonPressed:(stringFieldViewController *)field;
--(void) changeButtonPressed:(stringFieldViewController *)field;
--(BOOL) textFieldShouldReturn:(UITextField *) textField fromStringField:(stringFieldViewController *) self;
-
-/*- (BOOL)foo:(Foo *)foo willDoSomethingAnimated:(BOOL)flag;
-- (void)foo:(Foo *)foo didDoSomethingAnimated:(BOOL)flag;*/
-@end
-
-@interface stringFieldViewController : UIViewController <UITextFieldDelegate> {
-    id <stringFieldViewControllerDelegate> delegate;
-    IBOutlet UISlider *minLengthSlider, *maxLengthSlider;
+@interface stringFieldViewController : parentFieldViewController <UITextFieldDelegate> {
+    id <parentFieldViewControllerDelegate> delegate;
     IBOutlet UILabel *minLengthLabel, *maxLengthLabel;
-    IBOutlet UITextField *fieldNameTextField;
+    IBOutlet UITextField *fieldNameTextField, *minLengthTextField, *maxLengthTextField;
     
 }
 
-@property (nonatomic, retain) IBOutlet UISlider *minLengthSlider, *maxLengthSlider;
+
 @property (nonatomic, retain) IBOutlet UILabel *minLengthLabel, *maxLengthLabel;
-@property (nonatomic, retain) IBOutlet UITextField *fieldNameTextField;
-@property (nonatomic, assign) id <stringFieldViewControllerDelegate> delegate;
+@property (nonatomic, retain) IBOutlet UITextField *fieldNameTextField, *minLengthTextField, *maxLengthTextField;
+@property (nonatomic, assign) id <parentFieldViewControllerDelegate> delegate;
+@property (nonatomic, retain) NSDictionary *dictValue;
 
 -(void)setByDictionary:(NSDictionary *) aDictionary;
 -(NSDictionary *) dictionaryValue;
 
 //UI functionality
--(IBAction) changeTypeButtonPressed;
 -(IBAction) removeButtonPressed;
+-(IBAction) addButtonPressed;
 -(IBAction) moveUpButtonPressed;
 -(IBAction) moveDownButtonPressed;
--(IBAction) sliderUpdated:(UISlider *)theSlider;
+
 
 @end
