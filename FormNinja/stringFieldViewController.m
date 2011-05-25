@@ -10,10 +10,10 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation stringFieldViewController
+@synthesize dictValue;
 @synthesize delegate;
 @synthesize minLengthLabel, maxLengthLabel;
-@synthesize minLengthSlider, maxLengthSlider;
-@synthesize fieldNameTextField;
+@synthesize fieldNameTextField, minLengthTextField, maxLengthTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,9 +42,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.fieldNameTextField.text=[dictValue valueForKey:@"label"];
+    self.minLengthTextField.text=[dictValue valueForKey:@"minLength"];
+    self.maxLengthTextField.text=[dictValue valueForKey:@"maxLength"];
+    self.dictValue=nil;
     // Do any additional setup after loading the view from its nib.
-    [self sliderUpdated:minLengthSlider];
-    [self sliderUpdated:maxLengthSlider];
     self.view.layer.cornerRadius=20;
 }
 
@@ -64,11 +66,15 @@
 -(void)setByDictionary:(NSDictionary *) aDictionary
 {
     NSLog(@"%@",[aDictionary valueForKey:@"label"]);
+    self.dictValue=aDictionary;
     self.fieldNameTextField.text=[aDictionary valueForKey:@"label"];
-    self.maxLengthSlider.value=[[aDictionary valueForKey:@"maxLength"] floatValue];
-    self.minLengthSlider.value=[[aDictionary valueForKey:@"minLength"] floatValue];
-    [self sliderUpdated:maxLengthSlider];
-    [self sliderUpdated:minLengthSlider];
+    self.minLengthTextField.text=[aDictionary valueForKey:@"minLength"];
+    self.maxLengthTextField.text=[aDictionary valueForKey:@"maxLength"];
+    
+    //self.maxLengthSlider.value=[[aDictionary valueForKey:@"maxLength"] floatValue];
+    //self.minLengthSlider.value=[[aDictionary valueForKey:@"minLength"] floatValue];
+    //[self sliderUpdated:maxLengthSlider];
+    //[self sliderUpdated:minLengthSlider];
     
 }
 
@@ -79,8 +85,11 @@
     [fieldDictionary setValue:@"string" forKey:@"type"];
     NSLog(@"Setting up text: %@ forKey:label",fieldNameTextField.text);
     [fieldDictionary setValue:fieldNameTextField.text forKey:@"label"];
-    [fieldDictionary setValue:[NSNumber numberWithFloat:minLengthSlider.value] forKey:@"minLength"];
-    [fieldDictionary setValue:[NSNumber numberWithFloat:maxLengthSlider.value] forKey:@"maxLength"];
+    [fieldDictionary setValue:minLengthTextField.text forKey:@"minLength"];
+    [fieldDictionary setValue:maxLengthTextField.text forKey:@"maxLength"];
+    
+    //[fieldDictionary setValue:[NSNumber numberWithFloat:minLengthSlider.value] forKey:@"minLength"];
+    //[fieldDictionary setValue:[NSNumber numberWithFloat:maxLengthSlider.value] forKey:@"maxLength"];
     
     return [NSDictionary dictionaryWithDictionary:fieldDictionary];
 }
@@ -88,37 +97,24 @@
 
 #pragma mark UI Functionality
 //These all need to be reported 'up' the chain via delegate methods
--(IBAction) changeTypeButtonPressed
+
+-(IBAction) addButtonPressed
 {
-    [[self delegate] changeButtonPressed:self];
+    [[self delegate] addFieldButtonPressed:self];
 }
 
 -(IBAction) removeButtonPressed
 {
-    [[self delegate] removeButtonPressed:self];
+    [[self delegate] removeFieldButtonPressed:self];
 }
 -(IBAction) moveUpButtonPressed
 {
-    [[self delegate] moveUpButtonPressed:self];
+    [[self delegate] moveFieldUpButtonPressed:self];
 }
 
 -(IBAction) moveDownButtonPressed
 {
-    [[self delegate] moveDownButtonPressed:self];
-}
-
-//these methods act 'internally' -- their data can be queried later by the delegate at it's discretion
-
-//This function is sent by the slider when it's updated.
-//Use it to query against the slider and find out it's value
--(IBAction) sliderUpdated:(UISlider *)theSlider
-{
-    int newCharCount=[[NSNumber numberWithFloat:theSlider.value] intValue];
-    if (theSlider==minLengthSlider) {
-        self.minLengthLabel.text=[NSString stringWithFormat:@"%i characters",newCharCount];
-    }
-    else
-        self.maxLengthLabel.text=[NSString stringWithFormat:@"%i characters",newCharCount];
+    [[self delegate] moveFieldDownButtonPressed:self];
 }
 
 #pragma mark Own Delegate Functionality
@@ -129,7 +125,15 @@
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-    return [delegate textFieldShouldReturn:textField fromStringField:self];
+    [textField resignFirstResponder];
+    if (textField==minLengthTextField) {
+        //handle converting into integers
+    }
+    else if (textField==maxLengthTextField)
+    {
+        //handle converting into integers
+    }
+    return YES;
 }
 
 @end

@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "stringFieldViewController.h"
+#import "templateGroupViewController.h"
 
 
-@interface TemplateEditorViewController : UIViewController <UITextFieldDelegate, stringFieldViewControllerDelegate> {
+@interface TemplateEditorViewController : UIViewController <UITextFieldDelegate,templateGroupViewControllerDelegate> {
     IBOutlet UIScrollView *scrollView;
-    NSMutableArray *templateData, *fieldViews;
-    IBOutlet UIButton *addFieldButton, *saveButton, *publishButton, *deleteButton;
+    NSMutableArray *templateData, *groupViews;
     BOOL displayKeyboard;
     CGPoint offset;
     IBOutlet UITextField *labelField;
+    IBOutlet UIView *templateControlView;
     
     NSArray *testArray;//TEMPORARY PROPERTY, NOT BACKED BY @PROPERTY!
     
@@ -24,21 +24,25 @@
 }
 
 @property(nonatomic, retain) IBOutlet UIScrollView *scrollView;
-@property(nonatomic, retain) NSMutableArray *templateData, *fieldViews;
-@property(nonatomic, retain) IBOutlet UIButton *addFieldButton, *saveButton, *publishButton, *deleteButton;
+@property(nonatomic, retain) NSMutableArray *templateData, *groupViews;
 @property(nonatomic, retain) IBOutlet UITextField *labelField;
+@property(nonatomic, retain) IBOutlet UIView *templateControlView;
 
--(IBAction) newFieldButtonTouched;
 - (void) moveTextViewForKeyboard:(NSNotification*)aNotification up: (BOOL) up;
--(void) setTemplateDataWithArray:(NSArray *)newData;
--(NSArray *) reduceTemplateToArray;
+//-(void) setTemplateDataWithArray:(NSArray *)newData;
+//-(NSArray *) reduceTemplateToArray;
+
+
+
+-(IBAction) newGroupButtonTouched;
 -(IBAction) saveButtonPressed;
 -(IBAction) deleteButtonPressed;
 -(IBAction) publishButtonPressed;
+-(void) redoHeights;
 
--(IBAction) testLoadButtonPressed;
--(IBAction) testSaveButtonPressed;
+//-(IBAction) testLoadButtonPressed;
+//-(IBAction) testSaveButtonPressed;
 
-
+-(CGPoint) generateAnimationPositionFromFrame:(CGRect) frame;
 
 @end
