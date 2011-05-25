@@ -83,7 +83,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<string key="IBUIText">Current Password</string>
+						<string key="IBUIText">Password</string>
 						<reference key="IBUIFont" ref="662298527"/>
 						<reference key="IBUITextColor" ref="1016047917"/>
 						<nil key="IBUIHighlightedColor"/>
@@ -484,7 +484,7 @@
 						<string key="NSFrame">{{452, 448}, {128, 64}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="163687601"/>
+						<reference key="NSNextKeyView" ref="194024191"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -768,7 +768,7 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
-					<object class="IBUILabel" id="163687601">
+					<object class="IBUILabel" id="194024191">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">293</int>
 						<string key="NSFrame">{{101, 703}, {566, 148}}</string>
@@ -1157,7 +1157,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">statusLabel</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="163687601"/>
+						<reference key="destination" ref="194024191"/>
 					</object>
 					<int key="connectionID">101</int>
 				</object>
@@ -1210,7 +1210,7 @@
 							<reference ref="468055617"/>
 							<reference ref="692027359"/>
 							<reference ref="570381947"/>
-							<reference ref="163687601"/>
+							<reference ref="194024191"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1403,7 +1403,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100</int>
-						<reference key="object" ref="163687601"/>
+						<reference key="object" ref="194024191"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
 				</object>
