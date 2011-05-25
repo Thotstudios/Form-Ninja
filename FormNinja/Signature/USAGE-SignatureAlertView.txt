@@ -1,0 +1,12 @@
+paste into code where you want to alert to pop up (eg in a button's trigger function)
+
+[[[SignatureAlertView alloc] initWithDelegate:self onSuccess:@selector(succes:) onFailure:@selector(failureMethod)] show];
+
+also define these methods (which can be renamed, if they're renamed in the above line):
+
+-(void) failure
+{
+}
+-(void) success:(UIImage*)signatureImage
+{
+}

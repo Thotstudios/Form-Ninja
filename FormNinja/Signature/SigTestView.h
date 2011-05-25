@@ -8,20 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@class SignatureViewController;
+@class SignatureView;
 
 @interface SigTestView : UIViewController
 {
-	SignatureViewController *signatureViewController;
+	SignatureView *signatureView;
 	UIImageView *resultImage;
 	UIImageView *resultImageHalfSize;
 	UIImageView *resultImageFullSize;
 }
-@property (nonatomic, retain) IBOutlet SignatureViewController *signatureViewController;
+@property (nonatomic, retain) IBOutlet SignatureView *signatureView;
 @property (nonatomic, retain) IBOutlet UIImageView *resultImageHalfSize;
 @property (nonatomic, retain) IBOutlet UIImageView *resultImageFullSize;
 
 - (IBAction)setResultImage;
 - (IBAction)clearSignature;
+- (IBAction)getSignature;
 
 @end

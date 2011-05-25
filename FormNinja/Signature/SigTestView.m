@@ -8,8 +8,10 @@
 
 #import "SigTestView.h"
 
+#import "SignatureAlertView.h"
+
 @implementation SigTestView
-@synthesize signatureViewController;
+@synthesize signatureView;
 
 @synthesize resultImageHalfSize;
 @synthesize resultImageFullSize;
@@ -26,7 +28,7 @@
 
 - (void)dealloc
 {
-	[signatureViewController release];
+	[signatureView release];
 	[resultImageHalfSize release];
 	[resultImageFullSize release];
     [super dealloc];
@@ -51,7 +53,7 @@
 
 - (void)viewDidUnload
 {
-	[self setSignatureViewController:nil];
+	[self setSignatureView:nil];
 	[self setResultImageHalfSize:nil];
 	[self setResultImageFullSize:nil];
     [super viewDidUnload];
@@ -67,13 +69,40 @@
 
 - (IBAction)setResultImage
 {
-	[resultImageHalfSize setImage:[signatureViewController image]];
-	[resultImageFullSize setImage:[signatureViewController image]];
+	[resultImageHalfSize setImage:[signatureView image]];
+	[resultImageFullSize setImage:[signatureView image]];
 }
 
 - (IBAction)clearSignature
 {
-	[signatureViewController clearSignature];
+	[signatureView clearSignature];
 	[self setResultImage];
 }
+
+-(void) setSignature:(UIImage*)image
+{
+	[resultImageHalfSize setImage:image];
+	[resultImageFullSize setImage:image];
+}
+- (IBAction)getSignature
+{
+	[[[SignatureAlertView alloc] initWithDelegate:self onSuccess:@selector(success:) onFailure:@selector(failure)] show];
+}
+
+-(void) failure
+{
+	NSLog(@"Form not signed.");
+}
+-(void) success:(UIImage*)image
+{
+	if(image)
+		{
+		[resultImageFullSize setImage:image];
+		[resultImageHalfSize setImage:image];
+		
+		}
+	else
+		[self failure];
+}
+
 @end
