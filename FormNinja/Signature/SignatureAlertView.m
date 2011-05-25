@@ -40,12 +40,15 @@
 
 -(void) show
 {
-	NSLog(@"SignatureAlert show");
 	[self setSignatureView:[[SignatureView alloc] initWithFrame:CGRectZero]];
 	[signatureView setBackgroundColor:[UIColor whiteColor]];
 	[self addSubview:signatureView];
 	[super show];
-
+}
+-(void) layoutSubviews
+{
+	[super layoutSubviews];
+	
 	UIView * curView;
 	int i = 0;
 	while(![[self.subviews objectAtIndex:i] isKindOfClass:[UIControl class]])

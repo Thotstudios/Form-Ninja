@@ -13,9 +13,8 @@ Chad:
 - second, depending on group selection, is a list of available templates
 - third, a template was selected, and user can start filling out form.
 - fourth, at any point, user can change to Signature mdoe
-* Signatures: Must create system for capturing signature and storing in file.
-- import existing work from paint program.
 * Unpublished templates should have a 'Resume' button instead of a "Modify" button
+* Clean up SignatureAlertView to have stuff centered and balanced.
 
 Paul:
 * Optionally write a TODO list here.
@@ -24,10 +23,6 @@ Ron:
 * Optionally write a TODO list here.
 
 Other:
-* Account info should be cleared when user logs out.
-- currently, info is retained which is evident when using Login Bypass
-- second, there might be a conflict on the 'option' data for an account
-
 * Localization support
 
 * version string on main menu

@@ -30,12 +30,6 @@
 
 #pragma mark - View lifecycle
 
-- (void)setNeedsDisplay
-{
-	NSLog(@"Signature setNeedsDisplay.");
-    [super setNeedsDisplay];
-}
-
 -(void) drawRect:(CGRect)rect
 {
 	NSLog(@"Signature drawRect");
@@ -48,7 +42,7 @@
 {
 	UITouch *touch = [touches anyObject];
 	lastPoint = [touch locationInView:self];
-	
+
 	NSLog(@"Signature touchesBegan.");
 }
 
@@ -80,12 +74,6 @@
 {
 }
 
-/*
--(UIImage*) image
-{
-	return [drawImage image];
-}
-*/
 -(IBAction) clearSignature
 {
 	[imageView setImage:nil];
@@ -95,7 +83,6 @@
 	rect.size = self.frame.size;
 	imageView.frame = rect;
 	[self addSubview:imageView];
-	//self.view.backgroundColor = [UIColor lightGrayColor];
 }
 
 @end

@@ -18,6 +18,7 @@
 @implementation MainMenu
 
 @synthesize loginExpirationLabel;
+@synthesize versionLabel;
 
 @synthesize loginViewController;
 @synthesize formManagerViewController;
@@ -56,6 +57,7 @@
     [signatureViewController release];
 	//
 	
+    [versionLabel release];
     [super dealloc];
 }
 
@@ -77,6 +79,7 @@
 -(void) viewDidAppear:(BOOL)animated
 {
 	[self updateLoginExpirationLabel];
+	[self.versionLabel setText:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
 }
 
 - (void)viewDidUnload
@@ -93,6 +96,7 @@
     [self setTemporaryFormEditorViewController:nil];
     [self setSignatureViewController:nil];
 	
+    [self setVersionLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

@@ -13,6 +13,7 @@
 {
 	// Interface Elements:
 	UILabel *loginExpirationLabel;
+	UILabel *versionLabel;
 	
 	// View Controllers:
 	UIViewController *loginViewController;
@@ -29,6 +30,7 @@
 }
 // Interface Elements:
 @property (nonatomic, retain) IBOutlet UILabel *loginExpirationLabel;
+@property (nonatomic, retain) IBOutlet UILabel *versionLabel;
 
 // View Controllers:
 @property (nonatomic, retain) IBOutlet UIViewController *loginViewController;

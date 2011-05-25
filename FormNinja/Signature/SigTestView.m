@@ -84,11 +84,12 @@
 	[resultImageHalfSize setImage:image];
 	[resultImageFullSize setImage:image];
 }
+
+// Signature Alert View Stuff (3 functions):
 - (IBAction)getSignature
 {
 	[[[SignatureAlertView alloc] initWithDelegate:self onSuccess:@selector(success:) onFailure:@selector(failure)] show];
 }
-
 -(void) failure
 {
 	NSLog(@"Form not signed.");
