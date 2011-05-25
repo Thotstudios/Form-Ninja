@@ -560,15 +560,12 @@
 				F7BC423113886CB800911EB5 /* FormEditorViewController.xib in Resources */,
 				F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */,
 				F7BC423E1388709F00911EB5 /* GroupManagerViewController.xib in Resources */,
-<<<<<<< HEAD
 				F7CCB3A6138DAB83000AB378 /* USAGE-SignatureAlertView.txt in Resources */,
-=======
 				42EB83FD138D958500B6F364 /* TemplateEditorViewController.xib in Resources */,
 				42EB8402138D959F00B6F364 /* templateGroupViewController.xib in Resources */,
 				42EB8407138D95B400B6F364 /* stringFieldViewController.xib in Resources */,
 				42EB840C138D95C600B6F364 /* parentFieldViewController.xib in Resources */,
 				42EB8411138D95F900B6F364 /* fieldSelectionViewController.xib in Resources */,
->>>>>>> 62824e1d0ac6d3dd49e712f1d48a57d675d9c221
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,15 +602,12 @@
 				F7BC423013886CB800911EB5 /* FormEditorViewController.m in Sources */,
 				F7BC423713886CF300911EB5 /* FormManagerViewController.m in Sources */,
 				F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */,
-<<<<<<< HEAD
 				F7CCB39D138C7ED2000AB378 /* SignatureAlertView.m in Sources */,
-=======
 				42EB83FC138D958500B6F364 /* TemplateEditorViewController.m in Sources */,
 				42EB8401138D959F00B6F364 /* templateGroupViewController.m in Sources */,
 				42EB8406138D95B400B6F364 /* stringFieldViewController.m in Sources */,
 				42EB840B138D95C600B6F364 /* parentFieldViewController.m in Sources */,
 				42EB8410138D95F900B6F364 /* fieldSelectionViewController.m in Sources */,
->>>>>>> 62824e1d0ac6d3dd49e712f1d48a57d675d9c221
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
