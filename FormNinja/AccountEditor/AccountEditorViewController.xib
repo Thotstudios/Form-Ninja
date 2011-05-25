@@ -484,7 +484,7 @@
 						<string key="NSFrame">{{452, 448}, {128, 64}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="404134963"/>
+						<reference key="NSNextKeyView" ref="163687601"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -672,7 +672,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUITextField" id="338382627">
 								<reference key="NSNextResponder" ref="570381947"/>
-								<int key="NSvFlags">303</int>
+								<int key="NSvFlags">-2147483345</int>
 								<string key="NSFrame">{{168, 54}, {97, 31}}</string>
 								<reference key="NSSuperview" ref="570381947"/>
 								<reference key="NSWindow"/>
@@ -696,7 +696,7 @@
 							</object>
 							<object class="IBUILabel" id="352283089">
 								<reference key="NSNextResponder" ref="570381947"/>
-								<int key="NSvFlags">303</int>
+								<int key="NSvFlags">-2147483345</int>
 								<string key="NSFrame">{{20, 25}, {140, 21}}</string>
 								<reference key="NSSuperview" ref="570381947"/>
 								<reference key="NSWindow"/>
@@ -715,7 +715,7 @@
 							</object>
 							<object class="IBUITextField" id="619907055">
 								<reference key="NSNextResponder" ref="570381947"/>
-								<int key="NSvFlags">303</int>
+								<int key="NSvFlags">-2147483345</int>
 								<string key="NSFrame">{{168, 20}, {97, 31}}</string>
 								<reference key="NSSuperview" ref="570381947"/>
 								<reference key="NSWindow"/>
@@ -739,7 +739,7 @@
 							</object>
 							<object class="IBUILabel" id="897843046">
 								<reference key="NSNextResponder" ref="570381947"/>
-								<int key="NSvFlags">303</int>
+								<int key="NSvFlags">-2147483345</int>
 								<string key="NSFrame">{{31, 59}, {129, 21}}</string>
 								<reference key="NSSuperview" ref="570381947"/>
 								<reference key="NSWindow"/>
@@ -768,9 +768,9 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
-					<object class="IBUILabel" id="404134963">
+					<object class="IBUILabel" id="163687601">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">319</int>
+						<int key="NSvFlags">293</int>
 						<string key="NSFrame">{{101, 703}, {566, 148}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
@@ -1157,7 +1157,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">statusLabel</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="404134963"/>
+						<reference key="destination" ref="163687601"/>
 					</object>
 					<int key="connectionID">101</int>
 				</object>
@@ -1210,7 +1210,7 @@
 							<reference ref="468055617"/>
 							<reference ref="692027359"/>
 							<reference ref="570381947"/>
-							<reference ref="404134963"/>
+							<reference ref="163687601"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1403,7 +1403,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100</int>
-						<reference key="object" ref="404134963"/>
+						<reference key="object" ref="163687601"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
 				</object>
