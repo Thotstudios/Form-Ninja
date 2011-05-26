@@ -33,6 +33,7 @@
 @property(nonatomic, retain) NSMutableArray *fieldViewControllers;
 @property(nonatomic, retain) id <templateGroupViewControllerDelegate> delegate;
 
+-(void) redoHeights;
 
 -(IBAction) moveGroupUpButtonPressed;
 -(IBAction) moveGroupDownButtonPressed;

@@ -11,6 +11,7 @@
 
 
 @implementation parentFieldViewController
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,6 +70,20 @@
         //Throw error -- how?
     }
     return [fieldController autorelease];
+}
+
+
+-(IBAction) removeButtonPressed{
+    NSLog(@"You should NOT see this!");
+}
+-(IBAction) addButtonPressed{
+    NSLog(@"You should NOT see this!");
+}
+-(IBAction) moveUpButtonPressed{
+    NSLog(@"You should NOT see this!");
+}
+-(IBAction) moveDownButtonPressed{
+    NSLog(@"You should NOT see this!");
 }
 
 @end

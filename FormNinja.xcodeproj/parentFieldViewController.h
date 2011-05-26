@@ -26,6 +26,14 @@
     
 }
 
+@property (nonatomic, assign) id delegate;
+
 -(parentFieldViewController *) allocFieldFromDic:(NSDictionary*) aDic;
+
+
+-(IBAction) removeButtonPressed;
+-(IBAction) addButtonPressed;
+-(IBAction) moveUpButtonPressed;
+-(IBAction) moveDownButtonPressed;
 
 @end

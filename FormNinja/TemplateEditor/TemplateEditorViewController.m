@@ -396,7 +396,6 @@
  
  }*/
 
-#pragma mark current working function
 -(IBAction) newGroupButtonTouched
 {
     //float newPosition=self.templateControlView.frame.origin.y;
@@ -784,9 +783,7 @@
                                            currentGroup.view.frame.size.width,
                                            currentGroup.view.frame.size.height);
         curHeight=curHeight+10+currentGroup.view.frame.size.height;
-        NSLog(@"Curheight is: %f", curHeight);
     }
-    NSLog(@"Curheight is: %f", curHeight);
     templateControlView.frame=CGRectMake(templateControlView.frame.origin.x, 
                                          curHeight, 
                                          templateControlView.frame.size.width, 
@@ -863,7 +860,6 @@
 }
 -(void) changedHeightForGroup:(templateGroupViewController *) group
 {
-    NSLog(@"changed height for group called");
     [self redoHeights];
 }
 

@@ -105,6 +105,7 @@
 
 -(IBAction) removeButtonPressed
 {
+    NSLog(@"stringField remove");
     [[self delegate] removeFieldButtonPressed:self];
 }
 -(IBAction) moveUpButtonPressed

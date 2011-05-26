@@ -45,6 +45,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.fieldViewControllers=[NSMutableArray array];
 }
 
 - (void)viewDidUnload
@@ -85,7 +86,7 @@
 -(IBAction) addFieldButtonPressed
 {
     fieldSelectionViewController *selectionVC=[[fieldSelectionViewController alloc] initWithNibName:@"fieldSelectionViewController" bundle:[NSBundle mainBundle]];
-    [self.view.superview addSubview:selectionVC.view];
+    [self.view.superview.superview addSubview:selectionVC.view];
     selectionVC.view.frame=self.view.superview.frame;
     selectionVC.delegate=self;
 }
@@ -94,7 +95,12 @@
 
 -(void) removeFieldButtonPressed:(parentFieldViewController *)field
 {
-    
+    NSLog(@"templateGroup remove");
+    [field.view removeFromSuperview];
+    NSLog(@"count: %i", [fieldViewControllers count]);
+    [fieldViewControllers removeObject:field];
+    NSLog(@"count: %i", [fieldViewControllers count]);
+    [self redoHeights];
 }
 -(void) addFieldButtonPressed:(parentFieldViewController *)field
 {
@@ -120,11 +126,11 @@
 {
     [controller.view removeFromSuperview];
     [controller release];
-    NSLog(@"type selected: %@", fieldType);
     parentFieldViewController *parent=[parentFieldViewController alloc];
     parentFieldViewController *child=[parent allocFieldFromDic:[NSDictionary dictionaryWithObject:fieldType forKey:@"type"]];
-    [parent release];
     [fieldViewControllers addObject:child];
+    [child setDelegate:self];
+    [parent release];
     [self.view addSubview:child.view];
     child.view.frame=CGRectMake(20,
                                 bottomControlsView.frame.origin.y,
@@ -147,5 +153,27 @@
     [delegate changedHeightForGroup:self];
 }
 
+#pragma mark - Graphics
+
+-(void) redoHeights
+{
+    float curHeight=65;
+    for (parentFieldViewController *curView in fieldViewControllers) {
+        curView.view.frame=CGRectMake(curView.view.frame.origin.x,
+                                      curHeight,
+                                      curView.view.frame.size.width,
+                                      curView.view.frame.size.height);
+        curHeight+=curView.view.frame.size.height+10;
+    }
+    bottomControlsView.frame=CGRectMake(bottomControlsView.frame.origin.x,
+                                        curHeight,
+                                        bottomControlsView.frame.size.width,
+                                        bottomControlsView.frame.size.height);
+    self.view.frame=CGRectMake(self.view.frame.origin.x,
+                               self.view.frame.origin.y, 
+                               self.view.frame.size.width,
+                               curHeight+bottomControlsView.frame.size.height+10);
+    [delegate changedHeightForGroup:self];
+}
 
 @end
