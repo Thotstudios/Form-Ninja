@@ -57,6 +57,7 @@
             parentFieldViewController *childVC=[newVC allocFieldFromDic:curDict];
             [self.fieldViewControllers addObject:childVC];
             [self.view addSubview:childVC.view];
+            [newVC setDelegate:self];
             [newVC release];
         }
     }
@@ -94,10 +95,17 @@
     dictValue=aDictionary;
     groupLabel.text=[dictValue objectForKey:@"label"];
     for (NSDictionary *curDict in [dictValue valueForKey:@"fields"]) {
+        if (self.fieldViewControllers!=nil) {
+            NSLog(@"Field view controlers not nil");
+        }
+        if (self.fieldViewControllers==nil) {
+            NSLog(@"Field view controlers IS IN FACT nil");
+        }
         parentFieldViewController *newVC=[[parentFieldViewController alloc] initWithNibName:@"parentFieldViewController" bundle:[NSBundle mainBundle]];
         parentFieldViewController *childVC=[newVC allocFieldFromDic:curDict];
         [self.fieldViewControllers addObject:childVC];
         [self.view addSubview:childVC.view];
+        [childVC setDelegate:self];
         [newVC release];
     }
     [self redoHeights];
@@ -198,6 +206,8 @@
                                self.view.frame.origin.y, 
                                self.view.frame.size.width,
                                curHeight+bottomControlsView.frame.size.height+10);
+    NSLog(@"current view height is: %f", self.view.frame.size.height);
+    NSLog(@"curheight is: %f", curHeight);
     [delegate changedHeightForGroup:self];
 }
 

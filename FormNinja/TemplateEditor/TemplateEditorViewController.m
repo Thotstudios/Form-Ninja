@@ -59,7 +59,8 @@
             templateGroupViewController *newVC=[[templateGroupViewController alloc] initWithNibName:@"templateGroupViewController" bundle:[NSBundle mainBundle]];
             [newVC setByDictionary:curGroup];
             [groupViews addObject: newVC];
-            [self.view addSubview:newVC.view];
+            [self.scrollView addSubview:newVC.view];
+            [newVC setDelegate:self];
             [newVC release];
         }
     }
@@ -154,9 +155,11 @@
     labelField.text=[aDictionary valueForKey:@"templateLabel"];
     for (NSDictionary *curGroup in [aDictionary valueForKey:@"templateGroups"]) {
         templateGroupViewController *newVC=[[templateGroupViewController alloc] initWithNibName:@"templateGroupViewController" bundle:[NSBundle mainBundle]];
+        NSLog(@"the height of the new group is: %f", newVC.view.frame.size.height);
         [newVC setByDictionary:curGroup];
         [groupViews addObject: newVC];
-        [self.view addSubview:newVC.view];
+        [self.scrollView addSubview:newVC.view];
+        [newVC setDelegate:self];
         [newVC release];
     }
     [self redoHeights];
