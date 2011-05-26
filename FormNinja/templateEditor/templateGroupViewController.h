@@ -35,6 +35,8 @@
 
 -(void) redoHeights;
 
+-(NSDictionary *) getDictionaryData;
+
 -(IBAction) moveGroupUpButtonPressed;
 -(IBAction) moveGroupDownButtonPressed;
 -(IBAction) addGroupButtonPressed;

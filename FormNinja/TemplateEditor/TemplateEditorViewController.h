@@ -30,7 +30,8 @@
 
 - (void) moveTextViewForKeyboard:(NSNotification*)aNotification up: (BOOL) up;
 //-(void) setTemplateDataWithArray:(NSArray *)newData;
-//-(NSArray *) reduceTemplateToArray;
+
+-(NSDictionary *)getDictionaryValue;
 
 
 

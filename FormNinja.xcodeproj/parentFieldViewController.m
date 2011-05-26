@@ -86,4 +86,9 @@
     NSLog(@"You should NOT see this!");
 }
 
+-(NSDictionary *) getDictionaryData
+{
+    return nil;
+}
+
 @end

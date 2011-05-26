@@ -63,6 +63,8 @@
 	return YES;
 }
 
+#pragma mark - Save/load
+
 -(void)setByDictionary:(NSDictionary *) aDictionary
 {
     NSLog(@"%@",[aDictionary valueForKey:@"label"]);
@@ -95,7 +97,19 @@
 }
 
 
-#pragma mark UI Functionality
+-(NSDictionary *) getDictionaryData
+{
+    NSMutableDictionary *fieldDictionary=[NSMutableDictionary dictionary];
+    
+    [fieldDictionary setValue:@"string" forKey:@"type"];
+    [fieldDictionary setValue:fieldNameTextField.text forKey:@"label"];
+    [fieldDictionary setValue:minLengthTextField.text forKey:@"minLength"];
+    [fieldDictionary setValue:maxLengthTextField.text forKey:@"maxLength"];
+
+    return fieldDictionary;
+}
+
+#pragma mark - UI Functionality
 //These all need to be reported 'up' the chain via delegate methods
 
 -(IBAction) addButtonPressed

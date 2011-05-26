@@ -24,7 +24,7 @@
 @property (nonatomic, retain) NSDictionary *dictValue;
 
 -(void)setByDictionary:(NSDictionary *) aDictionary;
--(NSDictionary *) dictionaryValue;
+-(NSDictionary *) getDictionaryData;
 
 //UI functionality
 -(IBAction) removeButtonPressed;

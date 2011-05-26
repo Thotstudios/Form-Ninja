@@ -238,6 +238,18 @@
  return [NSArray arrayWithArray:templateDataArray];
  }*/
 
+-(NSDictionary *)getDictionaryValue
+{
+    NSMutableDictionary *templateDictionary=[NSMutableDictionary dictionary];
+    [templateDictionary setValue:labelField.text forKey:@"templateLabel"];
+    NSMutableArray *groupArray=[NSMutableArray array];
+    for (templateGroupViewController *curGroup in groupViews) {
+        [groupArray addObject:[curGroup getDictionaryData]];
+    }
+    [templateDictionary setValue:groupArray forKey:@"templateGroups"];
+    return templateDictionary;
+}
+
 #pragma mark - interface
 
 /*

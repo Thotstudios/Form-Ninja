@@ -61,6 +61,20 @@
 	return YES;
 }
 
+#pragma mark - Data Persistence Functions
+
+-(NSDictionary *) getDictionaryData
+{
+    NSMutableDictionary *groupDictionary=[NSMutableDictionary dictionary];
+    [groupDictionary setValue:groupLabel.text forKey:@"label"];
+    NSMutableArray *fieldArray=[NSMutableArray array];
+    for (parentFieldViewController *curView in fieldViewControllers) {
+        [fieldArray addObject:[curView getDictionaryData]];
+    }
+    [groupDictionary setValue:fieldArray forKey:@"fields"];
+    return groupDictionary;
+}
+
 #pragma mark - Interface Functions
 
 -(IBAction) addGroupButtonPressed

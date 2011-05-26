@@ -30,6 +30,8 @@
 
 -(parentFieldViewController *) allocFieldFromDic:(NSDictionary*) aDic;
 
+-(NSDictionary *) getDictionaryData;
+
 
 -(IBAction) removeButtonPressed;
 -(IBAction) addButtonPressed;
