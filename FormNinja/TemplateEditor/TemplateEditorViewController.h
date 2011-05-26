@@ -18,8 +18,6 @@
     IBOutlet UITextField *labelField;
     IBOutlet UIView *templateControlView;
     
-    NSArray *testArray;//TEMPORARY PROPERTY, NOT BACKED BY @PROPERTY!
-    
     NSString *saveUrl;
 }
 
@@ -28,6 +26,9 @@
 @property(nonatomic, retain) IBOutlet UITextField *labelField;
 @property(nonatomic, retain) IBOutlet UIView *templateControlView;
 @property(nonatomic, retain) NSDictionary *dictValue;
+
+//TEST PROPERTY -- DELETE!
+@property(nonatomic, retain) NSDictionary *testDict;
 
 - (void) moveTextViewForKeyboard:(NSNotification*)aNotification up: (BOOL) up;
 //-(void) setTemplateDataWithArray:(NSArray *)newData;

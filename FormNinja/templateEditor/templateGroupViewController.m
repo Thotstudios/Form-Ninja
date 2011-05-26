@@ -100,6 +100,7 @@
         [self.view addSubview:childVC.view];
         [newVC release];
     }
+    [self redoHeights];
 }
 
 #pragma mark - Interface Functions

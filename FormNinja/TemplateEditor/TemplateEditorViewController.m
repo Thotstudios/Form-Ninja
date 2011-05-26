@@ -20,6 +20,7 @@
 @synthesize labelField;
 @synthesize templateControlView;
 @synthesize dictValue;
+@synthesize testDict;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,7 +52,6 @@
     self.groupViews=[[NSMutableArray alloc] init];
     // Do any additional setup after loading the view from its nib.
     self.scrollView.contentSize=CGSizeMake(768, 88+77);
-    testArray=nil;
     if(dictValue!=nil)
     {
         labelField.text=[dictValue valueForKey:@"templateLabel"];
@@ -357,12 +357,17 @@
 
 -(IBAction) deleteButtonPressed
 {
-    
+    NSLog(@"delete button pressed");
+    for (templateGroupViewController *curGroup in [groupViews copy]) {
+        [self removeGroupButtonPressed:curGroup];
+    }
+    [self setByDictionary:testDict];
 }
 
 -(IBAction) saveButtonPressed
 {
-    
+    NSLog(@"save button pressed");
+    self.testDict=[self getDictionaryValue];
 }
 
 -(IBAction) publishButtonPressed
