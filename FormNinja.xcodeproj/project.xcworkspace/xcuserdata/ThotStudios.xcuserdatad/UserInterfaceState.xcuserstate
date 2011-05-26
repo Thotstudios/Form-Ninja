@@ -7093,10 +7093,10 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>328138084.997666</real>
-		<string>{11997, 996}</string>
-		<string>{12413, 0}</string>
-		<string>-changePasswordCancel</string>
+		<real>328138440.95951098</real>
+		<string>{2212, 972}</string>
+		<string>{2841, 0}</string>
+		<string>-viewWillAppear:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -17375,9 +17375,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>328138084.994322</real>
-		<string>{11997, 996}</string>
-		<string>{12413, 0}</string>
+		<real>328138440.95629799</real>
+		<string>{2212, 972}</string>
+		<string>{2841, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -22143,9 +22143,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>328138084.99493998</real>
-		<string>{11997, 996}</string>
-		<string>{12413, 0}</string>
+		<real>328138440.95681399</real>
+		<string>{2212, 972}</string>
+		<string>{2841, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -27466,7 +27466,7 @@
 				<integer>1834</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>328138079.981121</real>
+			<real>328138347.87208098</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -27477,7 +27477,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 2:27 PM</string>
+		<string>Today at 2:32 PM</string>
 		<integer>106</integer>
 		<dict>
 			<key>$class</key>

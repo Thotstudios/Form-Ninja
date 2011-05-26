@@ -104,13 +104,18 @@
     }
     
     if (type == 0) {
+        self.usernameTextField.userInteractionEnabled = TRUE;
+        self.passwordTextField.userInteractionEnabled = TRUE;
         self.changePasswordButton.hidden = YES;
         self.confirmButton.userInteractionEnabled = FALSE;
 		self.confirmButton.alpha = .7; 
     }
     
-    else
+    else{
+        self.usernameTextField.userInteractionEnabled = FALSE;
+        self.passwordTextField.userInteractionEnabled = FALSE;
         self.changePasswordButton.hidden = NO;
+    }
     
     [self loadAccountInfo];
 }
