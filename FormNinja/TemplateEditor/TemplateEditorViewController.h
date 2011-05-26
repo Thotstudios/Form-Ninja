@@ -27,11 +27,13 @@
 @property(nonatomic, retain) NSMutableArray *templateData, *groupViews;
 @property(nonatomic, retain) IBOutlet UITextField *labelField;
 @property(nonatomic, retain) IBOutlet UIView *templateControlView;
+@property(nonatomic, retain) NSDictionary *dictValue;
 
 - (void) moveTextViewForKeyboard:(NSNotification*)aNotification up: (BOOL) up;
 //-(void) setTemplateDataWithArray:(NSArray *)newData;
 
 -(NSDictionary *)getDictionaryValue;
+-(void)setByDictionary:(NSDictionary *) aDictionary;
 
 
 

@@ -62,13 +62,13 @@
     NSString *type=[aDic valueForKey:@"type"];
     if (type==@"string") {
         fieldController=[[stringFieldViewController alloc] initWithNibName:@"stringFieldViewController" bundle:[NSBundle mainBundle]];
-        NSLog(@"Checking value: %f", fieldController.view.frame.size.height);
     }
     else
     {
         NSLog(@"WARNING!  Unidentified type passed to parentFieldViewController in dictionary!");
         //Throw error -- how?
     }
+    [fieldController setByDictionary:aDic];
     return [fieldController autorelease];
 }
 
@@ -89,6 +89,10 @@
 -(NSDictionary *) getDictionaryData
 {
     return nil;
+}
+-(void)setByDictionary:(NSDictionary *) aDictionary
+{
+    
 }
 
 @end

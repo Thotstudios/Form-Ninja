@@ -19,6 +19,7 @@
 @synthesize templateData, groupViews;
 @synthesize labelField;
 @synthesize templateControlView;
+@synthesize dictValue;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,6 +52,17 @@
     // Do any additional setup after loading the view from its nib.
     self.scrollView.contentSize=CGSizeMake(768, 88+77);
     testArray=nil;
+    if(dictValue!=nil)
+    {
+        labelField.text=[dictValue valueForKey:@"templateLabel"];
+        for (NSDictionary *curGroup in [dictValue valueForKey:@"templateGroups"]) {
+            templateGroupViewController *newVC=[[templateGroupViewController alloc] initWithNibName:@"templateGroupViewController" bundle:[NSBundle mainBundle]];
+            [newVC setByDictionary:curGroup];
+            [groupViews addObject: newVC];
+            [self.view addSubview:newVC.view];
+            [newVC release];
+        }
+    }
 }
 
 - (void)viewDidUnload
@@ -135,108 +147,20 @@
 
 #pragma mark - load and save data
 
-#pragma mark (Will re-impliment later)
-/*
- -(void) setTemplateDataWithArray:(NSArray *)newData
- {
- if (newData==nil) {
- return;
- }
- self.groupViews=[NSMutableArray array];
- self.templateData=[newData mutableCopy];
- NSDictionary *currentFieldDic=[templateData objectAtIndex:0];
- NSMutableDictionary *currentViewDic;
- CGRect newFrame;float newHeight, newPosition;
- UIViewController *lastController=nil, *currentView=nil;
- 
- labelField.text=[currentFieldDic objectForKey:@"label"];
- for (int i=1; i<[templateData count]; i++) {
- currentFieldDic=[templateData objectAtIndex:i];
- currentViewDic=[NSMutableDictionary dictionary];
- if ([[currentFieldDic valueForKey:@"type"] isEqualToString:@"string"]) 
- {
- stringFieldViewController *newStringVC=[[stringFieldViewController alloc] 
- initWithNibName:@"stringFieldViewController" 
- bundle:[NSBundle mainBundle]];
- 
- [newStringVC setByDictionary:currentFieldDic];
- [currentViewDic setValue:newStringVC forKey:@"fieldVC"];
- newHeight=(newStringVC.view.layer.bounds.size.height);
- currentView=newStringVC;
- }
- [currentViewDic setValue:[NSNumber numberWithFloat:newHeight] forKey:@"height"];
- if (lastController!=nil) 
- {
- NSLog(@"%f",lastController.view.frame.origin.y);
- newPosition=lastController.view.frame.origin.y+lastController.view.frame.size.height+10;
- }
- else
- {
- newPosition=88;
- }
- if(self.interfaceOrientation==UIInterfaceOrientationPortrait | 
- self.interfaceOrientation== UIInterfaceOrientationPortraitUpsideDown)
- {
- newFrame=CGRectMake(20, 
- newPosition, 
- (self.view.frame.size.width-40), 
- newHeight);
- 
- }
- else
- {
- newFrame=CGRectMake(20, 
- newPosition, 
- (self.view.frame.size.height-40), 
- newHeight);
- 
- }
- currentView.view.frame=newFrame;
- [self.view addSubview:currentView.view];
- lastController=currentView;
- 
- }
- 
- if (lastController==nil) {
- return;
- }
- else
- {
- self.addFieldButton.frame=CGRectMake(self.addFieldButton.frame.origin.x,
- lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
- self.addFieldButton.frame.size.width,
- self.addFieldButton.frame.size.height);
- 
- self.saveButton.frame=CGRectMake(self.saveButton.frame.origin.x,
- lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
- self.saveButton.frame.size.width,
- self.saveButton.frame.size.height);
- 
- self.publishButton.frame=CGRectMake(self.publishButton.frame.origin.x,
- lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
- self.publishButton.frame.size.width,
- self.publishButton.frame.size.height);
- 
- self.deleteButton.frame=CGRectMake(self.deleteButton.frame.origin.x,
- lastController.view.frame.origin.y+lastController.view.frame.size.height+10,
- self.deleteButton.frame.size.width,
- self.deleteButton.frame.size.height);
- }
- }
- 
- 
- -(NSArray *) reduceTemplateToArray
- {
- NSMutableArray *templateDataArray=[NSMutableArray array];
- NSMutableDictionary *currentDictionary=[NSMutableDictionary dictionary];
- [currentDictionary setValue:labelField.text forKey:@"label"];
- [currentDictionary setValue:@"template" forKey:@"type"];
- [templateDataArray addObject:currentDictionary];
- for (int i=0; i<[fieldViews count]; i++) {
- [templateDataArray addObject:[[[fieldViews objectAtIndex:i] objectForKey:@"fieldVC"] dictionaryValue]];
- }
- return [NSArray arrayWithArray:templateDataArray];
- }*/
+
+-(void)setByDictionary:(NSDictionary *) aDictionary
+{
+    dictValue=aDictionary;
+    labelField.text=[aDictionary valueForKey:@"templateLabel"];
+    for (NSDictionary *curGroup in [aDictionary valueForKey:@"templateGroups"]) {
+        templateGroupViewController *newVC=[[templateGroupViewController alloc] initWithNibName:@"templateGroupViewController" bundle:[NSBundle mainBundle]];
+        [newVC setByDictionary:curGroup];
+        [groupViews addObject: newVC];
+        [self.view addSubview:newVC.view];
+        [newVC release];
+    }
+    [self redoHeights];
+}
 
 -(NSDictionary *)getDictionaryValue
 {
@@ -803,60 +727,13 @@
     scrollView.contentSize=CGSizeMake(scrollView.contentSize.width, templateControlView.frame.size.height+curHeight+10);
 }
 
-#pragma mark - Temporary Functions
-
-/*-(IBAction) testLoadButtonPressed
- {
- //Load last saved file
- NSString *savedContents = [[NSString alloc] initWithContentsOfFile:saveUrl encoding:NSUTF8StringEncoding error:nil];
- testArray = [savedContents JSONValue];
- 
- NSMutableArray *temporaryArray=[NSMutableArray array];
- for (NSDictionary *aDictionary in groupViews) {
- [temporaryArray addObject:[aDictionary objectForKey:@"fieldVC"]];
- //[self removeButtonPressed:[aDictionary objectForKey:@"fieldVC"]];
- }
- for (parentFieldViewController *currentVC in temporaryArray) {
- [self removeButtonPressed:currentVC];
- }
- [self setTemplateDataWithArray:testArray];
- }
- 
- -(IBAction) testSaveButtonPressed
- {
- [testArray release];
- testArray=[[self reduceTemplateToArray] retain];
- <<<<<<< HEAD
- [testArray retain]; //Get current date
- NSDate* date = [NSDate date];
- //Create the dateformatter object    
- NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
- //Set the required date format
- [formatter setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
- //Get the string date
- NSString* str = [formatter stringFromDate:date];
- 
- AccountClass *account = [AccountClass sharedAccountClass]; //get account info
- 
- //Create filename
- NSMutableString *filename = [NSMutableString stringWithFormat:@"%@/%@_%@_%@.tpl", TEMPLATE_PATH,account.username,str, self.labelField.text];
- 
- //Converted array to save to file
- NSString* savedValue = [testArray JSONRepresentation];
- if (saveUrl) {
- [saveUrl release];
- }
- saveUrl = [[NSString alloc] initWithString:filename];
- 
- //Save locally
- [savedValue writeToFile:filename atomically:YES encoding:NSUTF8StringEncoding error:nil];
- }*/
-
 #pragma mark - Group Delegate Functions
 
 -(void) removeGroupButtonPressed:(templateGroupViewController *)group
 {
-    
+    [group.view removeFromSuperview];
+    [groupViews removeObject:group];
+    [self redoHeights];
 }
 -(void) addGroupButtonPressed:(templateGroupViewController *)group
 {

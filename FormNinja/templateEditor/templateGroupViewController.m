@@ -9,6 +9,7 @@
 #import "templateGroupViewController.h"
 #import "fieldSelectionViewController.h"
 #import "parentFieldViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @implementation templateGroupViewController
@@ -16,6 +17,7 @@
 @synthesize bottomControlsView;
 @synthesize delegate;
 @synthesize fieldViewControllers;
+@synthesize dictValue;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,7 +47,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+   
     self.fieldViewControllers=[NSMutableArray array];
+    self.view.layer.cornerRadius=20; 
+    if (dictValue!=nil) {
+        groupLabel.text=[dictValue objectForKey:@"label"];
+        for (NSDictionary *curDict in [dictValue valueForKey:@"fields"]) {
+            parentFieldViewController *newVC=[[parentFieldViewController alloc] initWithNibName:@"parentFieldViewController" bundle:[NSBundle mainBundle]];
+            parentFieldViewController *childVC=[newVC allocFieldFromDic:curDict];
+            [self.fieldViewControllers addObject:childVC];
+            [self.view addSubview:childVC.view];
+            [newVC release];
+        }
+    }
 }
 
 - (void)viewDidUnload
@@ -73,6 +87,19 @@
     }
     [groupDictionary setValue:fieldArray forKey:@"fields"];
     return groupDictionary;
+}
+
+-(void)setByDictionary:(NSDictionary *) aDictionary
+{
+    dictValue=aDictionary;
+    groupLabel.text=[dictValue objectForKey:@"label"];
+    for (NSDictionary *curDict in [dictValue valueForKey:@"fields"]) {
+        parentFieldViewController *newVC=[[parentFieldViewController alloc] initWithNibName:@"parentFieldViewController" bundle:[NSBundle mainBundle]];
+        parentFieldViewController *childVC=[newVC allocFieldFromDic:curDict];
+        [self.fieldViewControllers addObject:childVC];
+        [self.view addSubview:childVC.view];
+        [newVC release];
+    }
 }
 
 #pragma mark - Interface Functions
@@ -146,24 +173,7 @@
     [child setDelegate:self];
     [parent release];
     [self.view addSubview:child.view];
-    child.view.frame=CGRectMake(20,
-                                bottomControlsView.frame.origin.y,
-                                self.view.frame.size.width-40,
-                                child.view.frame.size.height);
-    bottomControlsView.frame=CGRectMake(bottomControlsView.frame.origin.x,
-                                        child.view.frame.origin.y+child.view.frame.size.height+10,
-                                        bottomControlsView.frame.size.width,
-                                        bottomControlsView.frame.size.height);
-    NSLog(@"x: %f y: %f w: %f h: %f", self.view.frame.origin.x,
-          self.view.frame.origin.y,
-          self.view.frame.size.width,
-          self.view.frame.size.height);
-    
-    self.view.frame=CGRectMake(self.view.frame.origin.x,
-                               self.view.frame.origin.y, 
-                               self.view.frame.size.width, 
-                               bottomControlsView.frame.origin.y+bottomControlsView.frame.size.height+10);
-    
+    [self redoHeights];
     [delegate changedHeightForGroup:self];
 }
 

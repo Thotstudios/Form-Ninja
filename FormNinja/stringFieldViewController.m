@@ -42,10 +42,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.fieldNameTextField.text=[dictValue valueForKey:@"label"];
-    self.minLengthTextField.text=[dictValue valueForKey:@"minLength"];
-    self.maxLengthTextField.text=[dictValue valueForKey:@"maxLength"];
-    self.dictValue=nil;
+    if(dictValue!=nil)
+    {
+        self.fieldNameTextField.text=[dictValue valueForKey:@"label"];
+        self.minLengthTextField.text=[dictValue valueForKey:@"minLength"];
+        self.maxLengthTextField.text=[dictValue valueForKey:@"maxLength"];
+    }
     // Do any additional setup after loading the view from its nib.
     self.view.layer.cornerRadius=20;
 }
@@ -65,9 +67,10 @@
 
 #pragma mark - Save/load
 
+
 -(void)setByDictionary:(NSDictionary *) aDictionary
 {
-    NSLog(@"%@",[aDictionary valueForKey:@"label"]);
+    
     self.dictValue=aDictionary;
     self.fieldNameTextField.text=[aDictionary valueForKey:@"label"];
     self.minLengthTextField.text=[aDictionary valueForKey:@"minLength"];
@@ -78,22 +81,6 @@
     //[self sliderUpdated:maxLengthSlider];
     //[self sliderUpdated:minLengthSlider];
     
-}
-
--(NSDictionary *) dictionaryValue
-{
-    NSMutableDictionary *fieldDictionary=[NSMutableDictionary dictionary];
-    
-    [fieldDictionary setValue:@"string" forKey:@"type"];
-    NSLog(@"Setting up text: %@ forKey:label",fieldNameTextField.text);
-    [fieldDictionary setValue:fieldNameTextField.text forKey:@"label"];
-    [fieldDictionary setValue:minLengthTextField.text forKey:@"minLength"];
-    [fieldDictionary setValue:maxLengthTextField.text forKey:@"maxLength"];
-    
-    //[fieldDictionary setValue:[NSNumber numberWithFloat:minLengthSlider.value] forKey:@"minLength"];
-    //[fieldDictionary setValue:[NSNumber numberWithFloat:maxLengthSlider.value] forKey:@"maxLength"];
-    
-    return [NSDictionary dictionaryWithDictionary:fieldDictionary];
 }
 
 

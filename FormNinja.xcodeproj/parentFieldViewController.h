@@ -30,6 +30,7 @@
 
 -(parentFieldViewController *) allocFieldFromDic:(NSDictionary*) aDic;
 
+-(void)setByDictionary:(NSDictionary *) aDictionary;
 -(NSDictionary *) getDictionaryData;
 
 
