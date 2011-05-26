@@ -758,11 +758,22 @@
 }
 -(void) moveGroupUpButtonPressed:(templateGroupViewController *)group
 {
-    
+    int groupIndex=[groupViews indexOfObject:group];
+    if(groupIndex!=0)
+    {
+        [groupViews exchangeObjectAtIndex:groupIndex withObjectAtIndex:groupIndex-1];
+    }
+    [self redoHeights];
 }
 -(void) moveGroupDownButtonPressed:(templateGroupViewController *)group
 {
-    
+    int groupIndex=[groupViews indexOfObject:group];
+    if(groupIndex!=[groupViews count]-1)
+    {
+        [groupViews exchangeObjectAtIndex:groupIndex withObjectAtIndex:groupIndex+1];
+    }
+    [self redoHeights];
+
 }
 -(void) changedHeightForGroup:(templateGroupViewController *) group
 {

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "formGroupViewController.h"
+
+@class formGroupViewController;
+@class formFieldParentViewController;
 
 @class FormEditorViewController;
 @protocol FormEditorViewControllerDelegate <NSObject>
