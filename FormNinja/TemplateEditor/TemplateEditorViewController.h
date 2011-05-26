@@ -9,6 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "templateGroupViewController.h"
 
+@class TemplateEditorViewController;
+@protocol TemplateEditorViewControllerDelegate <NSObject>
+@optional
+
+-(void) publishButtonPressed:(TemplateEditorViewController *)editor;
+-(void) saveButtonPressed:(TemplateEditorViewController *)editor;
+-(void) deleteButtonPressed:(TemplateEditorViewController *)editor;
+
+
+/*- (BOOL)foo:(Foo *)foo willDoSomethingAnimated:(BOOL)flag;
+ - (void)foo:(Foo *)foo didDoSomethingAnimated:(BOOL)flag;*/
+@end
 
 @interface TemplateEditorViewController : UIViewController <UITextFieldDelegate,templateGroupViewControllerDelegate> {
     IBOutlet UIScrollView *scrollView;
