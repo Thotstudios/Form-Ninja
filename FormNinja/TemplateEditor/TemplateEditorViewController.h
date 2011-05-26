@@ -38,6 +38,7 @@
 @property(nonatomic, retain) IBOutlet UITextField *labelField;
 @property(nonatomic, retain) IBOutlet UIView *templateControlView;
 @property(nonatomic, retain) NSDictionary *dictValue;
+@property(nonatomic, retain) id <TemplateEditorViewControllerDelegate> delegate;
 
 //TEST PROPERTY -- DELETE!
 @property(nonatomic, retain) NSDictionary *testDict;

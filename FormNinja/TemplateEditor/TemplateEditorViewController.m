@@ -21,6 +21,7 @@
 @synthesize templateControlView;
 @synthesize dictValue;
 @synthesize testDict;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,10 +61,13 @@
             [newVC setByDictionary:curGroup];
             [groupViews addObject: newVC];
             [self.scrollView addSubview:newVC.view];
+            newVC.view.frame=CGRectMake(20, 0, newVC.view.frame.size.width, newVC.view.frame.size.height);
             [newVC setDelegate:self];
             [newVC release];
         }
+        [self redoHeights];
     }
+    templateControlView.layer.cornerRadius=20;
 }
 
 - (void)viewDidUnload
@@ -159,6 +163,7 @@
         [newVC setByDictionary:curGroup];
         [groupViews addObject: newVC];
         [self.scrollView addSubview:newVC.view];
+        newVC.view.frame=CGRectMake(20, 0, newVC.view.frame.size.width, newVC.view.frame.size.height);
         [newVC setDelegate:self];
         [newVC release];
     }
@@ -360,7 +365,9 @@
 
 -(IBAction) deleteButtonPressed
 {
-    NSLog(@"delete button pressed");
+    [[self delegate] deleteButtonPressed:self];
+    
+    
     for (templateGroupViewController *curGroup in [groupViews copy]) {
         [self removeGroupButtonPressed:curGroup];
     }
@@ -369,13 +376,15 @@
 
 -(IBAction) saveButtonPressed
 {
-    NSLog(@"save button pressed");
+    [[self delegate] saveButtonPressed:self];
+    
+    
     self.testDict=[self getDictionaryValue];
 }
 
 -(IBAction) publishButtonPressed
 {
-    
+    [[self delegate] publishButtonPressed:self];
 }
 
 #pragma mark - Own delegate functions
