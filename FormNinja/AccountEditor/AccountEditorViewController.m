@@ -361,6 +361,11 @@
 
 - (IBAction)changePasswordCancel
 {
+    [self.view endEditing:YES]; //dismiss keyboard
+    //clear change password text
+    self.passwordChangeTextField.text = nil;
+    self.passwordConfirmTextField.text = nil;
+    
 	[changePasswordButton setHidden:NO];
 	[changePasswordView setHidden:YES];
 	// TODO: clear field text
