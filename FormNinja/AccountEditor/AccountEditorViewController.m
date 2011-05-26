@@ -78,14 +78,10 @@
 		if(1)	// Account is being created/registered
 			{
 			[securityQuestionView setHidden:NO];
-			// TODO: Do hide Change Password button for making new accounts
-			// [changePasswordButton setHidden:YES];
 			}
 		else	//	Account is being edited/updated
 			{
 			[securityQuestionView setHidden:YES];
-			// TODO: Don't hide Change Password button for existing accounts
-			// [changePasswordButton setHidden:NO];
 			}
 	} // end Security Question
 	
@@ -354,8 +350,8 @@
 
 - (IBAction)pressedCancel:(id)sender
 {
-	// TODO: repopulate fields (currently done in ViewDidLoad)
-	// TODO: refactor that. -Chad
+    [self.view endEditing:YES]; //dismiss keyboard
+    [self loadAccountInfo]; //reload info
 }
 
 - (IBAction)changePasswordEnable
@@ -373,7 +369,6 @@
     
 	[changePasswordButton setHidden:NO];
 	[changePasswordView setHidden:YES];
-	// TODO: clear field text
 }
 
 - (IBAction)changePasswordConfirm
