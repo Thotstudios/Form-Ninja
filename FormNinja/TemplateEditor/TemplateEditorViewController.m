@@ -367,19 +367,12 @@
 {
     [[self delegate] deleteButtonPressed:self];
     
-    
-    for (templateGroupViewController *curGroup in [groupViews copy]) {
-        [self removeGroupButtonPressed:curGroup];
-    }
-    [self setByDictionary:testDict];
 }
 
 -(IBAction) saveButtonPressed
 {
     [[self delegate] saveButtonPressed:self];
     
-    
-    self.testDict=[self getDictionaryValue];
 }
 
 -(IBAction) publishButtonPressed

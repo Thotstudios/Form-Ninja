@@ -40,9 +40,6 @@
 @property(nonatomic, retain) NSDictionary *dictValue;
 @property(nonatomic, retain) id <TemplateEditorViewControllerDelegate> delegate;
 
-//TEST PROPERTY -- DELETE!
-@property(nonatomic, retain) NSDictionary *testDict;
-
 - (void) moveTextViewForKeyboard:(NSNotification*)aNotification up: (BOOL) up;
 //-(void) setTemplateDataWithArray:(NSArray *)newData;
 
