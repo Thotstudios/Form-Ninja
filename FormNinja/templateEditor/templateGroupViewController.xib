@@ -99,7 +99,7 @@
 					<object class="IBUILabel" id="465454606">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{100, 28}, {86, 21}}</string>
+						<string key="NSFrame">{{100, 28}, {95, 21}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="774124132"/>
@@ -108,7 +108,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<string key="IBUIText">Group Title</string>
+						<string key="IBUIText">Section Title</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">17</double>
@@ -125,7 +125,7 @@
 					<object class="IBUITextField" id="774124132">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">290</int>
-						<string key="NSFrame">{{194, 23}, {434, 31}}</string>
+						<string key="NSFrame">{{203, 23}, {425, 31}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="757251142"/>
@@ -159,6 +159,7 @@
 								<string key="NSFrame">{{616, 0}, {72, 37}}</string>
 								<reference key="NSSuperview" ref="912730661"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -340,9 +341,9 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="757251142"/>
 							<reference ref="465454606"/>
-							<reference ref="774124132"/>
 							<reference ref="912730661"/>
 							<reference ref="936534588"/>
+							<reference ref="774124132"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>

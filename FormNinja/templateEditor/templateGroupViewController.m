@@ -152,17 +152,26 @@
     NSLog(@"count: %i", [fieldViewControllers count]);
     [self redoHeights];
 }
+
 -(void) addFieldButtonPressed:(parentFieldViewController *)field
 {
     
 }
 -(void) moveFieldUpButtonPressed:(parentFieldViewController *)field
 {
-    
+    int fieldIndex=[fieldViewControllers indexOfObject:field];
+    if (fieldIndex!=0) {
+        [fieldViewControllers exchangeObjectAtIndex:fieldIndex withObjectAtIndex:fieldIndex-1];
+    }
+    [self redoHeights];
 }
 -(void) moveFieldDownButtonPressed:(parentFieldViewController *)field
 {
-    
+    int fieldIndex=[fieldViewControllers indexOfObject:field];
+    if (fieldIndex!=[fieldViewControllers count]-1) {
+        [fieldViewControllers exchangeObjectAtIndex:fieldIndex withObjectAtIndex:fieldIndex+1];
+    }
+    [self redoHeights];
 }
 
 #pragma mark - Field Selection View Delegate

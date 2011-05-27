@@ -89,7 +89,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText">Template Name</string>
-								<object class="NSFont" key="IBUIFont" id="512916989">
+								<object class="NSFont" key="IBUIFont" id="675744710">
 									<string key="NSName">Helvetica</string>
 									<double key="NSSize">17</double>
 									<int key="NSfFlags">16</int>
@@ -158,17 +158,17 @@
 									<object class="IBUIButton" id="659690660">
 										<reference key="NSNextResponder" ref="126301122"/>
 										<int key="NSvFlags">289</int>
-										<string key="NSFrame">{{605, 20}, {103, 37}}</string>
+										<string key="NSFrame">{{595, 20}, {113, 37}}</string>
 										<reference key="NSSuperview" ref="126301122"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="699433389"/>
+										<reference key="NSNextKeyView"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 										<int key="IBUIContentHorizontalAlignment">0</int>
 										<int key="IBUIContentVerticalAlignment">0</int>
 										<reference key="IBUIFont" ref="869507050"/>
 										<int key="IBUIButtonType">1</int>
-										<string key="IBUINormalTitle">Add Group</string>
+										<string key="IBUINormalTitle">Add Section</string>
 										<reference key="IBUIHighlightedTitleColor" ref="332927837"/>
 										<object class="NSColor" key="IBUINormalTitleColor">
 											<int key="NSColorSpace">1</int>
@@ -182,7 +182,7 @@
 										<string key="NSFrame">{{194, 47}, {79, 37}}</string>
 										<reference key="NSSuperview" ref="126301122"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
+										<reference key="NSNextKeyView" ref="659690660"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 										<int key="IBUIContentHorizontalAlignment">0</int>
@@ -197,20 +197,20 @@
 										</object>
 										<reference key="IBUINormalTitleShadowColor" ref="854101020"/>
 									</object>
-									<object class="IBUILabel" id="229137074">
+									<object class="IBUILabel" id="83356695">
 										<reference key="NSNextResponder" ref="126301122"/>
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{20, 20}, {140, 21}}</string>
 										<reference key="NSSuperview" ref="126301122"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="659690660"/>
+										<reference key="NSNextKeyView" ref="699433389"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
 										<int key="IBUIContentMode">7</int>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 										<string key="IBUIText">Template Controls</string>
-										<reference key="IBUIFont" ref="512916989"/>
+										<reference key="IBUIFont" ref="675744710"/>
 										<object class="NSColor" key="IBUITextColor">
 											<int key="NSColorSpace">1</int>
 											<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -223,7 +223,7 @@
 								<string key="NSFrame">{{20, 88}, {728, 104}}</string>
 								<reference key="NSSuperview" ref="189324541"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="229137074"/>
+								<reference key="NSNextKeyView" ref="83356695"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC45MDcyNTgwNjQ1AA</bytes>
@@ -383,11 +383,11 @@
 						<reference key="object" ref="126301122"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="659690660"/>
-							<reference ref="229137074"/>
+							<reference ref="83356695"/>
 							<reference ref="699433389"/>
 							<reference ref="737890098"/>
 							<reference ref="910114175"/>
+							<reference ref="659690660"/>
 						</object>
 						<reference key="parent" ref="189324541"/>
 					</object>
@@ -413,7 +413,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">19</int>
-						<reference key="object" ref="229137074"/>
+						<reference key="object" ref="83356695"/>
 						<reference key="parent" ref="126301122"/>
 					</object>
 				</object>
