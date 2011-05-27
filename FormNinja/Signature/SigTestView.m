@@ -88,7 +88,7 @@
 // Signature Alert View Stuff (3 functions):
 - (IBAction)getSignature
 {
-	[[[SignatureAlertView alloc] initWithDelegate:self onSuccess:@selector(success:) onFailure:@selector(failure)] show];
+	[[[[SignatureAlertView alloc] initWithDelegate:self onSuccess:@selector(success:) onFailure:@selector(failure)] autorelease] show];
 }
 -(void) failure
 {

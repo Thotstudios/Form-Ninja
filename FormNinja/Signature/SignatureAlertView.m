@@ -54,6 +54,8 @@
 	while(![[self.subviews objectAtIndex:i] isKindOfClass:[UIControl class]])
 		{
 		curView = [self.subviews objectAtIndex:i];
+		if([curView isKindOfClass:[UILabel class]])
+			[curView setFrame:CGRectMake(curView.frame.origin.x, curView.frame.origin.y, SignWidth, curView.frame.size.height)];
 		i++;
 		}
 	
@@ -65,7 +67,8 @@
 	while([[self.subviews objectAtIndex:i] isKindOfClass:[UIControl class]])
 		{
 		curView = [self.subviews objectAtIndex:i];
-		[curView setFrame:CGRectMake(curView.frame.origin.x, curView.frame.origin.y + SignHeight, curView.frame.size.width, curView.frame.size.height)];
+		//[curView setFrame:CGRectMake(curView.frame.origin.x, curView.frame.origin.y + SignHeight, curView.frame.size.width, curView.frame.size.height)];
+		[curView setFrame:CGRectMake(curView.frame.origin.x, curView.frame.origin.y + SignHeight, SignWidth, curView.frame.size.height)];
 		i++;
 		}
 }
