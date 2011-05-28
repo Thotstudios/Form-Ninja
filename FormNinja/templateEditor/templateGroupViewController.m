@@ -50,8 +50,8 @@
    
     self.fieldViewControllers=[NSMutableArray array];
     self.view.layer.cornerRadius=20;
-    self.fieldViewControllers=nil;
     if (dictValue!=nil) {
+        self.fieldViewControllers=[NSMutableArray array];
         groupLabel.text=[dictValue objectForKey:@"label"];
         for (NSDictionary *curDict in [dictValue valueForKey:@"fields"]) {
             parentFieldViewController *newVC=[[parentFieldViewController alloc] initWithNibName:@"parentFieldViewController" bundle:[NSBundle mainBundle]];
@@ -193,10 +193,11 @@
     [controller release];
     parentFieldViewController *parent=[parentFieldViewController alloc];
     parentFieldViewController *child=[parent allocFieldFromDic:[NSDictionary dictionaryWithObject:fieldType forKey:@"type"]];
-    [fieldViewControllers insertObject:child atIndex:index];
+    NSLog(@"index: %i", index);
     [child setDelegate:self];
     child.view.frame=CGRectMake(5, 0, self.view.frame.size.width-10, child.view.frame.size.height);
     [parent release];
+    [fieldViewControllers insertObject:child atIndex:index];
     [self.view addSubview:child.view];
     [self redoHeightsAnimated:YES];
     [delegate changedHeightForGroup:self];
@@ -213,6 +214,7 @@
                                       curView.view.frame.size.width,
                                       curView.view.frame.size.height);
         curHeight+=curView.view.frame.size.height+10;
+        NSLog(@"curheight: %f", curHeight);
     }
     bottomControlsView.frame=CGRectMake(bottomControlsView.frame.origin.x,
                                         curHeight,
@@ -222,6 +224,7 @@
                                self.view.frame.origin.y, 
                                self.view.frame.size.width,
                                curHeight+bottomControlsView.frame.size.height+10);
+    NSLog(@"curheight: %f", curHeight);
     [delegate changedHeightForGroup:self];
 }
 
