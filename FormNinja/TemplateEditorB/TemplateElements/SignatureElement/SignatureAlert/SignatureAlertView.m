@@ -54,23 +54,18 @@
 	while(![[self.subviews objectAtIndex:i] isKindOfClass:[UIControl class]])
 		{
 		curView = [self.subviews objectAtIndex:i];
-		if([curView isKindOfClass:[UILabel class]])
-			[curView setFrame:CGRectMake(curView.frame.origin.x, curView.frame.origin.y, SignWidth, curView.frame.size.height)];
 		i++;
 		}
 	
 	float yPosition = curView.frame.origin.y + curView.frame.size.height + 8;
 	[signatureView setFrame:CGRectMake(HorizontalMargin, yPosition, SignWidth, SignHeight)];
 
-	// TODO: the following line recalcs width, but is buggy on rotation (size.width + padding)
-	// TODO: also, makes it offcenter with rotation (origin.y + offset)
 	[self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y - 0.5 * SignHeight, signatureView.frame.size.width + FramePadding, self.frame.size.height + SignHeight + 16)];
 	
 	while([[self.subviews objectAtIndex:i] isKindOfClass:[UIControl class]])
 		{
 		curView = [self.subviews objectAtIndex:i];
-		//[curView setFrame:CGRectMake(curView.frame.origin.x, curView.frame.origin.y + SignHeight, curView.frame.size.width, curView.frame.size.height)];
-		[curView setFrame:CGRectMake(curView.frame.origin.x, curView.frame.origin.y + SignHeight, SignWidth, curView.frame.size.height)];
+		[curView setFrame:CGRectMake(curView.frame.origin.x, curView.frame.origin.y + SignHeight, curView.frame.size.width, curView.frame.size.height)];
 		i++;
 		}
 }

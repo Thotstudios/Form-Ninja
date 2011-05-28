@@ -49,8 +49,26 @@
 		D922CE9E136C926300233C48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CE9D136C926300233C48 /* main.m */; };
 		D922CEA1136C926300233C48 /* FormNinjaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */; };
 		D922CEA7136C926300233C48 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */; };
-		F75D8C3B13874291005DB2AE /* SigTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = F75D8C3913874291005DB2AE /* SigTestView.m */; };
-		F75D8C3C13874291005DB2AE /* SigTestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F75D8C3A13874291005DB2AE /* SigTestView.xib */; };
+		F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187651390EFDC000BA9DF /* TemplateEditorController.m */; };
+		F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187661390EFDC000BA9DF /* TemplateEditorController.xib */; };
+		F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F72187681390EFDC000BA9DF /* ElementList.plist */; };
+		F72187901390EFDC000BA9DF /* TableElementPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F721876A1390EFDC000BA9DF /* TableElementPicker.m */; };
+		F72187911390EFDC000BA9DF /* AddressElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F721876E1390EFDC000BA9DF /* AddressElement.m */; };
+		F72187921390EFDC000BA9DF /* AddressElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F721876F1390EFDC000BA9DF /* AddressElement.xib */; };
+		F72187931390EFDC000BA9DF /* CreditCardElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187721390EFDC000BA9DF /* CreditCardElement.m */; };
+		F72187941390EFDC000BA9DF /* CreditCardElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187731390EFDC000BA9DF /* CreditCardElement.xib */; };
+		F72187951390EFDC000BA9DF /* MetaDataElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187761390EFDC000BA9DF /* MetaDataElement.m */; };
+		F72187961390EFDC000BA9DF /* MetaDataElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187771390EFDC000BA9DF /* MetaDataElement.xib */; };
+		F72187971390EFDC000BA9DF /* MultiLineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F721877A1390EFDC000BA9DF /* MultiLineElement.m */; };
+		F72187981390EFDC000BA9DF /* MultiLineElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F721877B1390EFDC000BA9DF /* MultiLineElement.xib */; };
+		F72187991390EFDC000BA9DF /* TemplateElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F721877E1390EFDC000BA9DF /* TemplateElement.m */; };
+		F721879A1390EFDC000BA9DF /* TemplateElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F721877F1390EFDC000BA9DF /* TemplateElement.xib */; };
+		F721879B1390EFDC000BA9DF /* SignatureAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187831390EFDC000BA9DF /* SignatureAlertView.m */; };
+		F721879C1390EFDC000BA9DF /* SignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187851390EFDC000BA9DF /* SignatureView.m */; };
+		F721879D1390EFDC000BA9DF /* SignatureElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187871390EFDC000BA9DF /* SignatureElement.m */; };
+		F721879E1390EFDC000BA9DF /* SignatureElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187881390EFDC000BA9DF /* SignatureElement.xib */; };
+		F721879F1390EFDC000BA9DF /* SingleLineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F721878B1390EFDC000BA9DF /* SingleLineElement.m */; };
+		F72187A01390EFDC000BA9DF /* SingleLineElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F721878C1390EFDC000BA9DF /* SingleLineElement.xib */; };
 		F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F768C5AD137DE85800191858 /* AccountEditorViewController.m */; };
 		F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F768C5AE137DE85800191858 /* AccountEditorViewController.xib */; };
 		F768C5B8137DEFEB00191858 /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = F768C5B7137DEFEB00191858 /* TODO.txt */; };
@@ -60,9 +78,6 @@
 		F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC423613886CF300911EB5 /* FormManagerViewController.xib */; };
 		F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */; };
 		F7BC423E1388709F00911EB5 /* GroupManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC423C1388709F00911EB5 /* GroupManagerViewController.xib */; };
-		F7CCB39D138C7ED2000AB378 /* SignatureAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CCB39C138C7ED2000AB378 /* SignatureAlertView.m */; };
-		F7CCB3A6138DAB83000AB378 /* USAGE-SignatureAlertView.txt in Resources */ = {isa = PBXBuildFile; fileRef = F7CCB3A5138DAB83000AB378 /* USAGE-SignatureAlertView.txt */; };
-		F7CDEDFC1386F25A000BA5AB /* SignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CDEDFA1386F25A000BA5AB /* SignatureView.m */; };
 		F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D8AFB9136E289500FE0F76 /* MainMenu.m */; };
 		F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D8AFBA136E289500FE0F76 /* MainMenu.xib */; };
 		F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2B560137E49D000EA89D0 /* AccountClass.m */; };
@@ -148,9 +163,37 @@
 		D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaAppDelegate.m; sourceTree = "<group>"; };
 		D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaLoginViewController.h; sourceTree = "<group>"; };
 		D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaLoginViewController.m; sourceTree = "<group>"; };
-		F75D8C3813874291005DB2AE /* SigTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SigTestView.h; path = Signature/SigTestView.h; sourceTree = "<group>"; };
-		F75D8C3913874291005DB2AE /* SigTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SigTestView.m; path = Signature/SigTestView.m; sourceTree = "<group>"; };
-		F75D8C3A13874291005DB2AE /* SigTestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SigTestView.xib; path = Signature/SigTestView.xib; sourceTree = "<group>"; };
+		F72187641390EFDC000BA9DF /* TemplateEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateEditorController.h; sourceTree = "<group>"; };
+		F72187651390EFDC000BA9DF /* TemplateEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateEditorController.m; sourceTree = "<group>"; };
+		F72187661390EFDC000BA9DF /* TemplateEditorController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateEditorController.xib; sourceTree = "<group>"; };
+		F72187681390EFDC000BA9DF /* ElementList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ElementList.plist; sourceTree = "<group>"; };
+		F72187691390EFDC000BA9DF /* TableElementPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableElementPicker.h; sourceTree = "<group>"; };
+		F721876A1390EFDC000BA9DF /* TableElementPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableElementPicker.m; sourceTree = "<group>"; };
+		F721876D1390EFDC000BA9DF /* AddressElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressElement.h; sourceTree = "<group>"; };
+		F721876E1390EFDC000BA9DF /* AddressElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressElement.m; sourceTree = "<group>"; };
+		F721876F1390EFDC000BA9DF /* AddressElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressElement.xib; sourceTree = "<group>"; };
+		F72187711390EFDC000BA9DF /* CreditCardElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardElement.h; sourceTree = "<group>"; };
+		F72187721390EFDC000BA9DF /* CreditCardElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardElement.m; sourceTree = "<group>"; };
+		F72187731390EFDC000BA9DF /* CreditCardElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditCardElement.xib; sourceTree = "<group>"; };
+		F72187751390EFDC000BA9DF /* MetaDataElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataElement.h; sourceTree = "<group>"; };
+		F72187761390EFDC000BA9DF /* MetaDataElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaDataElement.m; sourceTree = "<group>"; };
+		F72187771390EFDC000BA9DF /* MetaDataElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MetaDataElement.xib; sourceTree = "<group>"; };
+		F72187791390EFDC000BA9DF /* MultiLineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiLineElement.h; sourceTree = "<group>"; };
+		F721877A1390EFDC000BA9DF /* MultiLineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiLineElement.m; sourceTree = "<group>"; };
+		F721877B1390EFDC000BA9DF /* MultiLineElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiLineElement.xib; sourceTree = "<group>"; };
+		F721877D1390EFDC000BA9DF /* TemplateElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateElement.h; sourceTree = "<group>"; };
+		F721877E1390EFDC000BA9DF /* TemplateElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateElement.m; sourceTree = "<group>"; };
+		F721877F1390EFDC000BA9DF /* TemplateElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateElement.xib; sourceTree = "<group>"; };
+		F72187821390EFDC000BA9DF /* SignatureAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureAlertView.h; sourceTree = "<group>"; };
+		F72187831390EFDC000BA9DF /* SignatureAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureAlertView.m; sourceTree = "<group>"; };
+		F72187841390EFDC000BA9DF /* SignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureView.h; sourceTree = "<group>"; };
+		F72187851390EFDC000BA9DF /* SignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureView.m; sourceTree = "<group>"; };
+		F72187861390EFDC000BA9DF /* SignatureElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureElement.h; sourceTree = "<group>"; };
+		F72187871390EFDC000BA9DF /* SignatureElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureElement.m; sourceTree = "<group>"; };
+		F72187881390EFDC000BA9DF /* SignatureElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignatureElement.xib; sourceTree = "<group>"; };
+		F721878A1390EFDC000BA9DF /* SingleLineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLineElement.h; sourceTree = "<group>"; };
+		F721878B1390EFDC000BA9DF /* SingleLineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineElement.m; sourceTree = "<group>"; };
+		F721878C1390EFDC000BA9DF /* SingleLineElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleLineElement.xib; sourceTree = "<group>"; };
 		F768C5AC137DE85800191858 /* AccountEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditorViewController.h; sourceTree = "<group>"; };
 		F768C5AD137DE85800191858 /* AccountEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditorViewController.m; sourceTree = "<group>"; };
 		F768C5AE137DE85800191858 /* AccountEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountEditorViewController.xib; sourceTree = "<group>"; };
@@ -165,11 +208,6 @@
 		F7BC423A1388709F00911EB5 /* GroupManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManagerViewController.h; path = GroupManager/GroupManagerViewController.h; sourceTree = "<group>"; };
 		F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManagerViewController.m; path = GroupManager/GroupManagerViewController.m; sourceTree = "<group>"; };
 		F7BC423C1388709F00911EB5 /* GroupManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupManagerViewController.xib; path = GroupManager/GroupManagerViewController.xib; sourceTree = "<group>"; };
-		F7CCB39B138C7ED2000AB378 /* SignatureAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignatureAlertView.h; path = Signature/SignatureAlertView.h; sourceTree = "<group>"; };
-		F7CCB39C138C7ED2000AB378 /* SignatureAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignatureAlertView.m; path = Signature/SignatureAlertView.m; sourceTree = "<group>"; };
-		F7CCB3A5138DAB83000AB378 /* USAGE-SignatureAlertView.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "USAGE-SignatureAlertView.txt"; path = "Signature/USAGE-SignatureAlertView.txt"; sourceTree = "<group>"; };
-		F7CDEDF91386F25A000BA5AB /* SignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignatureView.h; path = Signature/SignatureView.h; sourceTree = "<group>"; };
-		F7CDEDFA1386F25A000BA5AB /* SignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignatureView.m; path = Signature/SignatureView.m; sourceTree = "<group>"; };
 		F7D8AFB8136E289500FE0F76 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		F7D8AFB9136E289500FE0F76 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		F7D8AFBA136E289500FE0F76 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
@@ -397,9 +435,9 @@
 				F7D8AFBE136E289A00FE0F76 /* MainMenu */,
 				F778DD51137DC60E00B444F6 /* TemplateManager */,
 				F77FDA501375F5AB00DC694D /* TemplateEditor */,
+				F72187611390EFCE000BA9DF /* TemplateEditorB */,
 				F7BC423913886CF800911EB5 /* FormManager */,
 				F7BC423313886CBC00911EB5 /* FormEditor */,
-				F7CDEDFE1386F25F000BA5AB /* Signature */,
 				F7BC423F138870A200911EB5 /* GroupManager */,
 				D922CE9F136C926300233C48 /* FormNinjaAppDelegate.h */,
 				D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */,
@@ -426,6 +464,135 @@
 			);
 			name = XIB;
 			path = FormNinja;
+			sourceTree = "<group>";
+		};
+		F72187611390EFCE000BA9DF /* TemplateEditorB */ = {
+			isa = PBXGroup;
+			children = (
+				F72187631390EFDC000BA9DF /* TemplateEditor */,
+				F72187671390EFDC000BA9DF /* TemplateElementPicker */,
+				F721876B1390EFDC000BA9DF /* TemplateElements */,
+			);
+			name = TemplateEditorB;
+			sourceTree = "<group>";
+		};
+		F72187631390EFDC000BA9DF /* TemplateEditor */ = {
+			isa = PBXGroup;
+			children = (
+				F72187641390EFDC000BA9DF /* TemplateEditorController.h */,
+				F72187651390EFDC000BA9DF /* TemplateEditorController.m */,
+				F72187661390EFDC000BA9DF /* TemplateEditorController.xib */,
+			);
+			name = TemplateEditor;
+			path = TemplateEditorB/TemplateEditor;
+			sourceTree = "<group>";
+		};
+		F72187671390EFDC000BA9DF /* TemplateElementPicker */ = {
+			isa = PBXGroup;
+			children = (
+				F72187681390EFDC000BA9DF /* ElementList.plist */,
+				F72187691390EFDC000BA9DF /* TableElementPicker.h */,
+				F721876A1390EFDC000BA9DF /* TableElementPicker.m */,
+			);
+			name = TemplateElementPicker;
+			path = TemplateEditorB/TemplateElementPicker;
+			sourceTree = "<group>";
+		};
+		F721876B1390EFDC000BA9DF /* TemplateElements */ = {
+			isa = PBXGroup;
+			children = (
+				F721876C1390EFDC000BA9DF /* AddressElement */,
+				F72187701390EFDC000BA9DF /* CreditCardElement */,
+				F72187741390EFDC000BA9DF /* MetaDataElement */,
+				F72187781390EFDC000BA9DF /* MultiLineElement */,
+				F721877C1390EFDC000BA9DF /* ParentElement */,
+				F72187801390EFDC000BA9DF /* SignatureElement */,
+				F72187891390EFDC000BA9DF /* SingleLineElement */,
+			);
+			name = TemplateElements;
+			path = TemplateEditorB/TemplateElements;
+			sourceTree = "<group>";
+		};
+		F721876C1390EFDC000BA9DF /* AddressElement */ = {
+			isa = PBXGroup;
+			children = (
+				F721876D1390EFDC000BA9DF /* AddressElement.h */,
+				F721876E1390EFDC000BA9DF /* AddressElement.m */,
+				F721876F1390EFDC000BA9DF /* AddressElement.xib */,
+			);
+			path = AddressElement;
+			sourceTree = "<group>";
+		};
+		F72187701390EFDC000BA9DF /* CreditCardElement */ = {
+			isa = PBXGroup;
+			children = (
+				F72187711390EFDC000BA9DF /* CreditCardElement.h */,
+				F72187721390EFDC000BA9DF /* CreditCardElement.m */,
+				F72187731390EFDC000BA9DF /* CreditCardElement.xib */,
+			);
+			path = CreditCardElement;
+			sourceTree = "<group>";
+		};
+		F72187741390EFDC000BA9DF /* MetaDataElement */ = {
+			isa = PBXGroup;
+			children = (
+				F72187751390EFDC000BA9DF /* MetaDataElement.h */,
+				F72187761390EFDC000BA9DF /* MetaDataElement.m */,
+				F72187771390EFDC000BA9DF /* MetaDataElement.xib */,
+			);
+			path = MetaDataElement;
+			sourceTree = "<group>";
+		};
+		F72187781390EFDC000BA9DF /* MultiLineElement */ = {
+			isa = PBXGroup;
+			children = (
+				F72187791390EFDC000BA9DF /* MultiLineElement.h */,
+				F721877A1390EFDC000BA9DF /* MultiLineElement.m */,
+				F721877B1390EFDC000BA9DF /* MultiLineElement.xib */,
+			);
+			path = MultiLineElement;
+			sourceTree = "<group>";
+		};
+		F721877C1390EFDC000BA9DF /* ParentElement */ = {
+			isa = PBXGroup;
+			children = (
+				F721877D1390EFDC000BA9DF /* TemplateElement.h */,
+				F721877E1390EFDC000BA9DF /* TemplateElement.m */,
+				F721877F1390EFDC000BA9DF /* TemplateElement.xib */,
+			);
+			path = ParentElement;
+			sourceTree = "<group>";
+		};
+		F72187801390EFDC000BA9DF /* SignatureElement */ = {
+			isa = PBXGroup;
+			children = (
+				F72187811390EFDC000BA9DF /* SignatureAlert */,
+				F72187861390EFDC000BA9DF /* SignatureElement.h */,
+				F72187871390EFDC000BA9DF /* SignatureElement.m */,
+				F72187881390EFDC000BA9DF /* SignatureElement.xib */,
+			);
+			path = SignatureElement;
+			sourceTree = "<group>";
+		};
+		F72187811390EFDC000BA9DF /* SignatureAlert */ = {
+			isa = PBXGroup;
+			children = (
+				F72187821390EFDC000BA9DF /* SignatureAlertView.h */,
+				F72187831390EFDC000BA9DF /* SignatureAlertView.m */,
+				F72187841390EFDC000BA9DF /* SignatureView.h */,
+				F72187851390EFDC000BA9DF /* SignatureView.m */,
+			);
+			path = SignatureAlert;
+			sourceTree = "<group>";
+		};
+		F72187891390EFDC000BA9DF /* SingleLineElement */ = {
+			isa = PBXGroup;
+			children = (
+				F721878A1390EFDC000BA9DF /* SingleLineElement.h */,
+				F721878B1390EFDC000BA9DF /* SingleLineElement.m */,
+				F721878C1390EFDC000BA9DF /* SingleLineElement.xib */,
+			);
+			path = SingleLineElement;
 			sourceTree = "<group>";
 		};
 		F768C5AB137DE85800191858 /* AccountEditor */ = {
@@ -513,21 +680,6 @@
 			name = GroupManager;
 			sourceTree = "<group>";
 		};
-		F7CDEDFE1386F25F000BA5AB /* Signature */ = {
-			isa = PBXGroup;
-			children = (
-				F7CCB3A5138DAB83000AB378 /* USAGE-SignatureAlertView.txt */,
-				F75D8C3813874291005DB2AE /* SigTestView.h */,
-				F75D8C3913874291005DB2AE /* SigTestView.m */,
-				F75D8C3A13874291005DB2AE /* SigTestView.xib */,
-				F7CCB39B138C7ED2000AB378 /* SignatureAlertView.h */,
-				F7CCB39C138C7ED2000AB378 /* SignatureAlertView.m */,
-				F7CDEDF91386F25A000BA5AB /* SignatureView.h */,
-				F7CDEDFA1386F25A000BA5AB /* SignatureView.m */,
-			);
-			name = Signature;
-			sourceTree = "<group>";
-		};
 		F7D8AFBE136E289A00FE0F76 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,10 +756,8 @@
 				F768C5B8137DEFEB00191858 /* TODO.txt in Resources */,
 				F7F248C41385E1CB00E0FD2A /* MainWindow.xib in Resources */,
 				F7F248C11385E1C600E0FD2A /* FormNinjaLoginViewController.xib in Resources */,
-				F75D8C3C13874291005DB2AE /* SigTestView.xib in Resources */,
 				F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */,
 				F7BC423E1388709F00911EB5 /* GroupManagerViewController.xib in Resources */,
-				F7CCB3A6138DAB83000AB378 /* USAGE-SignatureAlertView.txt in Resources */,
 				42EB83FD138D958500B6F364 /* TemplateEditorViewController.xib in Resources */,
 				42EB8402138D959F00B6F364 /* templateGroupViewController.xib in Resources */,
 				42EB8407138D95B400B6F364 /* stringFieldViewController.xib in Resources */,
@@ -617,6 +767,15 @@
 				42D6155A138F1298002B88D3 /* formFieldParentViewController.xib in Resources */,
 				42D6155C138F1298002B88D3 /* formGroupViewController.xib in Resources */,
 				42D6155E138F1298002B88D3 /* formStringFieldViewController.xib in Resources */,
+				F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */,
+				F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */,
+				F72187921390EFDC000BA9DF /* AddressElement.xib in Resources */,
+				F72187941390EFDC000BA9DF /* CreditCardElement.xib in Resources */,
+				F72187961390EFDC000BA9DF /* MetaDataElement.xib in Resources */,
+				F72187981390EFDC000BA9DF /* MultiLineElement.xib in Resources */,
+				F721879A1390EFDC000BA9DF /* TemplateElement.xib in Resources */,
+				F721879E1390EFDC000BA9DF /* SignatureElement.xib in Resources */,
+				F72187A01390EFDC000BA9DF /* SingleLineElement.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,11 +807,8 @@
 				F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */,
 				F768C5AF137DE85800191858 /* AccountEditorViewController.m in Sources */,
 				F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */,
-				F7CDEDFC1386F25A000BA5AB /* SignatureView.m in Sources */,
-				F75D8C3B13874291005DB2AE /* SigTestView.m in Sources */,
 				F7BC423713886CF300911EB5 /* FormManagerViewController.m in Sources */,
 				F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */,
-				F7CCB39D138C7ED2000AB378 /* SignatureAlertView.m in Sources */,
 				42EB83FC138D958500B6F364 /* TemplateEditorViewController.m in Sources */,
 				42EB8401138D959F00B6F364 /* templateGroupViewController.m in Sources */,
 				42EB8406138D95B400B6F364 /* stringFieldViewController.m in Sources */,
@@ -662,6 +818,17 @@
 				42D61559138F1298002B88D3 /* formFieldParentViewController.m in Sources */,
 				42D6155B138F1298002B88D3 /* formGroupViewController.m in Sources */,
 				42D6155D138F1298002B88D3 /* formStringFieldViewController.m in Sources */,
+				F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */,
+				F72187901390EFDC000BA9DF /* TableElementPicker.m in Sources */,
+				F72187911390EFDC000BA9DF /* AddressElement.m in Sources */,
+				F72187931390EFDC000BA9DF /* CreditCardElement.m in Sources */,
+				F72187951390EFDC000BA9DF /* MetaDataElement.m in Sources */,
+				F72187971390EFDC000BA9DF /* MultiLineElement.m in Sources */,
+				F72187991390EFDC000BA9DF /* TemplateElement.m in Sources */,
+				F721879B1390EFDC000BA9DF /* SignatureAlertView.m in Sources */,
+				F721879C1390EFDC000BA9DF /* SignatureView.m in Sources */,
+				F721879D1390EFDC000BA9DF /* SignatureElement.m in Sources */,
+				F721879F1390EFDC000BA9DF /* SingleLineElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
