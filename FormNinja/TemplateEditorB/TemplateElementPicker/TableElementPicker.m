@@ -121,6 +121,7 @@ static BOOL dictionaryIsLoaded = NO;
 
 -(void) dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated
 {
+	NSIndexPath * t = [table indexPathForSelectedRow];
 	switch(buttonIndex)
 	{
 		case 0: // cancel
