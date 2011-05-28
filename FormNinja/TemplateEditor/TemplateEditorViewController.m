@@ -20,7 +20,6 @@
 @synthesize labelField;
 @synthesize templateControlView;
 @synthesize dictValue;
-@synthesize testDict;
 @synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -65,7 +64,7 @@
             [newVC setDelegate:self];
             [newVC release];
         }
-        [self redoHeights];
+        [self redoHeightsAnimated:NO];
     }
     templateControlView.layer.cornerRadius=20;
 }
@@ -159,7 +158,6 @@
     labelField.text=[aDictionary valueForKey:@"templateLabel"];
     for (NSDictionary *curGroup in [aDictionary valueForKey:@"templateGroups"]) {
         templateGroupViewController *newVC=[[templateGroupViewController alloc] initWithNibName:@"templateGroupViewController" bundle:[NSBundle mainBundle]];
-        NSLog(@"the height of the new group is: %f", newVC.view.frame.size.height);
         [newVC setByDictionary:curGroup];
         [groupViews addObject: newVC];
         [self.scrollView addSubview:newVC.view];
@@ -167,7 +165,7 @@
         [newVC setDelegate:self];
         [newVC release];
     }
-    [self redoHeights];
+    [self redoHeightsAnimated:NO];
 }
 
 -(NSDictionary *)getDictionaryValue
@@ -345,21 +343,15 @@
     //float newPosition=self.templateControlView.frame.origin.y;
     //NSMutableDictionary
     
-    float newPosition=self.templateControlView.layer.frame.origin.y;
     templateGroupViewController *newGroupView=[[templateGroupViewController alloc] initWithNibName:@"templateGroupViewController" bundle:[NSBundle mainBundle]];
     newGroupView.delegate=self;
     newGroupView.view.frame=CGRectMake(20, 
-                                       newPosition, 
+                                       -1000, 
                                        self.view.frame.size.width-40,
-                                       122);
+                                       newGroupView.view.frame.size.height);
     [groupViews addObject:newGroupView];
     [self.scrollView addSubview:newGroupView.view];
-    self.templateControlView.frame=CGRectMake(self.templateControlView.layer.frame.origin.x, 
-                                              newGroupView.view.layer.frame.origin.y+newGroupView.view.layer.frame.size.height+10, 
-                                              self.templateControlView.frame.size.width,
-                                              self.templateControlView.frame.size.height);
-    scrollView.contentSize=CGSizeMake(scrollView.contentSize.width,
-                                      self.templateControlView.frame.origin.y+self.templateControlView.frame.size.height+20);
+    [self redoHeightsAnimated:YES];
 }
 
 
@@ -706,12 +698,6 @@
                                                                                                                                           
                                                                                                                                           }*/
 
-/*-(BOOL) textFieldShouldReturn:(UITextField *) textField fromStringField:(parentFieldViewController *) field
- {
- [textField resignFirstResponder];
- return YES;
- }*/
-
 #pragma mark - Graphics Functions
 
 -(CGPoint) generateAnimationPositionFromFrame:(CGRect) frame
@@ -720,7 +706,7 @@
                        frame.origin.x+frame.size.height/2);
 }
 
--(void) redoHeights
+-(void) redoHeightsAnimated:(bool)animated
 {
     float curHeight=88;
     for (templateGroupViewController *currentGroup in groupViews) {
@@ -743,11 +729,20 @@
 {
     [group.view removeFromSuperview];
     [groupViews removeObject:group];
-    [self redoHeights];
+    [self redoHeightsAnimated:YES];
 }
 -(void) addGroupButtonPressed:(templateGroupViewController *)group
 {
-    
+    int index=[groupViews indexOfObject:group];
+    templateGroupViewController *newGroupView=[[templateGroupViewController alloc] initWithNibName:@"templateGroupViewController" bundle:[NSBundle mainBundle]];
+    newGroupView.delegate=self;
+    newGroupView.view.frame=CGRectMake(20, 
+                                       -1000, 
+                                       self.view.frame.size.width-40,
+                                       newGroupView.view.frame.size.height);
+    [groupViews insertObject:newGroupView atIndex:index];
+    [self.scrollView addSubview:newGroupView.view];
+    [self redoHeightsAnimated:YES];
 }
 -(void) moveGroupUpButtonPressed:(templateGroupViewController *)group
 {
@@ -756,7 +751,7 @@
     {
         [groupViews exchangeObjectAtIndex:groupIndex withObjectAtIndex:groupIndex-1];
     }
-    [self redoHeights];
+    [self redoHeightsAnimated:YES];
 }
 -(void) moveGroupDownButtonPressed:(templateGroupViewController *)group
 {
@@ -765,12 +760,12 @@
     {
         [groupViews exchangeObjectAtIndex:groupIndex withObjectAtIndex:groupIndex+1];
     }
-    [self redoHeights];
+    [self redoHeightsAnimated:YES];
 
 }
 -(void) changedHeightForGroup:(templateGroupViewController *) group
 {
-    [self redoHeights];
+    [self redoHeightsAnimated:YES];
 }
 
 @end

@@ -49,7 +49,8 @@
     // Do any additional setup after loading the view from its nib.
    
     self.fieldViewControllers=[NSMutableArray array];
-    self.view.layer.cornerRadius=20; 
+    self.view.layer.cornerRadius=20;
+    self.fieldViewControllers=nil;
     if (dictValue!=nil) {
         groupLabel.text=[dictValue objectForKey:@"label"];
         for (NSDictionary *curDict in [dictValue valueForKey:@"fields"]) {
@@ -60,6 +61,7 @@
             [newVC setDelegate:self];
             [newVC release];
         }
+        [self redoHeightsAnimated:YES];
     }
 }
 
@@ -93,22 +95,24 @@
 -(void)setByDictionary:(NSDictionary *) aDictionary
 {
     dictValue=aDictionary;
-    groupLabel.text=[dictValue objectForKey:@"label"];
-    for (NSDictionary *curDict in [dictValue valueForKey:@"fields"]) {
-        if (self.fieldViewControllers!=nil) {
-            NSLog(@"Field view controlers not nil");
+    if (groupLabel!=nil) {
+        groupLabel.text=[dictValue objectForKey:@"label"];
+        for (NSDictionary *curDict in [dictValue valueForKey:@"fields"]) {
+            if (self.fieldViewControllers!=nil) {
+                NSLog(@"Field view controlers not nil");
+            }
+            if (self.fieldViewControllers==nil) {
+                NSLog(@"Field view controlers IS IN FACT nil");
+            }
+            parentFieldViewController *newVC=[[parentFieldViewController alloc] initWithNibName:@"parentFieldViewController" bundle:[NSBundle mainBundle]];
+            parentFieldViewController *childVC=[newVC allocFieldFromDic:curDict];
+            [self.fieldViewControllers addObject:childVC];
+            [self.view addSubview:childVC.view];
+            [childVC setDelegate:self];
+            [newVC release];
         }
-        if (self.fieldViewControllers==nil) {
-            NSLog(@"Field view controlers IS IN FACT nil");
-        }
-        parentFieldViewController *newVC=[[parentFieldViewController alloc] initWithNibName:@"parentFieldViewController" bundle:[NSBundle mainBundle]];
-        parentFieldViewController *childVC=[newVC allocFieldFromDic:curDict];
-        [self.fieldViewControllers addObject:childVC];
-        [self.view addSubview:childVC.view];
-        [childVC setDelegate:self];
-        [newVC release];
+        [self redoHeightsAnimated:NO];
     }
-    [self redoHeights];
 }
 
 #pragma mark - Interface Functions
@@ -139,23 +143,25 @@
     [self.view.superview.superview addSubview:selectionVC.view];
     selectionVC.view.frame=self.view.superview.frame;
     selectionVC.delegate=self;
+    selectionVC.insertionIndex=[fieldViewControllers count];
 }
 
 #pragma mark - Field Delegate Functions
 
 -(void) removeFieldButtonPressed:(parentFieldViewController *)field
 {
-    NSLog(@"templateGroup remove");
     [field.view removeFromSuperview];
-    NSLog(@"count: %i", [fieldViewControllers count]);
     [fieldViewControllers removeObject:field];
-    NSLog(@"count: %i", [fieldViewControllers count]);
-    [self redoHeights];
+    [self redoHeightsAnimated:YES];
 }
 
 -(void) addFieldButtonPressed:(parentFieldViewController *)field
 {
-    
+    fieldSelectionViewController *selectionVC=[[fieldSelectionViewController alloc] initWithNibName:@"fieldSelectionViewController" bundle:[NSBundle mainBundle]];
+    [self.view.superview.superview addSubview:selectionVC.view];
+    selectionVC.view.frame=self.view.superview.frame;
+    selectionVC.delegate=self;
+    selectionVC.insertionIndex=[fieldViewControllers indexOfObject:field];
 }
 -(void) moveFieldUpButtonPressed:(parentFieldViewController *)field
 {
@@ -163,7 +169,7 @@
     if (fieldIndex!=0) {
         [fieldViewControllers exchangeObjectAtIndex:fieldIndex withObjectAtIndex:fieldIndex-1];
     }
-    [self redoHeights];
+    [self redoHeightsAnimated:YES];
 }
 -(void) moveFieldDownButtonPressed:(parentFieldViewController *)field
 {
@@ -171,7 +177,7 @@
     if (fieldIndex!=[fieldViewControllers count]-1) {
         [fieldViewControllers exchangeObjectAtIndex:fieldIndex withObjectAtIndex:fieldIndex+1];
     }
-    [self redoHeights];
+    [self redoHeightsAnimated:YES];
 }
 
 #pragma mark - Field Selection View Delegate
@@ -181,23 +187,24 @@
     [controller.view removeFromSuperview];
     [controller release];
 }
--(void) fieldSelectionDidChooseFieldType:(NSString *)fieldType fromController:(fieldSelectionViewController *)controller
+-(void) fieldSelectionDidChooseFieldType:(NSString *)fieldType withIndex:(int)index fromController:(fieldSelectionViewController *)controller
 {
     [controller.view removeFromSuperview];
     [controller release];
     parentFieldViewController *parent=[parentFieldViewController alloc];
     parentFieldViewController *child=[parent allocFieldFromDic:[NSDictionary dictionaryWithObject:fieldType forKey:@"type"]];
-    [fieldViewControllers addObject:child];
+    [fieldViewControllers insertObject:child atIndex:index];
     [child setDelegate:self];
+    child.view.frame=CGRectMake(5, 0, self.view.frame.size.width-10, child.view.frame.size.height);
     [parent release];
     [self.view addSubview:child.view];
-    [self redoHeights];
+    [self redoHeightsAnimated:YES];
     [delegate changedHeightForGroup:self];
 }
 
 #pragma mark - Graphics
 
--(void) redoHeights
+-(void) redoHeightsAnimated:(_Bool)animated
 {
     float curHeight=65;
     for (parentFieldViewController *curView in fieldViewControllers) {
@@ -215,8 +222,6 @@
                                self.view.frame.origin.y, 
                                self.view.frame.size.width,
                                curHeight+bottomControlsView.frame.size.height+10);
-    NSLog(@"current view height is: %f", self.view.frame.size.height);
-    NSLog(@"curheight is: %f", curHeight);
     [delegate changedHeightForGroup:self];
 }
 

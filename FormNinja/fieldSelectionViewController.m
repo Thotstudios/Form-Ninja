@@ -13,6 +13,7 @@
 @synthesize availableFields;
 @synthesize delegate;
 @synthesize picker;
+@synthesize insertionIndex;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,6 +71,7 @@
     NSDictionary *temporary=[availableFields objectAtIndex:[picker selectedRowInComponent:0]];
     
     [[self delegate] fieldSelectionDidChooseFieldType:[temporary objectForKey:@"type"] 
+                                            withIndex:insertionIndex
                                        fromController:self];
     //-(void) fieldSelectionDidChooseFieldType:(NSString *)fieldType;    
 }

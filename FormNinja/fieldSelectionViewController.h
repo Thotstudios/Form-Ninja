@@ -13,7 +13,7 @@
 @required
 
 -(void) fieldSelectionCancelButtonPressed:(fieldSelectionViewController *)controller;
--(void) fieldSelectionDidChooseFieldType:(NSString *)fieldType fromController:(fieldSelectionViewController *)controller;
+-(void) fieldSelectionDidChooseFieldType:(NSString *)fieldType withIndex:(int) index fromController:(fieldSelectionViewController *)controller;
 
 /*- (BOOL)foo:(Foo *)foo willDoSomethingAnimated:(BOOL)flag;
  - (void)foo:(Foo *)foo didDoSomethingAnimated:(BOOL)flag;*/
@@ -26,6 +26,7 @@
 @property(nonatomic, retain) NSArray *availableFields;
 @property(nonatomic, assign) id <fieldSelectionViewControllerDelegate> delegate;
 @property(nonatomic, retain) IBOutlet UIPickerView *picker;
+@property(nonatomic, assign) int insertionIndex;
 
 -(IBAction) cancelButtonPressed;
 -(IBAction) selectButtonPressed;

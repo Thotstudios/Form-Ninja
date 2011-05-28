@@ -34,7 +34,7 @@
 @property(nonatomic, retain) id <templateGroupViewControllerDelegate> delegate;
 @property(nonatomic, retain) NSDictionary *dictValue;
 
--(void) redoHeights;
+-(void) redoHeightsAnimated:(bool)animated;
 
 -(NSDictionary *) getDictionaryData;
 -(void)setByDictionary:(NSDictionary *) aDictionary;

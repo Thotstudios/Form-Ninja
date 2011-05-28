@@ -52,7 +52,7 @@
 -(IBAction) saveButtonPressed;
 -(IBAction) deleteButtonPressed;
 -(IBAction) publishButtonPressed;
--(void) redoHeights;
+-(void) redoHeightsAnimated:(bool) animated;
 
 //-(IBAction) testLoadButtonPressed;
 //-(IBAction) testSaveButtonPressed;
