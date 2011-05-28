@@ -9,6 +9,8 @@
 #import "TemplateManagerViewController.h"
 #import "Constants.h"
 
+#import "TemplateEditorController.h"
+
 @interface TemplateManagerViewController()
 -(void) loadTemplateList;
 -(void) disableButtons;
@@ -29,8 +31,8 @@
 @synthesize templateNameList;
 @synthesize templatePathList;
 @synthesize selectedTemplateName;
-@synthesize selectedTemplatePath;
 @synthesize templateEditorViewController;
+@synthesize templateEditorB;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,13 +53,13 @@
 	[templateNameList release];
 	[templatePathList release];
 	[selectedTemplateName release];
-	[selectedTemplatePath release];
 	
     [templateEditorViewController release];
 	[deleteButton release];
 	[modifyButton release];
 	[duplicateButton release];
 	[newButton release];
+    [templateEditorB release];
     [super dealloc];
 }
 
@@ -104,13 +106,13 @@
 	[self setTemplateNameList:nil];
 	[self setTemplatePathList:nil];
 	[self setSelectedTemplateName:nil];
-	[self setSelectedTemplatePath:nil];
 	
     [self setTemplateEditorViewController:nil];
 	[self setDeleteButton:nil];
 	[self setModifyButton:nil];
 	[self setDuplicateButton:nil];
 	[self setNewButton:nil];
+    [self setTemplateEditorB:nil];
     [super viewDidUnload];
 }
 
@@ -123,7 +125,7 @@
 #pragma mark - Instance Methods
 -(void) loadTemplateList
 {
-	NSArray * tmp = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:TEMPLATE_PATH error:nil];
+	NSArray * tmp = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:DOCUMENTS_PATH error:nil];
 	
 	// clear the name list and path list
 	[templateNameList removeAllObjects];
@@ -134,7 +136,7 @@
 		// filter file list:
 		if( ![str hasPrefix:@"."] )
 			{
-			[templatePathList addObject:str];
+			[templatePathList addObject:[NSString stringWithFormat:@"%@/%@", DOCUMENTS_PATH, str]];
 			
 			// TODO get template name
 			[templateNameList addObject:str];
@@ -167,7 +169,7 @@
 
 -(void) confirmDeleteSelectedTemplate
 {
-	[[NSFileManager defaultManager] removeItemAtPath:selectedTemplatePath error:NULL];
+	[[NSFileManager defaultManager] removeItemAtPath:[templatePathList objectAtIndex:[[templateTableView indexPathForSelectedRow] row]] error:NULL];
 	[self loadTemplateList];
 	
 	// TODO: DROP from table
@@ -189,14 +191,29 @@
 		[self confirmDeleteSelectedTemplate];
 }
 
-- (IBAction)modifySelectedTemplate
+- (IBAction)updateSelectedTemplate
+{
+	[self.navigationController pushViewController:templateEditorB animated:YES];
+	NSUInteger row = [[templateTableView indexPathForSelectedRow] row];
+	NSString * path = [templatePathList objectAtIndex:row];
+	NSMutableArray * data = [NSMutableArray arrayWithContentsOfFile:path];
+	[templateEditorB setData:data];
+}
+
+- (void) duplicateSelectedTemplateNamed:(NSString*)newName
 {
 	// TODO
+	// duplicate selected template
+	// retain group name
+	// rename template to newName
 }
 
 - (IBAction)duplicateSelectedTemplate
 {
 	// TODO
+	NSLog(@"Should duplicate and rename file at path:\n%@", [templatePathList objectAtIndex:[[templateTableView indexPathForSelectedRow] row]]);
+	// prompt for new name
+	// call duplicateSelectedTemplateNamed: with string arg for new template name
 }
 
 - (IBAction)createNewTemplate
@@ -204,11 +221,16 @@
 	[self.navigationController pushViewController:templateEditorViewController animated:YES];
 }
 
+- (IBAction)pushTemplateEditorB
+{
+	[self.navigationController pushViewController:templateEditorB animated:YES];
+}
+
 
 - (IBAction)testAddTemplateFile
 {
 	// make new file
-	NSString * path = [NSString stringWithFormat:@"%@/%i.txt", DOCUMENTS_PATH, time(0)];
+	NSString * path = [NSString stringWithFormat:@"%@/No Group-%i.txt", DOCUMENTS_PATH, time(0)];
 	[[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
 	[self loadTemplateList];
 }
@@ -295,45 +317,6 @@
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }   
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }   
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -349,22 +332,13 @@
 		
 		case 2: // template table
 		[self setSelectedTemplateName:[templateNameList objectAtIndex:[indexPath row]]];
-		[self setSelectedTemplatePath:[NSString stringWithFormat:@"%@/%@", TEMPLATE_PATH, selectedTemplateName]];
+		//[self setSelectedTemplatePath:[NSString stringWithFormat:@"%@/%@", DOCUMENTS_PATH, selectedTemplateName]];
 		[self enableButtons];
 		break;
-		
 		
 		default:
 		break;
 	}
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 }
 
 

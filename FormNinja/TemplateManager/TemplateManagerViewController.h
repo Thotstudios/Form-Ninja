@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class TemplateEditorController;
 
 @interface TemplateManagerViewController : UIViewController <UIActionSheetDelegate>
 {
 	UITableView *templateTableView;
 	UITableView *groupTableView;
 	UIViewController *templateEditorViewController;
+	TemplateEditorController *templateEditorB;
 
 	UIButton *deleteButton;
 	UIButton *modifyButton;
@@ -30,7 +32,6 @@
 @property (nonatomic, retain) NSMutableArray * templateNameList;
 @property (nonatomic, retain) NSMutableArray * templatePathList;
 @property (nonatomic, retain) NSString * selectedTemplateName;
-@property (nonatomic, retain) NSString * selectedTemplatePath;
 
 // Buttons
 @property (nonatomic, retain) IBOutlet UIButton *deleteButton;
@@ -41,12 +42,14 @@
 
 
 @property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
+@property (nonatomic, retain) IBOutlet TemplateEditorController *templateEditorB;
 
 
 - (IBAction)deleteSelectedTemplate;
-- (IBAction)modifySelectedTemplate;
+- (IBAction)updateSelectedTemplate;
 - (IBAction)duplicateSelectedTemplate;
 - (IBAction)createNewTemplate;
+- (IBAction)pushTemplateEditorB;
 
 // TODO: Temporary test code.
 - (IBAction)testAddTemplateFile;
