@@ -121,13 +121,13 @@ static BOOL dictionaryIsLoaded = NO;
 
 -(void) dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated
 {
-	NSIndexPath * t = [table indexPathForSelectedRow];
 	switch(buttonIndex)
 	{
 		case 0: // cancel
 		break;
 		case 1: // confirm selection
-		[callback performSelector:selector withObject:[[[table cellForRowAtIndexPath:[table indexPathForSelectedRow]] textLabel] text]];
+		if([table indexPathForSelectedRow])
+			[callback performSelector:selector withObject:[[[table cellForRowAtIndexPath:[table indexPathForSelectedRow]] textLabel] text]];
 		break;
 
 	}
