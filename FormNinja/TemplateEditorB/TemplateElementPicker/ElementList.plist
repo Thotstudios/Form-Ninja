@@ -10,9 +10,11 @@
 	<string>MetaDataElement</string>
 	<key>Multi-Line</key>
 	<string>MultiLineElement</string>
-	<key>Single-Line</key>
-	<string>SingleLineElement</string>
 	<key>Signature</key>
 	<string>SignatureElement</string>
+	<key>Single-Line</key>
+	<string>SingleLineElement</string>
+	<key>Table</key>
+	<string>TableElement</string>
 </dict>
 </plist>

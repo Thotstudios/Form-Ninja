@@ -10,8 +10,9 @@
 
 @class TemplateElement;
 
-@interface TableElementPicker : UIAlertView <UITableViewDelegate, UITableViewDataSource>
+@interface ElementPicker : UIAlertView <UITableViewDelegate, UITableViewDataSource>
 {
+	NSMutableArray * elementTypes;
     id callback;
 	SEL selector;
 	UITableView * table;
@@ -27,7 +28,7 @@
 @property (nonatomic, retain) UITableView * table;
 
 //@property (retain, nonatomic) NSString * type;
-@property (retain, nonatomic) NSArray * elementTypes;
+@property (retain, nonatomic) NSMutableArray * elementTypes;
 
 -(id) initWithDelegate:(id)delegateArg selector:(SEL)selectorArg;
 

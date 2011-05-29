@@ -9,7 +9,7 @@
 #import "TemplateEditorController.h"
 #import "Constants.h"
 
-#import "TableElementPicker.h"
+#import "ElementPicker.h"
 #import "TemplateElement.h"
 
 #define SHOW_TEMPLATE_IN_TABLE 1
@@ -146,7 +146,7 @@
 			type = [dict objectForKey:@"type"];
 			if(type)
 				{
-				element = [TableElementPicker elementOfType:type];
+				element = [ElementPicker elementOfType:type];
 				[element setDelegate:self];
 				[element setDictionary:dict];
 				[views addObject:element];
@@ -197,7 +197,7 @@
 
 -(void) newElementOfType:(NSString*)type
 {
-	TemplateElement * element = [TableElementPicker elementOfType:type];
+	TemplateElement * element = [ElementPicker elementOfType:type];
 	[element setDelegate:self];
 	[data addObject:[element dictionary]];
 	[views addObject:element];
@@ -207,18 +207,18 @@
 
 - (IBAction)addElement
 {
-	[self setAlert:[[TableElementPicker alloc] initWithDelegate:self selector:@selector(newElementOfType:)]];
+	[self setAlert:[[ElementPicker alloc] initWithDelegate:self selector:@selector(newElementOfType:)]];
 	[alert show];
 }
 
 - (void) stopEditing
 {
-	[table setEditing:NO];
+	[table setEditing:NO animated:YES];
 }
 - (void) startEditing
 {
 	if([views count])
-		[table setEditing:YES];
+		[table setEditing:YES animated:YES];
 	else
 		[self stopEditing];
 }
@@ -248,7 +248,7 @@
 	[views removeAllObjects];
 	if(SHOW_TEMPLATE_IN_TABLE)
 		{
-		TemplateElement * element = [TableElementPicker elementOfType:@"MetaData"];
+		TemplateElement * element = [ElementPicker elementOfType:@"MetaData"];
 		[element setDelegate:self];
 		[element setDictionary:[data objectAtIndex:0]];
 		[views addObject:element];
@@ -315,6 +315,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	NSInteger ret = 1;
+	NSString * type = [[data objectAtIndex:section] objectForKey:@"type"];
+	NSLog(@"Section %i type: %@", section, type);
+	//if([[data objectAtIndex:section] isKindOfClass:[NSArray class]])
+	//{
+	//	ret = [[data objectAtIndex:section] count];
+	//	}
 	// TODO: recursive template elements might have multiple rows
     return ret;
 }

@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "TableElementPicker.h"
+#import "ElementPicker.h"
 
 #import "TemplateElement.h"
 
@@ -21,11 +21,11 @@
 #define tableHeight 160
 #define horizontalMargin 11
 
-@interface TableElementPicker()
+@interface ElementPicker()
 +(void) loadElementDictionary;
 @end
 
-@implementation TableElementPicker
+@implementation ElementPicker
 
 static NSMutableDictionary * elementList = nil;
 static BOOL dictionaryIsLoaded = NO;
@@ -47,10 +47,11 @@ static BOOL dictionaryIsLoaded = NO;
 	frameHeight = 0;
 	frameYPosition = 0;
 	orientation = -1; //[[UIDevice currentDevice] orientation];
-	if(!dictionaryIsLoaded) [TableElementPicker loadElementDictionary];
+	if(!dictionaryIsLoaded) [ElementPicker loadElementDictionary];
 	
 	// TODO: move to static array
-	[self setElementTypes:[elementList allKeys]];
+	[self setElementTypes:[[elementList allKeys] mutableCopy]];
+	[elementTypes sortUsingSelector:@selector(compare:)];
 	
 	return self;
 }
@@ -170,7 +171,7 @@ static BOOL dictionaryIsLoaded = NO;
 
 +(TemplateElement*) elementOfType:(NSString *)type
 {
-	if(!dictionaryIsLoaded) [TableElementPicker loadElementDictionary];
+	if(!dictionaryIsLoaded) [ElementPicker loadElementDictionary];
 	
 	NSMutableDictionary * dict = [NSMutableDictionary dictionary];
 	TemplateElement * element = nil;

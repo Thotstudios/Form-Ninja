@@ -52,7 +52,7 @@
 		F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187651390EFDC000BA9DF /* TemplateEditorController.m */; };
 		F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187661390EFDC000BA9DF /* TemplateEditorController.xib */; };
 		F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F72187681390EFDC000BA9DF /* ElementList.plist */; };
-		F72187901390EFDC000BA9DF /* TableElementPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F721876A1390EFDC000BA9DF /* TableElementPicker.m */; };
+		F72187901390EFDC000BA9DF /* ElementPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F721876A1390EFDC000BA9DF /* ElementPicker.m */; };
 		F72187911390EFDC000BA9DF /* AddressElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F721876E1390EFDC000BA9DF /* AddressElement.m */; };
 		F72187921390EFDC000BA9DF /* AddressElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F721876F1390EFDC000BA9DF /* AddressElement.xib */; };
 		F72187931390EFDC000BA9DF /* CreditCardElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187721390EFDC000BA9DF /* CreditCardElement.m */; };
@@ -78,6 +78,10 @@
 		F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC423613886CF300911EB5 /* FormManagerViewController.xib */; };
 		F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */; };
 		F7BC423E1388709F00911EB5 /* GroupManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC423C1388709F00911EB5 /* GroupManagerViewController.xib */; };
+		F7D004EC1392342700DD4D2B /* RepeatingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D004EA1392342700DD4D2B /* RepeatingElement.m */; };
+		F7D004ED1392342700DD4D2B /* RepeatingElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D004EB1392342700DD4D2B /* RepeatingElement.xib */; };
+		F7D004F2139237D600DD4D2B /* TableElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D004F0139237D600DD4D2B /* TableElement.m */; };
+		F7D004F3139237D600DD4D2B /* TableElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D004F1139237D600DD4D2B /* TableElement.xib */; };
 		F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D8AFB9136E289500FE0F76 /* MainMenu.m */; };
 		F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D8AFBA136E289500FE0F76 /* MainMenu.xib */; };
 		F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2B560137E49D000EA89D0 /* AccountClass.m */; };
@@ -167,8 +171,8 @@
 		F72187651390EFDC000BA9DF /* TemplateEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateEditorController.m; sourceTree = "<group>"; };
 		F72187661390EFDC000BA9DF /* TemplateEditorController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateEditorController.xib; sourceTree = "<group>"; };
 		F72187681390EFDC000BA9DF /* ElementList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ElementList.plist; sourceTree = "<group>"; };
-		F72187691390EFDC000BA9DF /* TableElementPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableElementPicker.h; sourceTree = "<group>"; };
-		F721876A1390EFDC000BA9DF /* TableElementPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableElementPicker.m; sourceTree = "<group>"; };
+		F72187691390EFDC000BA9DF /* ElementPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementPicker.h; sourceTree = "<group>"; };
+		F721876A1390EFDC000BA9DF /* ElementPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementPicker.m; sourceTree = "<group>"; };
 		F721876D1390EFDC000BA9DF /* AddressElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressElement.h; sourceTree = "<group>"; };
 		F721876E1390EFDC000BA9DF /* AddressElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressElement.m; sourceTree = "<group>"; };
 		F721876F1390EFDC000BA9DF /* AddressElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressElement.xib; sourceTree = "<group>"; };
@@ -208,6 +212,12 @@
 		F7BC423A1388709F00911EB5 /* GroupManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManagerViewController.h; path = GroupManager/GroupManagerViewController.h; sourceTree = "<group>"; };
 		F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManagerViewController.m; path = GroupManager/GroupManagerViewController.m; sourceTree = "<group>"; };
 		F7BC423C1388709F00911EB5 /* GroupManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupManagerViewController.xib; path = GroupManager/GroupManagerViewController.xib; sourceTree = "<group>"; };
+		F7D004E91392342700DD4D2B /* RepeatingElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RepeatingElement.h; path = RepeatingElement/RepeatingElement.h; sourceTree = "<group>"; };
+		F7D004EA1392342700DD4D2B /* RepeatingElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RepeatingElement.m; path = RepeatingElement/RepeatingElement.m; sourceTree = "<group>"; };
+		F7D004EB1392342700DD4D2B /* RepeatingElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RepeatingElement.xib; path = RepeatingElement/RepeatingElement.xib; sourceTree = "<group>"; };
+		F7D004EF139237D600DD4D2B /* TableElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableElement.h; path = TableElement/TableElement.h; sourceTree = "<group>"; };
+		F7D004F0139237D600DD4D2B /* TableElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableElement.m; path = TableElement/TableElement.m; sourceTree = "<group>"; };
+		F7D004F1139237D600DD4D2B /* TableElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableElement.xib; path = TableElement/TableElement.xib; sourceTree = "<group>"; };
 		F7D8AFB8136E289500FE0F76 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		F7D8AFB9136E289500FE0F76 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		F7D8AFBA136E289500FE0F76 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
@@ -470,7 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				F72187631390EFDC000BA9DF /* TemplateEditor */,
-				F72187671390EFDC000BA9DF /* TemplateElementPicker */,
+				F72187671390EFDC000BA9DF /* ElementPicker */,
 				F721876B1390EFDC000BA9DF /* TemplateElements */,
 			);
 			name = TemplateEditorB;
@@ -487,25 +497,27 @@
 			path = TemplateEditorB/TemplateEditor;
 			sourceTree = "<group>";
 		};
-		F72187671390EFDC000BA9DF /* TemplateElementPicker */ = {
+		F72187671390EFDC000BA9DF /* ElementPicker */ = {
 			isa = PBXGroup;
 			children = (
 				F72187681390EFDC000BA9DF /* ElementList.plist */,
-				F72187691390EFDC000BA9DF /* TableElementPicker.h */,
-				F721876A1390EFDC000BA9DF /* TableElementPicker.m */,
+				F72187691390EFDC000BA9DF /* ElementPicker.h */,
+				F721876A1390EFDC000BA9DF /* ElementPicker.m */,
 			);
-			name = TemplateElementPicker;
+			name = ElementPicker;
 			path = TemplateEditorB/TemplateElementPicker;
 			sourceTree = "<group>";
 		};
 		F721876B1390EFDC000BA9DF /* TemplateElements */ = {
 			isa = PBXGroup;
 			children = (
+				F7D004EE139237C200DD4D2B /* TableElement */,
 				F721877C1390EFDC000BA9DF /* ParentElement */,
+				F7D004E81392317F00DD4D2B /* RepeatingElement */,
+				F72187741390EFDC000BA9DF /* MetaDataElement */,
 				F72187891390EFDC000BA9DF /* SingleLineElement */,
 				F72187781390EFDC000BA9DF /* MultiLineElement */,
 				F721876C1390EFDC000BA9DF /* AddressElement */,
-				F72187741390EFDC000BA9DF /* MetaDataElement */,
 				F72187801390EFDC000BA9DF /* SignatureElement */,
 				F72187701390EFDC000BA9DF /* CreditCardElement */,
 			);
@@ -680,6 +692,26 @@
 			name = GroupManager;
 			sourceTree = "<group>";
 		};
+		F7D004E81392317F00DD4D2B /* RepeatingElement */ = {
+			isa = PBXGroup;
+			children = (
+				F7D004E91392342700DD4D2B /* RepeatingElement.h */,
+				F7D004EA1392342700DD4D2B /* RepeatingElement.m */,
+				F7D004EB1392342700DD4D2B /* RepeatingElement.xib */,
+			);
+			name = RepeatingElement;
+			sourceTree = "<group>";
+		};
+		F7D004EE139237C200DD4D2B /* TableElement */ = {
+			isa = PBXGroup;
+			children = (
+				F7D004EF139237D600DD4D2B /* TableElement.h */,
+				F7D004F0139237D600DD4D2B /* TableElement.m */,
+				F7D004F1139237D600DD4D2B /* TableElement.xib */,
+			);
+			name = TableElement;
+			sourceTree = "<group>";
+		};
 		F7D8AFBE136E289A00FE0F76 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +808,8 @@
 				F721879A1390EFDC000BA9DF /* TemplateElement.xib in Resources */,
 				F721879E1390EFDC000BA9DF /* SignatureElement.xib in Resources */,
 				F72187A01390EFDC000BA9DF /* SingleLineElement.xib in Resources */,
+				F7D004ED1392342700DD4D2B /* RepeatingElement.xib in Resources */,
+				F7D004F3139237D600DD4D2B /* TableElement.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,7 +853,7 @@
 				42D6155B138F1298002B88D3 /* formGroupViewController.m in Sources */,
 				42D6155D138F1298002B88D3 /* formStringFieldViewController.m in Sources */,
 				F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */,
-				F72187901390EFDC000BA9DF /* TableElementPicker.m in Sources */,
+				F72187901390EFDC000BA9DF /* ElementPicker.m in Sources */,
 				F72187911390EFDC000BA9DF /* AddressElement.m in Sources */,
 				F72187931390EFDC000BA9DF /* CreditCardElement.m in Sources */,
 				F72187951390EFDC000BA9DF /* MetaDataElement.m in Sources */,
@@ -829,6 +863,8 @@
 				F721879C1390EFDC000BA9DF /* SignatureView.m in Sources */,
 				F721879D1390EFDC000BA9DF /* SignatureElement.m in Sources */,
 				F721879F1390EFDC000BA9DF /* SingleLineElement.m in Sources */,
+				F7D004EC1392342700DD4D2B /* RepeatingElement.m in Sources */,
+				F7D004F2139237D600DD4D2B /* TableElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

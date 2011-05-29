@@ -25,7 +25,6 @@
 	
 	// TODO: temporary members
 	UIViewController *templateEditorViewController;
-	UIViewController *signatureViewController;
 	UIViewController *temporaryFormEditorViewController;
 }
 // Interface Elements:
@@ -53,8 +52,5 @@
 
 @property (nonatomic, retain) IBOutlet UIViewController *temporaryFormEditorViewController;
 - (IBAction)pressedTemporaryFormEditorButton;
-
-@property (nonatomic, retain) IBOutlet UIViewController *signatureViewController;
-- (IBAction)signatureTesting;
 
 @end

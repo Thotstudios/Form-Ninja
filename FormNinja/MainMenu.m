@@ -29,7 +29,6 @@
 // TODO: temporary
 @synthesize templateEditorViewController;
 @synthesize temporaryFormEditorViewController;
-@synthesize signatureViewController;
 //
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -54,7 +53,6 @@
 	// TODO: Temporary
 	[templateEditorViewController release];
     [temporaryFormEditorViewController release];
-    [signatureViewController release];
 	//
 	
     [versionLabel release];
@@ -94,7 +92,6 @@
 	
 	[self setTemplateEditorViewController:nil];
     [self setTemporaryFormEditorViewController:nil];
-    [self setSignatureViewController:nil];
 	
     [self setVersionLabel:nil];
     [super viewDidUnload];
@@ -197,10 +194,6 @@
 - (IBAction)buttonPressedTemplateEditor:(id)sender
 {
 	[self.navigationController pushViewController:templateEditorViewController animated:YES];
-}
-- (IBAction)signatureTesting
-{
-	[self.navigationController pushViewController:signatureViewController animated:YES];
 }
 - (IBAction)pressedTemporaryFormEditorButton
 {

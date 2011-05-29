@@ -55,8 +55,10 @@
 	
 	NSDate *date = [dictionary objectForKey:@"creation date"];
 	if(!date)
+		{
 		date = [NSDate date];
-	
+		[dictionary setObject:date forKey:@"creation date"];
+		}
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 	[creationDateField setText:[dateFormatter stringFromDate:date]];
 
