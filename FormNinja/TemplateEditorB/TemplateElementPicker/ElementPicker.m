@@ -27,7 +27,7 @@
 
 @implementation ElementPicker
 
-static NSMutableDictionary * elementList = nil;
+static NSMutableDictionary * elementDictionary = nil;
 static BOOL dictionaryIsLoaded = NO;
 
 //@synthesize alert;
@@ -36,11 +36,11 @@ static BOOL dictionaryIsLoaded = NO;
 @synthesize table;
 
 //@synthesize type;
-@synthesize elementTypes;
+@synthesize elementList;
 
 -(id) initWithDelegate:(id)delegateArg selector:(SEL)selectorArg
 {
-	if(!(self = [super initWithTitle:@"title" message:@"message" delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:@"confirm", nil])) return self;
+	if(!(self = [super initWithTitle:@"Select Type" message:nil delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Confirm", nil])) return self;
 	
 	[self setCallback:delegateArg];
 	[self setSelector:selectorArg];
@@ -50,9 +50,9 @@ static BOOL dictionaryIsLoaded = NO;
 	if(!dictionaryIsLoaded) [ElementPicker loadElementDictionary];
 	
 	// TODO: move to static array
-	[self setElementTypes:[[elementList allKeys] mutableCopy]];
-	[elementTypes sortUsingSelector:@selector(compare:)];
-	
+	[self setElementList:[[elementDictionary allKeys] mutableCopy]];
+	[elementList removeObject:@"MetaData"];
+	[elementList sortUsingSelector:@selector(compare:)];
 	return self;
 }
 -(void) show
@@ -113,7 +113,7 @@ static BOOL dictionaryIsLoaded = NO;
 	NSString * path;
 	path = [[NSBundle mainBundle] pathForResource:@"ElementList" ofType:@"plist"];
 	
-	elementList = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+	elementDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
 	
 	dictionaryIsLoaded = YES;
 }
@@ -142,7 +142,7 @@ static BOOL dictionaryIsLoaded = NO;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [elementTypes count];
+	return [elementList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -155,7 +155,7 @@ static BOOL dictionaryIsLoaded = NO;
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	[[cell textLabel] setText:[elementTypes objectAtIndex:row]];
+	[[cell textLabel] setText:[elementList objectAtIndex:row]];
     
     return cell;
 }
@@ -177,7 +177,7 @@ static BOOL dictionaryIsLoaded = NO;
 	TemplateElement * element = nil;
 	
 	
-	element = [[[NSClassFromString([elementList objectForKey:type]) alloc] init] autorelease];
+	element = [[[NSClassFromString([elementDictionary valueForKey:type]) alloc] init] autorelease];
 	
 	if(!element)
 		element = [[[TemplateElement alloc] init] autorelease];
@@ -185,15 +185,10 @@ static BOOL dictionaryIsLoaded = NO;
 	if(element)
 		{
 		[element.view setFrame:CGRectMake(0, 0, 768, element.view.frame.size.height)];
-		[dict setObject:type forKey:@"type"];
+		[dict setValue:type forKey:@"type"];
 		[element setDictionary:dict];
 		}
 	return element;
-}
-
-+(void) registerTemplateElement:(Class)classType name:(NSString*)name
-{
-	[elementList setObject:classType forKey:name];
 }
 
 @end

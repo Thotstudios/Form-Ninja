@@ -15,7 +15,7 @@
 	UIImageView *imageView;
 }
 
-@property (retain, nonatomic) UIImageView * imageView;
+@property (nonatomic, retain) UIImageView * imageView;
 
 -(IBAction) clearSignature;
 

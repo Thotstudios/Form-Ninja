@@ -13,26 +13,29 @@
 
 @interface TemplateManagerViewController()
 -(void) loadTemplateList;
+-(void) filterByGroupName;
 -(void) disableButtons;
 -(void) enableButtons;
 @end
 
 @implementation TemplateManagerViewController
-@synthesize deleteButton;
-@synthesize modifyButton;
-@synthesize duplicateButton;
-@synthesize newButton;
 
-@synthesize groupTableView;
 @synthesize groupNameList;
-@synthesize selectedGroupName;
+@synthesize templateList;
+@synthesize filteredTemplateList;
 
-@synthesize templateTableView;
-@synthesize templateNameList;
-@synthesize templatePathList;
-@synthesize selectedTemplateName;
-@synthesize templateEditorViewController;
-@synthesize templateEditorB;
+@synthesize groupTable;
+@synthesize templateTable;
+
+@synthesize deleteTemplateButton;
+@synthesize copyTemplateButton;
+@synthesize editTemplateButton;
+@synthesize createTemplateButton;
+
+@synthesize oldTemplateEditorViewController;
+@synthesize templateEditor;
+
+#pragma mark - Memory
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,21 +48,20 @@
 
 - (void)dealloc
 {
-	[groupTableView release];
 	[groupNameList release];
-	[selectedGroupName release];
+	[templateList release];
+	[filteredTemplateList release];
 	
-	[templateTableView release];
-	[templateNameList release];
-	[templatePathList release];
-	[selectedTemplateName release];
+	[groupTable release];
+	[templateTable release];
 	
-    [templateEditorViewController release];
-	[deleteButton release];
-	[modifyButton release];
-	[duplicateButton release];
-	[newButton release];
-    [templateEditorB release];
+	[deleteTemplateButton release];
+	[copyTemplateButton release];
+	[editTemplateButton release];
+	[createTemplateButton release];
+	
+    [oldTemplateEditorViewController release];
+    [templateEditor release];
     [super dealloc];
 }
 
@@ -77,42 +79,38 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	[self setGroupNameList:[[NSMutableArray alloc] init]];
-	[self setTemplateNameList:[[NSMutableArray alloc] init]];
-	[self setTemplatePathList:[[NSMutableArray alloc] init]];
+	[self setGroupNameList:[NSMutableArray array]];
+	[self setTemplateList:[NSMutableArray array]];
+	[self setFilteredTemplateList:[NSMutableArray array]];
 }
 -(void) viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	
-	{ // load group name list and select All Groups
-		[groupNameList addObject:ALL_GROUPS_STR];
-		[groupTableView selectRowAtIndexPath:[NSIndexPath indexPathWithIndexes:(NSUInteger[2]){0,0} length:2] animated:YES scrollPosition:UITableViewScrollPositionTop];
-		
-		[self setSelectedGroupName:ALL_GROUPS_STR];
-	} // end load group name list
-	
+	//[groupNameList addObject:ALL_GROUPS_STR];
 	[self loadTemplateList];
-	[self disableButtons];
+//	[groupTableView selectRowAtIndexPath:[NSIndexPath indexPathWithIndexes:(NSUInteger[2]){0,0} length:2] animated:YES scrollPosition:UITableViewScrollPositionTop];
+	
+	[self filterByGroupName];
+	
 }
 
 - (void)viewDidUnload
 {
-	[self setGroupTableView:nil];
 	[self setGroupNameList:nil];
-	[self setSelectedGroupName:nil];
+	[self setTemplateList:nil];
+	[self setFilteredTemplateList:nil];
 	
-	[self setTemplateTableView:nil];
-	[self setTemplateNameList:nil];
-	[self setTemplatePathList:nil];
-	[self setSelectedTemplateName:nil];
+	[self setGroupTable:nil];
+	[self setTemplateTable:nil];
 	
-    [self setTemplateEditorViewController:nil];
-	[self setDeleteButton:nil];
-	[self setModifyButton:nil];
-	[self setDuplicateButton:nil];
-	[self setNewButton:nil];
-    [self setTemplateEditorB:nil];
+	[self setDeleteTemplateButton:nil];
+	[self setCopyTemplateButton:nil];
+	[self setEditTemplateButton:nil];
+	[self setCreateTemplateButton:nil];
+	
+    [self setOldTemplateEditorViewController:nil];
+    [self setTemplateEditor:nil];
     [super viewDidUnload];
 }
 
@@ -123,53 +121,109 @@
 }
 
 #pragma mark - Instance Methods
+-(void) filterByGroupName
+{
+	NSString * group = [groupNameList objectAtIndex:[[groupTable indexPathForSelectedRow] row]];
+	[filteredTemplateList removeAllObjects];
+	for(NSDictionary * dict in templateList)
+		{
+		if([group isEqualToString:ALL_GROUPS_STR] || [group isEqualToString:[dict valueForKey:@"group name"]])
+			[filteredTemplateList addObject:dict];
+		}
+	[templateTable reloadData];
+	[self disableButtons];
+}
+-(void) addGroupName:(NSString*)group
+{
+	if(!group) return;
+
+	for(NSString * name in groupNameList)
+		{
+		if([name isEqualToString:group])
+			return;
+		}
+	[groupNameList addObject:group];
+}
 -(void) loadTemplateList
 {
-	NSArray * tmp = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:DOCUMENTS_PATH error:nil];
+	NSArray * directory = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:TEMPLATE_PATH error:nil];
+	
+	NSString * path;
+	NSMutableArray * data;
+	NSString * name;
+	NSString * group;
+	NSMutableDictionary * dict;
 	
 	// clear the name list and path list
-	[templateNameList removeAllObjects];
-	[templatePathList removeAllObjects];
+	[groupNameList removeAllObjects];
+	[groupNameList addObject:ALL_GROUPS_STR];
+	[templateList removeAllObjects];
 	
-	for(NSString * str in tmp)
+	for(NSString * file in directory)
 		{
-		// filter file list:
-		if( ![str hasPrefix:@"."] )
+		data = nil;
+		group = nil;
+		name = nil;
+		dict = nil;
+		
+		path = [NSString stringWithFormat:@"%@/%@", TEMPLATE_PATH, file];
+		data = [NSMutableArray arrayWithContentsOfFile:path];
+		if([data count])
 			{
-			[templatePathList addObject:[NSString stringWithFormat:@"%@/%@", DOCUMENTS_PATH, str]];
-			
-			// TODO get template name
-			[templateNameList addObject:str];
+			name = [[data objectAtIndex:0] objectForKey:@"template name"];
+			group = [[data objectAtIndex:0] objectForKey:@"group name"];
+			[self addGroupName:group];
+			dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:path, @"path", group, @"group name", name, @"template name", data, @"data", nil];
 			}
+		if([dict count])
+			[templateList addObject:dict];
+		
 		}
-	[templateTableView reloadData];
+	[groupTable selectRowAtIndexPath:[NSIndexPath indexPathWithIndexes:(NSUInteger[2]){0,0} length:2] animated:YES scrollPosition:UITableViewScrollPositionTop];
+	[self filterByGroupName];
 } // end load template list
 
+-(BOOL) isTemplateAtIndexPublished:(NSUInteger)index
+{
+	NSDictionary * dict = [filteredTemplateList objectAtIndex:index];
+	NSArray * data = [dict valueForKey:@"data"];
+	NSDictionary * meta = [data objectAtIndex:0];
+	id value = [meta valueForKey:@"published"];
+	BOOL isPublished = [value boolValue];
+	return isPublished;
+}
+-(BOOL) isSelectedTemplatePublished
+{
+	NSUInteger index = [[templateTable indexPathForSelectedRow] row];
+	return [self isTemplateAtIndexPublished:index];
+}
 -(void) disableButtons
 {
-	[deleteButton setEnabled:NO];		[deleteButton setAlpha:0.50];
-	[modifyButton setEnabled:NO];		[modifyButton setAlpha:0.50];
-	[duplicateButton setEnabled:NO];	[duplicateButton setAlpha:0.50];
+	[deleteTemplateButton setEnabled:NO];	[deleteTemplateButton setAlpha:0.50];
+	[copyTemplateButton setEnabled:NO];		[copyTemplateButton setAlpha:0.50];
+	[editTemplateButton setEnabled:NO];		[editTemplateButton setAlpha:0.50];
 	
-	// TODO: check demo and template count:
+	// TODO: check demo/lite version and template count:
 	//[newButton setEnabled:NO];		[newButton setAlpha:0.50];
 }
 
 -(void) enableButtons
 {
-	[deleteButton setEnabled:YES];		[deleteButton setAlpha:1.00];
-	[modifyButton setEnabled:YES];		[modifyButton setAlpha:1.00];
-	[duplicateButton setEnabled:YES];	[duplicateButton setAlpha:1.00];
+	[deleteTemplateButton setEnabled:YES];	[deleteTemplateButton setAlpha:1.00];
+	[copyTemplateButton setEnabled:YES];	[copyTemplateButton setAlpha:1.00];
+	[editTemplateButton setEnabled:YES];	[editTemplateButton setAlpha:1.00];
 	
-	// TODO: check demo and template count:
+	// TODO: check demo/lite version and template count:
 	//[newButton setEnabled:YES];		[newButton setAlpha:1.00];
 }
 
-#pragma mark Interface Methods
+#pragma mark - Interface Methods
 
 -(void) confirmDeleteSelectedTemplate
 {
-	[[NSFileManager defaultManager] removeItemAtPath:[templatePathList objectAtIndex:[[templateTableView indexPathForSelectedRow] row]] error:NULL];
+	//NSUInteger row = [[templateTableView indexPathForSelectedRow] row];
+	NSString * path = [[filteredTemplateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:@"path"];
+	[[NSFileManager defaultManager] removeItemAtPath:path error:NULL];
 	[self loadTemplateList];
 	
 	// TODO: DROP from table
@@ -177,76 +231,82 @@
 }
 - (IBAction)deleteSelectedTemplate
 {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_TEMPLATE_TITLE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_TEMPLATE_BUTTON_STR otherButtonTitles:nil];
-	
-    [popupQuery showInView:self.view];
-	
-    [popupQuery release];
-	
+    UIActionSheet *popupQuery = [[[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_TEMPLATE_TITLE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_TEMPLATE_BUTTON_STR otherButtonTitles:nil] autorelease];
+	[popupQuery setTag:1];
+	[popupQuery showInView:self.view];
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+
+- (IBAction)editSelectedTemplate
 {
-	if(buttonIndex != [actionSheet cancelButtonIndex] && [[actionSheet title] isEqualToString:CONFIRM_DELETE_TEMPLATE_TITLE_STR])
-		[self confirmDeleteSelectedTemplate];
+	NSUInteger row = [[templateTable indexPathForSelectedRow] row];
+	NSDictionary * dict = [filteredTemplateList objectAtIndex:row];
+	NSMutableArray * data = [dict objectForKey:@"data"];
+	//[templateEditorB clear];
+	[self.navigationController pushViewController:templateEditor animated:YES];
+	[templateEditor setData:data];
 }
 
-- (IBAction)updateSelectedTemplate
-{
-	[self.navigationController pushViewController:templateEditorB animated:YES];
-	NSUInteger row = [[templateTableView indexPathForSelectedRow] row];
-	NSString * path = [templatePathList objectAtIndex:row];
-	NSMutableArray * data = [NSMutableArray arrayWithContentsOfFile:path];
-	[templateEditorB setData:data];
-}
-
-- (void) duplicateSelectedTemplateNamed:(NSString*)newName
+- (void) copySelectedTemplateWithName:(NSString*)name
 {
 	// TODO
-	// duplicate selected template
-	// retain group name
-	// rename template to newName
+	// push editor
+	// change template name
+	// [editor save];
 }
 
-- (IBAction)duplicateSelectedTemplate
+- (IBAction)copySelectedTemplate
 {
 	// TODO
-	NSLog(@"Should duplicate and rename file at path:\n%@", [templatePathList objectAtIndex:[[templateTableView indexPathForSelectedRow] row]]);
+	//NSUInteger row = [[templateTableView indexPathForSelectedRow] row];
+	NSString * path = [[filteredTemplateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:@"path"];
+	NSLog(@"Should duplicate and rename file at path:\n%@", path);
 	// prompt for new name
 	// call duplicateSelectedTemplateNamed: with string arg for new template name
 }
 
-- (IBAction)createNewTemplate
+- (IBAction)createTemplate
 {
-	[self.navigationController pushViewController:templateEditorViewController animated:YES];
+	NSString * name = @"Template Name";
+	NSUInteger row = [[groupTable indexPathForSelectedRow] row];
+	//NSDictionary * dict = [filteredTemplateList objectAtIndex:row];
+	NSString * group = [groupNameList objectAtIndex:row];
+	
+	[self.navigationController pushViewController:templateEditor animated:YES];
+	[templateEditor newTemplateWithName:name group:group];
 }
 
-- (IBAction)pushTemplateEditorB
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	[self.navigationController pushViewController:templateEditorB animated:YES];
+	// NSString * name = nil;
+	switch([actionSheet tag])
+	{
+		case 1: // delete
+		if(buttonIndex != [actionSheet cancelButtonIndex])
+			[self confirmDeleteSelectedTemplate];
+		break;
+		
+		case 2: // copy
+		// get name
+		// [self copySelectedTemplateWithName:name];
+		break;
+	}
 }
 
-
-- (IBAction)testAddTemplateFile
+// TODO: remove
+- (IBAction)createTemplateWithOldEditor
 {
-	// make new file
-	NSString * path = [NSString stringWithFormat:@"%@/No Group-%i.txt", DOCUMENTS_PATH, time(0)];
-	[[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
-	[self loadTemplateList];
+	[self.navigationController pushViewController:oldTemplateEditorViewController animated:YES];
 }
+//
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
+#pragma mark - TableView DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-	NSInteger r;
+	NSInteger r = 0;
 	switch([tableView tag])
 	{
 		case 1: // group table
@@ -254,89 +314,90 @@
 		break;
 		
 		case 2: // template table
-		r = [templateNameList count];
-		break;
-		
-		default:
-		r = 0;
+		r = [filteredTemplateList count];
 		break;
 	}
 	return r;
 }
 
--(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+-(NSString*) tableView:(UITableView *)table titleForHeaderInSection:(NSInteger)section
 {
 	NSString * r;
-	switch ([tableView tag])
+	NSString * group = [groupNameList objectAtIndex:[[groupTable indexPathForSelectedRow] row]];
+	switch ([table tag])
 	{
 		case 1: // group table
-		//r = @"Template Groups";
 		r = NSLocalizedString(@"Template Groups", @"Section Header for Groups table");
 		break;
 		
-		
 		case 2: // template table
-		r = @"Available Templates"; // TODO: localize
-		if([selectedGroupName length] > 0)
-			r = [r stringByAppendingFormat:@" (%@)", selectedGroupName];
+		r = [NSString stringWithFormat:@"Available Templates (%@)", group]; // TODO: localize
 		break;
 		
-		
 		default:
-		r = @"Error Table Header Title"; // TODO: localize
+		r = [NSString stringWithFormat:@"Error: Header for Unknown Table Tag (%i)", [table tag] ]; // TODO: localize
 		break;
 	}
 	return r;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+	NSString *CellIdentifier = nil;
+	switch ([table tag])
+	{
+		case 2: // templates
+		CellIdentifier = @"Template Table Cell";
+		break;
+		
+		case 1: // groups
+		CellIdentifier = @"Group Table Cell";
+		break;
+			
+		default:
+		CellIdentifier = @"Cell";
+		break;
+	}
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil)
-		{
+    UITableViewCell *cell;
+	cell = [table dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+	if (cell == nil)
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		}
     
     // Configure the cell...
-	switch([tableView tag])
+	NSString * text = nil;
+	switch([table tag])
 	{
 		case 1: // group table
-		[[cell textLabel] setText:[groupNameList objectAtIndex:[indexPath row]]];
+		text = [groupNameList objectAtIndex:[indexPath row]];
 		break;
 		
 		case 2: // template table
-		[[cell textLabel] setText:[templateNameList objectAtIndex:[indexPath row]]];
+		text = [[filteredTemplateList objectAtIndex:[indexPath row]] objectForKey:@"template name"];
 		break;
 		
 		default:
+		text = [NSString stringWithFormat:@"Error: Cell for Unknown Table Tag (%i)", [table tag]];
 		break;
 	}
+	[[cell textLabel] setText:text];
     
     return cell;
 }
 
-#pragma mark - Table view delegate
+#pragma mark - TableView Delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	switch([tableView tag])
+	switch([table tag])
 	{
 		case 1: // group table
-		[self setSelectedGroupName:[groupNameList objectAtIndex:[indexPath row]]];
-		[templateTableView reloadData];
-		[self disableButtons];
+		[self filterByGroupName];
 		break;
-		
 		
 		case 2: // template table
-		[self setSelectedTemplateName:[templateNameList objectAtIndex:[indexPath row]]];
-		//[self setSelectedTemplatePath:[NSString stringWithFormat:@"%@/%@", DOCUMENTS_PATH, selectedTemplateName]];
 		[self enableButtons];
-		break;
-		
-		default:
 		break;
 	}
 }

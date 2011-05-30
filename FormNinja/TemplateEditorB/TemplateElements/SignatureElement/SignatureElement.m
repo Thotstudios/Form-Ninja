@@ -39,14 +39,14 @@
 - (IBAction)reset
 {
 	[super reset];
-	[dictionary setObject:@"Signature" forKey:@"type"];
+	[dictionary setValue:@"Signature" forKey:@"type"];
 	[imageView setImage:nil];
 }
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
 	
-	NSData *imageData = [NSData dataWithData:[dictionary objectForKey:@"signature"]];
+	NSData *imageData = [NSData dataWithData:[dictionary valueForKey:@"signature"]];
 	UIImage *image = [UIImage imageWithData:imageData];
 	[imageView setImage:image];
 }
@@ -56,7 +56,7 @@
 	[imageView setImage:image];
 
 	NSData * imageData = UIImagePNGRepresentation(image);
-	[dictionary setObject:imageData forKey:@"signature"];
+	[dictionary setValue:imageData forKey:@"signature"];
 }
 -(void) failure
 {

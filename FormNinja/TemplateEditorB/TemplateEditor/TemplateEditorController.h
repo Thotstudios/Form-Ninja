@@ -12,24 +12,16 @@
 @interface TemplateEditorController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
 	UITableView *table;
-	UITextField *headerTextField;
-	UIView *headerView;
-	UIView *footerView;
 }
-
-@property (retain) id templateNameField;
 
 // Interface Elments
 @property (nonatomic, retain) IBOutlet UITableView *table;
-@property (nonatomic, retain) IBOutlet UITextField *headerTextField;
-@property (nonatomic, retain) IBOutlet UIView *headerView;
-@property (nonatomic, retain) IBOutlet UIView *footerView;
 
 // Data Members
 @property (nonatomic, retain) NSMutableArray * data;
 @property (nonatomic, retain) NSMutableArray * views;
 
-@property (nonatomic, retain) id alert;
+-(void) newTemplateWithName:(NSString*)name group:(NSString*)group;
 
 - (IBAction)addElement;
 - (void) stopEditing;

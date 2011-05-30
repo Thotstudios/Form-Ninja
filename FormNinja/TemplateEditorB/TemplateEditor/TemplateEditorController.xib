@@ -50,7 +50,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUIView" id="391584826">
 								<reference key="NSNextResponder" ref="194857317"/>
-								<int key="NSvFlags">271</int>
+								<int key="NSvFlags">266</int>
 								<object class="NSMutableArray" key="NSSubviews">
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<object class="IBUIButton" id="230084820">
@@ -59,6 +59,7 @@
 										<string key="NSFrame">{{631, 20}, {117, 64}}</string>
 										<reference key="NSSuperview" ref="391584826"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 										<int key="IBUIContentHorizontalAlignment">0</int>
@@ -168,13 +169,13 @@
 										<reference key="IBUINormalTitleShadowColor" ref="225038046"/>
 									</object>
 								</object>
-								<string key="NSFrame">{{0, 856}, {768, 104}}</string>
+								<string key="NSFrameSize">{768, 104}</string>
 								<reference key="NSSuperview" ref="194857317"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="504610899"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MQA</bytes>
+									<bytes key="NSWhite">MC41AA</bytes>
 									<object class="NSColorSpace" key="NSCustomColorSpace" id="14139973">
 										<int key="NSID">2</int>
 									</object>
@@ -196,7 +197,7 @@
 						<float key="IBUIRowHeight">44</float>
 						<float key="IBUISectionHeaderHeight">22</float>
 						<float key="IBUISectionFooterHeight">22</float>
-						<reference key="IBUITableFooterView" ref="391584826"/>
+						<reference key="IBUITableHeaderView" ref="391584826"/>
 					</object>
 				</object>
 				<string key="NSFrame">{{0, 64}, {768, 960}}</string>
@@ -228,14 +229,6 @@
 						<reference key="destination" ref="194857317"/>
 					</object>
 					<int key="connectionID">7</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">footerView</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="391584826"/>
-					</object>
-					<int key="connectionID">9</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -357,12 +350,7 @@
 							<reference ref="1039186823"/>
 						</object>
 						<reference key="parent" ref="194857317"/>
-						<string key="objectName">Footer View</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">45</int>
-						<reference key="object" ref="1039186823"/>
-						<reference key="parent" ref="391584826"/>
+						<string key="objectName">Button Container</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">42</int>
@@ -382,6 +370,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
 						<reference key="object" ref="504610899"/>
+						<reference key="parent" ref="391584826"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">45</int>
+						<reference key="object" ref="1039186823"/>
 						<reference key="parent" ref="391584826"/>
 					</object>
 				</object>
@@ -491,49 +484,14 @@
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>footerView</string>
-							<string>headerTextField</string>
-							<string>headerView</string>
-							<string>table</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UIView</string>
-							<string>UITextField</string>
-							<string>UIView</string>
-							<string>UITableView</string>
-						</object>
+						<string key="NS.key.0">table</string>
+						<string key="NS.object.0">UITableView</string>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>footerView</string>
-							<string>headerTextField</string>
-							<string>headerView</string>
-							<string>table</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">footerView</string>
-								<string key="candidateClassName">UIView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">headerTextField</string>
-								<string key="candidateClassName">UITextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">headerView</string>
-								<string key="candidateClassName">UIView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">table</string>
-								<string key="candidateClassName">UITableView</string>
-							</object>
+						<string key="NS.key.0">table</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">table</string>
+							<string key="candidateClassName">UITableView</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

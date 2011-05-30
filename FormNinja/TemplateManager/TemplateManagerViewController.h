@@ -10,49 +10,55 @@
 
 @class TemplateEditorController;
 
-@interface TemplateManagerViewController : UIViewController <UIActionSheetDelegate>
+@interface TemplateManagerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 {
-	UITableView *templateTableView;
-	UITableView *groupTableView;
-	UIViewController *templateEditorViewController;
-	TemplateEditorController *templateEditorB;
-
-	UIButton *deleteButton;
-	UIButton *modifyButton;
-	UIButton *duplicateButton;
-	UIButton *newButton;
-	UIViewController *signatureViewController;
+	NSMutableArray * groupNameList;
+	NSMutableArray * templateList;
+	NSMutableArray * filteredTemplateList;
+	
+	UITableView *templateTable;
+	UITableView *groupTable;
+	
+	UIButton *deleteTemplateButton;
+	UIButton *copyTemplateButton;
+	UIButton *editTemplateButton;
+	UIButton *createTemplateButton;
+	
+	TemplateEditorController *templateEditor;
+	
+	
+	UIViewController *oldTemplateEditorViewController; // TODO: remove
 }
 
-@property (nonatomic, retain) IBOutlet UITableView *groupTableView;
+// Data Members
 @property (nonatomic, retain) NSMutableArray * groupNameList;
-@property (nonatomic, retain) NSString * selectedGroupName;
+@property (nonatomic, retain) NSMutableArray * templateList;
+@property (nonatomic, retain) NSMutableArray * filteredTemplateList;
 
-@property (nonatomic, retain) IBOutlet UITableView *templateTableView;
-@property (nonatomic, retain) NSMutableArray * templateNameList;
-@property (nonatomic, retain) NSMutableArray * templatePathList;
-@property (nonatomic, retain) NSString * selectedTemplateName;
+// Interface Members
+@property (nonatomic, retain) IBOutlet UITableView *groupTable;
+@property (nonatomic, retain) IBOutlet UITableView *templateTable;
 
-// Buttons
-@property (nonatomic, retain) IBOutlet UIButton *deleteButton;
-@property (nonatomic, retain) IBOutlet UIButton *modifyButton;
-@property (nonatomic, retain) IBOutlet UIButton *duplicateButton;
-@property (nonatomic, retain) IBOutlet UIButton *newButton;
-// end Buttons
+@property (nonatomic, retain) IBOutlet UIButton *deleteTemplateButton;
+@property (nonatomic, retain) IBOutlet UIButton *copyTemplateButton;
+@property (nonatomic, retain) IBOutlet UIButton *editTemplateButton;
+@property (nonatomic, retain) IBOutlet UIButton *createTemplateButton;
 
+@property (nonatomic, retain) IBOutlet TemplateEditorController *templateEditor;
 
-@property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
-@property (nonatomic, retain) IBOutlet TemplateEditorController *templateEditorB;
-
-
+// Instance Methods
+- (BOOL) isTemplateAtIndexPublished:(NSUInteger)index;
+- (BOOL) isSelectedTemplatePublished;
+- (void) disableButtons;
+- (void) enableButtons;
+  
 - (IBAction)deleteSelectedTemplate;
-- (IBAction)updateSelectedTemplate;
-- (IBAction)duplicateSelectedTemplate;
-- (IBAction)createNewTemplate;
-- (IBAction)pushTemplateEditorB;
+- (IBAction)copySelectedTemplate;
+- (IBAction)editSelectedTemplate;
+- (IBAction)createTemplate;
 
-// TODO: Temporary test code.
-- (IBAction)testAddTemplateFile;
 
+@property (nonatomic, retain) IBOutlet UIViewController *oldTemplateEditorViewController; // TODO: remove
+- (IBAction)createTemplateWithOldEditor; // TODO: remove
 
 @end

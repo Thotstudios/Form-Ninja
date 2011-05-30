@@ -52,7 +52,7 @@
 {
 	[labelField setText:nil];
 	[dictionary removeAllObjects];
-	[dictionary setObject:@"Label" forKey:@"type"];
+	[dictionary setValue:@"Label" forKey:@"type"];
 	[labelAlignmentControl setSelectedSegmentIndex:0];
 }
 
@@ -102,7 +102,7 @@
 		break;
 	}
 	if(key)
-		[dictionary setObject:[textField text] forKey:key];
+		[dictionary setValue:[textField text] forKey:key];
 }
 
 @end

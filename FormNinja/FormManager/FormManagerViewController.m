@@ -7,9 +7,15 @@
 //
 
 #import "FormManagerViewController.h"
-
+#import "Constants.h"
 
 @implementation FormManagerViewController
+
+@synthesize formList;
+
+@synthesize formTable;
+@synthesize createFormButton;
+
 @synthesize formEditorViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -23,7 +29,10 @@
 
 - (void)dealloc
 {
+	[formList release];
+    [formTable release];
     [formEditorViewController release];
+	[createFormButton release];
     [super dealloc];
 }
 
@@ -45,21 +54,138 @@
 
 - (void)viewDidUnload
 {
+	[self setFormList:nil];
+    [self setFormTable:nil];
     [self setFormEditorViewController:nil];
+	[self setCreateFormButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+#pragma mark - Instance Methods
+-(void) filterTemplatesToPublished
 {
-    // Return YES for supported orientations
-	return YES;
+	for(NSDictionary * dict in templateList)
+		{
+		if(!([[[[dict valueForKey:@"data"] objectAtIndex:0] valueForKey:@"published"] boolValue]))
+			[templateList removeObject:dict];
+		}
+}
+-(void) loadFormList
+{
+	//NSArray * directory = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:FORM_PATH error:nil];
+	
+	
 }
 
 - (IBAction)newFormWithSelectedTemplate
 {
 	[self.navigationController pushViewController:formEditorViewController animated:YES];
 	//TODO
+}
+
+-(void) disableButtons
+{
+	[super disableButtons];
+	[createFormButton setEnabled:NO];	[createFormButton setAlpha:0.50];
+	// TODO: lite version
+}
+-(void) enableButtons 
+{
+	[super enableButtons];
+	if([self isSelectedTemplatePublished])
+		{
+		[createFormButton setEnabled:YES];	[createFormButton setAlpha:1.00];
+		}
+	else
+		{
+		[createFormButton setEnabled:NO];	[createFormButton setAlpha:0.50];
+		}
+	// TODO: lite version
+}
+#pragma mark - TableView DataSource
+
+
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
+{
+	NSInteger r = 0;
+	
+	if([table tag] < 3)
+		r = [super tableView:table numberOfRowsInSection:section];
+	else
+		r = [formList count];
+	
+	return r;
+}
+-(NSString*) tableView:(UITableView *)table titleForHeaderInSection:(NSInteger)section
+{
+	NSString * ret = nil;
+	if([table tag] < 3)
+		ret = [super tableView:table titleForHeaderInSection:section];
+	else
+		ret = @"Incomplete Forms"; // TODO: localize
+	return ret;
+}
+- (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSString *CellIdentifier = nil;
+	switch ([table tag])
+	{
+		case 3:
+		CellIdentifier = @"Form Table Cell";
+		break;
+		
+		default:
+		CellIdentifier = @"Cell";
+		break;
+	}
+    UITableViewCell *cell;
+	
+	// Obtain the cell...
+	if([table tag] < 3)
+		cell = [super tableView:table cellForRowAtIndexPath:indexPath];
+	else
+		cell = [table dequeueReusableCellWithIdentifier:CellIdentifier];
+	
+	if(cell == nil)
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+	
+    // Configure the cell...
+	switch ([table tag])
+	{
+		case 3: // forms
+		[[cell textLabel] setText:[formList objectAtIndex:[indexPath row]]];
+		break;
+			
+		case 2: // templates
+		
+		if([self isTemplateAtIndexPublished:[indexPath row]])
+			[[cell textLabel] setTextColor:[UIColor blackColor]];
+		else
+			[[cell textLabel] setTextColor:[UIColor grayColor]];
+		break;
+		
+		case 1: // groups
+		default:
+		break;
+	}
+    return cell;
+}
+
+#pragma mark - TableView Delegate
+- (void)tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[super tableView:table didSelectRowAtIndexPath:indexPath];
+	switch([table tag])
+	{
+		case 1: // group table
+		//[self filterByGroupName];
+		break;
+		
+		case 2: // template table
+		//[self enableButtons];
+		break;
+	}
 }
 @end

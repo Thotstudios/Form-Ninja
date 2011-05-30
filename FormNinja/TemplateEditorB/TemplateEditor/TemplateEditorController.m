@@ -12,12 +12,10 @@
 #import "ElementPicker.h"
 #import "TemplateElement.h"
 
-#define SHOW_TEMPLATE_IN_TABLE 1
-
-#define tableHeightFullPortrait		960
+#define tableHeightFullPortrait		960 - 104
 #define tableHeightHalfPortrait		696
 
-#define tableHeightFullLandscape	704
+#define tableHeightFullLandscape	704 - 104
 #define tableHeightHalfLandscape	352
 
 #define keyboardHeightPortrait		264
@@ -25,16 +23,10 @@
 
 @implementation TemplateEditorController
 
-@synthesize templateNameField;
-
 @synthesize table;
-@synthesize headerView;
-@synthesize headerTextField;
-@synthesize footerView;
+
 @synthesize data;
 @synthesize views;
-
-@synthesize alert;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,11 +40,6 @@
 - (void)dealloc
 {
     [table release];
-	
-    [headerView release];
-	[headerTextField release];
-	
-    [footerView release];
 	
 	[data release];
 	[views release];
@@ -73,8 +60,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	data = [[NSMutableArray alloc] init];
-	views = [[NSMutableArray alloc] init];
 	[self clear];
 }
 
@@ -121,7 +106,7 @@
 	if(orient == UIDeviceOrientationLandscapeLeft || orient == UIDeviceOrientationLandscapeRight)
 		[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, tableHeightFullLandscape)];
 	else
-	[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, tableHeightFullPortrait)];
+		[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, tableHeightFullPortrait)];
 }
 
 -(void) setIndexes
@@ -153,15 +138,6 @@
 				}
 			else
 				{
-				/*
-				if(SHOW_TEMPLATE_IN_TABLE)
-					{
-					element = [TableElementPicker elementOfType:@"MetaData"];
-					[element setDictionary:[data objectAtIndex:0]];
-					[views addObject:element];
-					}
-				//[headerTextField setText:[dict objectForKey:@"template name"]];
-				 */
 				}
 			}
 		[self setIndexes];
@@ -173,11 +149,6 @@
 - (void)viewDidUnload
 {
     [self setTable:nil];
-	
-    [self setHeaderView:nil];
-	[self setHeaderTextField:nil];
-	
-    [self setFooterView:nil];
 	
 	[self setData:nil];
 	[self setViews:nil];
@@ -195,6 +166,14 @@
 
 #pragma mark - Member Functions
 
+-(void) newTemplateWithName:(NSString *)name group:(NSString *)group
+{
+	[self clear];
+	NSDictionary * dict = [data objectAtIndex:0];
+	[dict setValue:name forKey:@"template name"];
+	[dict setValue:group forKey:@"group name"];
+	[table reloadData];
+}
 -(void) newElementOfType:(NSString*)type
 {
 	TemplateElement * element = [ElementPicker elementOfType:type];
@@ -207,8 +186,7 @@
 
 - (IBAction)addElement
 {
-	[self setAlert:[[ElementPicker alloc] initWithDelegate:self selector:@selector(newElementOfType:)]];
-	[alert show];
+	[[[[ElementPicker alloc] initWithDelegate:self selector:@selector(newElementOfType:)] autorelease] show];
 }
 
 - (void) stopEditing
@@ -237,22 +215,22 @@
 
 - (IBAction)clear
 {
-	[data removeAllObjects];
+	[self setData:[NSMutableArray array]];
+	[self setViews:[NSMutableArray array]];
+	
 	NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-	//[dict setValue:@"Template Name" forKey:@"template name"];
-	//[dict setValue:@"No Group" forKey:@"group name"];
+	
 	[dict setValue:@"MetaData" forKey:@"type"];
 	[dict setValue:@"Robert Paulson" forKey:@"creator name"];
+	[dict setValue:[NSNumber numberWithBool:NO] forKey:@"published"];
 	[dict setValue:@"No" forKey:@"published"];
 	[data addObject:dict];
-	[views removeAllObjects];
-	if(SHOW_TEMPLATE_IN_TABLE)
-		{
-		TemplateElement * element = [ElementPicker elementOfType:@"MetaData"];
-		[element setDelegate:self];
-		[element setDictionary:[data objectAtIndex:0]];
-		[views addObject:element];
-		}
+	
+	TemplateElement * element = [ElementPicker elementOfType:@"MetaData"];
+	[element setDelegate:self];
+	[element setDictionary:[data objectAtIndex:0]];
+	[views addObject:element];
+	
 	[self setIndexes];
 	[table reloadData];
 }
@@ -261,9 +239,6 @@
 {
 	// TODO commit text field changes
 	
-	NSString * TEMPLATE_EXT = @".xml";
-	
-	
 	NSDictionary * dict = [data objectAtIndex:0];
 	NSString * group = [dict objectForKey:@"group name"];
 	NSString * template = [dict objectForKey:@"template name"];
@@ -271,10 +246,13 @@
 	if(!group) group = @"No Group";
 	if(!template) template = [NSString stringWithFormat:@"%i", time(0)];
 	
-	NSString * path = [NSString stringWithFormat:@"%@/%@-%@%@", DOCUMENTS_PATH, group, template, TEMPLATE_EXT];
+	NSString * path = [NSString stringWithFormat:@"%@/%@-%@%@", TEMPLATE_PATH, group, template, TEMPLATE_EXT];
 	
 	if(path)
 		{
+		if(!([[NSFileManager defaultManager] fileExistsAtPath:TEMPLATE_PATH]))
+			[[NSFileManager defaultManager] createDirectoryAtPath:TEMPLATE_PATH withIntermediateDirectories:YES attributes:nil error:nil];
+		
 		if([data writeToFile:path atomically:YES])
 			{
 			UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Template saved."	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"OK", nil];
@@ -295,7 +273,7 @@
 
 -(NSString*) tableView:(UITableView*) tableView titleForHeaderInSection:(NSInteger)section
 {
-	section += 1 - SHOW_TEMPLATE_IN_TABLE;
+	//section += 1 - SHOW_TEMPLATE_IN_TABLE;
 	
 	NSString * ret = nil;
 	if(!ret) ret = [[data objectAtIndex:section] objectForKey:@"header"];
@@ -315,8 +293,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	NSInteger ret = 1;
-	NSString * type = [[data objectAtIndex:section] objectForKey:@"type"];
-	NSLog(@"Section %i type: %@", section, type);
+	//NSString * type = [[data objectAtIndex:section] objectForKey:@"type"];
 	//if([[data objectAtIndex:section] isKindOfClass:[NSArray class]])
 	//{
 	//	ret = [[data objectAtIndex:section] count];
@@ -365,7 +342,7 @@
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
  {
  // Return NO if you do not want the specified item to be editable.
- if(SHOW_TEMPLATE_IN_TABLE && [indexPath section] == 0)
+ if([indexPath section] == 0)
 	 return NO;
  return YES;
  }
@@ -378,7 +355,7 @@
 	if (editingStyle == UITableViewCellEditingStyleDelete)
 		{
 		// Delete the row from the data source
-		[data removeObjectAtIndex:[indexPath section]+1-SHOW_TEMPLATE_IN_TABLE];
+		[data removeObjectAtIndex:[indexPath section]];
 		[views removeObjectAtIndex:[indexPath section]];
 		
 		//[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -397,7 +374,7 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	// Return NO if you do not want the item to be re-orderable.
-	if(SHOW_TEMPLATE_IN_TABLE && [indexPath section] == 0)
+	if([indexPath section] == 0)
 		return NO;
 	return YES;
 }
@@ -407,9 +384,9 @@
 {
 	id temp;
 	
-	temp = [[data objectAtIndex:[fromIndexPath section] + 1 - SHOW_TEMPLATE_IN_TABLE] retain];
-	[data removeObjectAtIndex:[fromIndexPath section] + 1 - SHOW_TEMPLATE_IN_TABLE];
-	[data insertObject:temp atIndex:[toIndexPath section] + 1 - SHOW_TEMPLATE_IN_TABLE];
+	temp = [[data objectAtIndex:[fromIndexPath section]] retain];
+	[data removeObjectAtIndex:[fromIndexPath section]];
+	[data insertObject:temp atIndex:[toIndexPath section]];
 	[temp release];
 	
 	temp = [[views objectAtIndex:[fromIndexPath section]] retain];

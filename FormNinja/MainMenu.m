@@ -77,7 +77,7 @@
 -(void) viewDidAppear:(BOOL)animated
 {
 	[self updateLoginExpirationLabel];
-	[self.versionLabel setText:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
+	[self.versionLabel setText:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"]];
 }
 
 - (void)viewDidUnload

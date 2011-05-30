@@ -54,9 +54,15 @@
 #define ALL_GROUPS_STR @"All Groups" /* TODO: localize */
 
 // Template constants
-#define DOCUMENTS_PATH ([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0])
-//#define TEMPLATE_DIR (@"/.")
-//#define TEMPLATE_PATH ([NSString stringWithFormat:@"%@%@", DOCUMENTS_PATH, TEMPLATE_DIR])
+#define DOCUMENTS_PATH	([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0])
+
+#define TEMPLATE_DIR	(@"Templates")
+#define TEMPLATE_PATH	([NSString stringWithFormat:@"%@/%@", DOCUMENTS_PATH, TEMPLATE_DIR])
+#define TEMPLATE_EXT	(@".xml")
+
+#define FORM_DIR		(@"Forms")
+#define FORM_PATH		([NSString stringWithFormat:@"%@/%@", DOCUMENTS_PATH, TEMPLATE_DIR])
+#define FORM_EXT		(@".xml")
 
 #define CONFIRM_DELETE_TEMPLATE_TITLE_STR @"Are you sure you want to delete this template?" /* TODO: localize */
 #define CONFIRM_DELETE_TEMPLATE_BUTTON_STR @"Yes, delete it" /* TODO: localize */

@@ -34,7 +34,7 @@
 - (IBAction)reset
 {
 	[super reset];
-	[dictionary setObject:@"Repeating" forKey:@"type"];
+	[dictionary setValue:@"Repeating" forKey:@"type"];
 }
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {

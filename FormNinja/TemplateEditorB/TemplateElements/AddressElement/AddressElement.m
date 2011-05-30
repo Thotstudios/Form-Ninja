@@ -44,7 +44,7 @@
 -(void) reset
 {
 	[super reset];
-	[dictionary setObject:@"Address" forKey:@"type"];
+	[dictionary setValue:@"Address" forKey:@"type"];
 	[addressLineOneField setText:nil];
 	[addressLineTwoField setText:nil];
 	[cityNameField setText:nil];
@@ -54,11 +54,11 @@
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
-	[addressLineOneField setText:[dictionary objectForKey:@"address line"]];
-	[addressLineTwoField setText:[dictionary objectForKey:@"address line 2"]];
-	[cityNameField setText:[dictionary objectForKey:@"city name"]];
-	[stateAbbrField setText:[dictionary objectForKey:@"state abbr"]];
-	[zipCodeField setText:[dictionary objectForKey:@"zip code"]];
+	[addressLineOneField setText:[dictionary valueForKey:@"address line"]];
+	[addressLineTwoField setText:[dictionary valueForKey:@"address line 2"]];
+	[cityNameField setText:[dictionary valueForKey:@"city name"]];
+	[stateAbbrField setText:[dictionary valueForKey:@"state abbr"]];
+	[zipCodeField setText:[dictionary valueForKey:@"zip code"]];
 	
 }
 #pragma mark - Delegate Methods:
@@ -142,7 +142,7 @@
 		break;
 	}
 	if(key)
-		[dictionary setObject:[textField text] forKey:key];
+		[dictionary setValue:[textField text] forKey:key];
 }
 
 @end

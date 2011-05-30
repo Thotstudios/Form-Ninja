@@ -53,11 +53,11 @@
 	 */
 	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
 	
-	NSDate *date = [dictionary objectForKey:@"creation date"];
+	NSDate *date = [dictionary valueForKey:@"creation date"];
 	if(!date)
 		{
 		date = [NSDate date];
-		[dictionary setObject:date forKey:@"creation date"];
+		[dictionary setValue:date forKey:@"creation date"];
 		}
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 	[creationDateField setText:[dateFormatter stringFromDate:date]];
@@ -67,7 +67,7 @@
 - (IBAction)reset
 {
 	[super reset];
-	[dictionary setObject:@"MetaData" forKey:@"type"];
+	[dictionary setValue:@"MetaData" forKey:@"type"];
 	[templateNameField setText:nil];
 	[templateGroupField setText:nil];
 	[creatorNameField setText:@"Robert Paulson"];
@@ -79,19 +79,19 @@
 {
 	[self reset];
 	[super setDictionary:arg];
-	[templateNameField setText:[dictionary objectForKey:@"template name"]];
-	[templateGroupField setText:[dictionary objectForKey:@"group name"]];
-	[creatorNameField setText:[dictionary objectForKey:@"creator name"]];
+	[templateNameField setText:[dictionary valueForKey:@"template name"]];
+	[templateGroupField setText:[dictionary valueForKey:@"group name"]];
+	[creatorNameField setText:[dictionary valueForKey:@"creator name"]];
 	[self setDate];
-	//[creationDateField setText:[dictionary objectForKey:@"creation date"]];
-	[publishedSwitch setOn:[[dictionary objectForKey:@"published"] boolValue]];
+	//[creationDateField setText:[dictionary valueForKey:@"creation date"]];
+	[publishedSwitch setOn:[[dictionary valueForKey:@"published"] boolValue]];
 }
 
 #pragma mark - Interface Methods
 
 -(IBAction) togglePublished:(UISwitch *)sender
 {
-	[dictionary setObject:[NSNumber numberWithBool:[publishedSwitch isOn]] forKey:@"published"];
+	[dictionary setValue:[NSNumber numberWithBool:[publishedSwitch isOn]] forKey:@"published"];
 }
 
 #pragma mark - TextField Delegate
@@ -146,7 +146,7 @@
 		break;
 	}
 	if(key)
-		[dictionary setObject:[textField text] forKey:key];
+		[dictionary setValue:[textField text] forKey:key];
 }
 
 @end

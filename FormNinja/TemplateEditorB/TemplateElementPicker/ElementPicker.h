@@ -12,28 +12,24 @@
 
 @interface ElementPicker : UIAlertView <UITableViewDelegate, UITableViewDataSource>
 {
-	NSMutableArray * elementTypes;
+	NSMutableArray * elementList;
+	UITableView * table;
     id callback;
 	SEL selector;
-	UITableView * table;
+	
 	float frameHeight;
 	float frameYPosition;
 	UIDeviceOrientation orientation;
 }
 
-//@property (retain, nonatomic) UIAlertView * alert;
-@property (retain, nonatomic) id callback;
-@property SEL selector;
-
+@property (nonatomic, retain) NSMutableArray * elementList;
 @property (nonatomic, retain) UITableView * table;
-
-//@property (retain, nonatomic) NSString * type;
-@property (retain, nonatomic) NSMutableArray * elementTypes;
+@property (nonatomic, retain) id callback;
+@property SEL selector;
 
 -(id) initWithDelegate:(id)delegateArg selector:(SEL)selectorArg;
 
 // Class Methods:
 +(TemplateElement*) elementOfType:(NSString*)arg;
-+(void) registerTemplateElement:(id)className name:(NSString*)name;
 
 @end

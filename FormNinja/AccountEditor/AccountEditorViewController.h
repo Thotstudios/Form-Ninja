@@ -42,7 +42,7 @@
     CustomLoadAlertViewController *loadAlert;
 }
 
-@property (retain, nonatomic) AccountClass * account;
+@property (nonatomic, retain) AccountClass * account;
 @property (nonatomic, retain) IBOutlet UITextField *usernameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *passwordTextField;
 @property (nonatomic, retain) IBOutlet UITextField *passwordChangeTextField;

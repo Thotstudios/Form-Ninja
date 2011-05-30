@@ -21,7 +21,7 @@
 
 @property (nonatomic, retain) SignatureView * signatureView;
 
-@property (retain, nonatomic) id callback;
+@property (nonatomic, retain) id callback;
 @property SEL selector;
 @property SEL success;
 @property SEL failure;

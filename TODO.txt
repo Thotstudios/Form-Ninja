@@ -4,15 +4,6 @@ This is not official or required in any way.
 It's more like quick notes to ourselves and each other.
 
 Chad:
-* Update template management view
-- include update button
-- link duplicate button to something
-- should not be able to create a new template if no group (or All Groups) is selected.
-* Create form management view
-- first, a list of groups including "All Groups"
-- second, depending on group selection, is a list of available templates
-- third, a template was selected, and user can start filling out form.
-- fourth, at any point, user can change to Signature mdoe
 * Unpublished templates should have a 'Resume' button instead of a "Modify" button
 * Clean up SignatureAlertView to have stuff centered and balanced.
 
@@ -24,5 +15,3 @@ Ron:
 
 Other:
 * Localization support
-
-* version string on main menu

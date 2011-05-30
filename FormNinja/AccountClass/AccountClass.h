@@ -26,18 +26,18 @@
 	NSString * zipCodeExt;
 }
 
-@property (retain, nonatomic) NSString * userID;
-@property (retain, nonatomic) NSString * username;
-@property (retain, nonatomic) NSString * passwordHash;
-@property (retain, nonatomic) NSString * firstName;
-@property (retain, nonatomic) NSString * lastName;
-@property (retain, nonatomic) NSString * emailAddress;
-@property (retain, nonatomic) NSString * companyName;
-@property (retain, nonatomic) NSString * phoneNumber;
-@property (retain, nonatomic) NSString * securityQuestion;
-@property (retain, nonatomic) NSString * securityAnswer;
-@property (retain, nonatomic) NSString * zipCode;
-@property (retain, nonatomic) NSString * zipCodeExt;
+@property (nonatomic, retain) NSString * userID;
+@property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSString * passwordHash;
+@property (nonatomic, retain) NSString * firstName;
+@property (nonatomic, retain) NSString * lastName;
+@property (nonatomic, retain) NSString * emailAddress;
+@property (nonatomic, retain) NSString * companyName;
+@property (nonatomic, retain) NSString * phoneNumber;
+@property (nonatomic, retain) NSString * securityQuestion;
+@property (nonatomic, retain) NSString * securityAnswer;
+@property (nonatomic, retain) NSString * zipCode;
+@property (nonatomic, retain) NSString * zipCodeExt;
 
 
 - (void) saveWithDict:(NSDictionary *) userDict;

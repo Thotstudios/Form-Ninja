@@ -8,13 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TemplateManagerViewController.h"
 
-@interface FormManagerViewController : UIViewController
+@interface FormManagerViewController : TemplateManagerViewController
 {
-    
+	NSMutableArray * formList;
+	
+	UITableView *formTable;
+	UIButton *createFormButton;
+	
 	UIViewController *formEditorViewController;
 }
+
+@property (nonatomic, retain) NSMutableArray * formList;
+
+@property (nonatomic, retain) IBOutlet UITableView *formTable;
+
+@property (nonatomic, retain) IBOutlet UIButton *createFormButton;
+
 @property (nonatomic, retain) IBOutlet UIViewController *formEditorViewController;
+
 - (IBAction)newFormWithSelectedTemplate;
 
 @end
