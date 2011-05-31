@@ -42,7 +42,10 @@
 
 
 #pragma mark - Methods
-
+-(void) beginEditing
+{
+	[templateNameField becomeFirstResponder];
+}
 -(void) setDate
 {
 	/*
@@ -89,9 +92,17 @@
 
 #pragma mark - Interface Methods
 
+-(BOOL) templateIsValid { return NO; }
 -(IBAction) togglePublished:(UISwitch *)sender
 {
-	[dictionary setValue:[NSNumber numberWithBool:[publishedSwitch isOn]] forKey:@"published"];
+	if(![publishedSwitch isOn] || [delegate templateIsValid])
+		{
+		[dictionary setValue:[NSNumber numberWithBool:[publishedSwitch isOn]] forKey:@"published"];
+		}
+	else
+		{
+		[publishedSwitch setOn:NO];
+		}
 }
 
 #pragma mark - TextField Delegate
@@ -103,7 +114,7 @@
 	[formatter setDateStyle:NSDateFormatterNoStyle];
 	NSDate * date = nil;
 	*/
-	
+	/*
 	switch([textField tag])
 	{
 		case 0: default: // error
@@ -119,7 +130,8 @@
 		case 4: // creation date
 		break;
 	}
-	
+	*/
+	[self editNextElement];
 	[textField resignFirstResponder];
 	return YES;
 }

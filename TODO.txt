@@ -6,6 +6,8 @@ It's more like quick notes to ourselves and each other.
 Chad:
 * Unpublished templates should have a 'Resume' button instead of a "Modify" button
 * Clean up SignatureAlertView to have stuff centered and balanced.
+* Validate Template before publishing
+* Return key moves between fields
 
 Paul:
 * Optionally write a TODO list here.

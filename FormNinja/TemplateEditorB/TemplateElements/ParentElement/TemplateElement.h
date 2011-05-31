@@ -26,6 +26,7 @@
 - (IBAction)segmentedControlValueDidChange:(UISegmentedControl*)segmentedControl;
 - (IBAction)reset;
 - (void)setDictionary:(NSMutableDictionary*)arg;
--(void) setIndex:(int)arg;
+- (void)setIndex:(int)arg;
+- (void) editNextElement;
 
 @end

@@ -44,6 +44,13 @@
 
 #pragma mark - Methods
 
+-(void) beginEditing
+{
+	if(labelField)
+		[labelField becomeFirstResponder];
+	else
+		[self editNextElement];
+}
 -(void) setIndex:(int)arg
 {
 	index = arg;
@@ -64,30 +71,23 @@
 	[labelAlignmentControl setSelectedSegmentIndex:[[dictionary objectForKey:@"label alignment"] integerValue]];
 }
 
-#pragma mark - Delegate Methods:
-
-#pragma mark -Segmented Control
+#pragma mark - SegmentedControl Delegate
 
 - (IBAction)segmentedControlValueDidChange:(UISegmentedControl*)segmentedControl
 {
 	[dictionary setValue:[NSNumber numberWithInteger:[segmentedControl selectedSegmentIndex]] forKey:@"label alignment"];
 }
 
-#pragma mark -Text Field
+#pragma mark - TextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {	
-	switch([textField tag])
-	{
-		case 0: default: // error
-		[textField resignFirstResponder];
-		break;
-	}
+	[self editNextElement];
+	[textField resignFirstResponder];
 	return YES;
 }
 
--(void) selectSection:(int)arg
-{}
+-(void) selectSection:(int)arg {}
 -(void) textFieldDidBeginEditing:(UITextField *)textField
 {
 	[delegate selectSection:index];
@@ -105,4 +105,9 @@
 		[dictionary setValue:[textField text] forKey:key];
 }
 
+-(void) editElementAfterIndex:(NSUInteger)index {}
+-(void) editNextElement
+{
+	[delegate editElementAfterIndex:index];
+}
 @end

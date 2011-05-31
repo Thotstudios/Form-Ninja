@@ -12,7 +12,6 @@
 
 @interface MetaDataElement : TemplateElement <UITextFieldDelegate>
 {
-    
 	UITextField *templateNameField;
 	UITextField *templateGroupField;
 	UITextField *creatorNameField;

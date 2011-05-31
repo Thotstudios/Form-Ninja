@@ -62,7 +62,6 @@
 	switch([textField tag])
 	{
 		case 0: default: // error
-		[textField resignFirstResponder];
 		break;
 		
 		case 1: // label
@@ -82,6 +81,7 @@
 		if(!number)
 			return NO;
 		[maximumLengthField setText:[NSString stringWithFormat:@"%@", number]];
+		[self editNextElement];
 		break;
 	}
 	

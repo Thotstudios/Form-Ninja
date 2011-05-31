@@ -46,10 +46,9 @@ static BOOL dictionaryIsLoaded = NO;
 	[self setSelector:selectorArg];
 	frameHeight = 0;
 	frameYPosition = 0;
-	orientation = -1; //[[UIDevice currentDevice] orientation];
+	orientation = -1;
 	if(!dictionaryIsLoaded) [ElementPicker loadElementDictionary];
 	
-	// TODO: move to static array
 	[self setElementList:[[elementDictionary allKeys] mutableCopy]];
 	[elementList removeObject:@"MetaData"];
 	[elementList sortUsingSelector:@selector(compare:)];

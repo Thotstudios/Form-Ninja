@@ -73,7 +73,6 @@
 	switch([textField tag])
 	{
 		case 0: default: // error
-		[textField resignFirstResponder];
 		break;
 		
 		case 1: // label
@@ -106,9 +105,10 @@
 				return NO;
 			[zipCodeField setText:[NSString stringWithFormat:@"%@", number]];
 			}
-		[labelField becomeFirstResponder];
+		[self editNextElement];
 		break;
 	}
+	[textField resignFirstResponder];
 	return YES;
 }
 

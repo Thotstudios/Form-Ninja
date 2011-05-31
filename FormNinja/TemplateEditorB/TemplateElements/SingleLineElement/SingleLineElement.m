@@ -82,10 +82,11 @@
 		if(!number)
 			return NO;
 		[maximumLengthField setText:[NSString stringWithFormat:@"%@", number]];
-		//[textField resignFirstResponder];
+		[self editNextElement];
 		break;
 		
 		case 4: // value
+		[self editNextElement];
 		break;
 	}
 	

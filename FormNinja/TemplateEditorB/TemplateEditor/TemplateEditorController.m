@@ -12,10 +12,10 @@
 #import "ElementPicker.h"
 #import "TemplateElement.h"
 
-#define tableHeightFullPortrait		960 - 104
+#define tableHeightFullPortrait		960
 #define tableHeightHalfPortrait		696
 
-#define tableHeightFullLandscape	704 - 104
+#define tableHeightFullLandscape	704
 #define tableHeightHalfLandscape	352
 
 #define keyboardHeightPortrait		264
@@ -165,7 +165,18 @@
 }
 
 #pragma mark - Member Functions
-
+-(void) editElementAfterIndex:(NSUInteger)index
+{
+	index++;
+	if(index < [views count])
+		[[views objectAtIndex:index] beginEditing];
+	else
+		[table deselectRowAtIndexPath:[table indexPathForSelectedRow] animated:YES];
+}
+-(BOOL) templateIsValid
+{ 
+	return YES;
+}
 -(void) newTemplateWithName:(NSString *)name group:(NSString *)group
 {
 	[self clear];
