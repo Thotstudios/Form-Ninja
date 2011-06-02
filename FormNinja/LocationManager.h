@@ -29,5 +29,6 @@
 - (void) startUpdates;
 - (void) stopUpdates;
 - (BOOL) locationServicesEnabled;
+- (BOOL) hasValidLocation;
 
 @end

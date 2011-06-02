@@ -99,6 +99,12 @@ static BOOL initialized = NO; //Indicates location manager initialization
 }
 
 
+//Checks if there is valid location info to share
+- (BOOL) hasValidLocation{
+    return  (![self locationDenied] &&  [self locationDefined] && [self locationServicesEnabled]);
+}
+
+
 //Starts location update
 - (void) startUpdates
 {
@@ -126,8 +132,6 @@ static BOOL initialized = NO; //Indicates location manager initialization
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation  fromLocation:(CLLocation *)oldLocation
 {
 	self.locationDenied = NO; //We are not being denied services from the user or elsewhere
-
-    NSLog(@"%@", newLocation);
     
     self.latitude = newLocation.coordinate.latitude;
     self.longitude = newLocation.coordinate.longitude;

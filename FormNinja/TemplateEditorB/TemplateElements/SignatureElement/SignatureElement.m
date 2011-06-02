@@ -8,6 +8,7 @@
 
 #import "SignatureElement.h"
 #import "SignatureAlertView.h"
+#import "LocationManager.h"
 
 @implementation SignatureElement
 @synthesize requestButton;
@@ -57,6 +58,13 @@
 
 	NSData * imageData = UIImagePNGRepresentation(image);
 	[dictionary setValue:imageData forKey:@"signature"];
+    
+    
+    //Get location info if possible
+    if([[LocationManager locationManager] hasValidLocation]){
+        //db insert and other logic here
+        NSLog(@"%f, %f", [LocationManager locationManager].longitude, [LocationManager locationManager].latitude);
+    }
 }
 -(void) failure
 {
