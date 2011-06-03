@@ -26,6 +26,8 @@
 		42EB840C138D95C600B6F364 /* parentFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EB840A138D95C600B6F364 /* parentFieldViewController.xib */; };
 		42EB8410138D95F900B6F364 /* fieldSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EB840E138D95F900B6F364 /* fieldSelectionViewController.m */; };
 		42EB8411138D95F900B6F364 /* fieldSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EB840F138D95F900B6F364 /* fieldSelectionViewController.xib */; };
+		D904731C13982ADC00B87E4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D904731B13982ADC00B87E4E /* CoreLocation.framework */; };
+		D904732113982C5B00B87E4E /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D904732013982C5B00B87E4E /* LocationManager.m */; };
 		D917B3F81378D0B000E75140 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */; };
 		D917B3F91378D0B000E75140 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3EC1378D0B000E75140 /* ASIDownloadCache.m */; };
 		D917B3FA1378D0B000E75140 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3EE1378D0B000E75140 /* ASIFormDataRequest.m */; };
@@ -120,6 +122,9 @@
 		42EB840D138D95F900B6F364 /* fieldSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fieldSelectionViewController.h; sourceTree = "<group>"; };
 		42EB840E138D95F900B6F364 /* fieldSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fieldSelectionViewController.m; sourceTree = "<group>"; };
 		42EB840F138D95F900B6F364 /* fieldSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fieldSelectionViewController.xib; sourceTree = "<group>"; };
+		D904731B13982ADC00B87E4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D904731F13982C5B00B87E4E /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		D904732013982C5B00B87E4E /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		D90A13DC1382250200857A4C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D917B3E81378D0B000E75140 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = FormNinja/ASI/ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIAuthenticationDialog.m; path = FormNinja/ASI/ASIAuthenticationDialog.m; sourceTree = "<group>"; };
@@ -234,14 +239,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42362F2A137C5C0700D3A363 /* QuartzCore.framework in Frameworks */,
-				D917B45D1378E1C800E75140 /* MobileCoreServices.framework in Frameworks */,
 				D922CE95136C926300233C48 /* CoreGraphics.framework in Frameworks */,
+				D904731C13982ADC00B87E4E /* CoreLocation.framework in Frameworks */,
 				D917B45B1378E1BE00E75140 /* CFNetwork.framework in Frameworks */,
-				D917B4591378E14A00E75140 /* libz.1.2.3.dylib in Frameworks */,
-				D922CE91136C926300233C48 /* UIKit.framework in Frameworks */,
 				D922CE93136C926300233C48 /* Foundation.framework in Frameworks */,
+				D917B4591378E14A00E75140 /* libz.1.2.3.dylib in Frameworks */,
+				D917B45D1378E1C800E75140 /* MobileCoreServices.framework in Frameworks */,
+				42362F2A137C5C0700D3A363 /* QuartzCore.framework in Frameworks */,
 				D917B44F1378E04F00E75140 /* SystemConfiguration.framework in Frameworks */,
+				D922CE91136C926300233C48 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +342,15 @@
 			name = Fields;
 			sourceTree = "<group>";
 		};
+		D904731E13982C3000B87E4E /* Location Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D904731F13982C5B00B87E4E /* LocationManager.h */,
+				D904732013982C5B00B87E4E /* LocationManager.m */,
+			);
+			name = "Location Manager";
+			sourceTree = "<group>";
+		};
 		D917B3D01378D06200E75140 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +437,7 @@
 		D922CE8F136C926300233C48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D904731B13982ADC00B87E4E /* CoreLocation.framework */,
 				42362F29137C5C0700D3A363 /* QuartzCore.framework */,
 				D917B45C1378E1C800E75140 /* MobileCoreServices.framework */,
 				D917B45A1378E1BE00E75140 /* CFNetwork.framework */,
@@ -441,6 +457,7 @@
 				F778DD50137DC40B00B444F6 /* Networking */,
 				D917B3D01378D06200E75140 /* JSON */,
 				D917B46C1379E09F00E75140 /* Login */,
+				D904731E13982C3000B87E4E /* Location Manager */,
 				F7E2B563137E49D600EA89D0 /* Account */,
 				F7D8AFBE136E289A00FE0F76 /* MainMenu */,
 				F778DD51137DC60E00B444F6 /* TemplateManager */,
@@ -865,6 +882,7 @@
 				F721879F1390EFDC000BA9DF /* SingleLineElement.m in Sources */,
 				F7D004EC1392342700DD4D2B /* RepeatingElement.m in Sources */,
 				F7D004F2139237D600DD4D2B /* TableElement.m in Sources */,
+				D904732113982C5B00B87E4E /* LocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
