@@ -5,15 +5,15 @@
 if($_POST['username'])
 {
 	//login to database
-	$link = mysql_connect('localhost', 'rilbur5_ninja', 'ninja');
+	$link = mysql_connect('localhost', 'though16_ninja', 'o0nxunH(USa,');
 	if(!$link){
 		$response['accepted'] = 'False';
 		$response['error'] = 'Database connection error';
 		print json_encode($response);
-		//die('Could not connect: ' . mysql_error());
+		exit;
 	}
 	
-	if(mysql_select_db('rilbur5_school'))
+	if(mysql_select_db('though16_formninja'))
 	{
 		//echo "\ndatabase selected";
 		
