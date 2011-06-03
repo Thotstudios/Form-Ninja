@@ -48,7 +48,7 @@
 //Form URLs
 #define updateAccountURL @"http://www.rilburskryler.net/mobile/accountUpdate.php"
 #define accountRegisterURL @"http://www.rilburskryler.net/mobile/register.php"
-
+#define userLoginURL @"http://thotstudios.com/formninja/login.php"
 
 // Group Constants
 #define ALL_GROUPS_STR @"All Groups" /* TODO: localize */
