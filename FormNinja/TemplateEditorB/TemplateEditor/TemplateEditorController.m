@@ -235,6 +235,7 @@
 	[dict setValue:@"Robert Paulson" forKey:@"creator name"];
 	[dict setValue:[NSNumber numberWithBool:NO] forKey:@"published"];
 	[dict setValue:@"No" forKey:@"published"];
+	[dict setValue:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"] forKey:@"software version"];
 	[data addObject:dict];
 	
 	TemplateElement * element = [ElementPicker elementOfType:@"MetaData"];
