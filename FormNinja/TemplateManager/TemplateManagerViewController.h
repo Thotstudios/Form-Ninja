@@ -25,9 +25,6 @@
 	UIButton *createTemplateButton;
 	
 	TemplateEditorController *templateEditor;
-	
-	
-	UIViewController *oldTemplateEditorViewController; // TODO: remove
 }
 
 // Data Members
@@ -57,8 +54,5 @@
 - (IBAction)editSelectedTemplate;
 - (IBAction)createTemplate;
 
-
-@property (nonatomic, retain) IBOutlet UIViewController *oldTemplateEditorViewController; // TODO: remove
-- (IBAction)createTemplateWithOldEditor; // TODO: remove
 
 @end

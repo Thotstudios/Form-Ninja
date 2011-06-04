@@ -26,10 +26,6 @@
 @synthesize groupManagerViewController;
 @synthesize accountEditor;
 
-// TODO: temporary
-@synthesize templateEditorViewController;
-@synthesize temporaryFormEditorViewController;
-//
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,11 +45,6 @@
 	[templateManagerViewContoller release];
 	[groupManagerViewController release];
 	[accountEditor release];
-	
-	// TODO: Temporary
-	[templateEditorViewController release];
-    [temporaryFormEditorViewController release];
-	//
 	
     [versionLabel release];
     [super dealloc];
@@ -89,9 +80,6 @@
 	[self setTemplateManagerViewContoller:nil];
 	[self setGroupManagerViewController:nil];
 	[self setAccountEditor:nil];
-	
-	[self setTemplateEditorViewController:nil];
-    [self setTemporaryFormEditorViewController:nil];
 	
     [self setVersionLabel:nil];
     [super viewDidUnload];
@@ -189,15 +177,4 @@
 	[self.navigationController pushViewController:loginViewController animated:YES];
 }
 
-#pragma mark - Temporary Methods
-
-- (IBAction)buttonPressedTemplateEditor:(id)sender
-{
-	[self.navigationController pushViewController:templateEditorViewController animated:YES];
-}
-- (IBAction)pressedTemporaryFormEditorButton
-{
-	[self.navigationController pushViewController:temporaryFormEditorViewController animated:YES];
-}
-#pragma mark -
 @end

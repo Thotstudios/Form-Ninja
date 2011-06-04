@@ -15,6 +15,7 @@
 
 @synthesize formTable;
 @synthesize createFormButton;
+@synthesize resumeFormButton;
 
 @synthesize formEditorViewController;
 
@@ -33,6 +34,7 @@
     [formTable release];
     [formEditorViewController release];
 	[createFormButton release];
+	[resumeFormButton release];
     [super dealloc];
 }
 
@@ -58,6 +60,7 @@
     [self setFormTable:nil];
     [self setFormEditorViewController:nil];
 	[self setCreateFormButton:nil];
+	[self setResumeFormButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -81,14 +84,21 @@
 
 - (IBAction)newFormWithSelectedTemplate
 {
+	// [formEditorViewController clear];
 	[self.navigationController pushViewController:formEditorViewController animated:YES];
-	//TODO
+}
+
+- (IBAction)resumeSelectedForm
+{
+	// [formEditorViewController setData:nil/*selected data*/];
+	[self.navigationController pushViewController:formEditorViewController animated:YES];
 }
 
 -(void) disableButtons
 {
 	[super disableButtons];
 	[createFormButton setEnabled:NO];	[createFormButton setAlpha:0.50];
+	[resumeFormButton setEnabled:NO];	[resumeFormButton setAlpha:0.50];
 	// TODO: lite version
 }
 -(void) enableButtons 
@@ -102,6 +112,10 @@
 		{
 		[createFormButton setEnabled:NO];	[createFormButton setAlpha:0.50];
 		}
+	if([formTable indexPathForSelectedRow])
+	{
+	[resumeFormButton setEnabled:YES];	[resumeFormButton setAlpha:1.00];
+	}
 	// TODO: lite version
 }
 #pragma mark - TableView DataSource
@@ -185,6 +199,10 @@
 		
 		case 2: // template table
 		//[self enableButtons];
+		break;
+		
+		case 3: // form table
+		[self enableButtons];
 		break;
 	}
 }

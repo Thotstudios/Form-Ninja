@@ -16,16 +16,6 @@
 		42D6155C138F1298002B88D3 /* formGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D61553138F1295002B88D3 /* formGroupViewController.xib */; };
 		42D6155D138F1298002B88D3 /* formStringFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D61555138F1296002B88D3 /* formStringFieldViewController.m */; };
 		42D6155E138F1298002B88D3 /* formStringFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D61556138F1297002B88D3 /* formStringFieldViewController.xib */; };
-		42EB83FC138D958500B6F364 /* TemplateEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EB83FA138D958500B6F364 /* TemplateEditorViewController.m */; };
-		42EB83FD138D958500B6F364 /* TemplateEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EB83FB138D958500B6F364 /* TemplateEditorViewController.xib */; };
-		42EB8401138D959F00B6F364 /* templateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EB83FF138D959F00B6F364 /* templateGroupViewController.m */; };
-		42EB8402138D959F00B6F364 /* templateGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EB8400138D959F00B6F364 /* templateGroupViewController.xib */; };
-		42EB8406138D95B400B6F364 /* stringFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EB8404138D95B400B6F364 /* stringFieldViewController.m */; };
-		42EB8407138D95B400B6F364 /* stringFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EB8405138D95B400B6F364 /* stringFieldViewController.xib */; };
-		42EB840B138D95C600B6F364 /* parentFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EB8409138D95C600B6F364 /* parentFieldViewController.m */; };
-		42EB840C138D95C600B6F364 /* parentFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EB840A138D95C600B6F364 /* parentFieldViewController.xib */; };
-		42EB8410138D95F900B6F364 /* fieldSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EB840E138D95F900B6F364 /* fieldSelectionViewController.m */; };
-		42EB8411138D95F900B6F364 /* fieldSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EB840F138D95F900B6F364 /* fieldSelectionViewController.xib */; };
 		D904731C13982ADC00B87E4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D904731B13982ADC00B87E4E /* CoreLocation.framework */; };
 		D904732113982C5B00B87E4E /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D904732013982C5B00B87E4E /* LocationManager.m */; };
 		D917B3F81378D0B000E75140 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */; };
@@ -107,21 +97,6 @@
 		42D61554138F1296002B88D3 /* formStringFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = formStringFieldViewController.h; path = FormEditor/formStringFieldViewController.h; sourceTree = "<group>"; };
 		42D61555138F1296002B88D3 /* formStringFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = formStringFieldViewController.m; path = FormEditor/formStringFieldViewController.m; sourceTree = "<group>"; };
 		42D61556138F1297002B88D3 /* formStringFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = formStringFieldViewController.xib; path = FormEditor/formStringFieldViewController.xib; sourceTree = "<group>"; };
-		42EB83F9138D958500B6F364 /* TemplateEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateEditorViewController.h; path = templateEditor/TemplateEditorViewController.h; sourceTree = "<group>"; };
-		42EB83FA138D958500B6F364 /* TemplateEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateEditorViewController.m; path = templateEditor/TemplateEditorViewController.m; sourceTree = "<group>"; };
-		42EB83FB138D958500B6F364 /* TemplateEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TemplateEditorViewController.xib; path = templateEditor/TemplateEditorViewController.xib; sourceTree = "<group>"; };
-		42EB83FE138D959F00B6F364 /* templateGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = templateGroupViewController.h; path = templateEditor/templateGroupViewController.h; sourceTree = "<group>"; };
-		42EB83FF138D959F00B6F364 /* templateGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = templateGroupViewController.m; path = templateEditor/templateGroupViewController.m; sourceTree = "<group>"; };
-		42EB8400138D959F00B6F364 /* templateGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = templateGroupViewController.xib; path = templateEditor/templateGroupViewController.xib; sourceTree = "<group>"; };
-		42EB8403138D95B400B6F364 /* stringFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringFieldViewController.h; sourceTree = "<group>"; };
-		42EB8404138D95B400B6F364 /* stringFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stringFieldViewController.m; sourceTree = "<group>"; };
-		42EB8405138D95B400B6F364 /* stringFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = stringFieldViewController.xib; sourceTree = "<group>"; };
-		42EB8408138D95C600B6F364 /* parentFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parentFieldViewController.h; path = FormNinja.xcodeproj/parentFieldViewController.h; sourceTree = SOURCE_ROOT; };
-		42EB8409138D95C600B6F364 /* parentFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = parentFieldViewController.m; path = FormNinja.xcodeproj/parentFieldViewController.m; sourceTree = SOURCE_ROOT; };
-		42EB840A138D95C600B6F364 /* parentFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = parentFieldViewController.xib; path = FormNinja.xcodeproj/parentFieldViewController.xib; sourceTree = SOURCE_ROOT; };
-		42EB840D138D95F900B6F364 /* fieldSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fieldSelectionViewController.h; sourceTree = "<group>"; };
-		42EB840E138D95F900B6F364 /* fieldSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fieldSelectionViewController.m; sourceTree = "<group>"; };
-		42EB840F138D95F900B6F364 /* fieldSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fieldSelectionViewController.xib; sourceTree = "<group>"; };
 		D904731B13982ADC00B87E4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D904731F13982C5B00B87E4E /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		D904732013982C5B00B87E4E /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
@@ -283,65 +258,6 @@
 			name = "String Field";
 			sourceTree = "<group>";
 		};
-		42EB8412138D96C200B6F364 /* Groups */ = {
-			isa = PBXGroup;
-			children = (
-				42EB83FE138D959F00B6F364 /* templateGroupViewController.h */,
-				42EB83FF138D959F00B6F364 /* templateGroupViewController.m */,
-				42EB8400138D959F00B6F364 /* templateGroupViewController.xib */,
-			);
-			name = Groups;
-			sourceTree = "<group>";
-		};
-		42EB8413138D96D100B6F364 /* String Field */ = {
-			isa = PBXGroup;
-			children = (
-				42EB8403138D95B400B6F364 /* stringFieldViewController.h */,
-				42EB8404138D95B400B6F364 /* stringFieldViewController.m */,
-				42EB8405138D95B400B6F364 /* stringFieldViewController.xib */,
-			);
-			name = "String Field";
-			sourceTree = "<group>";
-		};
-		42EB8414138D96DF00B6F364 /* Parent Field */ = {
-			isa = PBXGroup;
-			children = (
-				42EB8408138D95C600B6F364 /* parentFieldViewController.h */,
-				42EB8409138D95C600B6F364 /* parentFieldViewController.m */,
-				42EB840A138D95C600B6F364 /* parentFieldViewController.xib */,
-			);
-			name = "Parent Field";
-			sourceTree = "<group>";
-		};
-		42EB8415138D96EE00B6F364 /* Field Selection */ = {
-			isa = PBXGroup;
-			children = (
-				42EB840D138D95F900B6F364 /* fieldSelectionViewController.h */,
-				42EB840E138D95F900B6F364 /* fieldSelectionViewController.m */,
-				42EB840F138D95F900B6F364 /* fieldSelectionViewController.xib */,
-			);
-			name = "Field Selection";
-			sourceTree = "<group>";
-		};
-		42EB8416138D970000B6F364 /* Template Sub Views */ = {
-			isa = PBXGroup;
-			children = (
-				42EB8415138D96EE00B6F364 /* Field Selection */,
-				42EB8412138D96C200B6F364 /* Groups */,
-				42EB8417138D970F00B6F364 /* Fields */,
-			);
-			name = "Template Sub Views";
-			sourceTree = "<group>";
-		};
-		42EB8417138D970F00B6F364 /* Fields */ = {
-			isa = PBXGroup;
-			children = (
-				42EB8414138D96DF00B6F364 /* Parent Field */,
-				42EB8413138D96D100B6F364 /* String Field */,
-			);
-			name = Fields;
-			sourceTree = "<group>";
-		};
 		D904731E13982C3000B87E4E /* Location Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,8 +377,7 @@
 				F7E2B563137E49D600EA89D0 /* Account */,
 				F7D8AFBE136E289A00FE0F76 /* MainMenu */,
 				F778DD51137DC60E00B444F6 /* TemplateManager */,
-				F77FDA501375F5AB00DC694D /* TemplateEditor */,
-				F72187611390EFCE000BA9DF /* TemplateEditorB */,
+				F72187611390EFCE000BA9DF /* TemplateEditor */,
 				F7BC423913886CF800911EB5 /* FormManager */,
 				F7BC423313886CBC00911EB5 /* FormEditor */,
 				F7BC423F138870A200911EB5 /* GroupManager */,
@@ -493,14 +408,14 @@
 			path = FormNinja;
 			sourceTree = "<group>";
 		};
-		F72187611390EFCE000BA9DF /* TemplateEditorB */ = {
+		F72187611390EFCE000BA9DF /* TemplateEditor */ = {
 			isa = PBXGroup;
 			children = (
 				F72187631390EFDC000BA9DF /* TemplateEditor */,
 				F72187671390EFDC000BA9DF /* ElementPicker */,
 				F721876B1390EFDC000BA9DF /* TemplateElements */,
 			);
-			name = TemplateEditorB;
+			name = TemplateEditor;
 			sourceTree = "<group>";
 		};
 		F72187631390EFDC000BA9DF /* TemplateEditor */ = {
@@ -664,17 +579,6 @@
 			path = CustomLoadAlert;
 			sourceTree = "<group>";
 		};
-		F77FDA501375F5AB00DC694D /* TemplateEditor */ = {
-			isa = PBXGroup;
-			children = (
-				42EB83F9138D958500B6F364 /* TemplateEditorViewController.h */,
-				42EB83FA138D958500B6F364 /* TemplateEditorViewController.m */,
-				42EB83FB138D958500B6F364 /* TemplateEditorViewController.xib */,
-				42EB8416138D970000B6F364 /* Template Sub Views */,
-			);
-			name = TemplateEditor;
-			sourceTree = "<group>";
-		};
 		F7BC423313886CBC00911EB5 /* FormEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -807,11 +711,6 @@
 				F7F248C11385E1C600E0FD2A /* FormNinjaLoginViewController.xib in Resources */,
 				F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */,
 				F7BC423E1388709F00911EB5 /* GroupManagerViewController.xib in Resources */,
-				42EB83FD138D958500B6F364 /* TemplateEditorViewController.xib in Resources */,
-				42EB8402138D959F00B6F364 /* templateGroupViewController.xib in Resources */,
-				42EB8407138D95B400B6F364 /* stringFieldViewController.xib in Resources */,
-				42EB840C138D95C600B6F364 /* parentFieldViewController.xib in Resources */,
-				42EB8411138D95F900B6F364 /* fieldSelectionViewController.xib in Resources */,
 				42D61558138F1298002B88D3 /* FormEditorViewController.xib in Resources */,
 				42D6155A138F1298002B88D3 /* formFieldParentViewController.xib in Resources */,
 				42D6155C138F1298002B88D3 /* formGroupViewController.xib in Resources */,
@@ -860,11 +759,6 @@
 				F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */,
 				F7BC423713886CF300911EB5 /* FormManagerViewController.m in Sources */,
 				F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */,
-				42EB83FC138D958500B6F364 /* TemplateEditorViewController.m in Sources */,
-				42EB8401138D959F00B6F364 /* templateGroupViewController.m in Sources */,
-				42EB8406138D95B400B6F364 /* stringFieldViewController.m in Sources */,
-				42EB840B138D95C600B6F364 /* parentFieldViewController.m in Sources */,
-				42EB8410138D95F900B6F364 /* fieldSelectionViewController.m in Sources */,
 				42D61557138F1298002B88D3 /* FormEditorViewController.m in Sources */,
 				42D61559138F1298002B88D3 /* formFieldParentViewController.m in Sources */,
 				42D6155B138F1298002B88D3 /* formGroupViewController.m in Sources */,

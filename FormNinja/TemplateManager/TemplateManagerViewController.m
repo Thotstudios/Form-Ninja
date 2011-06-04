@@ -32,7 +32,6 @@
 @synthesize editTemplateButton;
 @synthesize createTemplateButton;
 
-@synthesize oldTemplateEditorViewController;
 @synthesize templateEditor;
 
 #pragma mark - Memory
@@ -60,7 +59,6 @@
 	[editTemplateButton release];
 	[createTemplateButton release];
 	
-    [oldTemplateEditorViewController release];
     [templateEditor release];
     [super dealloc];
 }
@@ -94,6 +92,12 @@
 	[self filterByGroupName];
 	
 }
+-(void) viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	[groupTable reloadData];
+	[templateTable reloadData];
+}
 
 - (void)viewDidUnload
 {
@@ -109,7 +113,6 @@
 	[self setEditTemplateButton:nil];
 	[self setCreateTemplateButton:nil];
 	
-    [self setOldTemplateEditorViewController:nil];
     [self setTemplateEditor:nil];
     [super viewDidUnload];
 }
@@ -292,14 +295,6 @@
 		break;
 	}
 }
-
-// TODO: remove
-- (IBAction)createTemplateWithOldEditor
-{
-	[self.navigationController pushViewController:oldTemplateEditorViewController animated:YES];
-}
-//
-
 
 #pragma mark - TableView DataSource
 

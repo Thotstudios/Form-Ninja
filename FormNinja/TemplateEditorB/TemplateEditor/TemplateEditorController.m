@@ -13,14 +13,15 @@
 #import "ElementPicker.h"
 #import "TemplateElement.h"
 
-#define tableHeightFullPortrait		960
-#define tableHeightHalfPortrait		696
-
-#define tableHeightFullLandscape	704
-#define tableHeightHalfLandscape	352
-
 #define keyboardHeightPortrait		264
 #define keyboardHeightLandscape		352
+
+#define tableHeightFullPortrait		960 - 112
+#define tableHeightHalfPortrait		696
+
+#define tableHeightFullLandscape	704 - 112
+#define tableHeightHalfLandscape	352
+
 
 @implementation TemplateEditorController
 
@@ -95,19 +96,18 @@
 -(void) keyboardWillShow:(id)selector
 {
 	UIDeviceOrientation orient = [[UIDevice currentDevice] orientation];
+	float height = tableHeightHalfPortrait;
 	if(orient == UIDeviceOrientationLandscapeLeft || orient == UIDeviceOrientationLandscapeRight)
-		[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, tableHeightHalfLandscape)];
-	else
-		[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, tableHeightHalfPortrait)];
-	
+		height = tableHeightHalfLandscape;
+	[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, height)];
 }
 -(void) keyboardWillHide:(id)selector
 {
 	UIDeviceOrientation orient = [[UIDevice currentDevice] orientation];
+	float height = tableHeightFullPortrait;
 	if(orient == UIDeviceOrientationLandscapeLeft || orient == UIDeviceOrientationLandscapeRight)
-		[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, tableHeightFullLandscape)];
-	else
-		[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, tableHeightFullPortrait)];
+		height = tableHeightFullLandscape;
+	[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, height)];
 }
 
 -(void) setIndexes
@@ -281,6 +281,10 @@
 		if(!([[NSFileManager defaultManager] fileExistsAtPath:TEMPLATE_PATH]))
 			[[NSFileManager defaultManager] createDirectoryAtPath:TEMPLATE_PATH withIntermediateDirectories:YES attributes:nil error:nil];
 		
+		//[[views objectAtIndex:0] editNextElement];
+		//for(TemplateElement * element in views)
+		//	element 
+		
 		if([data writeToFile:path atomically:YES])
 			{
                 
@@ -414,17 +418,28 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+	int fromSection = [fromIndexPath section];
+	//int fromRow = [fromIndexPath row];
+	int toSection = [toIndexPath section];
+	//int toRow = [toIndexPath row];
+	
+	if(toSection == 0)
+		toSection ++;
+	
 	id temp;
 	
-	temp = [[data objectAtIndex:[fromIndexPath section]] retain];
-	[data removeObjectAtIndex:[fromIndexPath section]];
-	[data insertObject:temp atIndex:[toIndexPath section]];
-	[temp release];
-	
-	temp = [[views objectAtIndex:[fromIndexPath section]] retain];
-	[views removeObjectAtIndex:[fromIndexPath section]];
-	[views insertObject:temp atIndex:[toIndexPath section]];
-	[temp release];
+	if(fromSection != toSection)
+		{
+		temp = [[data objectAtIndex:fromSection] retain];
+		[data removeObjectAtIndex:fromSection];
+		[data insertObject:temp atIndex:toSection];
+		[temp release];
+		
+		temp = [[views objectAtIndex:fromSection] retain];
+		[views removeObjectAtIndex:fromSection];
+		[views insertObject:temp atIndex:toSection];
+		[temp release];
+		}
 	
 	[self setIndexes];
 	

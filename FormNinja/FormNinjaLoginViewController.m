@@ -48,7 +48,11 @@
     self.loadAlert.view.hidden = YES;
 	[self.view addSubview:self.loadAlert.view];
 }
-
+-(void) viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	[self.navigationItem setHidesBackButton:YES animated:NO];
+}
 
 - (void) viewDidAppear:(BOOL)animated
 {

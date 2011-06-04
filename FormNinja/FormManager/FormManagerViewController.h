@@ -16,6 +16,7 @@
 	
 	UITableView *formTable;
 	UIButton *createFormButton;
+	UIButton *resumeFormButton;
 	
 	UIViewController *formEditorViewController;
 }
@@ -25,9 +26,11 @@
 @property (nonatomic, retain) IBOutlet UITableView *formTable;
 
 @property (nonatomic, retain) IBOutlet UIButton *createFormButton;
+@property (nonatomic, retain) IBOutlet UIButton *resumeFormButton;
 
 @property (nonatomic, retain) IBOutlet UIViewController *formEditorViewController;
 
 - (IBAction)newFormWithSelectedTemplate;
+- (IBAction)resumeSelectedForm;
 
 @end

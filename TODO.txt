@@ -12,7 +12,16 @@ Chad:
 * Template and Form autosave for crashes/unexpected exits
 * Refactor const strings into Constants.h
 * Zombie from [table reloadData];
-* MetaData can be pushed down by other fields
+* MetaData can be pushed down by other fields.
+* Template Elements need Up/Down elements.
+* Belt icon next to templates (and forms?).
+* Add GPS info to signature element.
+* Remove test code and objects.
+* Forms and Templates save to PendingUploads folder.
+* PendingUploads folder is checked for sync.
+* Send regular ipa files.
+* Export/email/sync/print button(s) on Form Manager.
+* Change hard-coded #defines in TemplateEditor
 
 Paul:
 * Optionally write a TODO list here.

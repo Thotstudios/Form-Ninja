@@ -21,11 +21,6 @@
 	UIViewController *accountEditor;
 	UIViewController *templateManagerViewContoller;
 	UIViewController *groupManagerViewController;
-	
-	
-	// TODO: temporary members
-	UIViewController *templateEditorViewController;
-	UIViewController *temporaryFormEditorViewController;
 }
 // Interface Elements:
 @property (nonatomic, retain) IBOutlet UILabel *loginExpirationLabel;
@@ -38,19 +33,10 @@
 @property (nonatomic, retain) IBOutlet UIViewController *groupManagerViewController;
 @property (nonatomic, retain) IBOutlet UIViewController *accountEditor;
 
-
 - (IBAction)pushFormManagerViewController;
 - (IBAction)pushTemplateManagerViewController;
 - (IBAction)pushGroupManagerViewController;
 - (IBAction)pushAccountEditorViewController;
 - (IBAction)logout;
-
-
-// TODO: Temporary properties and methods
-@property (nonatomic, retain) IBOutlet UIViewController *templateEditorViewController;
-- (IBAction)buttonPressedTemplateEditor:(id)sender;
-
-@property (nonatomic, retain) IBOutlet UIViewController *temporaryFormEditorViewController;
-- (IBAction)pressedTemporaryFormEditorButton;
 
 @end
