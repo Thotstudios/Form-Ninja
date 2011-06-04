@@ -245,7 +245,7 @@
 	NSUInteger row = [[templateTable indexPathForSelectedRow] row];
 	NSDictionary * dict = [filteredTemplateList objectAtIndex:row];
 	NSMutableArray * data = [dict objectForKey:@"data"];
-	//[templateEditorB clear];
+	[templateEditor clear];
 	[self.navigationController pushViewController:templateEditor animated:YES];
 	[templateEditor setData:data];
 }
