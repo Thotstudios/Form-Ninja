@@ -8,6 +8,7 @@
 
 #import "TemplateEditorController.h"
 #import "Constants.h"
+#import "JSON.h"
 
 #import "ElementPicker.h"
 #import "TemplateElement.h"
@@ -195,6 +196,21 @@
 	[table reloadData];
 }
 
+- (void) commitToDB{
+    //Convert nsdate object to string as json cannot parse nsdate objects
+    NSMutableDictionary *dict = [[[NSMutableDictionary alloc] initWithDictionary:[data objectAtIndex:0]] autorelease];
+    [dict setObject:[NSString stringWithFormat:@"%@",[dict objectForKey:@"creation date"]] forKey:@"creation date"];
+    
+    NSMutableArray *dbArray = [[[NSMutableArray alloc] initWithArray:data] autorelease];
+    [dbArray removeObjectAtIndex:0];
+    [dbArray insertObject:dict atIndex:0];
+    
+    //Get json string
+    //TODO: add image support
+    NSString *dbData = [dbArray JSONRepresentation]; 
+    NSLog(@"committing %@", dbData);
+}
+
 - (IBAction)addElement
 {
 	[[[[ElementPicker alloc] initWithDelegate:self selector:@selector(newElementOfType:)] autorelease] show];
@@ -267,9 +283,13 @@
 		
 		if([data writeToFile:path atomically:YES])
 			{
+                
+            [self commitToDB];
+                
 			UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Template saved."	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"OK", nil];
 			[popupQuery showInView:self.view];
 			[popupQuery release];
+                
 			}
 		else
 			{

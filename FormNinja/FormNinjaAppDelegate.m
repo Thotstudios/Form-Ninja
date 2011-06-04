@@ -7,6 +7,8 @@
 //
 
 #import "FormNinjaAppDelegate.h"
+#import "LocationManager.h"
+
 
 //#import "FormNinjaLoginViewController.h"
 
@@ -24,6 +26,9 @@
      
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
+    
+    [[LocationManager locationManager] startUpdates];
+
     return YES;
 }
 
