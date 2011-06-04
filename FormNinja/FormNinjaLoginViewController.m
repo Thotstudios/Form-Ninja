@@ -132,7 +132,7 @@
     [self pushAlertView];
     
     //Prepare form
-    NSURL *urlToSend = [[[NSURL alloc] initWithString: @"http://www.rilburskryler.net/mobile/login.php"] autorelease];
+    NSURL *urlToSend = [[[NSURL alloc] initWithString: userLoginURL] autorelease];
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
     [request setPostValue:self.usernameField.text forKey:formUsername];  
     [request setPostValue:self.passwordField.text forKey:formPassword];  

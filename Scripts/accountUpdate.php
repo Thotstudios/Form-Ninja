@@ -8,7 +8,7 @@ $response = array();
 if($_POST['username']){
 
 	//login to database
-	$link = mysql_connect('localhost', 'rilbur5_ninja', 'ninja');
+	$link = mysql_connect('localhost', 'though16_ninja', 'o0nxunH(USa,');
 	if(!$link){
 		$response['updated'] = 'False';
 		$response['error'] = 'Database connection error';
@@ -16,7 +16,7 @@ if($_POST['username']){
 		exit;
 	}
 	
-	if(mysql_select_db('rilbur5_school')){
+	if(mysql_select_db('though16_formninja')){
 		//Attempt to update user info
 		$query = 'UPDATE USER set FNAME = "'.$_POST['firstName'].'", LNAME="'.$_POST['lastName'].'", EMAIL="'.$_POST['email'].'"';
 		$query .= ', ZIPCODE="'.$_POST['zipCode'].'"';
