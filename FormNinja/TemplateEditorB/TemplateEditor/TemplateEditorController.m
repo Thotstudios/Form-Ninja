@@ -265,7 +265,7 @@
 
 - (IBAction)save
 {
-	// TODO commit text field changes
+	[self.view endEditing:NO];
 	
 	NSDictionary * dict = [data objectAtIndex:0];
 	NSString * group = [dict objectForKey:@"group name"];
@@ -281,19 +281,13 @@
 		if(!([[NSFileManager defaultManager] fileExistsAtPath:TEMPLATE_PATH]))
 			[[NSFileManager defaultManager] createDirectoryAtPath:TEMPLATE_PATH withIntermediateDirectories:YES attributes:nil error:nil];
 		
-		//[[views objectAtIndex:0] editNextElement];
-		//for(TemplateElement * element in views)
-		//	element 
-		
 		if([data writeToFile:path atomically:YES])
 			{
-                
             [self commitToDB];
                 
 			UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Template saved."	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"OK", nil];
 			[popupQuery showInView:self.view];
 			[popupQuery release];
-                
 			}
 		else
 			{
@@ -309,8 +303,6 @@
 
 -(NSString*) tableView:(UITableView*) tableView titleForHeaderInSection:(NSInteger)section
 {
-	//section += 1 - SHOW_TEMPLATE_IN_TABLE;
-	
 	NSString * ret = nil;
 	if(!ret) ret = [[data objectAtIndex:section] objectForKey:@"header"];
 	if(!ret) ret = [[data objectAtIndex:section] objectForKey:@"type"];
