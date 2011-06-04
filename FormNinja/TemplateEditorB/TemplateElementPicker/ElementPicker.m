@@ -30,12 +30,10 @@
 static NSMutableDictionary * elementDictionary = nil;
 static BOOL dictionaryIsLoaded = NO;
 
-//@synthesize alert;
 @synthesize callback;
 @synthesize selector;
 @synthesize table;
 
-//@synthesize type;
 @synthesize elementList;
 
 -(id) initWithDelegate:(id)delegateArg selector:(SEL)selectorArg
@@ -44,8 +42,6 @@ static BOOL dictionaryIsLoaded = NO;
 	
 	[self setCallback:delegateArg];
 	[self setSelector:selectorArg];
-	frameHeight = 0;
-	frameYPosition = 0;
 	orientation = -1;
 	if(!dictionaryIsLoaded) [ElementPicker loadElementDictionary];
 	
@@ -75,8 +71,8 @@ static BOOL dictionaryIsLoaded = NO;
 {
 	if(![self orientationChanged])
 		return;
-	[super layoutSubviews];
 	
+	[super layoutSubviews];
 	UIView * curView;
 	int i = 0;
 	while(![[self.subviews objectAtIndex:i] isKindOfClass:[UIControl class]])
@@ -85,15 +81,15 @@ static BOOL dictionaryIsLoaded = NO;
 		i++;
 		}
 	
+	CGRect rect = self.frame;
+	rect.origin.y -= 0.50 * tableHeight;
+	rect.size.height += tableHeight;
+	if(table.frame.size.width == 0)
+		rect.size.height += 16;
+	[self setFrame:rect];
+	
 	float yPosition = curView.frame.origin.y + curView.frame.size.height + 8;
 	[table setFrame:CGRectMake(horizontalMargin, yPosition, tableWidth, tableHeight)];
-	
-	if(!frameHeight) 
-		frameHeight = self.frame.size.height + tableHeight + 16;
-	if(!frameYPosition)
-		frameYPosition = self.frame.origin.y - 0.5 * tableHeight;
-	
-	[self setFrame:CGRectMake(self.frame.origin.x, frameYPosition, self.frame.size.width, frameHeight)];
 	
 	while([[self.subviews objectAtIndex:i] isKindOfClass:[UIControl class]])
 		{

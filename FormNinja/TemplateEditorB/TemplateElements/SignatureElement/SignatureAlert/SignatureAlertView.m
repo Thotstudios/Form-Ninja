@@ -10,10 +10,10 @@
 
 #import "SignatureView.h"
 
-#define SignWidth 400
-#define SignHeight 150
-#define HorizontalMargin 13
-#define FramePadding 42 + 2 * HorizontalMargin
+#define signWidth 400
+#define signHeight 150
+#define horizontalMargin 13
+#define framePadding 42 + 2 * horizontalMargin
 
 @implementation SignatureAlertView
 
@@ -49,23 +49,47 @@
 {
 	[super layoutSubviews];
 	
+	CGRect rect;
+	
 	UIView * curView;
 	int i = 0;
 	while(![[self.subviews objectAtIndex:i] isKindOfClass:[UIControl class]])
 		{
 		curView = [self.subviews objectAtIndex:i];
+		
+		rect = curView.frame;
+		rect.size.width = signWidth + 8;
+		[curView setFrame:rect];
+		
 		i++;
 		}
 	
+	rect = self.frame;
+	rect.origin.x -= 69;
+	rect.origin.y -= 0.50 * signHeight;
+	rect.size.height += signHeight;
+	
+	rect.size.width += 18;
+	if(signatureView.frame.size.width == 0)
+		{
+		//rect.origin.x -= 69;
+		rect.size.width += 2;
+		rect.size.height += 16;
+		}
+	
+	[self setFrame:rect];
+	
 	float yPosition = curView.frame.origin.y + curView.frame.size.height + 8;
-	[signatureView setFrame:CGRectMake(HorizontalMargin, yPosition, SignWidth, SignHeight)];
+	[signatureView setFrame:CGRectMake(horizontalMargin, yPosition, signWidth, signHeight)];
 
-	[self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y - 0.5 * SignHeight, signatureView.frame.size.width + FramePadding, self.frame.size.height + SignHeight + 16)];
 	
 	while([[self.subviews objectAtIndex:i] isKindOfClass:[UIControl class]])
 		{
 		curView = [self.subviews objectAtIndex:i];
-		[curView setFrame:CGRectMake(curView.frame.origin.x, curView.frame.origin.y + SignHeight, curView.frame.size.width, curView.frame.size.height)];
+		rect = curView.frame;
+		rect.origin.y += signHeight;
+		rect.size.width = signWidth + 4;
+		[curView setFrame:rect];
 		i++;
 		}
 }

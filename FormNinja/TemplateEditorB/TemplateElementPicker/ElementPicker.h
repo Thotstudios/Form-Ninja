@@ -12,14 +12,12 @@
 
 @interface ElementPicker : UIAlertView <UITableViewDelegate, UITableViewDataSource>
 {
+	UIDeviceOrientation orientation;
+	
 	NSMutableArray * elementList;
 	UITableView * table;
     id callback;
 	SEL selector;
-	
-	float frameHeight;
-	float frameYPosition;
-	UIDeviceOrientation orientation;
 }
 
 @property (nonatomic, retain) NSMutableArray * elementList;
