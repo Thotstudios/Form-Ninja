@@ -11,6 +11,8 @@ Chad:
 * TextFieldShouldReturn should save dictionary entries.
 * Template and Form autosave for crashes/unexpected exits
 * Refactor const strings into Constants.h
+* Zombie from [table reloadData];
+* MetaData can be pushed down by other fields
 
 Paul:
 * Optionally write a TODO list here.
