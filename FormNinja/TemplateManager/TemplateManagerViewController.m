@@ -245,6 +245,7 @@
 	NSUInteger row = [[templateTable indexPathForSelectedRow] row];
 	NSDictionary * dict = [filteredTemplateList objectAtIndex:row];
 	NSMutableArray * data = [dict objectForKey:@"data"];
+	
 	[templateEditor clear];
 	[self.navigationController pushViewController:templateEditor animated:YES];
 	[templateEditor setData:data];
@@ -275,6 +276,7 @@
 	//NSDictionary * dict = [filteredTemplateList objectAtIndex:row];
 	NSString * group = [groupNameList objectAtIndex:row];
 	
+	[templateEditor clear];
 	[self.navigationController pushViewController:templateEditor animated:YES];
 	[templateEditor newTemplateWithName:name group:group];
 }

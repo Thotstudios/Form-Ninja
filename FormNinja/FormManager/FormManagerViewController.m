@@ -90,8 +90,9 @@
 
 - (IBAction)resumeSelectedForm
 {
-	// [formEditorViewController setData:nil/*selected data*/];
+	// [formEditorViewController clear];
 	[self.navigationController pushViewController:formEditorViewController animated:YES];
+	// [formEditorViewController setData:nil/*selected data*/];
 }
 
 -(void) disableButtons

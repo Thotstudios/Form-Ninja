@@ -5,23 +5,20 @@ It's more like quick notes to ourselves and each other.
 
 Chad:
 * Unpublished templates should have a 'Resume' button instead of a "Modify" button
-* Clean up SignatureAlertView to have stuff centered and balanced.
 * Validate Template before publishing
 * Template Versioning
 * TextFieldShouldReturn should save dictionary entries.
-* Template and Form autosave for crashes/unexpected exits
+* Add autosave for Templates and Forms for crashes/unexpected exits
 * Refactor const strings into Constants.h
-* Zombie from [table reloadData];
-* MetaData can be pushed down by other fields.
 * Template Elements need Up/Down elements.
 * Belt icon next to templates (and forms?).
 * Add GPS info to signature element.
-* Remove test code and objects.
 * Forms and Templates save to PendingUploads folder.
 * PendingUploads folder is checked for sync.
 * Send regular ipa files.
 * Export/email/sync/print button(s) on Form Manager.
 * Change hard-coded #defines in TemplateEditor
+* Clean up template renaming.
 
 Paul:
 * Optionally write a TODO list here.
@@ -31,6 +28,5 @@ Ron:
 
 Other:
 * Localization support
-* Zombie reported in template editor
-* Change file create names
+* Change source file creator names
 * Change copyright tags
