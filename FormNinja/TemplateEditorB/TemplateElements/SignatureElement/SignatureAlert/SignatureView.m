@@ -14,11 +14,8 @@
 
 -(id) initWithFrame:(CGRect)frame
 {
-	NSLog(@"Signature initWithFrame");
 	if(!(self = [super initWithFrame:frame])) return self;
-	
 	// setup
-	
 	return self;
 }
 
@@ -32,7 +29,6 @@
 
 -(void) drawRect:(CGRect)rect
 {
-	NSLog(@"Signature drawRect");
 	[super drawRect:rect];
 	[self clearSignature];
 }
@@ -42,14 +38,11 @@
 {
 	UITouch *touch = [touches anyObject];
 	lastPoint = [touch locationInView:self];
-
-	NSLog(@"Signature touchesBegan.");
 }
 
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	
 	UITouch *touch = [touches anyObject];	
 	CGPoint currentPoint = [touch locationInView:self];
 	
