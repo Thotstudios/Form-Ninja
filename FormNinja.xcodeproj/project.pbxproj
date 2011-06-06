@@ -8,14 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		42362F2A137C5C0700D3A363 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42362F29137C5C0700D3A363 /* QuartzCore.framework */; };
-		42D61557138F1298002B88D3 /* FormEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6154C138F1291002B88D3 /* FormEditorViewController.m */; };
-		42D61558138F1298002B88D3 /* FormEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D6154D138F1291002B88D3 /* FormEditorViewController.xib */; };
-		42D61559138F1298002B88D3 /* formFieldParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6154F138F1292002B88D3 /* formFieldParentViewController.m */; };
-		42D6155A138F1298002B88D3 /* formFieldParentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D61550138F1292002B88D3 /* formFieldParentViewController.xib */; };
-		42D6155B138F1298002B88D3 /* formGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D61552138F1295002B88D3 /* formGroupViewController.m */; };
-		42D6155C138F1298002B88D3 /* formGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D61553138F1295002B88D3 /* formGroupViewController.xib */; };
-		42D6155D138F1298002B88D3 /* formStringFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D61555138F1296002B88D3 /* formStringFieldViewController.m */; };
-		42D6155E138F1298002B88D3 /* formStringFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D61556138F1297002B88D3 /* formStringFieldViewController.xib */; };
+		42A72C54139D4F3100F6DC1B /* FormEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A72C52139D4F3100F6DC1B /* FormEditorViewController.m */; };
+		42A72C55139D4F3100F6DC1B /* FormEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A72C53139D4F3100F6DC1B /* FormEditorViewController.xib */; };
 		D904731C13982ADC00B87E4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D904731B13982ADC00B87E4E /* CoreLocation.framework */; };
 		D904732113982C5B00B87E4E /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D904732013982C5B00B87E4E /* LocationManager.m */; };
 		D917B3F81378D0B000E75140 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */; };
@@ -85,18 +79,9 @@
 
 /* Begin PBXFileReference section */
 		42362F29137C5C0700D3A363 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		42D6154B138F1291002B88D3 /* FormEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormEditorViewController.h; path = FormEditor/FormEditorViewController.h; sourceTree = "<group>"; };
-		42D6154C138F1291002B88D3 /* FormEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormEditorViewController.m; path = FormEditor/FormEditorViewController.m; sourceTree = "<group>"; };
-		42D6154D138F1291002B88D3 /* FormEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormEditorViewController.xib; path = FormEditor/FormEditorViewController.xib; sourceTree = "<group>"; };
-		42D6154E138F1291002B88D3 /* formFieldParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = formFieldParentViewController.h; path = FormEditor/formFieldParentViewController.h; sourceTree = "<group>"; };
-		42D6154F138F1292002B88D3 /* formFieldParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = formFieldParentViewController.m; path = FormEditor/formFieldParentViewController.m; sourceTree = "<group>"; };
-		42D61550138F1292002B88D3 /* formFieldParentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = formFieldParentViewController.xib; path = FormEditor/formFieldParentViewController.xib; sourceTree = "<group>"; };
-		42D61551138F1294002B88D3 /* formGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = formGroupViewController.h; path = FormEditor/formGroupViewController.h; sourceTree = "<group>"; };
-		42D61552138F1295002B88D3 /* formGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = formGroupViewController.m; path = FormEditor/formGroupViewController.m; sourceTree = "<group>"; };
-		42D61553138F1295002B88D3 /* formGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = formGroupViewController.xib; path = FormEditor/formGroupViewController.xib; sourceTree = "<group>"; };
-		42D61554138F1296002B88D3 /* formStringFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = formStringFieldViewController.h; path = FormEditor/formStringFieldViewController.h; sourceTree = "<group>"; };
-		42D61555138F1296002B88D3 /* formStringFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = formStringFieldViewController.m; path = FormEditor/formStringFieldViewController.m; sourceTree = "<group>"; };
-		42D61556138F1297002B88D3 /* formStringFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = formStringFieldViewController.xib; path = FormEditor/formStringFieldViewController.xib; sourceTree = "<group>"; };
+		42A72C51139D4F3100F6DC1B /* FormEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormEditorViewController.h; path = "FormNinja/Form Editor/FormEditorViewController.h"; sourceTree = SOURCE_ROOT; };
+		42A72C52139D4F3100F6DC1B /* FormEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormEditorViewController.m; path = "FormNinja/Form Editor/FormEditorViewController.m"; sourceTree = SOURCE_ROOT; };
+		42A72C53139D4F3100F6DC1B /* FormEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormEditorViewController.xib; path = "FormNinja/Form Editor/FormEditorViewController.xib"; sourceTree = SOURCE_ROOT; };
 		D904731B13982ADC00B87E4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D904731F13982C5B00B87E4E /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		D904732013982C5B00B87E4E /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
@@ -229,35 +214,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		42D6155F138F12CE002B88D3 /* Fields */ = {
-			isa = PBXGroup;
-			children = (
-				42D61560138F12E0002B88D3 /* Parent Field */,
-				42D61561138F12E4002B88D3 /* String Field */,
-			);
-			name = Fields;
-			sourceTree = "<group>";
-		};
-		42D61560138F12E0002B88D3 /* Parent Field */ = {
-			isa = PBXGroup;
-			children = (
-				42D6154E138F1291002B88D3 /* formFieldParentViewController.h */,
-				42D6154F138F1292002B88D3 /* formFieldParentViewController.m */,
-				42D61550138F1292002B88D3 /* formFieldParentViewController.xib */,
-			);
-			name = "Parent Field";
-			sourceTree = "<group>";
-		};
-		42D61561138F12E4002B88D3 /* String Field */ = {
-			isa = PBXGroup;
-			children = (
-				42D61554138F1296002B88D3 /* formStringFieldViewController.h */,
-				42D61555138F1296002B88D3 /* formStringFieldViewController.m */,
-				42D61556138F1297002B88D3 /* formStringFieldViewController.xib */,
-			);
-			name = "String Field";
-			sourceTree = "<group>";
-		};
 		D904731E13982C3000B87E4E /* Location Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,13 +538,9 @@
 		F7BC423313886CBC00911EB5 /* FormEditor */ = {
 			isa = PBXGroup;
 			children = (
-				42D6154B138F1291002B88D3 /* FormEditorViewController.h */,
-				42D6154C138F1291002B88D3 /* FormEditorViewController.m */,
-				42D6154D138F1291002B88D3 /* FormEditorViewController.xib */,
-				42D61551138F1294002B88D3 /* formGroupViewController.h */,
-				42D61552138F1295002B88D3 /* formGroupViewController.m */,
-				42D61553138F1295002B88D3 /* formGroupViewController.xib */,
-				42D6155F138F12CE002B88D3 /* Fields */,
+				42A72C51139D4F3100F6DC1B /* FormEditorViewController.h */,
+				42A72C52139D4F3100F6DC1B /* FormEditorViewController.m */,
+				42A72C53139D4F3100F6DC1B /* FormEditorViewController.xib */,
 			);
 			name = FormEditor;
 			sourceTree = "<group>";
@@ -711,10 +663,6 @@
 				F7F248C11385E1C600E0FD2A /* FormNinjaLoginViewController.xib in Resources */,
 				F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */,
 				F7BC423E1388709F00911EB5 /* GroupManagerViewController.xib in Resources */,
-				42D61558138F1298002B88D3 /* FormEditorViewController.xib in Resources */,
-				42D6155A138F1298002B88D3 /* formFieldParentViewController.xib in Resources */,
-				42D6155C138F1298002B88D3 /* formGroupViewController.xib in Resources */,
-				42D6155E138F1298002B88D3 /* formStringFieldViewController.xib in Resources */,
 				F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */,
 				F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */,
 				F72187921390EFDC000BA9DF /* AddressElement.xib in Resources */,
@@ -726,6 +674,7 @@
 				F72187A01390EFDC000BA9DF /* SingleLineElement.xib in Resources */,
 				F7D004ED1392342700DD4D2B /* RepeatingElement.xib in Resources */,
 				F7D004F3139237D600DD4D2B /* TableElement.xib in Resources */,
+				42A72C55139D4F3100F6DC1B /* FormEditorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,10 +708,6 @@
 				F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */,
 				F7BC423713886CF300911EB5 /* FormManagerViewController.m in Sources */,
 				F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */,
-				42D61557138F1298002B88D3 /* FormEditorViewController.m in Sources */,
-				42D61559138F1298002B88D3 /* formFieldParentViewController.m in Sources */,
-				42D6155B138F1298002B88D3 /* formGroupViewController.m in Sources */,
-				42D6155D138F1298002B88D3 /* formStringFieldViewController.m in Sources */,
 				F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */,
 				F72187901390EFDC000BA9DF /* ElementPicker.m in Sources */,
 				F72187911390EFDC000BA9DF /* AddressElement.m in Sources */,
@@ -777,6 +722,7 @@
 				F7D004EC1392342700DD4D2B /* RepeatingElement.m in Sources */,
 				F7D004F2139237D600DD4D2B /* TableElement.m in Sources */,
 				D904732113982C5B00B87E4E /* LocationManager.m in Sources */,
+				42A72C54139D4F3100F6DC1B /* FormEditorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
