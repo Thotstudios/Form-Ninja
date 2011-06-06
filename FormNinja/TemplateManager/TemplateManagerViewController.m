@@ -182,7 +182,9 @@
 			[templateList addObject:dict];
 		
 		}
-	[groupTable selectRowAtIndexPath:[NSIndexPath indexPathWithIndexes:(NSUInteger[2]){0,0} length:2] animated:YES scrollPosition:UITableViewScrollPositionTop];
+	[groupTable selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+							animated:YES
+					  scrollPosition:UITableViewScrollPositionTop];
 	[self filterByGroupName];
 } // end load template list
 
