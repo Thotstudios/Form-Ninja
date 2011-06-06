@@ -110,6 +110,7 @@
     else{
         self.usernameTextField.userInteractionEnabled = FALSE;
         self.passwordTextField.userInteractionEnabled = FALSE;
+        self.emailAddressTextField.userInteractionEnabled = FALSE;
         self.changePasswordButton.hidden = NO;
     }
     
