@@ -11,6 +11,11 @@
 
 @implementation FormEditorViewController
 
+-(IBAction) debugLines
+{
+    NSLog(@"%i, %i", [self.data count], [self.views count]);
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
