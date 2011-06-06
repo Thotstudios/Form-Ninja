@@ -42,6 +42,7 @@ if($_POST['username'])
 			$userInfo = array();
 
 			$row = mysql_fetch_array($queryResult);
+			$userInfo['userID'] = $row['USERID'];
 			$userInfo['userName'] = $row['USERNAME'];
 			$userInfo['userPassword'] = $row['PASSWORD'];
   			$userInfo['firstName'] = $row['FNAME'];
