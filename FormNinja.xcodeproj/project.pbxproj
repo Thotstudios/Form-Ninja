@@ -7,7 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421FA45B139EDBC100768C95 /* FormRepeatingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 421FA459139EDBC100768C95 /* FormRepeatingElement.m */; };
+		421FA45C139EDBC100768C95 /* FormRepeatingElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421FA45A139EDBC100768C95 /* FormRepeatingElement.xib */; };
 		42362F2A137C5C0700D3A363 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42362F29137C5C0700D3A363 /* QuartzCore.framework */; };
+		42A50B52139ED65E00D8EF3B /* FormElementPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A50B50139ED65E00D8EF3B /* FormElementPicker.m */; };
+		42A50B53139ED65E00D8EF3B /* FormElementPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A50B51139ED65E00D8EF3B /* FormElementPicker.xib */; };
+		42A50B5C139EDA5900D8EF3B /* FormTemplateElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A50B5A139EDA5900D8EF3B /* FormTemplateElement.m */; };
+		42A50B5D139EDA5900D8EF3B /* FormTemplateElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A50B5B139EDA5900D8EF3B /* FormTemplateElement.xib */; };
+		42A50B61139EDA9600D8EF3B /* FormTableElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A50B5F139EDA9600D8EF3B /* FormTableElement.m */; };
+		42A50B62139EDA9600D8EF3B /* FormTableElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A50B60139EDA9600D8EF3B /* FormTableElement.xib */; };
+		42A50B66139EDAC000D8EF3B /* FormMetaDataElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A50B64139EDAC000D8EF3B /* FormMetaDataElement.m */; };
+		42A50B67139EDAC000D8EF3B /* FormMetaDataElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A50B65139EDAC000D8EF3B /* FormMetaDataElement.xib */; };
+		42A50B6B139EDADD00D8EF3B /* FormSingleLineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A50B69139EDADD00D8EF3B /* FormSingleLineElement.m */; };
+		42A50B6C139EDADD00D8EF3B /* FormSingleLineElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A50B6A139EDADD00D8EF3B /* FormSingleLineElement.xib */; };
+		42A50B70139EDB0700D8EF3B /* FormMultiLineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A50B6E139EDB0700D8EF3B /* FormMultiLineElement.m */; };
+		42A50B71139EDB0700D8EF3B /* FormMultiLineElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A50B6F139EDB0700D8EF3B /* FormMultiLineElement.xib */; };
+		42A50B75139EDB2600D8EF3B /* FormAddressElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A50B73139EDB2600D8EF3B /* FormAddressElement.m */; };
+		42A50B76139EDB2600D8EF3B /* FormAddressElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A50B74139EDB2600D8EF3B /* FormAddressElement.xib */; };
+		42A50B7A139EDB4900D8EF3B /* FormSignatureElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A50B78139EDB4900D8EF3B /* FormSignatureElement.m */; };
+		42A50B7B139EDB4900D8EF3B /* FormSignatureElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A50B79139EDB4900D8EF3B /* FormSignatureElement.xib */; };
 		42A72C54139D4F3100F6DC1B /* FormEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A72C52139D4F3100F6DC1B /* FormEditorViewController.m */; };
 		42A72C55139D4F3100F6DC1B /* FormEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A72C53139D4F3100F6DC1B /* FormEditorViewController.xib */; };
 		D904731C13982ADC00B87E4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D904731B13982ADC00B87E4E /* CoreLocation.framework */; };
@@ -79,7 +97,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		421FA458139EDBC100768C95 /* FormRepeatingElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormRepeatingElement.h; path = "Form Editor/FormRepeatingElement.h"; sourceTree = "<group>"; };
+		421FA459139EDBC100768C95 /* FormRepeatingElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormRepeatingElement.m; path = "Form Editor/FormRepeatingElement.m"; sourceTree = "<group>"; };
+		421FA45A139EDBC100768C95 /* FormRepeatingElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormRepeatingElement.xib; path = "Form Editor/FormRepeatingElement.xib"; sourceTree = "<group>"; };
 		42362F29137C5C0700D3A363 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		42A50B4F139ED65E00D8EF3B /* FormElementPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormElementPicker.h; path = "Form Editor/FormElementPicker.h"; sourceTree = "<group>"; };
+		42A50B50139ED65E00D8EF3B /* FormElementPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormElementPicker.m; path = "Form Editor/FormElementPicker.m"; sourceTree = "<group>"; };
+		42A50B51139ED65E00D8EF3B /* FormElementPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormElementPicker.xib; path = "Form Editor/FormElementPicker.xib"; sourceTree = "<group>"; };
+		42A50B59139EDA5900D8EF3B /* FormTemplateElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormTemplateElement.h; path = "Form Editor/FormTemplateElement.h"; sourceTree = "<group>"; };
+		42A50B5A139EDA5900D8EF3B /* FormTemplateElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormTemplateElement.m; path = "Form Editor/FormTemplateElement.m"; sourceTree = "<group>"; };
+		42A50B5B139EDA5900D8EF3B /* FormTemplateElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormTemplateElement.xib; path = "Form Editor/FormTemplateElement.xib"; sourceTree = "<group>"; };
+		42A50B5E139EDA9600D8EF3B /* FormTableElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormTableElement.h; path = "Form Editor/FormTableElement.h"; sourceTree = "<group>"; };
+		42A50B5F139EDA9600D8EF3B /* FormTableElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormTableElement.m; path = "Form Editor/FormTableElement.m"; sourceTree = "<group>"; };
+		42A50B60139EDA9600D8EF3B /* FormTableElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormTableElement.xib; path = "Form Editor/FormTableElement.xib"; sourceTree = "<group>"; };
+		42A50B63139EDAC000D8EF3B /* FormMetaDataElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormMetaDataElement.h; path = "Form Editor/FormMetaDataElement.h"; sourceTree = "<group>"; };
+		42A50B64139EDAC000D8EF3B /* FormMetaDataElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormMetaDataElement.m; path = "Form Editor/FormMetaDataElement.m"; sourceTree = "<group>"; };
+		42A50B65139EDAC000D8EF3B /* FormMetaDataElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormMetaDataElement.xib; path = "Form Editor/FormMetaDataElement.xib"; sourceTree = "<group>"; };
+		42A50B68139EDADD00D8EF3B /* FormSingleLineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormSingleLineElement.h; path = "Form Editor/FormSingleLineElement.h"; sourceTree = "<group>"; };
+		42A50B69139EDADD00D8EF3B /* FormSingleLineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormSingleLineElement.m; path = "Form Editor/FormSingleLineElement.m"; sourceTree = "<group>"; };
+		42A50B6A139EDADD00D8EF3B /* FormSingleLineElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormSingleLineElement.xib; path = "Form Editor/FormSingleLineElement.xib"; sourceTree = "<group>"; };
+		42A50B6D139EDB0700D8EF3B /* FormMultiLineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormMultiLineElement.h; path = "Form Editor/FormMultiLineElement.h"; sourceTree = "<group>"; };
+		42A50B6E139EDB0700D8EF3B /* FormMultiLineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormMultiLineElement.m; path = "Form Editor/FormMultiLineElement.m"; sourceTree = "<group>"; };
+		42A50B6F139EDB0700D8EF3B /* FormMultiLineElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormMultiLineElement.xib; path = "Form Editor/FormMultiLineElement.xib"; sourceTree = "<group>"; };
+		42A50B72139EDB2600D8EF3B /* FormAddressElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormAddressElement.h; path = "Form Editor/FormAddressElement.h"; sourceTree = "<group>"; };
+		42A50B73139EDB2600D8EF3B /* FormAddressElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormAddressElement.m; path = "Form Editor/FormAddressElement.m"; sourceTree = "<group>"; };
+		42A50B74139EDB2600D8EF3B /* FormAddressElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormAddressElement.xib; path = "Form Editor/FormAddressElement.xib"; sourceTree = "<group>"; };
+		42A50B77139EDB4900D8EF3B /* FormSignatureElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormSignatureElement.h; sourceTree = "<group>"; };
+		42A50B78139EDB4900D8EF3B /* FormSignatureElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormSignatureElement.m; sourceTree = "<group>"; };
+		42A50B79139EDB4900D8EF3B /* FormSignatureElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormSignatureElement.xib; sourceTree = "<group>"; };
 		42A72C51139D4F3100F6DC1B /* FormEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormEditorViewController.h; path = "FormNinja/Form Editor/FormEditorViewController.h"; sourceTree = SOURCE_ROOT; };
 		42A72C52139D4F3100F6DC1B /* FormEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormEditorViewController.m; path = "FormNinja/Form Editor/FormEditorViewController.m"; sourceTree = SOURCE_ROOT; };
 		42A72C53139D4F3100F6DC1B /* FormEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormEditorViewController.xib; path = "FormNinja/Form Editor/FormEditorViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -217,6 +262,121 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4215C98A139ED3D100892F76 /* FormEditor */ = {
+			isa = PBXGroup;
+			children = (
+				42A72C51139D4F3100F6DC1B /* FormEditorViewController.h */,
+				42A72C52139D4F3100F6DC1B /* FormEditorViewController.m */,
+				42A72C53139D4F3100F6DC1B /* FormEditorViewController.xib */,
+			);
+			name = FormEditor;
+			sourceTree = "<group>";
+		};
+		4215C98C139ED3DE00892F76 /* FormElementPicker */ = {
+			isa = PBXGroup;
+			children = (
+				42A50B4F139ED65E00D8EF3B /* FormElementPicker.h */,
+				42A50B50139ED65E00D8EF3B /* FormElementPicker.m */,
+				42A50B51139ED65E00D8EF3B /* FormElementPicker.xib */,
+			);
+			name = FormElementPicker;
+			sourceTree = "<group>";
+		};
+		4215C98D139ED3FC00892F76 /* FormElements */ = {
+			isa = PBXGroup;
+			children = (
+				4215C991139ED41400892F76 /* FormParentElement */,
+				4215C990139ED41200892F76 /* FormTableElement */,
+				4215C98F139ED41100892F76 /* FormMetaDataElement */,
+				4215C98E139ED40D00892F76 /* FormSingleLineElement */,
+				4215C992139ED45C00892F76 /* FormMultiLineElement */,
+				4215C996139ED47700892F76 /* FormAddressElement */,
+				4215C995139ED47500892F76 /* FormSignatureElement */,
+				4215C994139ED47000892F76 /* FormRepeatingElement */,
+			);
+			name = FormElements;
+			sourceTree = "<group>";
+		};
+		4215C98E139ED40D00892F76 /* FormSingleLineElement */ = {
+			isa = PBXGroup;
+			children = (
+				42A50B68139EDADD00D8EF3B /* FormSingleLineElement.h */,
+				42A50B69139EDADD00D8EF3B /* FormSingleLineElement.m */,
+				42A50B6A139EDADD00D8EF3B /* FormSingleLineElement.xib */,
+			);
+			name = FormSingleLineElement;
+			sourceTree = "<group>";
+		};
+		4215C98F139ED41100892F76 /* FormMetaDataElement */ = {
+			isa = PBXGroup;
+			children = (
+				42A50B63139EDAC000D8EF3B /* FormMetaDataElement.h */,
+				42A50B64139EDAC000D8EF3B /* FormMetaDataElement.m */,
+				42A50B65139EDAC000D8EF3B /* FormMetaDataElement.xib */,
+			);
+			name = FormMetaDataElement;
+			sourceTree = "<group>";
+		};
+		4215C990139ED41200892F76 /* FormTableElement */ = {
+			isa = PBXGroup;
+			children = (
+				42A50B5E139EDA9600D8EF3B /* FormTableElement.h */,
+				42A50B5F139EDA9600D8EF3B /* FormTableElement.m */,
+				42A50B60139EDA9600D8EF3B /* FormTableElement.xib */,
+			);
+			name = FormTableElement;
+			sourceTree = "<group>";
+		};
+		4215C991139ED41400892F76 /* FormParentElement */ = {
+			isa = PBXGroup;
+			children = (
+				42A50B59139EDA5900D8EF3B /* FormTemplateElement.h */,
+				42A50B5A139EDA5900D8EF3B /* FormTemplateElement.m */,
+				42A50B5B139EDA5900D8EF3B /* FormTemplateElement.xib */,
+			);
+			name = FormParentElement;
+			sourceTree = "<group>";
+		};
+		4215C992139ED45C00892F76 /* FormMultiLineElement */ = {
+			isa = PBXGroup;
+			children = (
+				42A50B6D139EDB0700D8EF3B /* FormMultiLineElement.h */,
+				42A50B6E139EDB0700D8EF3B /* FormMultiLineElement.m */,
+				42A50B6F139EDB0700D8EF3B /* FormMultiLineElement.xib */,
+			);
+			name = FormMultiLineElement;
+			sourceTree = "<group>";
+		};
+		4215C994139ED47000892F76 /* FormRepeatingElement */ = {
+			isa = PBXGroup;
+			children = (
+				421FA458139EDBC100768C95 /* FormRepeatingElement.h */,
+				421FA459139EDBC100768C95 /* FormRepeatingElement.m */,
+				421FA45A139EDBC100768C95 /* FormRepeatingElement.xib */,
+			);
+			name = FormRepeatingElement;
+			sourceTree = "<group>";
+		};
+		4215C995139ED47500892F76 /* FormSignatureElement */ = {
+			isa = PBXGroup;
+			children = (
+				42A50B77139EDB4900D8EF3B /* FormSignatureElement.h */,
+				42A50B78139EDB4900D8EF3B /* FormSignatureElement.m */,
+				42A50B79139EDB4900D8EF3B /* FormSignatureElement.xib */,
+			);
+			name = FormSignatureElement;
+			sourceTree = "<group>";
+		};
+		4215C996139ED47700892F76 /* FormAddressElement */ = {
+			isa = PBXGroup;
+			children = (
+				42A50B72139EDB2600D8EF3B /* FormAddressElement.h */,
+				42A50B73139EDB2600D8EF3B /* FormAddressElement.m */,
+				42A50B74139EDB2600D8EF3B /* FormAddressElement.xib */,
+			);
+			name = FormAddressElement;
+			sourceTree = "<group>";
+		};
 		D904731E13982C3000B87E4E /* Location Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,9 +712,9 @@
 		F7BC423313886CBC00911EB5 /* FormEditor */ = {
 			isa = PBXGroup;
 			children = (
-				42A72C51139D4F3100F6DC1B /* FormEditorViewController.h */,
-				42A72C52139D4F3100F6DC1B /* FormEditorViewController.m */,
-				42A72C53139D4F3100F6DC1B /* FormEditorViewController.xib */,
+				4215C98A139ED3D100892F76 /* FormEditor */,
+				4215C98C139ED3DE00892F76 /* FormElementPicker */,
+				4215C98D139ED3FC00892F76 /* FormElements */,
 			);
 			name = FormEditor;
 			sourceTree = "<group>";
@@ -689,6 +849,15 @@
 				F7D004ED1392342700DD4D2B /* RepeatingElement.xib in Resources */,
 				F7D004F3139237D600DD4D2B /* TableElement.xib in Resources */,
 				42A72C55139D4F3100F6DC1B /* FormEditorViewController.xib in Resources */,
+				42A50B53139ED65E00D8EF3B /* FormElementPicker.xib in Resources */,
+				42A50B5D139EDA5900D8EF3B /* FormTemplateElement.xib in Resources */,
+				42A50B62139EDA9600D8EF3B /* FormTableElement.xib in Resources */,
+				42A50B67139EDAC000D8EF3B /* FormMetaDataElement.xib in Resources */,
+				42A50B6C139EDADD00D8EF3B /* FormSingleLineElement.xib in Resources */,
+				42A50B71139EDB0700D8EF3B /* FormMultiLineElement.xib in Resources */,
+				42A50B76139EDB2600D8EF3B /* FormAddressElement.xib in Resources */,
+				42A50B7B139EDB4900D8EF3B /* FormSignatureElement.xib in Resources */,
+				421FA45C139EDBC100768C95 /* FormRepeatingElement.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +907,15 @@
 				D904732113982C5B00B87E4E /* LocationManager.m in Sources */,
 				42A72C54139D4F3100F6DC1B /* FormEditorViewController.m in Sources */,
 				D9E0E313139D91DB00C84476 /* SyncManager.m in Sources */,
+				42A50B52139ED65E00D8EF3B /* FormElementPicker.m in Sources */,
+				42A50B5C139EDA5900D8EF3B /* FormTemplateElement.m in Sources */,
+				42A50B61139EDA9600D8EF3B /* FormTableElement.m in Sources */,
+				42A50B66139EDAC000D8EF3B /* FormMetaDataElement.m in Sources */,
+				42A50B6B139EDADD00D8EF3B /* FormSingleLineElement.m in Sources */,
+				42A50B70139EDB0700D8EF3B /* FormMultiLineElement.m in Sources */,
+				42A50B75139EDB2600D8EF3B /* FormAddressElement.m in Sources */,
+				42A50B7A139EDB4900D8EF3B /* FormSignatureElement.m in Sources */,
+				421FA45B139EDBC100768C95 /* FormRepeatingElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
