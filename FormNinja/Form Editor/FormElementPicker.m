@@ -8,6 +8,7 @@
 
 #import "FormElementPicker.h"
 #import "ElementPicker.h"
+#import "FormTemplateElement.h"
 
 @implementation FormElementPicker
 
@@ -25,18 +26,18 @@ static BOOL dictionaryIsLoaded = NO;
 }
 
 
-+(FormElement*) elementOfType:(NSString *)type
++(FormTemplateElement*) elementOfType:(NSString *)type
 {
 	if(!dictionaryIsLoaded) [self loadElementDictionary];
 	
 	NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-	TemplateElement * element = nil;
+	FormTemplateElement * element = nil;
 	
 	
 	element = [[[NSClassFromString([NSString stringWithFormat:@"Form%@", [elementDictionary valueForKey:type]]) alloc] init] autorelease];
 	
 	if(!element)
-		element = [[[FormElement alloc] init] autorelease];
+		element = [[[FormTemplateElement alloc] init] autorelease];
 	
 	if(element)
     {

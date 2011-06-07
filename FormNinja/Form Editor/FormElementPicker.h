@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "ElementPicker.h"
-
+#import "FormTemplateElement.h"
 
 @interface FormElementPicker : ElementPicker {
     
 }
+
++(FormTemplateElement*) elementOfType:(NSString *)type;
 
 @end
