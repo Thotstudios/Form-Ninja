@@ -198,9 +198,10 @@
 }
 
 - (void) commitToDB{
-    SyncManager *sync = [[[SyncManager alloc] init]autorelease];
+    SyncManager *sync = [[SyncManager alloc] init];
     //sync.delegate = self;
-    [sync syncTemplate: data];
+    //Create deep copy with mutable elements of data array
+    [sync syncTemplate: [(NSMutableArray*)CFPropertyListCreateDeepCopy(kCFAllocatorDefault, (CFPropertyListRef)data, kCFPropertyListMutableContainers) autorelease]];
 }
 
 - (IBAction)addElement

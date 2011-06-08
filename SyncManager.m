@@ -9,7 +9,9 @@
 #import "SyncManager.h"
 #import "AccountClass.h"
 #import "JSON.h"
+#import "Constants.h"
 #import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 
 @implementation SyncManager
 
@@ -55,7 +57,30 @@
     
     //Get json string
     NSString *dbData = [dbArray JSONRepresentation]; 
-    NSLog(@"committing %@", dbData);
+    
+    //Prepare form
+    NSURL *urlToSend = [[[NSURL alloc] initWithString: templateUploadURL] autorelease];
+    ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
+    [request setPostValue:self.userID forKey:userIDNumber];  
+    [request setPostValue:dbData forKey:fromTemplateData];  
+	
+    //Send request
+    request.delegate = self;
+   // [request startAsynchronous];  uncomment to sync
+
+}
+
+
+
+#pragma mark - ASIHTTPRequest Delegate Methods
+
+- (void)requestFailed:(ASIHTTPRequest *)request{
+    NSLog(@"fail %@", [request responseString]);
+}
+
+
+- (void)requestFinished:(ASIHTTPRequest *)request{
+    NSLog(@"success %@", [request responseString]);
 }
 
 
