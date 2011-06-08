@@ -11,9 +11,19 @@
 
 @implementation FormEditorViewController
 
--(IBAction) debugLines
+-(IBAction) saveButtonPressed
 {
-    NSLog(@"%i, %i", [self.data count], [self.views count]);
+    //set form completion date.
+    
+    //Concern/Note to self:  I need to detect that throughout entire view, because if the form is completed, then no values should be editable.
+}
+-(IBAction) dumpButtonPressed
+{
+    
+}
+-(IBAction) finishButtonPressed
+{
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

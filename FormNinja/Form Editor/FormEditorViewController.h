@@ -14,6 +14,8 @@
     
 }
 
--(IBAction) debugLines;
+-(IBAction) saveButtonPressed;
+-(IBAction) dumpButtonPressed;
+-(IBAction) finishButtonPressed;
 
 @end

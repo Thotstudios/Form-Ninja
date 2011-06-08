@@ -102,7 +102,7 @@
 								<string key="NSFrame">{{180, 20}, {72, 64}}</string>
 								<reference key="NSSuperview" ref="267949624"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="785325767"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -131,27 +131,6 @@
 								<reference key="IBUIFont" ref="830504930"/>
 								<int key="IBUIButtonType">1</int>
 								<string key="IBUINormalTitle">Save</string>
-								<reference key="IBUIHighlightedTitleColor" ref="2686633"/>
-								<object class="NSColor" key="IBUINormalTitleColor">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-								</object>
-								<reference key="IBUINormalTitleShadowColor" ref="8617936"/>
-							</object>
-							<object class="IBUIButton" id="785325767">
-								<reference key="NSNextResponder" ref="267949624"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{676, 33}, {72, 37}}</string>
-								<reference key="NSSuperview" ref="267949624"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="34635630"/>
-								<bool key="IBUIOpaque">NO</bool>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<int key="IBUIContentHorizontalAlignment">0</int>
-								<int key="IBUIContentVerticalAlignment">0</int>
-								<reference key="IBUIFont" ref="830504930"/>
-								<int key="IBUIButtonType">1</int>
-								<string key="IBUINormalTitle">Debug</string>
 								<reference key="IBUIHighlightedTitleColor" ref="2686633"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
 									<int key="NSColorSpace">1</int>
@@ -221,21 +200,39 @@
 					<int key="connectionID">13</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">debugLines</string>
-						<reference key="source" ref="785325767"/>
-						<reference key="destination" ref="841351856"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">15</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="34635630"/>
 						<reference key="destination" ref="841351856"/>
 					</object>
 					<int key="connectionID">17</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">finishButtonPressed</string>
+						<reference key="source" ref="533855512"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">18</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">saveButtonPressed</string>
+						<reference key="source" ref="603241551"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">19</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">dumpButtonPressed</string>
+						<reference key="source" ref="108534317"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">20</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -285,7 +282,6 @@
 							<reference ref="108534317"/>
 							<reference ref="603241551"/>
 							<reference ref="533855512"/>
-							<reference ref="785325767"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 						<string key="objectName">Button Container</string>
@@ -305,11 +301,6 @@
 						<reference key="object" ref="533855512"/>
 						<reference key="parent" ref="267949624"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">14</int>
-						<reference key="object" ref="785325767"/>
-						<reference key="parent" ref="267949624"/>
-					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -318,7 +309,6 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>-1.CustomClassName</string>
 					<string>-2.CustomClassName</string>
-					<string>14.IBPluginDependency</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
@@ -331,7 +321,6 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>FormEditorViewController</string>
 					<string>UIResponder</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{353, 156}, {1024, 768}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -353,7 +342,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">17</int>
+			<int key="maxID">20</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -362,14 +351,42 @@
 					<string key="className">FormEditorViewController</string>
 					<string key="superclassName">TemplateEditorController</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">debugLines</string>
-						<string key="NS.object.0">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dumpButtonPressed</string>
+							<string>finishButtonPressed</string>
+							<string>saveButtonPressed</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">debugLines</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">debugLines</string>
-							<string key="candidateClassName">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dumpButtonPressed</string>
+							<string>finishButtonPressed</string>
+							<string>saveButtonPressed</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">dumpButtonPressed</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">finishButtonPressed</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">saveButtonPressed</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
