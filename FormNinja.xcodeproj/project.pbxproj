@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		421FA45B139EDBC100768C95 /* FormRepeatingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 421FA459139EDBC100768C95 /* FormRepeatingElement.m */; };
 		421FA45C139EDBC100768C95 /* FormRepeatingElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421FA45A139EDBC100768C95 /* FormRepeatingElement.xib */; };
+		421FA46B139F1BD100768C95 /* formsGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA461139F1BC600768C95 /* formsGray.png */; };
+		421FA46D139F1BD100768C95 /* groupsGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA463139F1BC700768C95 /* groupsGray.png */; };
+		421FA46E139F1BD100768C95 /* GroupsRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA464139F1BC700768C95 /* GroupsRed.png */; };
+		421FA46F139F1BD100768C95 /* LogoutGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA465139F1BC800768C95 /* LogoutGray.png */; };
+		421FA470139F1BD100768C95 /* LogoutRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA466139F1BC900768C95 /* LogoutRed.png */; };
+		421FA471139F1BD100768C95 /* ProfileGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA467139F1BCB00768C95 /* ProfileGray.png */; };
+		421FA472139F1BD100768C95 /* ProfileRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA468139F1BCC00768C95 /* ProfileRed.png */; };
+		421FA473139F1BD100768C95 /* templatesGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA469139F1BCD00768C95 /* templatesGray.png */; };
+		421FA474139F1BD100768C95 /* TemplatesRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA46A139F1BCF00768C95 /* TemplatesRed.png */; };
+		421FA477139F1EAA00768C95 /* formsRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA476139F1EAA00768C95 /* formsRed.png */; };
+		421FA479139F1EFC00768C95 /* formNinjaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA478139F1EFB00768C95 /* formNinjaLogo.png */; };
+		421FA483139F22F300768C95 /* Ninjabackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA482139F22F300768C95 /* Ninjabackground.png */; };
+		421FA486139F235A00768C95 /* TestNinja.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA485139F235900768C95 /* TestNinja.png */; };
 		42362F2A137C5C0700D3A363 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42362F29137C5C0700D3A363 /* QuartzCore.framework */; };
 		42A50B52139ED65E00D8EF3B /* FormElementPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A50B50139ED65E00D8EF3B /* FormElementPicker.m */; };
 		42A50B53139ED65E00D8EF3B /* FormElementPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A50B51139ED65E00D8EF3B /* FormElementPicker.xib */; };
@@ -100,6 +113,19 @@
 		421FA458139EDBC100768C95 /* FormRepeatingElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormRepeatingElement.h; path = "Form Editor/FormRepeatingElement.h"; sourceTree = "<group>"; };
 		421FA459139EDBC100768C95 /* FormRepeatingElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormRepeatingElement.m; path = "Form Editor/FormRepeatingElement.m"; sourceTree = "<group>"; };
 		421FA45A139EDBC100768C95 /* FormRepeatingElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormRepeatingElement.xib; path = "Form Editor/FormRepeatingElement.xib"; sourceTree = "<group>"; };
+		421FA461139F1BC600768C95 /* formsGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formsGray.png; sourceTree = "<group>"; };
+		421FA463139F1BC700768C95 /* groupsGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = groupsGray.png; sourceTree = "<group>"; };
+		421FA464139F1BC700768C95 /* GroupsRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GroupsRed.png; sourceTree = "<group>"; };
+		421FA465139F1BC800768C95 /* LogoutGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoutGray.png; sourceTree = "<group>"; };
+		421FA466139F1BC900768C95 /* LogoutRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoutRed.png; sourceTree = "<group>"; };
+		421FA467139F1BCB00768C95 /* ProfileGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProfileGray.png; sourceTree = "<group>"; };
+		421FA468139F1BCC00768C95 /* ProfileRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProfileRed.png; sourceTree = "<group>"; };
+		421FA469139F1BCD00768C95 /* templatesGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = templatesGray.png; sourceTree = "<group>"; };
+		421FA46A139F1BCF00768C95 /* TemplatesRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplatesRed.png; sourceTree = "<group>"; };
+		421FA476139F1EAA00768C95 /* formsRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formsRed.png; sourceTree = "<group>"; };
+		421FA478139F1EFB00768C95 /* formNinjaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formNinjaLogo.png; sourceTree = "<group>"; };
+		421FA482139F22F300768C95 /* Ninjabackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ninjabackground.png; sourceTree = "<group>"; };
+		421FA485139F235900768C95 /* TestNinja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestNinja.png; sourceTree = "<group>"; };
 		42362F29137C5C0700D3A363 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		42A50B4F139ED65E00D8EF3B /* FormElementPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormElementPicker.h; path = "Form Editor/FormElementPicker.h"; sourceTree = "<group>"; };
 		42A50B50139ED65E00D8EF3B /* FormElementPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormElementPicker.m; path = "Form Editor/FormElementPicker.m"; sourceTree = "<group>"; };
@@ -375,6 +401,26 @@
 				42A50B74139EDB2600D8EF3B /* FormAddressElement.xib */,
 			);
 			name = FormAddressElement;
+			sourceTree = "<group>";
+		};
+		421FA475139F1BE300768C95 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				421FA485139F235900768C95 /* TestNinja.png */,
+				421FA482139F22F300768C95 /* Ninjabackground.png */,
+				421FA478139F1EFB00768C95 /* formNinjaLogo.png */,
+				421FA461139F1BC600768C95 /* formsGray.png */,
+				421FA476139F1EAA00768C95 /* formsRed.png */,
+				421FA463139F1BC700768C95 /* groupsGray.png */,
+				421FA464139F1BC700768C95 /* GroupsRed.png */,
+				421FA465139F1BC800768C95 /* LogoutGray.png */,
+				421FA466139F1BC900768C95 /* LogoutRed.png */,
+				421FA467139F1BCB00768C95 /* ProfileGray.png */,
+				421FA468139F1BCC00768C95 /* ProfileRed.png */,
+				421FA469139F1BCD00768C95 /* templatesGray.png */,
+				421FA46A139F1BCF00768C95 /* TemplatesRed.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		D904731E13982C3000B87E4E /* Location Manager */ = {
@@ -762,6 +808,7 @@
 		F7D8AFBE136E289A00FE0F76 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
+				421FA475139F1BE300768C95 /* Images */,
 				F7D8AFB8136E289500FE0F76 /* MainMenu.h */,
 				F7D8AFB9136E289500FE0F76 /* MainMenu.m */,
 				F7D8AFBA136E289500FE0F76 /* MainMenu.xib */,
@@ -858,6 +905,19 @@
 				42A50B76139EDB2600D8EF3B /* FormAddressElement.xib in Resources */,
 				42A50B7B139EDB4900D8EF3B /* FormSignatureElement.xib in Resources */,
 				421FA45C139EDBC100768C95 /* FormRepeatingElement.xib in Resources */,
+				421FA46B139F1BD100768C95 /* formsGray.png in Resources */,
+				421FA46D139F1BD100768C95 /* groupsGray.png in Resources */,
+				421FA46E139F1BD100768C95 /* GroupsRed.png in Resources */,
+				421FA46F139F1BD100768C95 /* LogoutGray.png in Resources */,
+				421FA470139F1BD100768C95 /* LogoutRed.png in Resources */,
+				421FA471139F1BD100768C95 /* ProfileGray.png in Resources */,
+				421FA472139F1BD100768C95 /* ProfileRed.png in Resources */,
+				421FA473139F1BD100768C95 /* templatesGray.png in Resources */,
+				421FA474139F1BD100768C95 /* TemplatesRed.png in Resources */,
+				421FA477139F1EAA00768C95 /* formsRed.png in Resources */,
+				421FA479139F1EFC00768C95 /* formNinjaLogo.png in Resources */,
+				421FA483139F22F300768C95 /* Ninjabackground.png in Resources */,
+				421FA486139F235A00768C95 /* TestNinja.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

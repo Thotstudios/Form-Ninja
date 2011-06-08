@@ -21,6 +21,7 @@
 	UIViewController *accountEditor;
 	UIViewController *templateManagerViewContoller;
 	UIViewController *groupManagerViewController;
+    IBOutlet UIButton *logoutButton, *profileButton, *formsButton, *templateButton, *groupsButton;
 }
 // Interface Elements:
 @property (nonatomic, retain) IBOutlet UILabel *loginExpirationLabel;
