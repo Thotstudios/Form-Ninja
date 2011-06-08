@@ -22,6 +22,10 @@
 		421FA479139F1EFC00768C95 /* formNinjaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA478139F1EFB00768C95 /* formNinjaLogo.png */; };
 		421FA483139F22F300768C95 /* Ninjabackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA482139F22F300768C95 /* Ninjabackground.png */; };
 		421FA486139F235A00768C95 /* TestNinja.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA485139F235900768C95 /* TestNinja.png */; };
+		421FA488139F26E400768C95 /* ThotLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA487139F26E400768C95 /* ThotLogo.png */; };
+		421FA48A139F27D400768C95 /* LoginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA489139F27D300768C95 /* LoginBackground.png */; };
+		421FA48D139F292E00768C95 /* loginred.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA48B139F292E00768C95 /* loginred.png */; };
+		421FA48E139F292E00768C95 /* registerButtonRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 421FA48C139F292E00768C95 /* registerButtonRed.png */; };
 		42362F2A137C5C0700D3A363 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42362F29137C5C0700D3A363 /* QuartzCore.framework */; };
 		42A50B52139ED65E00D8EF3B /* FormElementPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A50B50139ED65E00D8EF3B /* FormElementPicker.m */; };
 		42A50B53139ED65E00D8EF3B /* FormElementPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A50B51139ED65E00D8EF3B /* FormElementPicker.xib */; };
@@ -126,6 +130,10 @@
 		421FA478139F1EFB00768C95 /* formNinjaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formNinjaLogo.png; sourceTree = "<group>"; };
 		421FA482139F22F300768C95 /* Ninjabackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ninjabackground.png; sourceTree = "<group>"; };
 		421FA485139F235900768C95 /* TestNinja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestNinja.png; sourceTree = "<group>"; };
+		421FA487139F26E400768C95 /* ThotLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThotLogo.png; sourceTree = "<group>"; };
+		421FA489139F27D300768C95 /* LoginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginBackground.png; sourceTree = "<group>"; };
+		421FA48B139F292E00768C95 /* loginred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginred.png; sourceTree = "<group>"; };
+		421FA48C139F292E00768C95 /* registerButtonRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerButtonRed.png; sourceTree = "<group>"; };
 		42362F29137C5C0700D3A363 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		42A50B4F139ED65E00D8EF3B /* FormElementPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormElementPicker.h; path = "Form Editor/FormElementPicker.h"; sourceTree = "<group>"; };
 		42A50B50139ED65E00D8EF3B /* FormElementPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormElementPicker.m; path = "Form Editor/FormElementPicker.m"; sourceTree = "<group>"; };
@@ -489,8 +497,12 @@
 		D917B46C1379E09F00E75140 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				421FA487139F26E400768C95 /* ThotLogo.png */,
 				D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */,
+				421FA489139F27D300768C95 /* LoginBackground.png */,
 				D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */,
+				421FA48B139F292E00768C95 /* loginred.png */,
+				421FA48C139F292E00768C95 /* registerButtonRed.png */,
 				F7F248C31385E1C600E0FD2A /* FormNinjaLoginViewController.xib */,
 			);
 			name = Login;
@@ -918,6 +930,10 @@
 				421FA479139F1EFC00768C95 /* formNinjaLogo.png in Resources */,
 				421FA483139F22F300768C95 /* Ninjabackground.png in Resources */,
 				421FA486139F235A00768C95 /* TestNinja.png in Resources */,
+				421FA488139F26E400768C95 /* ThotLogo.png in Resources */,
+				421FA48A139F27D400768C95 /* LoginBackground.png in Resources */,
+				421FA48D139F292E00768C95 /* loginred.png in Resources */,
+				421FA48E139F292E00768C95 /* registerButtonRed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
