@@ -9,6 +9,7 @@
 #import "TemplateEditorController.h"
 #import "Constants.h"
 #import "JSON.h"
+#import "SyncManager.h"
 
 #import "ElementPicker.h"
 #import "TemplateElement.h"
@@ -103,8 +104,8 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-	[self generateViewArray];
 	[self setIndexes];
+	[self generateViewArray];
 	[table reloadData];
 }
 
@@ -132,16 +133,25 @@
     NSString *dbData = [dbArray JSONRepresentation]; 
     NSLog(@"committing %@", dbData);
 	// TODO: save to Pending Uploads folder
-	// uploading to DB should be handled elsewhere.
+	// Syncing to DB should be handled elsewhere.
 	// -Chad
+	
+	/*
+	{
+    SyncManager *sync = [[SyncManager alloc] init];
+    //sync.delegate = self;
+    //Create deep copy with mutable elements of data array
+    [sync syncTemplate: [(NSMutableArray*)CFPropertyListCreateDeepCopy(kCFAllocatorDefault, (CFPropertyListRef)data, kCFPropertyListMutableContainers) autorelease]];
+	}
+	*/
 }
 
 #pragma mark - Member Functions
 - (void) generateViewArray
 {
+	[self setViewArray:[NSMutableArray array]];
 	if([dataArray count])
 		{
-		[viewArray removeAllObjects];
 		NSString * type;
 		TemplateElement * element;
 		
@@ -164,7 +174,7 @@
 			else
 				{
 				NSMutableDictionary *dict = sectionDict;
-				NSLog(@"\n%@", dict);
+				
 				type = [dict objectForKey:elementTypeKey];
 				if(type)
 					{
@@ -188,7 +198,7 @@
 	[self generateViewArray];
 	[self setIndexes];
 	[table reloadData]; // TODO: use something faster
-	[table selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+	//[table selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
 	return;
 }
 
@@ -327,14 +337,12 @@
 	[self setIndexes];
 	[table reloadData]; // TODO use the faster thing
 }
+
 -(IBAction) addSection
 {
 	[[[[TextFieldAlert alloc] initWithTitle:@"New Section Name"
 								   delegate:self
 								   selector:@selector(addSectionWithName:)] autorelease] show];
-	//[self addSectionWithHeader:@"<Section Header>"];
-	// TODO:
-	// pop up textfield alert to get correct header string
 }
 
 #pragma mark Element Functions

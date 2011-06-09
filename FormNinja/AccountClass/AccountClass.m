@@ -31,6 +31,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *userDict = [defaults dictionaryForKey:userInformation]; //get user info
     
+    self.userID = [userDict objectForKey:userIDNumber];
     self.username = [userDict objectForKey:userName];
     self.firstName = [userDict objectForKey:userFirstName];
     self.lastName = [userDict objectForKey:userLastName];
@@ -67,6 +68,7 @@
 	return sharedAccountClass;
 }
 
+
 + (void) invalidateAccountInformation
 {
     //Remove user info locally
@@ -78,10 +80,12 @@
     [[self sharedAccountClass] invalidate];
 }
 
+
 - (void) saveWithDict:(NSDictionary *) userDict{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *saveDict = [NSMutableDictionary dictionary];
         
+    [saveDict setObject:[userDict objectForKey:userIDNumber] forKey:userIDNumber];
     [saveDict setObject:[userDict objectForKey:userName] forKey:userName];
     [saveDict setObject:[userDict objectForKey:userPassword ] forKey:userPassword];
     [saveDict setObject:[userDict objectForKey:userEmail] forKey:userEmail];
@@ -110,6 +114,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *saveDict = [NSMutableDictionary dictionary];
     
+    [saveDict setObject:self.userID forKey:userIDNumber];
     [saveDict setObject:self.username forKey:userName];
     [saveDict setObject:self.passwordHash forKey:userPassword];
     [saveDict setObject:self.emailAddress forKey:userEmail];

@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
-		<string key="IBDocument.SystemVersion">10J869</string>
+		<string key="IBDocument.SystemVersion">10J567</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.HIToolboxVersion">462.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">301</string>
@@ -503,7 +503,7 @@
 					<object class="IBUIButton" id="799605681">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">295</int>
-						<string key="NSFrame">{{168, 84}, {155, 64}}</string>
+						<string key="NSFrame">{{165, 113}, {29, 29}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="732531344"/>
@@ -512,8 +512,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="159454655"/>
-						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Change Password</string>
+						<int key="IBUIButtonType">5</int>
 						<reference key="IBUIHighlightedTitleColor" ref="365493386"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -1325,6 +1324,7 @@
 						<int key="objectID">63</int>
 						<reference key="object" ref="799605681"/>
 						<reference key="parent" ref="766721923"/>
+						<string key="objectName">Button</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">61</int>
@@ -1333,10 +1333,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="516984638"/>
 							<reference ref="266709094"/>
-							<reference ref="110447682"/>
 							<reference ref="321305537"/>
 							<reference ref="386950157"/>
 							<reference ref="299508762"/>
+							<reference ref="110447682"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 						<string key="objectName">ChangePasswordView</string>

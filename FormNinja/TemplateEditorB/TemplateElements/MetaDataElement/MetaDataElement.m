@@ -74,9 +74,7 @@
 {
 	//[self reset];
 	[super setDictionary:dict];
-	
-	NSLog(@"dict:\n%@", dictionary);
-	
+
 	[templateNameField setText:[dictionary valueForKey:templateNameKey]];
 	[templateGroupField setText:[dictionary valueForKey:templateGroupKey]];
 	[creatorNameField setText:[dictionary valueForKey:templateCreatorKey]];

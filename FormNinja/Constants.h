@@ -9,6 +9,7 @@
 
 //User info 
 #define userInformation @"userInformation"
+#define userIDNumber @"userID"
 #define userName @"userName"
 #define userPassword @"userPassword"
 #define userEmail @"email"
@@ -31,6 +32,7 @@
 #define formZipCodeExt @"zipExt"
 #define formSecretQuestion @"secretQuestion"
 #define formSecretAnswer @"secretAnswer"
+#define fromTemplateData @"templateData"
 
 
 //Form reply keys
@@ -63,6 +65,7 @@
 #define updateAccountURL @"http://thotstudios.com/formninja/accountUpdate.php"
 #define accountRegisterURL @"http://www.thotstudios.com/formninja/register.php"
 #define userLoginURL @"http://thotstudios.com/formninja/login.php"
+#define templateUploadURL @"http://thotstudios.com/formninja/templateUpload.php"
 
 // Group Constants
 #define ALL_GROUPS_STR @"All Groups" /* TODO: localize */

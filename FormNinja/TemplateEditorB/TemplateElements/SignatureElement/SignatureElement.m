@@ -62,8 +62,8 @@
     
     //Get location info if possible
     if([[LocationManager locationManager] hasValidLocation]){
-        //db insert and other logic here
-        NSLog(@"%f, %f", [LocationManager locationManager].longitude, [LocationManager locationManager].latitude);
+        NSString *coordinates = [NSString stringWithFormat:@"%f,%f", [LocationManager locationManager].latitude, [LocationManager locationManager].longitude];
+        [dictionary setValue:coordinates forKey:@"coordinates"]; //Set dict value
     }
 }
 -(void) failure

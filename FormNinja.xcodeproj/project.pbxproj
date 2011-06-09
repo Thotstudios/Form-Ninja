@@ -8,16 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42362F2A137C5C0700D3A363 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42362F29137C5C0700D3A363 /* QuartzCore.framework */; };
-		42D61557138F1298002B88D3 /* FormEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6154C138F1291002B88D3 /* FormEditorViewController.m */; };
-		42D61558138F1298002B88D3 /* FormEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D6154D138F1291002B88D3 /* FormEditorViewController.xib */; };
-		42D61559138F1298002B88D3 /* formFieldParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6154F138F1292002B88D3 /* formFieldParentViewController.m */; };
-		42D6155A138F1298002B88D3 /* formFieldParentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D61550138F1292002B88D3 /* formFieldParentViewController.xib */; };
-		42D6155B138F1298002B88D3 /* formGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D61552138F1295002B88D3 /* formGroupViewController.m */; };
-		42D6155C138F1298002B88D3 /* formGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D61553138F1295002B88D3 /* formGroupViewController.xib */; };
-		42D6155D138F1298002B88D3 /* formStringFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D61555138F1296002B88D3 /* formStringFieldViewController.m */; };
-		42D6155E138F1298002B88D3 /* formStringFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D61556138F1297002B88D3 /* formStringFieldViewController.xib */; };
 		D904731C13982ADC00B87E4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D904731B13982ADC00B87E4E /* CoreLocation.framework */; };
-		D904732113982C5B00B87E4E /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D904732013982C5B00B87E4E /* LocationManager.m */; };
 		D917B3F81378D0B000E75140 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */; };
 		D917B3F91378D0B000E75140 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3EC1378D0B000E75140 /* ASIDownloadCache.m */; };
 		D917B3FA1378D0B000E75140 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3EE1378D0B000E75140 /* ASIFormDataRequest.m */; };
@@ -40,8 +31,6 @@
 		D922CE95136C926300233C48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922CE94136C926300233C48 /* CoreGraphics.framework */; };
 		D922CE9E136C926300233C48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CE9D136C926300233C48 /* main.m */; };
 		D922CEA1136C926300233C48 /* FormNinjaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */; };
-		D922CEA7136C926300233C48 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */; };
-		F71F4510139EBAC9007592E9 /* TextFieldAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F450F139EBAC9007592E9 /* TextFieldAlert.m */; };
 		F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187651390EFDC000BA9DF /* TemplateEditorController.m */; };
 		F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187661390EFDC000BA9DF /* TemplateEditorController.xib */; };
 		F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F72187681390EFDC000BA9DF /* ElementList.plist */; };
@@ -67,16 +56,57 @@
 		F768C5B8137DEFEB00191858 /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = F768C5B7137DEFEB00191858 /* TODO.txt */; };
 		F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F778DD58137DC69400B444F6 /* CustomLoadAlert.xib */; };
 		F778DD5C137DC69400B444F6 /* CustomLoadAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F778DD5A137DC69400B444F6 /* CustomLoadAlertViewController.m */; };
+		F785C16813A072EE00AADEB6 /* TextFieldAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F785C16713A072EE00AADEB6 /* TextFieldAlert.m */; };
+		F785C16D13A072FF00AADEB6 /* SyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F785C16C13A072FF00AADEB6 /* SyncManager.m */; };
+		F78C993C13A073F600494C12 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C993A13A073F600494C12 /* MainMenu.m */; };
+		F78C993D13A073F600494C12 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F78C993B13A073F600494C12 /* MainMenu.xib */; };
+		F78C994013A0741C00494C12 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C993F13A0741C00494C12 /* FormNinjaLoginViewController.m */; };
 		F7BC423713886CF300911EB5 /* FormManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC423513886CF300911EB5 /* FormManagerViewController.m */; };
 		F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC423613886CF300911EB5 /* FormManagerViewController.xib */; };
 		F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */; };
 		F7BC423E1388709F00911EB5 /* GroupManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC423C1388709F00911EB5 /* GroupManagerViewController.xib */; };
+		F7C0DC6413A07067009ACEB6 /* formNinjaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5313A07067009ACEB6 /* formNinjaLogo.png */; };
+		F7C0DC6513A07067009ACEB6 /* formsGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5413A07067009ACEB6 /* formsGray.png */; };
+		F7C0DC6613A07067009ACEB6 /* formsRed.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5513A07067009ACEB6 /* formsRed.png */; };
+		F7C0DC6713A07067009ACEB6 /* groupsGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5613A07067009ACEB6 /* groupsGray.png */; };
+		F7C0DC6813A07067009ACEB6 /* GroupsRed.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5713A07067009ACEB6 /* GroupsRed.png */; };
+		F7C0DC6913A07067009ACEB6 /* LoginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5813A07067009ACEB6 /* LoginBackground.png */; };
+		F7C0DC6A13A07067009ACEB6 /* loginred.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5913A07067009ACEB6 /* loginred.png */; };
+		F7C0DC6B13A07067009ACEB6 /* LogoutGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5A13A07067009ACEB6 /* LogoutGray.png */; };
+		F7C0DC6C13A07067009ACEB6 /* LogoutRed.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5B13A07067009ACEB6 /* LogoutRed.png */; };
+		F7C0DC6D13A07067009ACEB6 /* Ninjabackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5C13A07067009ACEB6 /* Ninjabackground.png */; };
+		F7C0DC6E13A07067009ACEB6 /* ProfileGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5D13A07067009ACEB6 /* ProfileGray.png */; };
+		F7C0DC6F13A07067009ACEB6 /* ProfileRed.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5E13A07067009ACEB6 /* ProfileRed.png */; };
+		F7C0DC7013A07067009ACEB6 /* registerButtonRed.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC5F13A07067009ACEB6 /* registerButtonRed.png */; };
+		F7C0DC7113A07067009ACEB6 /* templatesGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC6013A07067009ACEB6 /* templatesGray.png */; };
+		F7C0DC7213A07067009ACEB6 /* TemplatesRed.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC6113A07067009ACEB6 /* TemplatesRed.png */; };
+		F7C0DC7313A07067009ACEB6 /* TestNinja.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC6213A07067009ACEB6 /* TestNinja.png */; };
+		F7C0DC7413A07067009ACEB6 /* ThotLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC6313A07067009ACEB6 /* ThotLogo.png */; };
+		F7C0DCA913A07259009ACEB6 /* FormEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DC8213A07259009ACEB6 /* FormEditorViewController.m */; };
+		F7C0DCAA13A07259009ACEB6 /* FormEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC8313A07259009ACEB6 /* FormEditorViewController.xib */; };
+		F7C0DCAB13A07259009ACEB6 /* FormElementPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DC8613A07259009ACEB6 /* FormElementPicker.m */; };
+		F7C0DCAC13A07259009ACEB6 /* FormElementPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC8713A07259009ACEB6 /* FormElementPicker.xib */; };
+		F7C0DCAD13A07259009ACEB6 /* FormTemplateElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DC8B13A07259009ACEB6 /* FormTemplateElement.m */; };
+		F7C0DCAE13A07259009ACEB6 /* FormTemplateElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC8C13A07259009ACEB6 /* FormTemplateElement.xib */; };
+		F7C0DCAF13A07259009ACEB6 /* FormAddressElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DC8F13A07259009ACEB6 /* FormAddressElement.m */; };
+		F7C0DCB013A07259009ACEB6 /* FormAddressElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC9013A07259009ACEB6 /* FormAddressElement.xib */; };
+		F7C0DCB113A07259009ACEB6 /* FormMetaDataElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DC9313A07259009ACEB6 /* FormMetaDataElement.m */; };
+		F7C0DCB213A07259009ACEB6 /* FormMetaDataElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC9413A07259009ACEB6 /* FormMetaDataElement.xib */; };
+		F7C0DCB313A07259009ACEB6 /* FormMultiLineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DC9713A07259009ACEB6 /* FormMultiLineElement.m */; };
+		F7C0DCB413A07259009ACEB6 /* FormMultiLineElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC9813A07259009ACEB6 /* FormMultiLineElement.xib */; };
+		F7C0DCB513A07259009ACEB6 /* FormRepeatingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DC9B13A07259009ACEB6 /* FormRepeatingElement.m */; };
+		F7C0DCB613A07259009ACEB6 /* FormRepeatingElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC9C13A07259009ACEB6 /* FormRepeatingElement.xib */; };
+		F7C0DCB713A07259009ACEB6 /* FormSignatureElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DC9F13A07259009ACEB6 /* FormSignatureElement.m */; };
+		F7C0DCB813A07259009ACEB6 /* FormSignatureElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DCA013A07259009ACEB6 /* FormSignatureElement.xib */; };
+		F7C0DCB913A07259009ACEB6 /* FormSingleLineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DCA313A07259009ACEB6 /* FormSingleLineElement.m */; };
+		F7C0DCBA13A07259009ACEB6 /* FormSingleLineElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DCA413A07259009ACEB6 /* FormSingleLineElement.xib */; };
+		F7C0DCBB13A07259009ACEB6 /* FormTableElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DCA713A07259009ACEB6 /* FormTableElement.m */; };
+		F7C0DCBC13A07259009ACEB6 /* FormTableElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DCA813A07259009ACEB6 /* FormTableElement.xib */; };
+		F7C0DCC013A0729C009ACEB6 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DCBF13A0729C009ACEB6 /* LocationManager.m */; };
 		F7D004EC1392342700DD4D2B /* RepeatingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D004EA1392342700DD4D2B /* RepeatingElement.m */; };
 		F7D004ED1392342700DD4D2B /* RepeatingElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D004EB1392342700DD4D2B /* RepeatingElement.xib */; };
 		F7D004F2139237D600DD4D2B /* TableElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D004F0139237D600DD4D2B /* TableElement.m */; };
 		F7D004F3139237D600DD4D2B /* TableElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D004F1139237D600DD4D2B /* TableElement.xib */; };
-		F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D8AFB9136E289500FE0F76 /* MainMenu.m */; };
-		F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D8AFBA136E289500FE0F76 /* MainMenu.xib */; };
 		F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2B560137E49D000EA89D0 /* AccountClass.m */; };
 		F7F248C11385E1C600E0FD2A /* FormNinjaLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248C31385E1C600E0FD2A /* FormNinjaLoginViewController.xib */; };
 		F7F248C41385E1CB00E0FD2A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248C61385E1CB00E0FD2A /* MainWindow.xib */; };
@@ -86,21 +116,7 @@
 
 /* Begin PBXFileReference section */
 		42362F29137C5C0700D3A363 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		42D6154B138F1291002B88D3 /* FormEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormEditorViewController.h; path = FormEditor/FormEditorViewController.h; sourceTree = "<group>"; };
-		42D6154C138F1291002B88D3 /* FormEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormEditorViewController.m; path = FormEditor/FormEditorViewController.m; sourceTree = "<group>"; };
-		42D6154D138F1291002B88D3 /* FormEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormEditorViewController.xib; path = FormEditor/FormEditorViewController.xib; sourceTree = "<group>"; };
-		42D6154E138F1291002B88D3 /* formFieldParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = formFieldParentViewController.h; path = FormEditor/formFieldParentViewController.h; sourceTree = "<group>"; };
-		42D6154F138F1292002B88D3 /* formFieldParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = formFieldParentViewController.m; path = FormEditor/formFieldParentViewController.m; sourceTree = "<group>"; };
-		42D61550138F1292002B88D3 /* formFieldParentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = formFieldParentViewController.xib; path = FormEditor/formFieldParentViewController.xib; sourceTree = "<group>"; };
-		42D61551138F1294002B88D3 /* formGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = formGroupViewController.h; path = FormEditor/formGroupViewController.h; sourceTree = "<group>"; };
-		42D61552138F1295002B88D3 /* formGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = formGroupViewController.m; path = FormEditor/formGroupViewController.m; sourceTree = "<group>"; };
-		42D61553138F1295002B88D3 /* formGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = formGroupViewController.xib; path = FormEditor/formGroupViewController.xib; sourceTree = "<group>"; };
-		42D61554138F1296002B88D3 /* formStringFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = formStringFieldViewController.h; path = FormEditor/formStringFieldViewController.h; sourceTree = "<group>"; };
-		42D61555138F1296002B88D3 /* formStringFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = formStringFieldViewController.m; path = FormEditor/formStringFieldViewController.m; sourceTree = "<group>"; };
-		42D61556138F1297002B88D3 /* formStringFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = formStringFieldViewController.xib; path = FormEditor/formStringFieldViewController.xib; sourceTree = "<group>"; };
 		D904731B13982ADC00B87E4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		D904731F13982C5B00B87E4E /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
-		D904732013982C5B00B87E4E /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		D90A13DC1382250200857A4C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D917B3E81378D0B000E75140 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = FormNinja/ASI/ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIAuthenticationDialog.m; path = FormNinja/ASI/ASIAuthenticationDialog.m; sourceTree = "<group>"; };
@@ -146,10 +162,6 @@
 		D922CE9D136C926300233C48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D922CE9F136C926300233C48 /* FormNinjaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaAppDelegate.h; sourceTree = "<group>"; };
 		D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaAppDelegate.m; sourceTree = "<group>"; };
-		D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaLoginViewController.h; sourceTree = "<group>"; };
-		D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaLoginViewController.m; sourceTree = "<group>"; };
-		F71F450E139EBAC9007592E9 /* TextFieldAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldAlert.h; sourceTree = "<group>"; };
-		F71F450F139EBAC9007592E9 /* TextFieldAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldAlert.m; sourceTree = "<group>"; };
 		F72187641390EFDC000BA9DF /* TemplateEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateEditorController.h; sourceTree = "<group>"; };
 		F72187651390EFDC000BA9DF /* TemplateEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateEditorController.m; sourceTree = "<group>"; };
 		F72187661390EFDC000BA9DF /* TemplateEditorController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateEditorController.xib; sourceTree = "<group>"; };
@@ -189,21 +201,76 @@
 		F778DD58137DC69400B444F6 /* CustomLoadAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLoadAlert.xib; sourceTree = "<group>"; };
 		F778DD59137DC69400B444F6 /* CustomLoadAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLoadAlertViewController.h; sourceTree = "<group>"; };
 		F778DD5A137DC69400B444F6 /* CustomLoadAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLoadAlertViewController.m; sourceTree = "<group>"; };
+		F785C16613A072EE00AADEB6 /* TextFieldAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldAlert.h; sourceTree = "<group>"; };
+		F785C16713A072EE00AADEB6 /* TextFieldAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldAlert.m; sourceTree = "<group>"; };
+		F785C16B13A072FF00AADEB6 /* SyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncManager.h; sourceTree = "<group>"; };
+		F785C16C13A072FF00AADEB6 /* SyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncManager.m; sourceTree = "<group>"; };
+		F78C993913A073F600494C12 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		F78C993A13A073F600494C12 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		F78C993B13A073F600494C12 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		F78C993E13A0741C00494C12 /* FormNinjaLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormNinjaLoginViewController.h; path = Login/FormNinjaLoginViewController.h; sourceTree = "<group>"; };
+		F78C993F13A0741C00494C12 /* FormNinjaLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormNinjaLoginViewController.m; path = Login/FormNinjaLoginViewController.m; sourceTree = "<group>"; };
 		F7BC423413886CF300911EB5 /* FormManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormManagerViewController.h; path = FormManager/FormManagerViewController.h; sourceTree = "<group>"; };
 		F7BC423513886CF300911EB5 /* FormManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormManagerViewController.m; path = FormManager/FormManagerViewController.m; sourceTree = "<group>"; };
 		F7BC423613886CF300911EB5 /* FormManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormManagerViewController.xib; path = FormManager/FormManagerViewController.xib; sourceTree = "<group>"; };
 		F7BC423A1388709F00911EB5 /* GroupManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManagerViewController.h; path = GroupManager/GroupManagerViewController.h; sourceTree = "<group>"; };
 		F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManagerViewController.m; path = GroupManager/GroupManagerViewController.m; sourceTree = "<group>"; };
 		F7BC423C1388709F00911EB5 /* GroupManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupManagerViewController.xib; path = GroupManager/GroupManagerViewController.xib; sourceTree = "<group>"; };
+		F7C0DC5313A07067009ACEB6 /* formNinjaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formNinjaLogo.png; sourceTree = "<group>"; };
+		F7C0DC5413A07067009ACEB6 /* formsGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formsGray.png; sourceTree = "<group>"; };
+		F7C0DC5513A07067009ACEB6 /* formsRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formsRed.png; sourceTree = "<group>"; };
+		F7C0DC5613A07067009ACEB6 /* groupsGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = groupsGray.png; sourceTree = "<group>"; };
+		F7C0DC5713A07067009ACEB6 /* GroupsRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GroupsRed.png; sourceTree = "<group>"; };
+		F7C0DC5813A07067009ACEB6 /* LoginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginBackground.png; sourceTree = "<group>"; };
+		F7C0DC5913A07067009ACEB6 /* loginred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginred.png; sourceTree = "<group>"; };
+		F7C0DC5A13A07067009ACEB6 /* LogoutGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoutGray.png; sourceTree = "<group>"; };
+		F7C0DC5B13A07067009ACEB6 /* LogoutRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoutRed.png; sourceTree = "<group>"; };
+		F7C0DC5C13A07067009ACEB6 /* Ninjabackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ninjabackground.png; sourceTree = "<group>"; };
+		F7C0DC5D13A07067009ACEB6 /* ProfileGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProfileGray.png; sourceTree = "<group>"; };
+		F7C0DC5E13A07067009ACEB6 /* ProfileRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProfileRed.png; sourceTree = "<group>"; };
+		F7C0DC5F13A07067009ACEB6 /* registerButtonRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerButtonRed.png; sourceTree = "<group>"; };
+		F7C0DC6013A07067009ACEB6 /* templatesGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = templatesGray.png; sourceTree = "<group>"; };
+		F7C0DC6113A07067009ACEB6 /* TemplatesRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplatesRed.png; sourceTree = "<group>"; };
+		F7C0DC6213A07067009ACEB6 /* TestNinja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestNinja.png; sourceTree = "<group>"; };
+		F7C0DC6313A07067009ACEB6 /* ThotLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThotLogo.png; sourceTree = "<group>"; };
+		F7C0DC8113A07259009ACEB6 /* FormEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormEditorViewController.h; sourceTree = "<group>"; };
+		F7C0DC8213A07259009ACEB6 /* FormEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormEditorViewController.m; sourceTree = "<group>"; };
+		F7C0DC8313A07259009ACEB6 /* FormEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormEditorViewController.xib; sourceTree = "<group>"; };
+		F7C0DC8513A07259009ACEB6 /* FormElementPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormElementPicker.h; sourceTree = "<group>"; };
+		F7C0DC8613A07259009ACEB6 /* FormElementPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormElementPicker.m; sourceTree = "<group>"; };
+		F7C0DC8713A07259009ACEB6 /* FormElementPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormElementPicker.xib; sourceTree = "<group>"; };
+		F7C0DC8A13A07259009ACEB6 /* FormTemplateElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTemplateElement.h; sourceTree = "<group>"; };
+		F7C0DC8B13A07259009ACEB6 /* FormTemplateElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTemplateElement.m; sourceTree = "<group>"; };
+		F7C0DC8C13A07259009ACEB6 /* FormTemplateElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormTemplateElement.xib; sourceTree = "<group>"; };
+		F7C0DC8E13A07259009ACEB6 /* FormAddressElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormAddressElement.h; sourceTree = "<group>"; };
+		F7C0DC8F13A07259009ACEB6 /* FormAddressElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormAddressElement.m; sourceTree = "<group>"; };
+		F7C0DC9013A07259009ACEB6 /* FormAddressElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormAddressElement.xib; sourceTree = "<group>"; };
+		F7C0DC9213A07259009ACEB6 /* FormMetaDataElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormMetaDataElement.h; sourceTree = "<group>"; };
+		F7C0DC9313A07259009ACEB6 /* FormMetaDataElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormMetaDataElement.m; sourceTree = "<group>"; };
+		F7C0DC9413A07259009ACEB6 /* FormMetaDataElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormMetaDataElement.xib; sourceTree = "<group>"; };
+		F7C0DC9613A07259009ACEB6 /* FormMultiLineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormMultiLineElement.h; sourceTree = "<group>"; };
+		F7C0DC9713A07259009ACEB6 /* FormMultiLineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormMultiLineElement.m; sourceTree = "<group>"; };
+		F7C0DC9813A07259009ACEB6 /* FormMultiLineElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormMultiLineElement.xib; sourceTree = "<group>"; };
+		F7C0DC9A13A07259009ACEB6 /* FormRepeatingElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormRepeatingElement.h; sourceTree = "<group>"; };
+		F7C0DC9B13A07259009ACEB6 /* FormRepeatingElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormRepeatingElement.m; sourceTree = "<group>"; };
+		F7C0DC9C13A07259009ACEB6 /* FormRepeatingElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormRepeatingElement.xib; sourceTree = "<group>"; };
+		F7C0DC9E13A07259009ACEB6 /* FormSignatureElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormSignatureElement.h; sourceTree = "<group>"; };
+		F7C0DC9F13A07259009ACEB6 /* FormSignatureElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormSignatureElement.m; sourceTree = "<group>"; };
+		F7C0DCA013A07259009ACEB6 /* FormSignatureElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormSignatureElement.xib; sourceTree = "<group>"; };
+		F7C0DCA213A07259009ACEB6 /* FormSingleLineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormSingleLineElement.h; sourceTree = "<group>"; };
+		F7C0DCA313A07259009ACEB6 /* FormSingleLineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormSingleLineElement.m; sourceTree = "<group>"; };
+		F7C0DCA413A07259009ACEB6 /* FormSingleLineElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormSingleLineElement.xib; sourceTree = "<group>"; };
+		F7C0DCA613A07259009ACEB6 /* FormTableElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableElement.h; sourceTree = "<group>"; };
+		F7C0DCA713A07259009ACEB6 /* FormTableElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableElement.m; sourceTree = "<group>"; };
+		F7C0DCA813A07259009ACEB6 /* FormTableElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormTableElement.xib; sourceTree = "<group>"; };
+		F7C0DCBE13A0729C009ACEB6 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		F7C0DCBF13A0729C009ACEB6 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		F7D004E91392342700DD4D2B /* RepeatingElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RepeatingElement.h; path = RepeatingElement/RepeatingElement.h; sourceTree = "<group>"; };
 		F7D004EA1392342700DD4D2B /* RepeatingElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RepeatingElement.m; path = RepeatingElement/RepeatingElement.m; sourceTree = "<group>"; };
 		F7D004EB1392342700DD4D2B /* RepeatingElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RepeatingElement.xib; path = RepeatingElement/RepeatingElement.xib; sourceTree = "<group>"; };
 		F7D004EF139237D600DD4D2B /* TableElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableElement.h; path = TableElement/TableElement.h; sourceTree = "<group>"; };
 		F7D004F0139237D600DD4D2B /* TableElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableElement.m; path = TableElement/TableElement.m; sourceTree = "<group>"; };
 		F7D004F1139237D600DD4D2B /* TableElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableElement.xib; path = TableElement/TableElement.xib; sourceTree = "<group>"; };
-		F7D8AFB8136E289500FE0F76 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
-		F7D8AFB9136E289500FE0F76 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
-		F7D8AFBA136E289500FE0F76 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		F7E2B55F137E49D000EA89D0 /* AccountClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountClass.h; path = AccountClass/AccountClass.h; sourceTree = "<group>"; };
 		F7E2B560137E49D000EA89D0 /* AccountClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountClass.m; path = AccountClass/AccountClass.m; sourceTree = "<group>"; };
 		F7F248C21385E1C600E0FD2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FormNinjaLoginViewController.xib; sourceTree = "<group>"; };
@@ -232,44 +299,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		42D6155F138F12CE002B88D3 /* Fields */ = {
-			isa = PBXGroup;
-			children = (
-				42D61560138F12E0002B88D3 /* Parent Field */,
-				42D61561138F12E4002B88D3 /* String Field */,
-			);
-			name = Fields;
-			sourceTree = "<group>";
-		};
-		42D61560138F12E0002B88D3 /* Parent Field */ = {
-			isa = PBXGroup;
-			children = (
-				42D6154E138F1291002B88D3 /* formFieldParentViewController.h */,
-				42D6154F138F1292002B88D3 /* formFieldParentViewController.m */,
-				42D61550138F1292002B88D3 /* formFieldParentViewController.xib */,
-			);
-			name = "Parent Field";
-			sourceTree = "<group>";
-		};
-		42D61561138F12E4002B88D3 /* String Field */ = {
-			isa = PBXGroup;
-			children = (
-				42D61554138F1296002B88D3 /* formStringFieldViewController.h */,
-				42D61555138F1296002B88D3 /* formStringFieldViewController.m */,
-				42D61556138F1297002B88D3 /* formStringFieldViewController.xib */,
-			);
-			name = "String Field";
-			sourceTree = "<group>";
-		};
-		D904731E13982C3000B87E4E /* Location Manager */ = {
-			isa = PBXGroup;
-			children = (
-				D904731F13982C5B00B87E4E /* LocationManager.h */,
-				D904732013982C5B00B87E4E /* LocationManager.m */,
-			);
-			name = "Location Manager";
-			sourceTree = "<group>";
-		};
 		D917B3D01378D06200E75140 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,8 +356,8 @@
 		D917B46C1379E09F00E75140 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */,
-				D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */,
+				F78C993E13A0741C00494C12 /* FormNinjaLoginViewController.h */,
+				F78C993F13A0741C00494C12 /* FormNinjaLoginViewController.m */,
 				F7F248C31385E1C600E0FD2A /* FormNinjaLoginViewController.xib */,
 			);
 			name = Login;
@@ -342,6 +371,7 @@
 				D922CEB0136CAB1F00233C48 /* XIB */,
 				D922CE8F136C926300233C48 /* Frameworks */,
 				D922CE8D136C926300233C48 /* Products */,
+				F7C0DC5213A07067009ACEB6 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -373,17 +403,18 @@
 			isa = PBXGroup;
 			children = (
 				D90A13DC1382250200857A4C /* Constants.h */,
-				F71F450D139EBAC9007592E9 /* TextFieldAlert */,
+				F785C16A13A072FF00AADEB6 /* SyncManager */,
+				F7C0DCBD13A0729C009ACEB6 /* LocationManager */,
+				F785C16513A072EE00AADEB6 /* TextFieldAlert */,
 				F778DD50137DC40B00B444F6 /* Networking */,
 				D917B3D01378D06200E75140 /* JSON */,
 				D917B46C1379E09F00E75140 /* Login */,
-				D904731E13982C3000B87E4E /* Location Manager */,
+				F78C993813A073F600494C12 /* MainMenu */,
 				F7E2B563137E49D600EA89D0 /* Account */,
-				F7D8AFBE136E289A00FE0F76 /* MainMenu */,
 				F778DD51137DC60E00B444F6 /* TemplateManager */,
 				F72187611390EFCE000BA9DF /* TemplateEditor */,
 				F7BC423913886CF800911EB5 /* FormManager */,
-				F7BC423313886CBC00911EB5 /* FormEditor */,
+				F7C0DC7F13A07259009ACEB6 /* FormEditor */,
 				F7BC423F138870A200911EB5 /* GroupManager */,
 				D922CE9F136C926300233C48 /* FormNinjaAppDelegate.h */,
 				D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */,
@@ -410,15 +441,6 @@
 			);
 			name = XIB;
 			path = FormNinja;
-			sourceTree = "<group>";
-		};
-		F71F450D139EBAC9007592E9 /* TextFieldAlert */ = {
-			isa = PBXGroup;
-			children = (
-				F71F450E139EBAC9007592E9 /* TextFieldAlert.h */,
-				F71F450F139EBAC9007592E9 /* TextFieldAlert.m */,
-			);
-			path = TextFieldAlert;
 			sourceTree = "<group>";
 		};
 		F72187611390EFCE000BA9DF /* TemplateEditor */ = {
@@ -592,18 +614,32 @@
 			path = CustomLoadAlert;
 			sourceTree = "<group>";
 		};
-		F7BC423313886CBC00911EB5 /* FormEditor */ = {
+		F785C16513A072EE00AADEB6 /* TextFieldAlert */ = {
 			isa = PBXGroup;
 			children = (
-				42D6154B138F1291002B88D3 /* FormEditorViewController.h */,
-				42D6154C138F1291002B88D3 /* FormEditorViewController.m */,
-				42D6154D138F1291002B88D3 /* FormEditorViewController.xib */,
-				42D61551138F1294002B88D3 /* formGroupViewController.h */,
-				42D61552138F1295002B88D3 /* formGroupViewController.m */,
-				42D61553138F1295002B88D3 /* formGroupViewController.xib */,
-				42D6155F138F12CE002B88D3 /* Fields */,
+				F785C16613A072EE00AADEB6 /* TextFieldAlert.h */,
+				F785C16713A072EE00AADEB6 /* TextFieldAlert.m */,
 			);
-			name = FormEditor;
+			path = TextFieldAlert;
+			sourceTree = "<group>";
+		};
+		F785C16A13A072FF00AADEB6 /* SyncManager */ = {
+			isa = PBXGroup;
+			children = (
+				F785C16B13A072FF00AADEB6 /* SyncManager.h */,
+				F785C16C13A072FF00AADEB6 /* SyncManager.m */,
+			);
+			path = SyncManager;
+			sourceTree = "<group>";
+		};
+		F78C993813A073F600494C12 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F78C993913A073F600494C12 /* MainMenu.h */,
+				F78C993A13A073F600494C12 /* MainMenu.m */,
+				F78C993B13A073F600494C12 /* MainMenu.xib */,
+			);
+			path = MainMenu;
 			sourceTree = "<group>";
 		};
 		F7BC423913886CF800911EB5 /* FormManager */ = {
@@ -626,6 +662,165 @@
 			name = GroupManager;
 			sourceTree = "<group>";
 		};
+		F7C0DC5213A07067009ACEB6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC5313A07067009ACEB6 /* formNinjaLogo.png */,
+				F7C0DC5413A07067009ACEB6 /* formsGray.png */,
+				F7C0DC5513A07067009ACEB6 /* formsRed.png */,
+				F7C0DC5613A07067009ACEB6 /* groupsGray.png */,
+				F7C0DC5713A07067009ACEB6 /* GroupsRed.png */,
+				F7C0DC5813A07067009ACEB6 /* LoginBackground.png */,
+				F7C0DC5913A07067009ACEB6 /* loginred.png */,
+				F7C0DC5A13A07067009ACEB6 /* LogoutGray.png */,
+				F7C0DC5B13A07067009ACEB6 /* LogoutRed.png */,
+				F7C0DC5C13A07067009ACEB6 /* Ninjabackground.png */,
+				F7C0DC5D13A07067009ACEB6 /* ProfileGray.png */,
+				F7C0DC5E13A07067009ACEB6 /* ProfileRed.png */,
+				F7C0DC5F13A07067009ACEB6 /* registerButtonRed.png */,
+				F7C0DC6013A07067009ACEB6 /* templatesGray.png */,
+				F7C0DC6113A07067009ACEB6 /* TemplatesRed.png */,
+				F7C0DC6213A07067009ACEB6 /* TestNinja.png */,
+				F7C0DC6313A07067009ACEB6 /* ThotLogo.png */,
+			);
+			name = Resources;
+			path = FormNinja/Resources;
+			sourceTree = "<group>";
+		};
+		F7C0DC7F13A07259009ACEB6 /* FormEditor */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC8013A07259009ACEB6 /* FormEditor */,
+				F7C0DC8413A07259009ACEB6 /* FormElementPicker */,
+				F7C0DC8813A07259009ACEB6 /* FormElements */,
+			);
+			path = FormEditor;
+			sourceTree = "<group>";
+		};
+		F7C0DC8013A07259009ACEB6 /* FormEditor */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC8113A07259009ACEB6 /* FormEditorViewController.h */,
+				F7C0DC8213A07259009ACEB6 /* FormEditorViewController.m */,
+				F7C0DC8313A07259009ACEB6 /* FormEditorViewController.xib */,
+			);
+			path = FormEditor;
+			sourceTree = "<group>";
+		};
+		F7C0DC8413A07259009ACEB6 /* FormElementPicker */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC8513A07259009ACEB6 /* FormElementPicker.h */,
+				F7C0DC8613A07259009ACEB6 /* FormElementPicker.m */,
+				F7C0DC8713A07259009ACEB6 /* FormElementPicker.xib */,
+			);
+			path = FormElementPicker;
+			sourceTree = "<group>";
+		};
+		F7C0DC8813A07259009ACEB6 /* FormElements */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC8913A07259009ACEB6 /* FormElement */,
+				F7C0DC8D13A07259009ACEB6 /* FormElementAddress */,
+				F7C0DC9113A07259009ACEB6 /* FormElementMetaData */,
+				F7C0DC9513A07259009ACEB6 /* FormElementMultiLine */,
+				F7C0DC9913A07259009ACEB6 /* FormElementRepeating */,
+				F7C0DC9D13A07259009ACEB6 /* FormElementSignature */,
+				F7C0DCA113A07259009ACEB6 /* FormElementSingleLine */,
+				F7C0DCA513A07259009ACEB6 /* FormElementTable */,
+			);
+			path = FormElements;
+			sourceTree = "<group>";
+		};
+		F7C0DC8913A07259009ACEB6 /* FormElement */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC8A13A07259009ACEB6 /* FormTemplateElement.h */,
+				F7C0DC8B13A07259009ACEB6 /* FormTemplateElement.m */,
+				F7C0DC8C13A07259009ACEB6 /* FormTemplateElement.xib */,
+			);
+			path = FormElement;
+			sourceTree = "<group>";
+		};
+		F7C0DC8D13A07259009ACEB6 /* FormElementAddress */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC8E13A07259009ACEB6 /* FormAddressElement.h */,
+				F7C0DC8F13A07259009ACEB6 /* FormAddressElement.m */,
+				F7C0DC9013A07259009ACEB6 /* FormAddressElement.xib */,
+			);
+			path = FormElementAddress;
+			sourceTree = "<group>";
+		};
+		F7C0DC9113A07259009ACEB6 /* FormElementMetaData */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC9213A07259009ACEB6 /* FormMetaDataElement.h */,
+				F7C0DC9313A07259009ACEB6 /* FormMetaDataElement.m */,
+				F7C0DC9413A07259009ACEB6 /* FormMetaDataElement.xib */,
+			);
+			path = FormElementMetaData;
+			sourceTree = "<group>";
+		};
+		F7C0DC9513A07259009ACEB6 /* FormElementMultiLine */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC9613A07259009ACEB6 /* FormMultiLineElement.h */,
+				F7C0DC9713A07259009ACEB6 /* FormMultiLineElement.m */,
+				F7C0DC9813A07259009ACEB6 /* FormMultiLineElement.xib */,
+			);
+			path = FormElementMultiLine;
+			sourceTree = "<group>";
+		};
+		F7C0DC9913A07259009ACEB6 /* FormElementRepeating */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC9A13A07259009ACEB6 /* FormRepeatingElement.h */,
+				F7C0DC9B13A07259009ACEB6 /* FormRepeatingElement.m */,
+				F7C0DC9C13A07259009ACEB6 /* FormRepeatingElement.xib */,
+			);
+			path = FormElementRepeating;
+			sourceTree = "<group>";
+		};
+		F7C0DC9D13A07259009ACEB6 /* FormElementSignature */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DC9E13A07259009ACEB6 /* FormSignatureElement.h */,
+				F7C0DC9F13A07259009ACEB6 /* FormSignatureElement.m */,
+				F7C0DCA013A07259009ACEB6 /* FormSignatureElement.xib */,
+			);
+			path = FormElementSignature;
+			sourceTree = "<group>";
+		};
+		F7C0DCA113A07259009ACEB6 /* FormElementSingleLine */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DCA213A07259009ACEB6 /* FormSingleLineElement.h */,
+				F7C0DCA313A07259009ACEB6 /* FormSingleLineElement.m */,
+				F7C0DCA413A07259009ACEB6 /* FormSingleLineElement.xib */,
+			);
+			path = FormElementSingleLine;
+			sourceTree = "<group>";
+		};
+		F7C0DCA513A07259009ACEB6 /* FormElementTable */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DCA613A07259009ACEB6 /* FormTableElement.h */,
+				F7C0DCA713A07259009ACEB6 /* FormTableElement.m */,
+				F7C0DCA813A07259009ACEB6 /* FormTableElement.xib */,
+			);
+			path = FormElementTable;
+			sourceTree = "<group>";
+		};
+		F7C0DCBD13A0729C009ACEB6 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				F7C0DCBE13A0729C009ACEB6 /* LocationManager.h */,
+				F7C0DCBF13A0729C009ACEB6 /* LocationManager.m */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
 		F7D004E81392317F00DD4D2B /* RepeatingElement */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,16 +839,6 @@
 				F7D004F1139237D600DD4D2B /* TableElement.xib */,
 			);
 			name = TableElement;
-			sourceTree = "<group>";
-		};
-		F7D8AFBE136E289A00FE0F76 /* MainMenu */ = {
-			isa = PBXGroup;
-			children = (
-				F7D8AFB8136E289500FE0F76 /* MainMenu.h */,
-				F7D8AFB9136E289500FE0F76 /* MainMenu.m */,
-				F7D8AFBA136E289500FE0F76 /* MainMenu.xib */,
-			);
-			name = MainMenu;
 			sourceTree = "<group>";
 		};
 		F7E2B563137E49D600EA89D0 /* Account */ = {
@@ -715,7 +900,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7D8AFBC136E289500FE0F76 /* MainMenu.xib in Resources */,
 				F7F248D61385E8F800E0FD2A /* TemplateManagerViewController.xib in Resources */,
 				F778DD5B137DC69400B444F6 /* CustomLoadAlert.xib in Resources */,
 				F768C5B0137DE85800191858 /* AccountEditorViewController.xib in Resources */,
@@ -724,10 +908,6 @@
 				F7F248C11385E1C600E0FD2A /* FormNinjaLoginViewController.xib in Resources */,
 				F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */,
 				F7BC423E1388709F00911EB5 /* GroupManagerViewController.xib in Resources */,
-				42D61558138F1298002B88D3 /* FormEditorViewController.xib in Resources */,
-				42D6155A138F1298002B88D3 /* formFieldParentViewController.xib in Resources */,
-				42D6155C138F1298002B88D3 /* formGroupViewController.xib in Resources */,
-				42D6155E138F1298002B88D3 /* formStringFieldViewController.xib in Resources */,
 				F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */,
 				F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */,
 				F72187921390EFDC000BA9DF /* AddressElement.xib in Resources */,
@@ -739,6 +919,34 @@
 				F72187A01390EFDC000BA9DF /* SingleLineElement.xib in Resources */,
 				F7D004ED1392342700DD4D2B /* RepeatingElement.xib in Resources */,
 				F7D004F3139237D600DD4D2B /* TableElement.xib in Resources */,
+				F7C0DC6413A07067009ACEB6 /* formNinjaLogo.png in Resources */,
+				F7C0DC6513A07067009ACEB6 /* formsGray.png in Resources */,
+				F7C0DC6613A07067009ACEB6 /* formsRed.png in Resources */,
+				F7C0DC6713A07067009ACEB6 /* groupsGray.png in Resources */,
+				F7C0DC6813A07067009ACEB6 /* GroupsRed.png in Resources */,
+				F7C0DC6913A07067009ACEB6 /* LoginBackground.png in Resources */,
+				F7C0DC6A13A07067009ACEB6 /* loginred.png in Resources */,
+				F7C0DC6B13A07067009ACEB6 /* LogoutGray.png in Resources */,
+				F7C0DC6C13A07067009ACEB6 /* LogoutRed.png in Resources */,
+				F7C0DC6D13A07067009ACEB6 /* Ninjabackground.png in Resources */,
+				F7C0DC6E13A07067009ACEB6 /* ProfileGray.png in Resources */,
+				F7C0DC6F13A07067009ACEB6 /* ProfileRed.png in Resources */,
+				F7C0DC7013A07067009ACEB6 /* registerButtonRed.png in Resources */,
+				F7C0DC7113A07067009ACEB6 /* templatesGray.png in Resources */,
+				F7C0DC7213A07067009ACEB6 /* TemplatesRed.png in Resources */,
+				F7C0DC7313A07067009ACEB6 /* TestNinja.png in Resources */,
+				F7C0DC7413A07067009ACEB6 /* ThotLogo.png in Resources */,
+				F7C0DCAA13A07259009ACEB6 /* FormEditorViewController.xib in Resources */,
+				F7C0DCAC13A07259009ACEB6 /* FormElementPicker.xib in Resources */,
+				F7C0DCAE13A07259009ACEB6 /* FormTemplateElement.xib in Resources */,
+				F7C0DCB013A07259009ACEB6 /* FormAddressElement.xib in Resources */,
+				F7C0DCB213A07259009ACEB6 /* FormMetaDataElement.xib in Resources */,
+				F7C0DCB413A07259009ACEB6 /* FormMultiLineElement.xib in Resources */,
+				F7C0DCB613A07259009ACEB6 /* FormRepeatingElement.xib in Resources */,
+				F7C0DCB813A07259009ACEB6 /* FormSignatureElement.xib in Resources */,
+				F7C0DCBA13A07259009ACEB6 /* FormSingleLineElement.xib in Resources */,
+				F7C0DCBC13A07259009ACEB6 /* FormTableElement.xib in Resources */,
+				F78C993D13A073F600494C12 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,8 +959,6 @@
 			files = (
 				D922CE9E136C926300233C48 /* main.m in Sources */,
 				D922CEA1136C926300233C48 /* FormNinjaAppDelegate.m in Sources */,
-				D922CEA7136C926300233C48 /* FormNinjaLoginViewController.m in Sources */,
-				F7D8AFBB136E289500FE0F76 /* MainMenu.m in Sources */,
 				D917B3F81378D0B000E75140 /* ASIAuthenticationDialog.m in Sources */,
 				D917B3F91378D0B000E75140 /* ASIDownloadCache.m in Sources */,
 				D917B3FA1378D0B000E75140 /* ASIFormDataRequest.m in Sources */,
@@ -772,10 +978,6 @@
 				F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */,
 				F7BC423713886CF300911EB5 /* FormManagerViewController.m in Sources */,
 				F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */,
-				42D61557138F1298002B88D3 /* FormEditorViewController.m in Sources */,
-				42D61559138F1298002B88D3 /* formFieldParentViewController.m in Sources */,
-				42D6155B138F1298002B88D3 /* formGroupViewController.m in Sources */,
-				42D6155D138F1298002B88D3 /* formStringFieldViewController.m in Sources */,
 				F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */,
 				F72187901390EFDC000BA9DF /* ElementPicker.m in Sources */,
 				F72187911390EFDC000BA9DF /* AddressElement.m in Sources */,
@@ -789,8 +991,21 @@
 				F721879F1390EFDC000BA9DF /* SingleLineElement.m in Sources */,
 				F7D004EC1392342700DD4D2B /* RepeatingElement.m in Sources */,
 				F7D004F2139237D600DD4D2B /* TableElement.m in Sources */,
-				D904732113982C5B00B87E4E /* LocationManager.m in Sources */,
-				F71F4510139EBAC9007592E9 /* TextFieldAlert.m in Sources */,
+				F7C0DCA913A07259009ACEB6 /* FormEditorViewController.m in Sources */,
+				F7C0DCAB13A07259009ACEB6 /* FormElementPicker.m in Sources */,
+				F7C0DCAD13A07259009ACEB6 /* FormTemplateElement.m in Sources */,
+				F7C0DCAF13A07259009ACEB6 /* FormAddressElement.m in Sources */,
+				F7C0DCB113A07259009ACEB6 /* FormMetaDataElement.m in Sources */,
+				F7C0DCB313A07259009ACEB6 /* FormMultiLineElement.m in Sources */,
+				F7C0DCB513A07259009ACEB6 /* FormRepeatingElement.m in Sources */,
+				F7C0DCB713A07259009ACEB6 /* FormSignatureElement.m in Sources */,
+				F7C0DCB913A07259009ACEB6 /* FormSingleLineElement.m in Sources */,
+				F7C0DCBB13A07259009ACEB6 /* FormTableElement.m in Sources */,
+				F7C0DCC013A0729C009ACEB6 /* LocationManager.m in Sources */,
+				F785C16813A072EE00AADEB6 /* TextFieldAlert.m in Sources */,
+				F785C16D13A072FF00AADEB6 /* SyncManager.m in Sources */,
+				F78C993C13A073F600494C12 /* MainMenu.m in Sources */,
+				F78C994013A0741C00494C12 /* FormNinjaLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
