@@ -118,18 +118,11 @@
 
 - (void) commitToDB
 {
-    
-    //Get json string
-    [[SyncManager sharedSyncManager] addTemplateToSyncList:[(NSMutableArray*)CFPropertyListCreateDeepCopy(kCFAllocatorDefault, (CFPropertyListRef)dataArray, kCFPropertyListMutableContainers) autorelease]];
-	
-	/*
-	{
-    SyncManager *sync = [[SyncManager alloc] init];
-    //sync.delegate = self;
-    //Create deep copy with mutable elements of data array
-    [sync syncTemplate: [(NSMutableArray*)CFPropertyListCreateDeepCopy(kCFAllocatorDefault, (CFPropertyListRef)data, kCFPropertyListMutableContainers) autorelease]];
-	}
-	*/
+    NSMutableDictionary *metaData = [dataArray objectAtIndex:0];
+    if ([[metaData objectForKey:templatePublishedKey] intValue] == 1) {
+        //Get json string
+        [[SyncManager sharedSyncManager] addTemplateToSyncList:[(NSMutableArray*)CFPropertyListCreateDeepCopy(kCFAllocatorDefault, (CFPropertyListRef)dataArray, kCFPropertyListMutableContainers) autorelease]];
+    }
 }
 
 #pragma mark - Member Functions
