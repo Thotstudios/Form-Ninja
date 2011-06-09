@@ -43,6 +43,7 @@
 	[textField setTextAlignment:UITextAlignmentCenter];
 	[self addSubview:textField];
 	[textField setDelegate:self];
+	[textField becomeFirstResponder];
 	[super show];
 }
 -(BOOL) orientationChanged
@@ -96,8 +97,8 @@
 		case 0: // cancel
 		break;
 		case 1: // confirm selection
-		[callback performSelector:selector withObject:[textField text]];
-		//[callback performSelector:selector withObject:[[[table cellForRowAtIndexPath:[table indexPathForSelectedRow]] textLabel] text]];
+		if([textField text])
+			[callback performSelector:selector withObject:[textField text]];
 		break;
 		
 	}

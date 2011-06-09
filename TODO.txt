@@ -23,6 +23,10 @@ Chad:
 * Template Creator should be logged-in user's name.
 * Deleting templates should reconsider group names.
 * Finish Element buttons.
+* TextFieldAlert should have delegate return key.
+* Check bug with "title" not showing up for TextFieldAlert when addSection called.
+* Sanitize template names.
+* Give TemplateEditor a path object so it can rename templates and manage the file directory.
 
 Paul:
 * Optionally write a TODO list here.

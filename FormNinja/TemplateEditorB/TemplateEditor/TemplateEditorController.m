@@ -18,11 +18,11 @@
 #define keyboardHeightPortrait		264
 #define keyboardHeightLandscape		352
 
-#define tableHeightFullPortrait		960 - 112
-#define tableHeightHalfPortrait		696
+#define tableHeightFullPortrait		(960 - 112)
+#define tableHeightHalfPortrait		(tableHeightFullPortrait - keyboardHeightPortrait)
 
-#define tableHeightFullLandscape	704 - 112
-#define tableHeightHalfLandscape	352
+#define tableHeightFullLandscape	(704 - 112)
+#define tableHeightHalfLandscape	(tableHeightFullLandscape - keyboardHeightLandscape)
 
 @interface TemplateEditorController()
 - (void) generateViewArray;
@@ -109,7 +109,6 @@
 	[table reloadData];
 }
 
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
@@ -147,6 +146,7 @@
 }
 
 #pragma mark - Member Functions
+
 - (void) generateViewArray
 {
 	[self setViewArray:[NSMutableArray array]];
@@ -409,6 +409,7 @@
 			return;
 			}
 		}
+	[table selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section] animated:YES scrollPosition:UITableViewScrollPositionTop];
 	[[[viewArray objectAtIndex:section] objectAtIndex:row] beginEditing];
 }
 
@@ -420,24 +421,23 @@
 	int fromRow = [fromIndexPath row];
 	int toRow = [toIndexPath row];
 	
-	if(toSection == 0)
-		toSection ++;
-	if(toSection >= [dataArray count])
-		toSection --;
+	if(toSection <= 0) return;
+	if(toSection >= [dataArray count]) return;
 	
-// TODO: range checking
+	if(fromSection == 0) return;
+	if(fromSection >= [dataArray count]) return;
 	
 	NSMutableDictionary * fromSectionDict = [dataArray objectAtIndex:fromSection];
 	NSMutableDictionary * toSectionDict = [dataArray objectAtIndex:toSection];
 	NSMutableArray * fromSectionData = [fromSectionDict objectForKey:sectionDataKey];
 	NSMutableArray * toSectionData = [toSectionDict objectForKey:sectionDataKey];
 	
-	if(toRow == 0)
-		toRow ++;
-	if(toRow >= [toSectionData count])
-		toRow --;
+	if(toRow == 0) return;
+	if(toRow >= [toSectionData count]) return;
 	
-	
+	if(fromRow == 0) return;
+	if(fromRow >= [toSectionData count]) return;
+
 	id temp;
 	
 	temp = [[fromSectionData objectAtIndex:fromRow] retain];
@@ -460,7 +460,6 @@
 	
 }
 
-//if(templateIsMultilevel) {
 - (void) moveUpElementAtIndexPath:(NSIndexPath*)fromIndexPath
 {
 	NSUInteger row = [fromIndexPath row];
@@ -498,10 +497,12 @@
 {
 	NSUInteger row = [indexPath row];
 	NSUInteger section = [indexPath section];
-	if(section == 0 || row == 0) return;
+	if(section == 0) return; // can't delete MetaData
 	
 	NSMutableDictionary * sectionDict = [dataArray objectAtIndex:section];
 	NSMutableArray * sectionData = [sectionDict objectForKey:sectionDataKey];
+	
+	if(row == 0 && [sectionData count] > 1) return;
 	
 	[sectionData removeObjectAtIndex:row];
 	if([sectionData count])
@@ -511,6 +512,7 @@
 		[dataArray removeObjectAtIndex:section];
 		[viewArray removeObjectAtIndex:section];
 		}
+	[table reloadData];
 }
 
 #pragma mark Temporary

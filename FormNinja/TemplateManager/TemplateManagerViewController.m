@@ -287,26 +287,6 @@
 - (IBAction)createTemplate
 {
 	[TextFieldAlert showWithTitle:@"New Template Name" delegate:self selector:@selector(createTemplateWithName:)];
-//	[[[[TextFieldAlert alloc] initWithTitle:@"New Template Name"
-//								   delegate:self
-//								   selector:@selector(createTemplateWithName:)] autorelease] show];
-}
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	// NSString * name = nil;
-	switch([actionSheet tag])
-	{
-		case 1: // delete
-		if(buttonIndex != [actionSheet cancelButtonIndex])
-			[self confirmDeleteSelectedTemplate];
-		break;
-		
-		case 2: // copy
-		// get name
-		// [self copySelectedTemplateWithName:name];
-		break;
-	}
 }
 
 #pragma mark - TableView DataSource

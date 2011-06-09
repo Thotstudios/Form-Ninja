@@ -84,7 +84,9 @@
 
 - (IBAction)newFormWithSelectedTemplate
 {
+	// TODO:
 	// [formEditorViewController clear];
+	// [formEditorViewController newFormWithTemplate:(id)template];
 	[self.navigationController pushViewController:formEditorViewController animated:YES];
 }
 

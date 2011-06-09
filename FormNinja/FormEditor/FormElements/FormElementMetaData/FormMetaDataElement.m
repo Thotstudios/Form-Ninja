@@ -67,14 +67,14 @@
 	 */
 	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
 	
-	NSDate *date = [dictionary valueForKey:@"form creation date"];
+	NSDate *date = [self.dictionary valueForKey:@"form creation date"];
 	if(!date)
     {
 		date = [NSDate date];
-		[dictionary setValue:date forKey:@"form creation date"];
+		[self.dictionary setValue:date forKey:@"form creation date"];
     }
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-	[creationDateField setText:[dateFormatter stringFromDate:date]];
+	[creationDateLabel setText:[dateFormatter stringFromDate:date]];
     
 }
 
@@ -82,9 +82,9 @@
 {
 	//[self reset];
 	[super setDictionary:arg];
-	[templateNameLabel setText:[dictionary valueForKey:@"template name"]];
-	[templateGroupLabel setText:[dictionary valueForKey:@"group name"]];
-	[creatorNameLabel setText:[dictionary valueForKey:@"creator name"]];
+	[templateNameLabel setText:[self.dictionary valueForKey:@"template name"]];
+	[templateGroupLabel setText:[self.dictionary valueForKey:@"group name"]];
+	[creatorNameLabel setText:[self.dictionary valueForKey:@"creator name"]];
 	//if([dictionary valueforKey:@"formStartDate"]==nil) then set start date
 	//[creationDateField setText:[dictionary valueForKey:@"creation date"]];
     
@@ -92,21 +92,21 @@
 	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
     
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-	[creationDateLabel setText:[dateFormatter stringFromDate:[dictionary valueForKey:@"creation date"]]];
-    NSDate *date = [dictionary valueForKey:@"form start date"];
+	[creationDateLabel setText:[dateFormatter stringFromDate:[self.dictionary valueForKey:@"creation date"]]];
+    NSDate *date = [self.dictionary valueForKey:@"form start date"];
 	if(!date)
     {
 		date = [NSDate date];
-		[dictionary setValue:date forKey:@"form start date"];
+		[self.dictionary setValue:date forKey:@"form start date"];
     }
-    [formStartLabel setText:[dateFormatter stringFromDate:[dictionary valueForKey:@"form start date"]]];
-    date=[dictionary valueForKey:@"form finish date"];
+    [formStartLabel setText:[dateFormatter stringFromDate:[self.dictionary valueForKey:@"form start date"]]];
+    date=[self.dictionary valueForKey:@"form finish date"];
     if (date) {
         [formFinishLabel setText:@"Not Finished"];
     }
     else
     {
-        [formFinishLabel setText:[dateFormatter stringFromDate:[dictionary valueForKey:@"form finish date"]]];
+        [formFinishLabel setText:[dateFormatter stringFromDate:[self.dictionary valueForKey:@"form finish date"]]];
     }
 
 }
