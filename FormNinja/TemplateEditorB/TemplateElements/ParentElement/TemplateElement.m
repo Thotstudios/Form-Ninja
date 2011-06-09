@@ -8,6 +8,7 @@
 
 #import "TemplateElement.h"
 
+#import "Constants.h"
 
 @implementation TemplateElement
 
@@ -21,12 +22,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	dictionary = [[NSMutableDictionary alloc] init];
-	[self reset];
+	//dictionary = [[NSMutableDictionary alloc] init];
+	//[self reset];
 }
 
 - (void)viewDidUnload
 {
+	[self setDelegate:nil];
 	[self setDictionary:nil];
     [self setLabelField:nil];
 	[self setLabelAlignmentControl:nil];
@@ -35,6 +37,7 @@
 
 - (void)dealloc
 {
+	[delegate release];
 	[dictionary release];
 	[labelField release];
 	[labelAlignmentControl release];
@@ -42,7 +45,7 @@
 }
 
 
-#pragma mark - Methods
+#pragma mark - Overloaded Methods
 
 -(void) beginEditing
 {
@@ -51,10 +54,7 @@
 	else
 		[self editNextElement];
 }
--(void) setIndex:(int)arg
-{
-	index = arg;
-}
+
 -(IBAction) reset
 {
 	[labelField setText:nil];
@@ -65,10 +65,50 @@
 
 -(void) setDictionary:(NSMutableDictionary *)arg
 {
+	[self.view setNeedsDisplay];
 	[dictionary release];
 	dictionary = [arg retain];
 	[labelField setText:[dictionary objectForKey:@"label"]];
 	[labelAlignmentControl setSelectedSegmentIndex:[[dictionary objectForKey:@"label alignment"] integerValue]];
+}
+
+-(BOOL) isValid
+{
+	BOOL ret = YES;
+	return ret;
+}
+#pragma mark - Non-overloaded Methods
+
+- (NSIndexPath *) indexPath
+{
+	NSUInteger row = [[dictionary objectForKey:elementRowIndexKey] unsignedIntegerValue];
+	NSUInteger section = [[dictionary objectForKey:elementSectionIndexKey] unsignedIntegerValue];
+	NSIndexPath * indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+	return indexPath;
+}
+
+- (void) moveUpElementAtIndexPath:(NSIndexPath*)arg {}
+- (IBAction)moveUp
+{
+	[delegate moveUpElementAtIndexPath:[self indexPath]];
+}
+
+- (void) moveDownElementAtIndexPath:(NSIndexPath*)arg {}
+- (IBAction)moveDown
+{
+	[delegate moveDownElementAtIndexPath:[self indexPath]];
+}
+
+-(void) addElementBelowIndexPath:(NSIndexPath*)arg {}
+- (IBAction)addRow
+{
+	[delegate addElementBelowIndexPath:[self indexPath]];
+}
+
+-(void) deleteElementAtIndexPath:(NSIndexPath*)arg {}
+- (IBAction)deleteRow
+{
+	[delegate deleteElementAtIndexPath:[self indexPath]];
 }
 
 #pragma mark - SegmentedControl Delegate
@@ -87,10 +127,10 @@
 	return YES;
 }
 
--(void) selectSection:(int)arg {}
+-(void) selectElementAtIndexPath:(NSIndexPath*)indexPath {}
 -(void) textFieldDidBeginEditing:(UITextField *)textField
 {
-	[delegate selectSection:index];
+	[delegate selectElementAtIndexPath:[self indexPath]];
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -108,6 +148,7 @@
 -(void) editElementAfterIndex:(NSUInteger)index {}
 -(void) editNextElement
 {
-	[delegate editElementAfterIndex:index];
+	//[delegate editElementAfterIndex:index]; // TODO
 }
+
 @end

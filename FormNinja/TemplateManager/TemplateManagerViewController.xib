@@ -46,7 +46,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUITableView" id="613129501">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">306</int>
+						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{0, 112}, {768, 265}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
@@ -72,7 +72,6 @@
 						<string key="NSFrame">{{0, 385}, {768, 575}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="622027297"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUITag">2</int>
@@ -505,7 +504,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>addElement</string>
+							<string>addSection</string>
 							<string>clear</string>
 							<string>dump</string>
 							<string>save</string>
@@ -524,7 +523,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>addElement</string>
+							<string>addSection</string>
 							<string>clear</string>
 							<string>dump</string>
 							<string>save</string>
@@ -533,7 +532,7 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
-								<string key="name">addElement</string>
+								<string key="name">addSection</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

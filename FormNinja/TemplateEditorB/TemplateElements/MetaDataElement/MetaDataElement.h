@@ -24,6 +24,6 @@
 @property (nonatomic, retain) IBOutlet UITextField *creationDateField;
 @property (nonatomic, retain) IBOutlet UISwitch *publishedSwitch;
 
--(IBAction) togglePublished:(UISwitch*) sender;
+-(IBAction) togglePublished;
 
 @end

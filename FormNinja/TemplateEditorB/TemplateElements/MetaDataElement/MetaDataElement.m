@@ -7,7 +7,7 @@
 //
 
 #import "MetaDataElement.h"
-
+#import "Constants.h"
 
 @implementation MetaDataElement
 @synthesize templateNameField;
@@ -41,63 +41,63 @@
 }
 
 
-#pragma mark - Methods
--(void) beginEditing
-{
-	[templateNameField becomeFirstResponder];
-}
+#pragma mark - Instance Methods
 -(void) setDate
 {
-	/*
-	NSDateFormatter * formatter = [[[NSDateFormatter alloc] init] autorelease];
-	[formatter setDateStyle:NSDateFormatterNoStyle];
-	NSDate * date = [NSDate date];
-	[creationDateField setText:[NSString stringWithFormat:@"%@", date]];
-	 */
 	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
 	
-	NSDate *date = [dictionary valueForKey:@"creation date"];
+	NSDate *date = [dictionary valueForKey:templateCreationDateKey];
 	if(!date)
 		{
 		date = [NSDate date];
-		[dictionary setValue:date forKey:@"creation date"];
+		[dictionary setValue:date forKey:templateCreationDateKey];
 		}
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 	[creationDateField setText:[dateFormatter stringFromDate:date]];
 
 }
 
+#pragma mark - Inherited Methods
+-(void) beginEditing
+{
+	[templateNameField becomeFirstResponder];
+}
 - (IBAction)reset
 {
-	[super reset];
-	[dictionary setValue:@"MetaData" forKey:@"type"];
-	[templateNameField setText:nil];
-	[templateGroupField setText:nil];
-	[creatorNameField setText:@"Robert Paulson"];
-	[creationDateField setText:[NSString stringWithFormat:@"%@", [NSDate date]]];
-	[self setDate];
 	[publishedSwitch setOn:NO];
+	NSMutableDictionary * dict = [[[self dictionary] retain] autorelease];
+	[super reset];
+	[self setDictionary:dict];
+	[dictionary setValue:@"MetaData" forKey:elementTypeKey];
 }
--(void)	setDictionary:(NSMutableDictionary *)arg
+-(void)	setDictionary:(NSMutableDictionary *)dict
 {
-	[self reset];
-	[super setDictionary:arg];
-	[templateNameField setText:[dictionary valueForKey:@"template name"]];
-	[templateGroupField setText:[dictionary valueForKey:@"group name"]];
-	[creatorNameField setText:[dictionary valueForKey:@"creator name"]];
+	//[self reset];
+	[super setDictionary:dict];
+	
+	NSLog(@"dict:\n%@", dictionary);
+	
+	[templateNameField setText:[dictionary valueForKey:templateNameKey]];
+	[templateGroupField setText:[dictionary valueForKey:templateGroupKey]];
+	[creatorNameField setText:[dictionary valueForKey:templateCreatorKey]];
 	[self setDate];
-	//[creationDateField setText:[dictionary valueForKey:@"creation date"]];
-	[publishedSwitch setOn:[[dictionary valueForKey:@"published"] boolValue]];
+	[publishedSwitch setOn:[[dictionary valueForKey:templatePublishedKey] boolValue]];
 }
 
+-(BOOL) isValid
+{
+	BOOL ret = [super isValid];
+	
+	return ret;
+}
 #pragma mark - Interface Methods
 
 -(BOOL) templateIsValid { return NO; }
--(IBAction) togglePublished:(UISwitch *)sender
+-(IBAction) togglePublished
 {
 	if(![publishedSwitch isOn] || [delegate templateIsValid])
 		{
-		[dictionary setValue:[NSNumber numberWithBool:[publishedSwitch isOn]] forKey:@"published"];
+		[dictionary setValue:[NSNumber numberWithBool:[publishedSwitch isOn]] forKey:templatePublishedKey];
 		}
 	else
 		{

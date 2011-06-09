@@ -9,27 +9,28 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TemplateEditorController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface TemplateEditorController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
 	UITableView *table;
+	NSMutableArray * dataArray;
+	NSMutableArray * viewArray;
 }
 
 // Interface Elments
 @property (nonatomic, retain) IBOutlet UITableView *table;
 
 // Data Members
-@property (nonatomic, retain) NSMutableArray * data;
-@property (nonatomic, retain) NSMutableArray * views;
+@property (nonatomic, retain) NSMutableArray * dataArray;
+@property (nonatomic, retain) NSMutableArray * viewArray;
 
--(void) newTemplateWithName:(NSString*)name group:(NSString*)group;
+- (void) newTemplateWithName:(NSString*)name group:(NSString*)group;
 
-- (IBAction)addElement;
-- (void) stopEditing;
-- (void) startEditing;
+- (IBAction)save;
+- (IBAction)clear;
+- (IBAction)addSection;
 - (IBAction)toggleEditing;
 
+// TODO: temporary
 - (IBAction)dump;
-- (IBAction)clear;
-- (IBAction)save;
 
 @end

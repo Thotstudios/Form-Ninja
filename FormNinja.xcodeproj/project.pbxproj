@@ -41,6 +41,7 @@
 		D922CE9E136C926300233C48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CE9D136C926300233C48 /* main.m */; };
 		D922CEA1136C926300233C48 /* FormNinjaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */; };
 		D922CEA7136C926300233C48 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */; };
+		F71F4510139EBAC9007592E9 /* TextFieldAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F450F139EBAC9007592E9 /* TextFieldAlert.m */; };
 		F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187651390EFDC000BA9DF /* TemplateEditorController.m */; };
 		F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187661390EFDC000BA9DF /* TemplateEditorController.xib */; };
 		F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F72187681390EFDC000BA9DF /* ElementList.plist */; };
@@ -147,6 +148,8 @@
 		D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaAppDelegate.m; sourceTree = "<group>"; };
 		D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaLoginViewController.h; sourceTree = "<group>"; };
 		D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaLoginViewController.m; sourceTree = "<group>"; };
+		F71F450E139EBAC9007592E9 /* TextFieldAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldAlert.h; sourceTree = "<group>"; };
+		F71F450F139EBAC9007592E9 /* TextFieldAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldAlert.m; sourceTree = "<group>"; };
 		F72187641390EFDC000BA9DF /* TemplateEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateEditorController.h; sourceTree = "<group>"; };
 		F72187651390EFDC000BA9DF /* TemplateEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateEditorController.m; sourceTree = "<group>"; };
 		F72187661390EFDC000BA9DF /* TemplateEditorController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateEditorController.xib; sourceTree = "<group>"; };
@@ -370,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				D90A13DC1382250200857A4C /* Constants.h */,
+				F71F450D139EBAC9007592E9 /* TextFieldAlert */,
 				F778DD50137DC40B00B444F6 /* Networking */,
 				D917B3D01378D06200E75140 /* JSON */,
 				D917B46C1379E09F00E75140 /* Login */,
@@ -408,6 +412,15 @@
 			path = FormNinja;
 			sourceTree = "<group>";
 		};
+		F71F450D139EBAC9007592E9 /* TextFieldAlert */ = {
+			isa = PBXGroup;
+			children = (
+				F71F450E139EBAC9007592E9 /* TextFieldAlert.h */,
+				F71F450F139EBAC9007592E9 /* TextFieldAlert.m */,
+			);
+			path = TextFieldAlert;
+			sourceTree = "<group>";
+		};
 		F72187611390EFCE000BA9DF /* TemplateEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,11 +457,11 @@
 			isa = PBXGroup;
 			children = (
 				F721877C1390EFDC000BA9DF /* ParentElement */,
-				F7D004EE139237C200DD4D2B /* TableElement */,
-				F72187741390EFDC000BA9DF /* MetaDataElement */,
 				F72187891390EFDC000BA9DF /* SingleLineElement */,
 				F72187781390EFDC000BA9DF /* MultiLineElement */,
 				F721876C1390EFDC000BA9DF /* AddressElement */,
+				F7D004EE139237C200DD4D2B /* TableElement */,
+				F72187741390EFDC000BA9DF /* MetaDataElement */,
 				F72187801390EFDC000BA9DF /* SignatureElement */,
 				F7D004E81392317F00DD4D2B /* RepeatingElement */,
 				F72187701390EFDC000BA9DF /* CreditCardElement */,
@@ -777,6 +790,7 @@
 				F7D004EC1392342700DD4D2B /* RepeatingElement.m in Sources */,
 				F7D004F2139237D600DD4D2B /* TableElement.m in Sources */,
 				D904732113982C5B00B87E4E /* LocationManager.m in Sources */,
+				F71F4510139EBAC9007592E9 /* TextFieldAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -83,7 +83,7 @@
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPathArg
 {
 	NSMutableArray * data = [dictionary valueForKey:@"data"];
 	
@@ -95,8 +95,8 @@
     }
     
     // Configure the cell...
-	if([indexPath row] < [data count])
-	[[cell textLabel] setText:[data objectAtIndex:[indexPath row]]];
+	if([indexPathArg row] < [data count])
+	[[cell textLabel] setText:[data objectAtIndex:[indexPathArg row]]];
 	else
 		[[cell textLabel] setText:@"New Line"];
 	
@@ -110,25 +110,25 @@
 }
 */
 
--(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPathArg
 {
 	UITableViewCellEditingStyle style = UITableViewCellEditingStyleDelete;
 	
 	NSMutableArray * data = [dictionary valueForKey:@"data"];
 	
-	if([indexPath row] == [data count])
+	if([indexPathArg row] == [data count])
 		style = UITableViewCellEditingStyleInsert;
 	
 	return style;
 }
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPathArg
 {
 	NSMutableArray * data = [dictionary valueForKey:@"data"];
 	
 	if (editingStyle == UITableViewCellEditingStyleDelete)
 		{
 		// Delete the row from the data source
-		[data removeObjectAtIndex:[indexPath row]];
+		[data removeObjectAtIndex:[indexPathArg row]];
 		}   
 	else if (editingStyle == UITableViewCellEditingStyleInsert)
 		{
@@ -139,10 +139,10 @@
 }
 
 
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPathArg
 {
 	NSMutableArray * data = [dictionary valueForKey:@"data"];
-	return [indexPath row] < [data count];
+	return [indexPathArg row] < [data count];
 }
 
 

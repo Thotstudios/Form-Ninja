@@ -5,12 +5,10 @@ It's more like quick notes to ourselves and each other.
 
 Chad:
 * Unpublished templates should have a 'Resume' button instead of a "Modify" button
-* Validate Template before publishing
-* Template Versioning
-* TextFieldShouldReturn should save dictionary entries.
+* Validate Template before publishing.
+* Template Versioning.
 * Add autosave for Templates and Forms for crashes/unexpected exits
 * Refactor const strings into Constants.h
-* Template Elements need Up/Down elements.
 * Belt icon next to templates (and forms?).
 * Add GPS info to signature element.
 * Forms and Templates save to PendingUploads folder.
@@ -19,6 +17,12 @@ Chad:
 * Export/email/sync/print button(s) on Form Manager.
 * Change hard-coded #defines in TemplateEditor
 * Clean up template renaming.
+* Clean up section header titles.
+* Template Sections need delete function.
+* TextFieldAlert should handle rotate and resize.
+* Template Creator should be logged-in user's name.
+* Deleting templates should reconsider group names.
+* Finish Element buttons.
 
 Paul:
 * Optionally write a TODO list here.
@@ -28,5 +32,5 @@ Ron:
 
 Other:
 * Localization support
-* Change source file creator names
-* Change copyright tags
+* Change source file creator names (e.g. from Hackenslacker, Programmer, etc)
+* Change copyright tags (copyright ThotStudios)

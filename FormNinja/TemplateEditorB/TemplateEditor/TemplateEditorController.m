@@ -12,6 +12,7 @@
 
 #import "ElementPicker.h"
 #import "TemplateElement.h"
+#import "TextFieldAlert.h"
 
 #define keyboardHeightPortrait		264
 #define keyboardHeightLandscape		352
@@ -22,20 +23,23 @@
 #define tableHeightFullLandscape	704 - 112
 #define tableHeightHalfLandscape	352
 
-#define MULTI_LEVEL_DATA 0
+@interface TemplateEditorController()
+- (void) generateViewArray;
+- (void) setIndexes;
+- (void) newElementOfType:(NSString *)type;
+@end
 
 @implementation TemplateEditorController
 
 @synthesize table;
+@synthesize dataArray;
+@synthesize viewArray;
 
-@synthesize data;
-@synthesize views;
-
+#pragma mark - Init and Memory
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -43,28 +47,22 @@
 - (void)dealloc
 {
     [table release];
-	
-	[data release];
-	[views release];
-	
+	[dataArray release];
+	[viewArray release];
     [super dealloc];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidUnload
 {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+    [self setTable:nil];
+	[self setDataArray:nil];
+	[self setViewArray:nil];
+	
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
-
 #pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	[self clear];
-}
 
 -(void) viewWillAppear:(BOOL)animated
 {
@@ -85,15 +83,7 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super viewDidDisappear:animated];
 }
--(void) delayedScrollToSection
-{
-	[table scrollToRowAtIndexPath:[table indexPathForSelectedRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-}
--(void) selectSection:(NSUInteger)index
-{
-	[table selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index] animated:YES scrollPosition:UITableViewScrollPositionBottom];
-	[NSTimer scheduledTimerWithTimeInterval:0.15 target:self selector:@selector(delayedScrollToSection) userInfo:nil repeats:NO];
-}
+
 -(void) keyboardWillShow:(id)selector
 {
 	UIDeviceOrientation orient = [[UIDevice currentDevice] orientation];
@@ -111,368 +101,449 @@
 	[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, height)];
 }
 
--(void) setIndexes
-{
-	TemplateElement * temp = nil;
-#if MULTI_LEVEL_DATA
-	NSMutableArray * arr;
-	for(int section = 0; section < [views count]; section++)
-		{
-		arr = [views objectAtIndex:section];
-		for(int row	= 0; row < [arr count]; row++)
-			{
-			temp = [arr objectAtIndex:row];
-			[temp setIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
-			}
-		}
-#else
-	for(int i = 0; i < [views count]; i++)
-		{
-		temp = [views objectAtIndex:i];
-		[temp setIndex:i];
-		}
-#endif
-}
 -(void) viewDidAppear:(BOOL)animated
-// make views from data
 {
-	if([data count])
-		{
-		[views removeAllObjects];
-		NSString * type;
-		TemplateElement * element;
-#if MULTI_LEVEL_DATA
-		NSMutableArray * sect;
-		for(NSMutableArray * arr in data)
-			{
-			sect = [NSMutableArray array];
-			for(NSMutableDictionary * dict in arr)
-				{
-				type = [dict objectForKey:@"type"];
-				if(type)
-					{
-					element = [ElementPicker elementOfType:type];
-					[element setDelegate:self];
-					[element setDictionary:dict];
-					[sect addObject:element];
-					}
-				}
-			[views addObject:sect];
-			}
-#else
-		for(NSMutableDictionary * dict in data)
-			{
-			type = [dict objectForKey:@"type"];
-			if(type)
-				{
-				element = [ElementPicker elementOfType:type];
-				[element setDelegate:self];
-				[element setDictionary:dict];
-				[views addObject:element];
-				}
-			}
-#endif
-		[self setIndexes];
-		[table reloadData];
-		}
-	[self stopEditing];
+	[self generateViewArray];
+	[self setIndexes];
+	[table reloadData];
 }
 
-- (void)viewDidUnload
-{
-    [self setTable:nil];
-	
-	[self setData:nil];
-	[self setViews:nil];
-	
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
 	return YES;
 }
 
-#pragma mark - Member Functions
-#if MULTI_LEVEL_DATA
--(void) editElementAfterIndexPath:(NSIndexPath*)indexPath
-{
-	NSUInteger row = [indexPath row];
-	NSUInteger section = [indexPath section];
-	
-	row++;
-	if(row < [[views objectAtIndex:section] count])
-		{
-		[[[views objectAtIndex:section] objectAtIndex:row] beginEditing];
-		}
-	else
-		{
-		row = 0;
-		section ++;
-		if(section < [views count])
-			{
-			[[[views objectAtIndex:section] objectAtIndex:row] beginEditing];
-			}
-		else
-			[table deselectRowAtIndexPath:[table indexPathForSelectedRow] animated:YES];
-		}
-}
-#else
--(void) editElementAfterIndex:(NSUInteger)index
-{
-	index++;
-	if(index < [views count])
-		[[views objectAtIndex:index] beginEditing];
-	else
-		[table deselectRowAtIndexPath:[table indexPathForSelectedRow] animated:YES];
-}
-#endif
--(BOOL) templateIsValid
-{ 
-	return YES;
-}
+#pragma mark - Miscellaneous
 
--(void) newTemplateWithName:(NSString *)name group:(NSString *)group
+- (void) commitToDB
 {
-	[self clear];
-	
-	NSDictionary * dict;
-#if MULTI_LEVEL_DATA
-	dict = [[data objectAtIndex:0] objectAtIndex:0];
-#else
-	dict = [data objectAtIndex:0];
-#endif
-	[dict setValue:name forKey:@"template name"];
-	[dict setValue:group forKey:@"group name"];
-	[table reloadData];
-}
-
-#if MULTI_LEVEL_DATA
--(void) addSection
-{
-	[data addObject:[NSMutableArray array]];
-	[views addObject:[NSMutableArray array]];
-}
--(void) newElementOfType:(NSString*)type inSection:(NSUInteger)section
-{
-	TemplateElement * element = [ElementPicker elementOfType:type];
-	[element setDelegate:self];
-	
-	NSMutableArray * dataSection;
-	NSMutableArray * viewSection;
-	if(section >= [data count])
-		{
-		section = [data count];
-		[self addSection];
-		}
-	
-	dataSection = [data objectAtIndex:section];
-	viewSection = [views objectAtIndex:section];
-	
-	[dataSection addObject:[element dictionary]];
-	[viewSection addObject:element];
-	
-	[self setIndexes];
-	[table reloadData];
-}
-#else
--(void) newElementOfType:(NSString*)type
-{
-	TemplateElement * element = [ElementPicker elementOfType:type];
-	[element setDelegate:self];
-	[data addObject:[element dictionary]];
-	[views addObject:element];
-	[self setIndexes];
-	[table reloadData];
-}
-#endif
-
-- (void) commitToDB{
     //Convert nsdate object to string as json cannot parse nsdate objects
-    NSMutableDictionary *dict;
-	
-#if MULTI_LEVEL_DATA
-	dict = [[[[data objectAtIndex:0] objectAtIndex:0] copy] autorelease];
-#else
-	dict = [[[NSMutableDictionary alloc] initWithDictionary:[data objectAtIndex:0]] autorelease];
-#endif
-	[dict setObject:[NSString stringWithFormat:@"%@",[dict objectForKey:@"creation date"]] forKey:@"creation date"];
-    
     NSMutableArray *dbArray;
-	dbArray = [[[NSMutableArray alloc] initWithArray:data] autorelease];
-#if MULTI_LEVEL_DATA
-    [[dbArray objectAtIndex:0] removeObjectAtIndex:0];
-    [[dbArray objectAtIndex:0] insertObject:dict atIndex:0];
-#else
-    [dbArray removeObjectAtIndex:0];
-    [dbArray insertObject:dict atIndex:0];
-#endif
+	dbArray = [[dataArray mutableCopy] autorelease];
+	
+    NSMutableDictionary *dict;
+	dict = [dbArray objectAtIndex:0];
+	[dict setObject:[NSString stringWithFormat:@"%@",[dict objectForKey:@"creation date"]] forKey:@"creation date"];
     
     //Get json string
     //TODO: add image support
+	// NOTE: image is NSData object -Chad
     NSString *dbData = [dbArray JSONRepresentation]; 
     NSLog(@"committing %@", dbData);
 	// TODO: save to Pending Uploads folder
 	// uploading to DB should be handled elsewhere.
+	// -Chad
 }
 
-- (IBAction)addElement
+#pragma mark - Member Functions
+- (void) generateViewArray
 {
-	[[[[ElementPicker alloc] initWithDelegate:self selector:@selector(newElementOfType:)] autorelease] show];
-}
-
-- (void) stopEditing
-{
-	[table setEditing:NO animated:YES];
-}
-- (void) startEditing
-{
-	if([views count])
-		[table setEditing:YES animated:YES];
-	else
-		[self stopEditing];
-}
-- (IBAction)toggleEditing
-{
-	if([table isEditing])
-		[self stopEditing];
-	else
-		[self startEditing];
-}
-
-- (IBAction)dump
-{
-	NSLog(@"\n%@", data);
+	if([dataArray count])
+		{
+		[viewArray removeAllObjects];
+		NSString * type;
+		TemplateElement * element;
+		
+		NSMutableArray * rowArray;
+		for(NSMutableDictionary * sectionDict in dataArray)
+			{
+			rowArray = [NSMutableArray array];
+			NSMutableArray * sectionData = [sectionDict objectForKey:sectionDataKey];
+			if(sectionData)
+				for(NSMutableDictionary *dict in sectionData)
+					{
+					type = [dict objectForKey:elementTypeKey];
+					if(type)
+						{
+						element = [ElementPicker elementOfType:type delegate:self];
+						[element setDictionary:dict]; // TODO: fix
+						[rowArray addObject:element];
+						}
+					}
+			else
+				{
+				NSMutableDictionary *dict = sectionDict;
+				NSLog(@"\n%@", dict);
+				type = [dict objectForKey:elementTypeKey];
+				if(type)
+					{
+					element = [ElementPicker elementOfType:type delegate:self];
+					[element setDictionary:dict]; // TODO fix
+					[rowArray addObject:element];
+					}
+				}
+			[viewArray addObject:rowArray];
+			}
+		}
 }
 
 - (IBAction)clear
 {
-	[self setData:[NSMutableArray array]];
-	[self setViews:[NSMutableArray array]];
-	
-	NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-	
-	[dict setValue:@"MetaData" forKey:@"type"];
-	[dict setValue:@"Robert Paulson" forKey:@"creator name"];
-	[dict setValue:[NSNumber numberWithBool:NO] forKey:@"published"];
-	[dict setValue:@"No" forKey:@"published"];
-	[dict setValue:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"] forKey:@"software version"];
-#if MULTI_LEVEL_DATA
-	[data addObject:[NSMutableArray arrayWithObject:dict]];
-#else
-	[data addObject:dict];
-#endif
-	
-	TemplateElement * element = [ElementPicker elementOfType:@"MetaData"];
-	[element setDelegate:self];
-#if MULTI_LEVEL_DATA
-	[element setDictionary:[[data objectAtIndex:0] objectAtIndex:0]];
-	[views addObject:[NSMutableArray arrayWithObject:element]];
-#else
-	[element setDictionary:[data objectAtIndex:0]];
-	[views addObject:element];
-#endif
-	
+	NSMutableDictionary * preserve;
+	preserve = [[[dataArray objectAtIndex:0] retain] autorelease];
+	[dataArray removeAllObjects];
+	[dataArray addObject:preserve];
+	[viewArray removeAllObjects];
+	[self generateViewArray];
 	[self setIndexes];
-	[table reloadData];
+	[table reloadData]; // TODO: use something faster
+	[table selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+	return;
+}
+
+-(void) saveToPath:(NSString*)path
+{
+	if(!path) return;
+	
+	if(!([[NSFileManager defaultManager] fileExistsAtPath:TEMPLATE_PATH]))
+		[[NSFileManager defaultManager] createDirectoryAtPath:TEMPLATE_PATH withIntermediateDirectories:YES attributes:nil error:nil];
+	
+	if([dataArray writeToFile:path atomically:YES])
+		{
+		UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Template saved."	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"OK", nil];
+		[popupQuery showInView:self.view];
+		[popupQuery release];
+		}
+	else
+		{
+		UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Failed to save."	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:@"OK" otherButtonTitles:nil];
+		[popupQuery showInView:self.view];
+		[popupQuery release];
+		}
 }
 
 - (IBAction)save
 {
 	[self.view endEditing:NO];
 	
-	NSDictionary * dict;
-#if MULTI_LEVEL_DATA
-	dict = [[data objectAtIndex:0] objectAtIndex:0];
-#else
-	dict = [data objectAtIndex:0];
-#endif
-	NSString * group = [dict objectForKey:@"group name"];
-	NSString * template = [dict objectForKey:@"template name"];
+	NSMutableDictionary * dict;
+	dict = [dataArray objectAtIndex:0];
+	
+	NSString * group = [dict objectForKey:templateGroupKey];
+	NSString * template = [dict objectForKey:templateNameKey];
 	
 	if(!group) group = @"No Group";
 	if(!template) template = [NSString stringWithFormat:@"%i", time(0)];
 	
-	NSString * path = [NSString stringWithFormat:@"%@/%@-%@%@", TEMPLATE_PATH, group, template, TEMPLATE_EXT];
-	
+	NSString * path;
+	path = [NSString stringWithFormat:@"%@/%@-%@%@", TEMPLATE_PATH, group, template, TEMPLATE_EXT];
 	if(path)
 		{
-		if(!([[NSFileManager defaultManager] fileExistsAtPath:TEMPLATE_PATH]))
-			[[NSFileManager defaultManager] createDirectoryAtPath:TEMPLATE_PATH withIntermediateDirectories:YES attributes:nil error:nil];
-		
-		if([data writeToFile:path atomically:YES])
-			{
-            [self commitToDB];
-                
-			UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Template saved."	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"OK", nil];
-			[popupQuery showInView:self.view];
-			[popupQuery release];
-			}
-		else
-			{
-			UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Failed to save."	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:@"OK" otherButtonTitles:nil];
-			[popupQuery showInView:self.view];
-			[popupQuery release];
-			}
+		[self saveToPath:path];
+		[self commitToDB];
 		}
 }
 
+- (IBAction)toggleEditing
+{
+	if([table isEditing] || [viewArray count] == 0)
+		[table setEditing:NO animated:YES];
+	else
+		[table setEditing:YES animated:YES];
+}
+
+-(void) delayedScrollToSection
+{
+	[table scrollToRowAtIndexPath:[table indexPathForSelectedRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+-(void) selectElementAtIndexPath:(NSIndexPath*)indexPath
+{
+	[table selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionBottom];
+	[NSTimer scheduledTimerWithTimeInterval:0.15 target:self selector:@selector(delayedScrollToSection) userInfo:nil repeats:NO];
+}
+
+#pragma mark Template Functions
+
+-(void) newTemplateWithName:(NSString *)name group:(NSString *)group
+{
+	// TODO: maybe save existing
+	
+	[self setDataArray:[NSMutableArray array]];
+	[self setViewArray:[NSMutableArray array]];
+	
+	//TemplateElement * element = [ElementPicker elementOfType:@"MetaData" delegate:self];
+	
+	NSMutableDictionary * dict;
+	dict = [NSMutableDictionary dictionary];
+	[dict setValue:@"MetaData" forKey:elementTypeKey];
+	[dict setValue:name forKey:templateNameKey];
+	[dict setValue:group forKey:templateGroupKey];
+	[dict setValue:@"Bob Johnson" forKey:templateCreatorKey];
+	[dict setValue:[NSDate date] forKey:templateCreationDateKey];
+	
+	[dataArray addObject:dict];
+	//[viewArray addObject:[NSMutableArray arrayWithObject:element]];
+	
+	//[self generateViewArray];
+	
+	[table reloadData];
+	
+	[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(addSection) userInfo:nil repeats:NO];
+}
+
+-(BOOL) templateIsValid
+{ 
+	BOOL ret = YES;
+	if(ret) ret = [dataArray isKindOfClass:[NSArray class]];
+	for(id sectionData in dataArray)
+		{
+		if(ret) ret = [sectionData isKindOfClass:[NSDictionary class]];
+		}
+	if(ret) [self generateViewArray];
+	if(ret) ret = [viewArray isKindOfClass:[NSArray class]];
+	for(id rowArray in viewArray)
+		{
+		if(ret) ret = [rowArray isKindOfClass:[NSArray class]];
+		if(ret)
+			{
+			for(id element in rowArray)
+				{
+				if(ret) ret = [element isKindOfClass:[TemplateElement class]];
+				if(ret) ret = [element isValid];
+				}
+			}
+		}
+	return ret;
+}
+
+#pragma mark Section Functions
+-(void) addSectionWithName:(NSString*)headerName
+{
+	TemplateElement * element = [ElementPicker elementOfType:@"Label" delegate:self];
+	[[element dictionary] setValue:headerName forKey:@"label"];
+	[element setDictionary:[element dictionary]];
+	
+	NSMutableDictionary * sectionDict = [NSMutableDictionary dictionary];
+	NSMutableArray * sectionArray = [NSMutableArray arrayWithObject:[element dictionary]];
+	[sectionDict setValue:sectionArray									forKey:sectionDataKey];
+	[sectionDict setValue:headerName									forKey:sectionHeaderKey];
+	[sectionDict setValue:[NSNumber numberWithInt:[dataArray count]]	forKey:elementSectionIndexKey];
+	[sectionDict setValue:[NSNumber numberWithInt:0]					forKey:elementRowIndexKey];
+	
+	[dataArray addObject:sectionDict];
+	[viewArray addObject:[NSMutableArray arrayWithObject:element]];
+	
+	[self setIndexes];
+	[table reloadData]; // TODO use the faster thing
+}
+-(IBAction) addSection
+{
+	[[[[TextFieldAlert alloc] initWithTitle:@"New Section Name"
+								   delegate:self
+								   selector:@selector(addSectionWithName:)] autorelease] show];
+	//[self addSectionWithHeader:@"<Section Header>"];
+	// TODO:
+	// pop up textfield alert to get correct header string
+}
+
+#pragma mark Element Functions
+- (void)addElement
+{
+	[[[[ElementPicker alloc] initWithDelegate:self selector:@selector(newElementOfType:)] autorelease] show];
+}
+- (void)addElementBelowIndexPath:(NSIndexPath*)indexPath
+{
+	[table selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+	[self addElement];
+}
+
+-(void) newElementOfType:(NSString*)type
+{
+	NSIndexPath * indexPath = [table indexPathForSelectedRow];
+	NSUInteger section = [indexPath section];
+	NSUInteger row = [indexPath row];
+	NSMutableDictionary * sectionDict = [dataArray objectAtIndex:section];
+	NSMutableArray * sectionData = [sectionDict objectForKey:sectionDataKey];
+	
+	TemplateElement * element = [ElementPicker elementOfType:type delegate:self];
+	row ++;
+	
+	[sectionData insertObject:[element dictionary] atIndex:row];
+	[[viewArray objectAtIndex:section] insertObject:element atIndex:row];
+	[self setIndexes];
+	[table reloadData]; // TODO
+}
+
+-(void) setIndexes
+{
+	NSUInteger section = 0;
+	for(NSMutableArray * rowArray in viewArray)
+		{
+		NSUInteger row = 0;
+		for(TemplateElement * element in rowArray)
+			{
+			NSMutableDictionary * dict = [element dictionary];
+			[dict setValue:[NSNumber numberWithInteger:section] forKey:elementSectionIndexKey];
+			[dict setValue:[NSNumber numberWithInteger:row] forKey:elementRowIndexKey];
+			row ++;
+			}
+		section ++;
+		}
+}
+
+-(void) focusNextElementAfter:(TemplateElement*)element
+{
+	NSMutableDictionary * dict = [element dictionary];
+	NSUInteger section = [[dict objectForKey:elementSectionIndexKey] integerValue];
+	NSUInteger row = [[dict objectForKey:elementRowIndexKey] integerValue];
+	dict = [dataArray objectAtIndex:section];
+	
+	NSMutableArray * sectionData = [dict objectForKey:sectionDataKey];
+	row ++;
+	if(row >= [sectionData count])
+		{
+		row = 0;
+		section ++;
+		if(section >= [dataArray count])
+			{
+			[table deselectRowAtIndexPath:[table indexPathForSelectedRow] animated:YES];
+			return;
+			}
+		}
+	[[[viewArray objectAtIndex:section] objectAtIndex:row] beginEditing];
+}
+
+
+-(void) moveElementFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath
+{
+	int fromSection = [fromIndexPath section];
+	int toSection = [toIndexPath section];
+	int fromRow = [fromIndexPath row];
+	int toRow = [toIndexPath row];
+	
+	if(toSection == 0)
+		toSection ++;
+	if(toSection >= [dataArray count])
+		toSection --;
+	
+// TODO: range checking
+	
+	NSMutableDictionary * fromSectionDict = [dataArray objectAtIndex:fromSection];
+	NSMutableDictionary * toSectionDict = [dataArray objectAtIndex:toSection];
+	NSMutableArray * fromSectionData = [fromSectionDict objectForKey:sectionDataKey];
+	NSMutableArray * toSectionData = [toSectionDict objectForKey:sectionDataKey];
+	
+	if(toRow == 0)
+		toRow ++;
+	if(toRow >= [toSectionData count])
+		toRow --;
+	
+	
+	id temp;
+	
+	temp = [[fromSectionData objectAtIndex:fromRow] retain];
+	[fromSectionData removeObjectAtIndex:fromRow];
+	[toSectionData insertObject:temp atIndex:toRow];
+	[temp release];
+	if([fromSectionData count] == 0)
+		[dataArray removeObjectAtIndex:fromSection];
+	
+	temp = [[[viewArray objectAtIndex:fromSection] objectAtIndex:fromRow] retain];
+	[[viewArray objectAtIndex:fromSection] removeObjectAtIndex:fromRow];
+	[[viewArray objectAtIndex:toSection] insertObject:temp atIndex:toRow];
+	[temp release];
+	if([[viewArray objectAtIndex:fromSection] count] == 0)
+		[viewArray removeObjectAtIndex:fromSection];
+	
+	
+	[self setIndexes];
+	[table reloadData];
+	
+}
+
+//if(templateIsMultilevel) {
+- (void) moveUpElementAtIndexPath:(NSIndexPath*)fromIndexPath
+{
+	NSUInteger row = [fromIndexPath row];
+	NSUInteger section = [fromIndexPath section];
+	NSIndexPath * toIndexPath = nil;
+	
+	if(row) row--;
+	else if(section)
+		{
+		section--;
+		row = [[viewArray objectAtIndex:section] count];
+		}
+	
+	toIndexPath = [NSIndexPath indexPathForRow:row	inSection:section];
+	[self moveElementFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+}
+- (void) moveDownElementAtIndexPath:(NSIndexPath*)fromIndexPath
+{
+	NSUInteger row = [fromIndexPath row];
+	NSUInteger section = [fromIndexPath section];
+	NSIndexPath * toIndexPath = nil;
+	
+	row++;
+	if(row >= [[viewArray objectAtIndex:section] count])
+		{
+		row = 0;
+		section ++;
+		}
+	
+	toIndexPath = [NSIndexPath indexPathForRow:row	inSection:section];
+	[self moveElementFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+}
+
+- (void) deleteElementAtIndexPath:(NSIndexPath*)indexPath
+{
+	NSUInteger row = [indexPath row];
+	NSUInteger section = [indexPath section];
+	if(section == 0 || row == 0) return;
+	
+	NSMutableDictionary * sectionDict = [dataArray objectAtIndex:section];
+	NSMutableArray * sectionData = [sectionDict objectForKey:sectionDataKey];
+	
+	[sectionData removeObjectAtIndex:row];
+	if([sectionData count])
+		[[viewArray objectAtIndex:section] removeObjectAtIndex:row];
+	else
+		{
+		[dataArray removeObjectAtIndex:section];
+		[viewArray removeObjectAtIndex:section];
+		}
+}
+
+#pragma mark Temporary
+- (IBAction)dump
+{
+	NSLog(@"\n%@", dataArray);
+}
 
 #pragma mark - TableView DataSource
 
 -(NSString*) tableView:(UITableView*) tableView titleForHeaderInSection:(NSInteger)section
 {
 	NSString * ret = nil;
-#if MULTI_LEVEL_DATA
-	if(!ret) ret = [[[data objectAtIndex:section] objectAtIndex:0] objectForKey:@"header"];
-	if(!ret) ret = [[[data objectAtIndex:section] objectAtIndex:0] objectForKey:@"type"];
-	if(!ret) ret = [[[data objectAtIndex:section] objectAtIndex:0] objectForKey:@"label"];
-	if(!ret) ret = [[[data objectAtIndex:section] objectAtIndex:0] objectForKey:@"template name"];
-#else
-	if(!ret) ret = [[data objectAtIndex:section] objectForKey:@"header"];
-	if(!ret) ret = [[data objectAtIndex:section] objectForKey:@"type"];
-	if(!ret) ret = [[data objectAtIndex:section] objectForKey:@"label"];
-	if(!ret) ret = [[data objectAtIndex:section] objectForKey:@"template name"];
-#endif
-	if(!ret) ret = @"no header for this section";
+	NSMutableDictionary * dict;
+	dict = [dataArray objectAtIndex:section];
+	
+	if(!ret) ret = [dict objectForKey:sectionHeaderKey];
+	if(!ret) ret = [dict objectForKey:elementTypeKey];
+	if(!ret) ret = [dict objectForKey:@"label"];
+	if(!ret) ret = @"Section Title Missing";
 	return ret;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	NSInteger ret = 0;
-	ret = [views count];
+	NSInteger ret = [viewArray count];
     return ret;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	NSInteger ret = 1;
-#if MULTI_LEVEL_DATA
-	ret = [[views objectAtIndex:section] count];
-#endif
+	NSInteger ret = [[viewArray objectAtIndex:section] count];
     return ret;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	CGFloat ret = 40;
-    
-	NSUInteger row = [indexPath row]; row = row; // TODO: clean
-	NSUInteger section = [indexPath section];
-	
-#if MULTI_LEVEL_DATA
-	ret = [[[views objectAtIndex:section] objectAtIndex:row] view].frame.size.height;
-#else
-	ret = [[views objectAtIndex:section] view].frame.size.height;
-#endif
-	
+	CGFloat ret = [[[viewArray objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]] view].frame.size.height;
 	return ret;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSUInteger row = [indexPath row]; row = row; // TODO: clean
+	NSUInteger row = [indexPath row];
 	NSUInteger section = [indexPath section];
 	
 	// TODO: NSArray of cell type names
@@ -488,51 +559,28 @@
 		[view removeFromSuperview];
 	}
 	
-	UIView * element;
-#if MULTI_LEVEL_DATA
-	element = [[[views objectAtIndex:section] objectAtIndex:row] view];
-#else
-	element = [[views objectAtIndex:section] view];
-#endif
-	[element setFrame:CGRectMake(0, 0, cell.frame.size.width, element.frame.size.height)];
-	[cell addSubview:element];
+	UIView * elementView = nil;
+	elementView = [[[viewArray objectAtIndex:section] objectAtIndex:row] view];
+	[elementView setFrame:CGRectMake(0, 0, cell.frame.size.width, elementView.frame.size.height)];
+	
+	[cell addSubview:elementView];
 	
     return cell;
 }
 
-
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	// Return NO if you do not want the specified item to be editable.
-	if([indexPath section] == 0)
+	if([indexPath section] == 0 || [indexPath row] == 0)
 		return NO;
 	return YES;
 }
 
-
-
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSUInteger row = [indexPath row]; row = row; // TODO: clean
-	NSUInteger section = [indexPath section];
 	if (editingStyle == UITableViewCellEditingStyleDelete)
 		{
-		// Delete the row from the data source
-#if MULTI_LEVEL_DATA
-		[[data objectAtIndex:section] removeObjectAtIndex:row];
-		[[views objectAtIndex:section] removeObjectAtIndex:row];
-		if([[views objectAtIndex:section] count] == 0)
-			{
-			[data removeObjectAtIndex:section];
-			[views removeObjectAtIndex:section];
-			}
-#else
-		[data removeObjectAtIndex:section];
-		[views removeObjectAtIndex:section];
-#endif
-	
+		[self deleteElementAtIndexPath:indexPath];
+		
 		// TODO: use these instead of reloadData,
 		//[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 		}   
@@ -540,8 +588,6 @@
 		{
 		// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
 		}
-	if([views count] == 0)
-		[self toggleEditing];
 	[table reloadData];
 }
 
@@ -550,7 +596,7 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	// Return NO if you do not want the item to be re-orderable.
-	if([indexPath section] == 0)
+	if([indexPath section] == 0 || [indexPath row] == 0)
 		return NO;
 	return YES;
 }
@@ -558,43 +604,7 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-	int fromSection = [fromIndexPath section];
-	int toSection = [toIndexPath section];
-	int fromRow = [fromIndexPath row];
-	int toRow = [toIndexPath row];
-	
-	if(toSection == 0)
-		toSection ++;
-	
-	if(fromSection == toSection && fromRow == toRow)
-		return;
-	
-	id temp;
-	
-#if MULTI_LEVEL_DATA
-	temp = [[[data objectAtIndex:fromSection] objectAtIndex:fromRow] retain];
-	[[data objectAtIndex:fromSection] removeObjectAtIndex:fromRow];
-	[[data objectAtIndex:toSection] insertObject:temp atIndex:toRow];
-	[temp release];
-	
-	temp = [[[views objectAtIndex:fromSection] objectAtIndex:fromRow] retain];
-	[[views objectAtIndex:fromSection] removeObjectAtIndex:fromRow];
-	[[views objectAtIndex:toSection] insertObject:temp atIndex:toRow];
-	[temp release];
-#else
-	temp = [[data objectAtIndex:fromSection] retain];
-	[data removeObjectAtIndex:fromSection];
-	[data insertObject:temp atIndex:toSection];
-	[temp release];
-	
-	temp = [[views objectAtIndex:fromSection] retain];
-	[views removeObjectAtIndex:fromSection];
-	[views insertObject:temp atIndex:toSection];
-	[temp release];
-#endif
-	
-	[self setIndexes];
-	[table reloadData];
+	[self moveElementFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
 }
 
 
@@ -613,24 +623,6 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
-}
-
-#pragma mark - TextField Delegate
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-	[textField resignFirstResponder];
-	return YES;
-}
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-	NSDictionary * dict;
-#if MULTI_LEVEL_DATA
-	dict = [[data objectAtIndex:0] objectAtIndex:0];
-#else
-	dict = [data objectAtIndex:0];
-#endif
-	[dict setValue:[textField text] forKey:@"template name"];
-	[table reloadData];
 }
 
 @end

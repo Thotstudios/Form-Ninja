@@ -15,7 +15,6 @@
 	NSMutableDictionary * dictionary;
 	UITextField *labelField;
 	UISegmentedControl *labelAlignmentControl;
-	int index;
 }
 
 @property (nonatomic, retain) id delegate;
@@ -23,10 +22,16 @@
 @property (nonatomic, retain) IBOutlet UITextField *labelField;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *labelAlignmentControl;
 
-- (IBAction)segmentedControlValueDidChange:(UISegmentedControl*)segmentedControl;
-- (IBAction)reset;
 - (void)setDictionary:(NSMutableDictionary*)arg;
-- (void)setIndex:(int)arg;
 - (void) editNextElement;
+
+-(BOOL) isValid;
+
+- (IBAction)reset;
+- (IBAction)moveUp;
+- (IBAction)moveDown;
+- (IBAction)addRow;
+- (IBAction)deleteRow;
+- (IBAction)segmentedControlValueDidChange:(UISegmentedControl*)segmentedControl;
 
 @end

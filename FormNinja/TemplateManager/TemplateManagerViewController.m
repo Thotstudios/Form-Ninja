@@ -10,6 +10,7 @@
 #import "Constants.h"
 
 #import "TemplateEditorController.h"
+#import "TextFieldAlert.h"
 
 @interface TemplateManagerViewController()
 -(void) loadTemplateList;
@@ -85,12 +86,10 @@
 {
 	[super viewWillAppear:animated];
 	
-	//[groupNameList addObject:ALL_GROUPS_STR];
 	[self loadTemplateList];
 //	[groupTableView selectRowAtIndexPath:[NSIndexPath indexPathWithIndexes:(NSUInteger[2]){0,0} length:2] animated:YES scrollPosition:UITableViewScrollPositionTop];
 	
 	[self filterByGroupName];
-	
 }
 -(void) viewDidAppear:(BOOL)animated
 {
@@ -173,8 +172,13 @@
 		data = [NSMutableArray arrayWithContentsOfFile:path];
 		if([data count])
 			{
-			name = [[data objectAtIndex:0] objectForKey:@"template name"];
-			group = [[data objectAtIndex:0] objectForKey:@"group name"];
+			id temp = [data objectAtIndex:0];
+			if([temp isKindOfClass:[NSDictionary class]])
+				dict = temp;
+			else
+				dict = [temp objectAtIndex:0];
+			name = [dict objectForKey:@"template name"];
+			group = [dict objectForKey:@"group name"];
 			[self addGroupName:group];
 			dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:path, @"path", group, @"group name", name, @"template name", data, @"data", nil];
 			}
@@ -193,7 +197,7 @@
 	NSDictionary * dict = [filteredTemplateList objectAtIndex:index];
 	NSArray * data = [dict valueForKey:@"data"];
 	NSDictionary * meta = [data objectAtIndex:0];
-	id value = [meta valueForKey:@"published"];
+	id value = [meta valueForKey:templatePublishedKey];
 	BOOL isPublished = [value boolValue];
 	return isPublished;
 }
@@ -250,11 +254,13 @@
 	
 	[templateEditor clear];
 	[self.navigationController pushViewController:templateEditor animated:YES];
-	[templateEditor setData:data];
+	[templateEditor setDataArray:data];
 }
 
 - (void) copySelectedTemplateWithName:(NSString*)name
 {
+	NSString * path = [[filteredTemplateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:@"path"];
+	NSLog(@"Should duplicate and rename file at path:\n%@", path);
 	// TODO
 	// push editor
 	// change template name
@@ -263,24 +269,27 @@
 
 - (IBAction)copySelectedTemplate
 {
-	// TODO
-	//NSUInteger row = [[templateTableView indexPathForSelectedRow] row];
-	NSString * path = [[filteredTemplateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:@"path"];
-	NSLog(@"Should duplicate and rename file at path:\n%@", path);
-	// prompt for new name
-	// call duplicateSelectedTemplateNamed: with string arg for new template name
+	[[[[TextFieldAlert alloc] initWithTitle:@"New Template Name"
+								   delegate:self
+								   selector:@selector(copySelectedTemplateWithName:)] autorelease] show];
+}
+
+-(void) createTemplateWithName:(NSString*)name
+{
+	NSUInteger row = [[groupTable indexPathForSelectedRow] row];
+	NSString * group = [groupNameList objectAtIndex:row];
+	
+	//[templateEditor clear];
+	[templateEditor newTemplateWithName:name group:group];
+	[self.navigationController pushViewController:templateEditor animated:YES];
 }
 
 - (IBAction)createTemplate
 {
-	NSString * name = @"Template Name";
-	NSUInteger row = [[groupTable indexPathForSelectedRow] row];
-	//NSDictionary * dict = [filteredTemplateList objectAtIndex:row];
-	NSString * group = [groupNameList objectAtIndex:row];
-	
-	[templateEditor clear];
-	[self.navigationController pushViewController:templateEditor animated:YES];
-	[templateEditor newTemplateWithName:name group:group];
+	[TextFieldAlert showWithTitle:@"New Template Name" delegate:self selector:@selector(createTemplateWithName:)];
+//	[[[[TextFieldAlert alloc] initWithTitle:@"New Template Name"
+//								   delegate:self
+//								   selector:@selector(createTemplateWithName:)] autorelease] show];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

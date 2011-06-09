@@ -41,9 +41,23 @@
 #define formTrue @"True"
 #define formPasswordChangeAccepted @"passwordChanged"
 
-
 #define loginExpirationKey @"loginExpiration"
 #define rememberUserKey	@"rememberUser"
+
+// Template and Form dictionary keys
+#define templateNameKey				@"template name"
+#define templateGroupKey			@"group name"
+#define templateCreatorKey			@"creator name"
+#define templateCreationDateKey		@"creation date"
+#define templatePublishedKey		@"published"
+#define templateVersionKey			@"template version"
+
+#define sectionHeaderKey			@"header"
+#define sectionDataKey				@"section data"
+
+#define elementTypeKey				@"type"
+#define elementSectionIndexKey		@"section index"
+#define elementRowIndexKey			@"row index"
 
 //Form URLs
 #define updateAccountURL @"http://thotstudios.com/formninja/accountUpdate.php"

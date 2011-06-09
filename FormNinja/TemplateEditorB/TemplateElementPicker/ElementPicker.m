@@ -7,8 +7,7 @@
 //
 
 #import "ElementPicker.h"
-
-#import "TemplateElement.h"
+#import "Constants.h"
 
 #import "TemplateElement.h"
 #import "MetaDataElement.h"
@@ -17,10 +16,6 @@
 #import "AddressElement.h"
 #import "SignatureElement.h"
 
-#define tableWidth 262
-#define tableHeight 160
-#define horizontalMargin 11
-
 @interface ElementPicker()
 +(void) loadElementDictionary;
 @end
@@ -28,13 +23,14 @@
 @implementation ElementPicker
 
 static NSMutableDictionary * elementDictionary = nil;
-static BOOL dictionaryIsLoaded = NO;
 
 @synthesize callback;
 @synthesize selector;
 @synthesize table;
 
 @synthesize elementList;
+
+#pragma mark - Init and Memory
 
 -(id) initWithDelegate:(id)delegateArg selector:(SEL)selectorArg
 {
@@ -43,21 +39,28 @@ static BOOL dictionaryIsLoaded = NO;
 	[self setCallback:delegateArg];
 	[self setSelector:selectorArg];
 	orientation = -1;
-	if(!dictionaryIsLoaded) [ElementPicker loadElementDictionary];
+	
+	tableWidth = 262;
+	tableHeight = 160;
+	horizontalMargin = 11;
+	
+	[ElementPicker loadElementDictionary];
 	
 	[self setElementList:[[elementDictionary allKeys] mutableCopy]];
 	[elementList removeObject:@"MetaData"];
 	[elementList sortUsingSelector:@selector(compare:)];
 	return self;
 }
--(void) show
+
+-(void) dealloc
 {
-	[self setTable:[[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped]];
-	[self addSubview:table];
-	[table setDelegate:self];
-	[table setDataSource:self];
-	[super show];
+	[table release];
+	[callback release];
+	[elementList release];
+	[super dealloc];
 }
+#pragma mark - AlertView Button Responses
+
 -(BOOL) orientationChanged
 {
 	UIDeviceOrientation cur =
@@ -67,6 +70,16 @@ static BOOL dictionaryIsLoaded = NO;
 	orientation = cur;
 	return YES;
 }
+
+-(void) show
+{
+	[self setTable:[[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped]];
+	[self addSubview:table];
+	[table setDelegate:self];
+	[table setDataSource:self];
+	[super show];
+}
+
 -(void) layoutSubviews
 {
 	if(![self orientationChanged])
@@ -101,20 +114,6 @@ static BOOL dictionaryIsLoaded = NO;
 		}
 }
 
-#pragma mark -
-
-+(void) loadElementDictionary
-{
-	NSString * path;
-	path = [[NSBundle mainBundle] pathForResource:@"ElementList" ofType:@"plist"];
-	
-	elementDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-	
-	dictionaryIsLoaded = YES;
-}
-
-#pragma mark -
-
 -(void) dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated
 {
 	switch(buttonIndex)
@@ -130,6 +129,7 @@ static BOOL dictionaryIsLoaded = NO;
 	[super dismissWithClickedButtonIndex:buttonIndex animated:animated];
 }
 
+#pragma mark - TableView DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -143,7 +143,7 @@ static BOOL dictionaryIsLoaded = NO;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSUInteger row = [indexPath row];
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Element Table Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -155,33 +155,30 @@ static BOOL dictionaryIsLoaded = NO;
     return cell;
 }
 
-#pragma mark - Table view delegate
-/*
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	[self setType:[[[tableView cellForRowAtIndexPath:indexPath] textLabel] text]];
-}
-*/
 #pragma mark - Class Methods
 
-+(TemplateElement*) elementOfType:(NSString *)type
++(void) loadElementDictionary
 {
-	if(!dictionaryIsLoaded) [ElementPicker loadElementDictionary];
+	if(elementDictionary) return;
 	
-	NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-	TemplateElement * element = nil;
+	NSString * path;
+	path = [[NSBundle mainBundle] pathForResource:@"ElementList" ofType:@"plist"];
 	
+	elementDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+}
+
++(TemplateElement*) elementOfType:(NSString *)type delegate:(id)delegate
+{
+	[ElementPicker loadElementDictionary];
 	
+	TemplateElement * element;
 	element = [[[NSClassFromString([elementDictionary valueForKey:type]) alloc] init] autorelease];
-	
-	if(!element)
-		element = [[[TemplateElement alloc] init] autorelease];
 	
 	if(element)
 		{
-		[element.view setFrame:CGRectMake(0, 0, 768, element.view.frame.size.height)];
-		[dict setValue:type forKey:@"type"];
-		[element setDictionary:dict];
+		//[element.view setFrame:CGRectMake(0, 0, 768, element.view.frame.size.height)];
+		[element setDelegate:delegate];
+		[element setDictionary:[NSMutableDictionary dictionaryWithObject:type forKey:@"type"]];
 		}
 	return element;
 }
