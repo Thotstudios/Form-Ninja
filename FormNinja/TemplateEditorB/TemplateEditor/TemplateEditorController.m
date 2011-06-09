@@ -287,7 +287,6 @@
 		{
 		if(ret) ret = [sectionData isKindOfClass:[NSDictionary class]];
 		}
-	if(ret) [self generateViewArray];
 	if(ret) ret = [viewArray isKindOfClass:[NSArray class]];
 	for(id rowArray in viewArray)
 		{
