@@ -70,7 +70,7 @@
 		D922CE9E136C926300233C48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CE9D136C926300233C48 /* main.m */; };
 		D922CEA1136C926300233C48 /* FormNinjaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */; };
 		D922CEA7136C926300233C48 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */; };
-		D9E0E313139D91DB00C84476 /* SyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E0E312139D91DB00C84476 /* SyncManager.m */; };
+		D964629913A05AC300B37085 /* SyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D964629813A05AC300B37085 /* SyncManager.m */; };
 		F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187651390EFDC000BA9DF /* TemplateEditorController.m */; };
 		F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187661390EFDC000BA9DF /* TemplateEditorController.xib */; };
 		F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F72187681390EFDC000BA9DF /* ElementList.plist */; };
@@ -212,8 +212,8 @@
 		D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaAppDelegate.m; sourceTree = "<group>"; };
 		D922CEA5136C926300233C48 /* FormNinjaLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaLoginViewController.h; sourceTree = "<group>"; };
 		D922CEA6136C926300233C48 /* FormNinjaLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaLoginViewController.m; sourceTree = "<group>"; };
-		D9E0E311139D91DB00C84476 /* SyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncManager.h; sourceTree = "<group>"; };
-		D9E0E312139D91DB00C84476 /* SyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncManager.m; sourceTree = "<group>"; };
+		D964629713A05AC300B37085 /* SyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyncManager.h; path = FormNinja/SyncManager.h; sourceTree = "<group>"; };
+		D964629813A05AC300B37085 /* SyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SyncManager.m; path = FormNinja/SyncManager.m; sourceTree = "<group>"; };
 		F72187641390EFDC000BA9DF /* TemplateEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateEditorController.h; sourceTree = "<group>"; };
 		F72187651390EFDC000BA9DF /* TemplateEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateEditorController.m; sourceTree = "<group>"; };
 		F72187661390EFDC000BA9DF /* TemplateEditorController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateEditorController.xib; sourceTree = "<group>"; };
@@ -589,8 +589,8 @@
 		D9E0E30F139D8FDA00C84476 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
-				D9E0E311139D91DB00C84476 /* SyncManager.h */,
-				D9E0E312139D91DB00C84476 /* SyncManager.m */,
+				D964629713A05AC300B37085 /* SyncManager.h */,
+				D964629813A05AC300B37085 /* SyncManager.m */,
 			);
 			name = Sync;
 			path = ..;
@@ -982,7 +982,6 @@
 				F7D004F2139237D600DD4D2B /* TableElement.m in Sources */,
 				D904732113982C5B00B87E4E /* LocationManager.m in Sources */,
 				42A72C54139D4F3100F6DC1B /* FormEditorViewController.m in Sources */,
-				D9E0E313139D91DB00C84476 /* SyncManager.m in Sources */,
 				42A50B52139ED65E00D8EF3B /* FormElementPicker.m in Sources */,
 				42A50B5C139EDA5900D8EF3B /* FormTemplateElement.m in Sources */,
 				42A50B61139EDA9600D8EF3B /* FormTableElement.m in Sources */,
@@ -992,6 +991,7 @@
 				42A50B75139EDB2600D8EF3B /* FormAddressElement.m in Sources */,
 				42A50B7A139EDB4900D8EF3B /* FormSignatureElement.m in Sources */,
 				421FA45B139EDBC100768C95 /* FormRepeatingElement.m in Sources */,
+				D964629913A05AC300B37085 /* SyncManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
