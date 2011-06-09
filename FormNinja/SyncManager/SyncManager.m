@@ -13,10 +13,29 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 
+static NSMutableArray *syncList;
+
 @implementation SyncManager
 
 @synthesize userID, delegate;
 
+
+#pragma mark - Class Methods
+
++ (SyncManager *) sharedSyncManager{
+    static  SyncManager *syncManager;
+    
+    @synchronized(self)
+	{
+		if (!syncManager)
+            syncManager = [[SyncManager alloc] init];
+        
+        if (!syncList)
+            syncList = [[NSMutableArray alloc] init];
+	}
+    
+    return syncManager;
+}
 
 
 #pragma mark - Instance Methods
@@ -32,8 +51,8 @@
 }
 
 
-//Syncs template to db
-- (void) syncTemplate:(NSMutableArray *) array{
+//Formats template to db compatible json string
+- (NSString *) formatTemplate:(NSMutableArray *) array{
     //Convert nsdate object to string as json cannot parse nsdate objects
     NSMutableDictionary *dict = [[[NSMutableDictionary alloc] initWithDictionary:[array objectAtIndex:0]] autorelease];
     [dict setObject:[NSString stringWithFormat:@"%@",[dict objectForKey:@"creation date"]] forKey:@"creation date"]; //replace old nsdate with nsstring  
@@ -55,9 +74,10 @@
         }
     }
     
-    //Get json string
-    NSString *dbData = [dbArray JSONRepresentation]; 
+    //Return json string
+    return [dbArray JSONRepresentation]; 
     
+    /*
     //Prepare form
     NSURL *urlToSend = [[[NSURL alloc] initWithString: templateUploadURL] autorelease];
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
@@ -66,8 +86,14 @@
 	
     //Send request
     request.delegate = self;
-   // [request startAsynchronous];  uncomment to sync
+   // [request startAsynchronous];  uncomment to sync*/
 
+}
+
+
+//Adds template to sync list for later syncing
+- (void) addTemplateToSyncList:(NSMutableArray *) dataArray{
+    [syncList addObject:[self formatTemplate:dataArray]];
 }
 
 

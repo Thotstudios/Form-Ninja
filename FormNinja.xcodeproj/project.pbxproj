@@ -448,7 +448,6 @@
 			children = (
 				F72187631390EFDC000BA9DF /* TemplateEditor */,
 				F72187671390EFDC000BA9DF /* ElementPicker */,
-				F721876B1390EFDC000BA9DF /* TemplateElements */,
 			);
 			name = TemplateEditor;
 			sourceTree = "<group>";
@@ -458,6 +457,7 @@
 			children = (
 				F72187641390EFDC000BA9DF /* TemplateEditorController.h */,
 				F72187651390EFDC000BA9DF /* TemplateEditorController.m */,
+				F721876B1390EFDC000BA9DF /* TemplateElements */,
 				F72187661390EFDC000BA9DF /* TemplateEditorController.xib */,
 			);
 			name = TemplateEditor;
@@ -489,7 +489,7 @@
 				F72187701390EFDC000BA9DF /* CreditCardElement */,
 			);
 			name = TemplateElements;
-			path = TemplateEditorB/TemplateElements;
+			path = ../TemplateElements;
 			sourceTree = "<group>";
 		};
 		F721876C1390EFDC000BA9DF /* AddressElement */ = {

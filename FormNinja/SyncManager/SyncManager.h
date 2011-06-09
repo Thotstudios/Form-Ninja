@@ -24,7 +24,10 @@
 @property (nonatomic, assign) id <SyncDelgate> delegate;
 
 
-- (void) syncTemplate:(NSMutableArray *) array;
++ (SyncManager *) sharedSyncManager;
+
+- (NSString *) formatTemplate:(NSMutableArray *) array;
+- (void) addTemplateToSyncList:(NSMutableArray *) dataArray;
 
 @end
 
