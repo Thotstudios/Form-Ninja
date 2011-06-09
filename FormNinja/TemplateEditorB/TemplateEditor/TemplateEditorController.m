@@ -119,22 +119,9 @@
 
 - (void) commitToDB
 {
-    //Convert nsdate object to string as json cannot parse nsdate objects
-    NSMutableArray *dbArray;
-	dbArray = [[dataArray mutableCopy] autorelease];
-	
-    NSMutableDictionary *dict;
-	dict = [dbArray objectAtIndex:0];
-	[dict setObject:[NSString stringWithFormat:@"%@",[dict objectForKey:@"creation date"]] forKey:@"creation date"];
     
     //Get json string
-    //TODO: add image support
-	// NOTE: image is NSData object -Chad
-    NSString *dbData = [dbArray JSONRepresentation]; 
-    NSLog(@"committing %@", dbData);
-	// TODO: save to Pending Uploads folder
-	// Syncing to DB should be handled elsewhere.
-	// -Chad
+    [[SyncManager sharedSyncManager] addTemplateToSyncList:[(NSMutableArray*)CFPropertyListCreateDeepCopy(kCFAllocatorDefault, (CFPropertyListRef)dataArray, kCFPropertyListMutableContainers) autorelease]];
 	
 	/*
 	{
