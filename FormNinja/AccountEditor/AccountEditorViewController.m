@@ -264,6 +264,10 @@
     
     if ([registered isEqualToString:formTrue]){
         self.loadAlert.alertLabel.text = @"Account Created";
+        
+        //Set user id
+        self.account.userID = [jsonDict objectForKey:userIDNumber];
+        
         [self.loadAlert stopActivityIndicator];
         [self accountCreated];
         return;

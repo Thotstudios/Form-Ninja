@@ -136,6 +136,13 @@ static NSMutableDictionary *syncList;
 }
 
 
+- (void) sync{
+    for (NSString *data in syncList) {
+        NSLog(@"sync");
+    }
+}
+
+
 #pragma mark - ASIHTTPRequest Delegate Methods
 
 - (void)requestFailed:(ASIHTTPRequest *)request{

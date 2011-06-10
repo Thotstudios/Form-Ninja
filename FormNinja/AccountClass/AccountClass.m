@@ -114,7 +114,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *saveDict = [NSMutableDictionary dictionary];
     
-    [saveDict setObject:self.userID forKey:userIDNumber];
+    if(self.userID)
+        [saveDict setObject:self.userID forKey:userIDNumber];
+    
     [saveDict setObject:self.username forKey:userName];
     [saveDict setObject:self.passwordHash forKey:userPassword];
     [saveDict setObject:self.emailAddress forKey:userEmail];

@@ -57,6 +57,8 @@ if($_POST['username'])
 			}
 		
 			else{
+				$userID = mysql_insert_id();
+				$response['userID'] = $userID;
 				$response['registered'] = 'True';
 				print json_encode($response);
 				exit;
