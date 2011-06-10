@@ -133,8 +133,6 @@ static NSMutableDictionary *syncList;
 
     if([defaults objectForKey:templateSyncListKey])
         syncList = [defaults objectForKey:templateSyncListKey];
-    
-    NSLog(@"%@", syncList);
 }
 
 
