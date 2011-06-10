@@ -8,6 +8,7 @@
 
 #import "FormNinjaAppDelegate.h"
 #import "LocationManager.h"
+#import "SyncManager.h"
 
 
 //#import "FormNinjaLoginViewController.h"
@@ -46,6 +47,8 @@
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    //Save sync list
+    [[SyncManager sharedSyncManager] saveList];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

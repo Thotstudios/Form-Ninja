@@ -46,6 +46,8 @@
 #define loginExpirationKey @"loginExpiration"
 #define rememberUserKey	@"rememberUser"
 
+#define templateSyncListKey @"templateSyncListKey"
+
 // Template and Form dictionary keys
 #define templateNameKey				@"template name"
 #define templateGroupKey			@"group name"

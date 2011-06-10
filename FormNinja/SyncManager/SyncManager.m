@@ -13,7 +13,15 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 
-static NSMutableArray *syncList;
+static NSMutableDictionary *syncList;
+
+
+//Private methods
+@interface SyncManager () 
+
+- (void) loadList;
+
+@end
 
 @implementation SyncManager
 
@@ -30,8 +38,10 @@ static NSMutableArray *syncList;
 		if (!syncManager)
             syncManager = [[SyncManager alloc] init];
         
-        if (!syncList)
-            syncList = [[NSMutableArray alloc] init];
+        if (!syncList){
+            syncList = [[NSMutableDictionary alloc] init];
+            [syncManager loadList];
+        }
 	}
     
     return syncManager;
@@ -93,9 +103,39 @@ static NSMutableArray *syncList;
 
 //Adds template to sync list for later syncing
 - (void) addTemplateToSyncList:(NSMutableArray *) dataArray{
-    [syncList addObject:[self formatTemplate:dataArray]];
+    NSMutableDictionary *metaData = [dataArray objectAtIndex:0];
+    NSString *templateName = [metaData objectForKey:templateNameKey];
+    NSString *templateData = [self formatTemplate:dataArray];    
+    NSString * group = [metaData objectForKey:templateGroupKey];
+	
+	if(!group) 
+        group = @"No Group";
+	
+    if(!templateName) 
+        templateName = [NSString stringWithFormat:@"%i", time(0)];
+	
+	NSString *fileName;
+	fileName = [NSString stringWithFormat:@"%@-%@", group, templateName];
+
+    [syncList setObject:templateData forKey:fileName];
 }
 
+
+- (void) saveList{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:syncList forKey:templateSyncListKey];
+    [defaults synchronize];
+}
+
+
+- (void) loadList{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    if([defaults objectForKey:templateSyncListKey])
+        syncList = [defaults objectForKey:templateSyncListKey];
+    
+    NSLog(@"%@", syncList);
+}
 
 
 #pragma mark - ASIHTTPRequest Delegate Methods

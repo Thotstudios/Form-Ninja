@@ -29,6 +29,9 @@
 - (NSString *) formatTemplate:(NSMutableArray *) array;
 - (void) addTemplateToSyncList:(NSMutableArray *) dataArray;
 
+- (void) saveList;
+
+
 @end
 
 
