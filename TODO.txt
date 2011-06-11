@@ -33,6 +33,7 @@ Paul:
 
 Ron:
 * FormElementMultiline:  Validate current length.
+* FormElementSingleline: validate current length.
 
 Other:
 * Localization support
