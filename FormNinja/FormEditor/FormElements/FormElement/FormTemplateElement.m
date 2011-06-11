@@ -11,6 +11,8 @@
 
 @implementation FormTemplateElement
 
+@synthesize labelLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -52,6 +54,26 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+-(void) setDictionary:(NSMutableDictionary *)arg
+{
+	[self.view setNeedsDisplay];
+	[dictionary release];
+	dictionary = [arg retain];
+	[labelLabel setText:[dictionary objectForKey:@"label"]];
+    NSNumber *index=[dictionary objectForKey:@"label alignment"];
+    if ([index intValue]==0) {
+        labelLabel.textAlignment=UITextAlignmentLeft;
+    }
+    else if([index intValue]==1)
+    {
+        labelLabel.textAlignment=UITextAlignmentCenter; 
+    }
+    else if([index intValue]==2)
+    {
+        labelLabel.textAlignment=UITextAlignmentRight;
+    }
 }
 
 @end
