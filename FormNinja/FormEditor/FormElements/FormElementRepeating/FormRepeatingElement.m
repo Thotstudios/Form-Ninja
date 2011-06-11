@@ -11,6 +11,8 @@
 
 @implementation FormRepeatingElement
 
+@synthesize labelLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
