@@ -279,9 +279,9 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 					</object>
-					<object class="IBUILabel" id="1025506616">
+					<object class="IBUILabel" id="1001838340">
 						<reference key="NSNextResponder" ref="406267907"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{20, 20}, {984, 21}}</string>
 						<reference key="NSSuperview" ref="406267907"/>
 						<reference key="NSWindow"/>
@@ -413,7 +413,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">labelLabel</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="1025506616"/>
+						<reference key="destination" ref="1001838340"/>
 					</object>
 					<int key="connectionID">33</int>
 				</object>
@@ -452,7 +452,7 @@
 							<reference ref="395209445"/>
 							<reference ref="509933296"/>
 							<reference ref="286757489"/>
-							<reference ref="1025506616"/>
+							<reference ref="1001838340"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -503,7 +503,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">26</int>
-						<reference key="object" ref="1025506616"/>
+						<reference key="object" ref="1001838340"/>
 						<reference key="parent" ref="406267907"/>
 					</object>
 				</object>

@@ -42,9 +42,9 @@
 				<int key="NSvFlags">298</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUILabel" id="686902225">
+					<object class="IBUILabel" id="624150499">
 						<reference key="NSNextResponder" ref="779687064"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{20, 20}, {507, 21}}</string>
 						<reference key="NSSuperview" ref="779687064"/>
 						<reference key="NSWindow"/>
@@ -92,7 +92,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">labelLabel</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="686902225"/>
+						<reference key="destination" ref="624150499"/>
 					</object>
 					<int key="connectionID">13</int>
 				</object>
@@ -122,13 +122,13 @@
 						<reference key="object" ref="779687064"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="686902225"/>
+							<reference ref="624150499"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">12</int>
-						<reference key="object" ref="686902225"/>
+						<reference key="object" ref="624150499"/>
 						<reference key="parent" ref="779687064"/>
 					</object>
 				</object>

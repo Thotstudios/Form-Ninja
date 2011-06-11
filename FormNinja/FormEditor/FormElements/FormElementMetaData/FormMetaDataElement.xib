@@ -131,7 +131,7 @@
 					</object>
 					<object class="IBUILabel" id="1071507518">
 						<reference key="NSNextResponder" ref="534630331"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{158, 20}, {331, 21}}</string>
 						<reference key="NSSuperview" ref="534630331"/>
 						<reference key="NSWindow"/>
@@ -150,7 +150,7 @@
 					</object>
 					<object class="IBUILabel" id="108040532">
 						<reference key="NSNextResponder" ref="534630331"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{158, 49}, {241, 21}}</string>
 						<reference key="NSSuperview" ref="534630331"/>
 						<reference key="NSWindow"/>
@@ -169,7 +169,7 @@
 					</object>
 					<object class="IBUILabel" id="762945787">
 						<reference key="NSNextResponder" ref="534630331"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{158, 78}, {197, 21}}</string>
 						<reference key="NSSuperview" ref="534630331"/>
 						<reference key="NSWindow"/>
@@ -188,7 +188,7 @@
 					</object>
 					<object class="IBUILabel" id="780185448">
 						<reference key="NSNextResponder" ref="534630331"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{158, 107}, {115, 21}}</string>
 						<reference key="NSSuperview" ref="534630331"/>
 						<reference key="NSWindow"/>
@@ -247,7 +247,7 @@
 					</object>
 					<object class="IBUILabel" id="289848292">
 						<reference key="NSNextResponder" ref="534630331"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{158, 136}, {122, 21}}</string>
 						<reference key="NSSuperview" ref="534630331"/>
 						<reference key="NSWindow"/>
@@ -266,11 +266,10 @@
 					</object>
 					<object class="IBUILabel" id="11304453">
 						<reference key="NSNextResponder" ref="534630331"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{158, 165}, {134, 21}}</string>
 						<reference key="NSSuperview" ref="534630331"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -338,7 +337,6 @@
 							<reference ref="405575379"/>
 							<reference ref="80333116"/>
 							<reference ref="1071507518"/>
-							<reference ref="108040532"/>
 							<reference ref="186146228"/>
 							<reference ref="639838452"/>
 							<reference ref="762945787"/>
@@ -347,6 +345,7 @@
 							<reference ref="329073654"/>
 							<reference ref="289848292"/>
 							<reference ref="11304453"/>
+							<reference ref="108040532"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -479,11 +478,15 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>creationDateLabel</string>
 							<string>creatorNameLabel</string>
+							<string>formFinishLabel</string>
+							<string>formStartLabel</string>
 							<string>templateGroupLabel</string>
 							<string>templateNameLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UILabel</string>
+							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
@@ -496,6 +499,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>creationDateLabel</string>
 							<string>creatorNameLabel</string>
+							<string>formFinishLabel</string>
+							<string>formStartLabel</string>
 							<string>templateGroupLabel</string>
 							<string>templateNameLabel</string>
 						</object>
@@ -507,6 +512,14 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">creatorNameLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">formFinishLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">formStartLabel</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -528,14 +541,14 @@
 					<string key="className">MetaDataElement</string>
 					<string key="superclassName">TemplateElement</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">togglePublished:</string>
-						<string key="NS.object.0">UISwitch</string>
+						<string key="NS.key.0">togglePublished</string>
+						<string key="NS.object.0">id</string>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">togglePublished:</string>
+						<string key="NS.key.0">togglePublished</string>
 						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">togglePublished:</string>
-							<string key="candidateClassName">UISwitch</string>
+							<string key="name">togglePublished</string>
+							<string key="candidateClassName">id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -603,11 +616,19 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addRow</string>
+							<string>deleteRow</string>
+							<string>moveDown</string>
+							<string>moveUp</string>
 							<string>reset</string>
 							<string>segmentedControlValueDidChange:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>UISegmentedControl</string>
 						</object>
@@ -616,11 +637,31 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addRow</string>
+							<string>deleteRow</string>
+							<string>moveDown</string>
+							<string>moveUp</string>
 							<string>reset</string>
 							<string>segmentedControlValueDidChange:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">addRow</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">deleteRow</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">moveDown</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">moveUp</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">reset</string>
 								<string key="candidateClassName">id</string>
