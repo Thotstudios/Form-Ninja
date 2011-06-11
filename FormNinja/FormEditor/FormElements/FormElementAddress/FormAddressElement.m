@@ -10,7 +10,7 @@
 
 
 @implementation FormAddressElement
-@synthesize fieldLabelLabel;
+@synthesize labelLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

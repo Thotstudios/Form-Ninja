@@ -13,6 +13,6 @@
     
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *fieldLabelLabel;
+@property (nonatomic, retain) IBOutlet UILabel *labelLabel;
 
 @end
