@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SingleLineElement.h"
 
-@interface FormSingleLineElement : SingleLineElement {
+@interface FormSingleLineElement : SingleLineElement <UITextFieldDelegate> {
     
 }
+
+@property (nonatomic, retain) IBOutlet UILabel *labelLabel, *curLength, *maxLength, *minLength;
 
 @end

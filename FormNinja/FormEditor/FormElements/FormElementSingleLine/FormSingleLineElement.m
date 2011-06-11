@@ -11,6 +11,8 @@
 
 @implementation FormSingleLineElement
 
+@synthesize labelLabel, curLength, maxLength, minLength;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -52,6 +54,62 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (IBAction)reset
+{
+    [dictionary removeObjectForKey:@"filled value"];
+	[valueField setText:[dictionary valueForKey:@"value"]];
+}
+-(void)	setDictionary:(NSMutableDictionary *)arg
+{
+	[super setDictionary:arg];
+    
+    NSString *stringValue=[dictionary valueForKey:@"filled value"];
+    if (stringValue) {
+        [valueField setText:stringValue];
+    }
+    else
+    {
+        [valueField setText:[dictionary valueForKey:@"value"]];
+    }
+    
+	[minLength setText:[dictionary valueForKey:@"minimum length"]];
+	[maxLength setText:[dictionary valueForKey:@"maximum length"]];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+	id key = nil;
+	switch ([textField tag])
+	{
+		case 1:
+            key = @"filled label";
+            break;
+            
+		case 2:
+            key = @"filled minimum length";
+            break;
+            
+		case 3:
+            key = @"filled maximum length";
+            break;
+            
+		case 4:
+            key = @"filled value";
+            break;
+	}
+	if(key)
+		[dictionary setValue:[textField text] forKey:key];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    [curLength setText:[NSString stringWithFormat:@"%i", [valueField.text length]]];
+    
+    //TODO:  Validate length.
+    
+    return NO;
 }
 
 @end
