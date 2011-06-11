@@ -11,6 +11,8 @@
 
 @implementation FormMultiLineElement
 
+@synthesize labelLabel, minLabel, maxLabel, curLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -52,6 +54,39 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+-(IBAction) reset
+{
+	[dictionary removeObjectForKey:@"filled value"];
+    [valueField setText:[dictionary objectForKey:@"value"]];
+}
+
+-(void)	setDictionary:(NSMutableDictionary *)arg
+{
+	[super setDictionary:arg];
+    NSString *stringValue=[dictionary valueForKey:@"filled value"];
+    if (stringValue) {
+        [valueField setText:stringValue];
+    }
+	else
+    {
+        [valueField setText:[dictionary valueForKey:@"value"]];
+    }
+	[minLabel setText:[dictionary valueForKey:@"minimum length"]];
+	[maxLabel setText:[dictionary valueForKey:@"maximum length"]];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+	NSString * key = @"filled value";
+	
+	if(key) [dictionary setValue:[textView text] forKey:key];
+}
+- (void)textViewDidChange:(UITextView *)textView
+{
+    [curLabel setText:[NSString stringWithFormat:@"%i",[textView.text length]]];
+    //TODO:  validate length
 }
 
 @end
