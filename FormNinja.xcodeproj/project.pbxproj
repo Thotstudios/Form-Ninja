@@ -31,6 +31,8 @@
 		D922CE95136C926300233C48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922CE94136C926300233C48 /* CoreGraphics.framework */; };
 		D922CE9E136C926300233C48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CE9D136C926300233C48 /* main.m */; };
 		D922CEA1136C926300233C48 /* FormNinjaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */; };
+		D9E3248213A6C801009724D8 /* MenuPopOver.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E3247F13A6C801009724D8 /* MenuPopOver.m */; };
+		D9E3248313A6C801009724D8 /* PopOverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E3248113A6C801009724D8 /* PopOverManager.m */; };
 		F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187651390EFDC000BA9DF /* TemplateEditorController.m */; };
 		F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187661390EFDC000BA9DF /* TemplateEditorController.xib */; };
 		F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F72187681390EFDC000BA9DF /* ElementList.plist */; };
@@ -162,6 +164,10 @@
 		D922CE9D136C926300233C48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D922CE9F136C926300233C48 /* FormNinjaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaAppDelegate.h; sourceTree = "<group>"; };
 		D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaAppDelegate.m; sourceTree = "<group>"; };
+		D9E3247E13A6C801009724D8 /* MenuPopOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuPopOver.h; sourceTree = "<group>"; };
+		D9E3247F13A6C801009724D8 /* MenuPopOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuPopOver.m; sourceTree = "<group>"; };
+		D9E3248013A6C801009724D8 /* PopOverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverManager.h; sourceTree = "<group>"; };
+		D9E3248113A6C801009724D8 /* PopOverManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopOverManager.m; sourceTree = "<group>"; };
 		F72187641390EFDC000BA9DF /* TemplateEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateEditorController.h; sourceTree = "<group>"; };
 		F72187651390EFDC000BA9DF /* TemplateEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateEditorController.m; sourceTree = "<group>"; };
 		F72187661390EFDC000BA9DF /* TemplateEditorController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateEditorController.xib; sourceTree = "<group>"; };
@@ -403,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				D90A13DC1382250200857A4C /* Constants.h */,
+				D9E3247C13A6C7E3009724D8 /* Menu Popover */,
 				F785C16A13A072FF00AADEB6 /* SyncManager */,
 				F7C0DCBD13A0729C009ACEB6 /* LocationManager */,
 				F785C16513A072EE00AADEB6 /* TextFieldAlert */,
@@ -441,6 +448,17 @@
 			);
 			name = XIB;
 			path = FormNinja;
+			sourceTree = "<group>";
+		};
+		D9E3247C13A6C7E3009724D8 /* Menu Popover */ = {
+			isa = PBXGroup;
+			children = (
+				D9E3247E13A6C801009724D8 /* MenuPopOver.h */,
+				D9E3247F13A6C801009724D8 /* MenuPopOver.m */,
+				D9E3248013A6C801009724D8 /* PopOverManager.h */,
+				D9E3248113A6C801009724D8 /* PopOverManager.m */,
+			);
+			name = "Menu Popover";
 			sourceTree = "<group>";
 		};
 		F72187611390EFCE000BA9DF /* TemplateEditor */ = {
@@ -1006,6 +1024,8 @@
 				F785C16D13A072FF00AADEB6 /* SyncManager.m in Sources */,
 				F78C993C13A073F600494C12 /* MainMenu.m in Sources */,
 				F78C994013A0741C00494C12 /* FormNinjaLoginViewController.m in Sources */,
+				D9E3248213A6C801009724D8 /* MenuPopOver.m in Sources */,
+				D9E3248313A6C801009724D8 /* PopOverManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
