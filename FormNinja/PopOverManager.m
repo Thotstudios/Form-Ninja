@@ -112,9 +112,6 @@ static PopOverManager *sharedManager = nil;
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverDimissed" object:popoverController];
-   // [self.appDelegate.navigationController 
-    // popToRootViewControllerAnimated:YES];
-    //[self.mainMenu performSelector:@selector(pushFormManagerViewController ) withObject:nil afterDelay:1];
 }
 
 - (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController

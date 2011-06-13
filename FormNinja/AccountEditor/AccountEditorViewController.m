@@ -13,6 +13,7 @@
 #import "AccountClass.h"
 #import "Constants.h"
 #import "CustomLoadAlertViewController.h"
+#import "PopOverManager.h"
 
 
 //Private methods
@@ -85,6 +86,11 @@
 			}
 	} // end Security Question
 	
+    //Menu button
+	UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
+                                  initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
+    self.navigationItem.rightBarButtonItem = menuButton;
+    [menuButton release];
 	
     //Add load alert view to window
     self.loadAlert.view.hidden = YES;
@@ -115,6 +121,11 @@
     }
     
     [self loadAccountInfo];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
 }
 
 
@@ -395,6 +406,12 @@
 	// then hide the fields:
 	[self changePasswordCancel];
 }
+
+
+- (void) menuButtonAction:(id) sender{
+    [[PopOverManager sharedManager] createMenuPopOver:accountProfileMenu fromButton:sender];
+}
+
 
 
 

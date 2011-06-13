@@ -161,7 +161,7 @@ static NSString* MenuType_toEnum[] = {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedAction = [self menuStringToEnum:[menuOptions objectAtIndex:indexPath.row]];
-    NSLog(@"%d", selectedAction);
+   // NSLog(@"%d", selectedAction);
     [[PopOverManager sharedManager] dismissCurrentPopoverController:YES];
 }
 
