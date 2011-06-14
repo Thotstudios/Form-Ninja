@@ -112,6 +112,11 @@
 
 #pragma mark -Text View
 
+-(void) selectElementAtIndexPath:(NSIndexPath*)indexPath {}
+-(void) textViewDidBeginEditing:(UITextView *)textView
+{
+	[delegate selectElementAtIndexPath:[self indexPath]];
+}
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
 	NSString * key = @"value";

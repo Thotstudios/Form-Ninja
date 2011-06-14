@@ -25,6 +25,7 @@
 - (void)setDictionary:(NSMutableDictionary*)arg;
 - (void) editNextElement;
 
+- (NSIndexPath *) indexPath;
 -(BOOL) isValid;
 
 - (IBAction)reset;
