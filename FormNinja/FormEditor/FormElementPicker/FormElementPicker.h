@@ -14,6 +14,6 @@
     
 }
 
-+(FormTemplateElement*) elementOfType:(NSString *)type;
++(FormTemplateElement*) formElementOfType:(NSString *)type;
 
 @end
