@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "TemplateEditorController.h"
-
+#import "TemplateEditorController.h"
+#import "Constants.h"
 
 @interface FormEditorViewController : TemplateEditorController {
     

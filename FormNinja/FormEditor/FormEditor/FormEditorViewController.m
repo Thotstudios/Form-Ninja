@@ -7,7 +7,8 @@
 //
 
 #import "FormEditorViewController.h"
-
+#import "FormTemplateElement.h"
+#import "FormElementPicker.h"
 
 @implementation FormEditorViewController
 
@@ -73,6 +74,51 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (void) generateViewArray
+{
+    NSLog(@"Test");
+	[self setViewArray:[NSMutableArray array]];
+	if([dataArray count])
+    {
+		NSString * type;
+		TemplateElement * element;
+		
+		NSMutableArray * rowArray;
+		for(NSMutableDictionary * sectionDict in dataArray)
+        {
+			rowArray = [NSMutableArray array];
+			NSMutableArray * sectionData = [sectionDict objectForKey:sectionDataKey];
+			if(sectionData)
+				for(NSMutableDictionary *dict in sectionData)
+                {
+                    NSLog(@"Test2");
+					type = [dict objectForKey:elementTypeKey];
+					if(type)
+                    {
+                        NSLog(@"test: %@", type);
+						element = [FormElementPicker formElementOfType:type];
+						[element setDictionary:dict]; // TODO: fix
+						[rowArray addObject:element];
+                    }
+                }
+			else
+            {
+				NSMutableDictionary *dict = sectionDict;
+				
+				type = [dict objectForKey:elementTypeKey];
+				if(type)
+                {
+                    NSLog(@"Test3");
+					element = [FormElementPicker formElementOfType:type];
+					[element setDictionary:dict]; // TODO fix
+					[rowArray addObject:element];
+                }
+            }
+			[viewArray addObject:rowArray];
+        }
+    }
 }
 
 @end

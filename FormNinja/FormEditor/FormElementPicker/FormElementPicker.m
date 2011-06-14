@@ -26,8 +26,9 @@ static BOOL dictionaryIsLoaded = NO;
 }
 
 
-+(FormTemplateElement*) elementOfType:(NSString *)type
++(FormTemplateElement*) formElementOfType:(NSString *)type
 {
+    NSLog(@"FormElementPicker");
 	if(!dictionaryIsLoaded) [self loadElementDictionary];
 	
 	NSMutableDictionary * dict = [NSMutableDictionary dictionary];

@@ -65,6 +65,21 @@
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
+    
+	[labelLabel setText:[dictionary objectForKey:@"label"]];
+    NSNumber *index=[dictionary objectForKey:@"label alignment"];
+    if ([index intValue]==0) {
+        labelLabel.textAlignment=UITextAlignmentLeft;
+    }
+    else if([index intValue]==1)
+    {
+        labelLabel.textAlignment=UITextAlignmentCenter; 
+    }
+    else if([index intValue]==2)
+    {
+        labelLabel.textAlignment=UITextAlignmentRight;
+    }
+    
     NSString *stringValue=[dictionary valueForKey:@"filled value"];
     if (stringValue) {
         [valueField setText:stringValue];

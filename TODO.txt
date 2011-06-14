@@ -34,6 +34,7 @@ Paul:
 Ron:
 * FormElementMultiline:  Validate current length.
 * FormElementSingleline: validate current length.
+* FormAddressElement:  Validate zip is numerics.
 
 Other:
 * Localization support
