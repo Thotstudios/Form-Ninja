@@ -89,8 +89,8 @@
 	NSMutableArray * data = [dict objectForKey:@"data"];
 	
 	// These two lines might be backwards:
-	[formEditorViewController newFormWithTemplate:data];
 	[self.navigationController pushViewController:formEditorViewController animated:YES];
+	[formEditorViewController newFormWithTemplate:data];
 }
 
 - (IBAction)resumeSelectedForm
