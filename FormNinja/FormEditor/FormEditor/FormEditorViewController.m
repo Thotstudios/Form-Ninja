@@ -26,6 +26,12 @@
     
 }
 
+-(void) newFormWithTemplate:(NSMutableArray *)data
+{
+	[self setDataArray:data];
+	// TODO: whatever (view) updates need to be called
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

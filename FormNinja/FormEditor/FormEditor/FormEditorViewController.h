@@ -13,6 +13,7 @@
 @interface FormEditorViewController : TemplateEditorController {
     
 }
+- (void) newFormWithTemplate:(NSMutableArray*)data;
 
 -(IBAction) saveButtonPressed;
 -(IBAction) dumpButtonPressed;

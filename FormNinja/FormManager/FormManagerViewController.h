@@ -10,6 +10,8 @@
 
 #import "TemplateManagerViewController.h"
 
+#import "FormEditorViewController.h"
+
 @interface FormManagerViewController : TemplateManagerViewController
 {
 	NSMutableArray * formList;
@@ -18,7 +20,7 @@
 	UIButton *createFormButton;
 	UIButton *resumeFormButton;
 	
-	UIViewController *formEditorViewController;
+	FormEditorViewController *formEditorViewController;
 }
 
 @property (nonatomic, retain) NSMutableArray * formList;
@@ -28,7 +30,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *createFormButton;
 @property (nonatomic, retain) IBOutlet UIButton *resumeFormButton;
 
-@property (nonatomic, retain) IBOutlet UIViewController *formEditorViewController;
+@property (nonatomic, retain) IBOutlet FormEditorViewController *formEditorViewController;
 
 - (IBAction)newFormWithSelectedTemplate;
 - (IBAction)resumeSelectedForm;

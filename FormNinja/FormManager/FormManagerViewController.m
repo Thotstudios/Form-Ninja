@@ -84,9 +84,12 @@
 
 - (IBAction)newFormWithSelectedTemplate
 {
-	// TODO:
-	// [formEditorViewController clear];
-	// [formEditorViewController newFormWithTemplate:(id)template];
+	NSUInteger row = [[templateTable indexPathForSelectedRow] row];
+	NSDictionary * dict = [filteredTemplateList objectAtIndex:row];
+	NSMutableArray * data = [dict objectForKey:@"data"];
+	
+	// These two lines might be backwards:
+	[formEditorViewController newFormWithTemplate:data];
 	[self.navigationController pushViewController:formEditorViewController animated:YES];
 }
 
