@@ -20,7 +20,6 @@ Chad:
 * Clean up section header titles.
 * Template Sections need delete function.
 * TextFieldAlert should handle rotate and resize.
-* Template Creator should be logged-in user's name.
 * Deleting templates should reconsider group names.
 * Finish Element buttons.
 * TextFieldAlert should have delegate return key.
