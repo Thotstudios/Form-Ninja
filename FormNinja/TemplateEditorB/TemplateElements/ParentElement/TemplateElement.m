@@ -87,6 +87,11 @@
 	return indexPath;
 }
 
+-(void) editElementAfterIndexPath:(NSIndexPath*)indexPath {}
+-(void) editNextElement
+{
+	[delegate editElementAfterIndexPath:[self indexPath]];
+}
 - (void) moveUpElementAtIndexPath:(NSIndexPath*)arg {}
 - (IBAction)moveUp
 {
@@ -122,7 +127,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {	
-	[self editNextElement];
 	[textField resignFirstResponder];
 	return YES;
 }
@@ -143,12 +147,8 @@
 	}
 	if(key)
 		[dictionary setValue:[textField text] forKey:key];
+	[self editNextElement];
 }
 
--(void) editElementAfterIndex:(NSUInteger)index {}
--(void) editNextElement
-{
-	//[delegate editElementAfterIndex:index]; // TODO
-}
 
 @end

@@ -238,11 +238,6 @@
 {
 	[table scrollToRowAtIndexPath:[table indexPathForSelectedRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
--(void) selectElementAtIndexPath:(NSIndexPath*)indexPath
-{
-	[table selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionBottom];
-	[NSTimer scheduledTimerWithTimeInterval:0.15 target:self selector:@selector(delayedScrollToSection) userInfo:nil repeats:NO];
-}
 
 #pragma mark Template Functions
 
@@ -357,22 +352,10 @@
 	[self setIndexes];
 	[table reloadData]; // TODO
 }
-
--(void) setIndexes
+-(void) selectElementAtIndexPath:(NSIndexPath*)indexPath
 {
-	NSUInteger section = 0;
-	for(NSMutableArray * rowArray in viewArray)
-		{
-		NSUInteger row = 0;
-		for(TemplateElement * element in rowArray)
-			{
-			NSMutableDictionary * dict = [element dictionary];
-			[dict setValue:[NSNumber numberWithInteger:section] forKey:elementSectionIndexKey];
-			[dict setValue:[NSNumber numberWithInteger:row] forKey:elementRowIndexKey];
-			row ++;
-			}
-		section ++;
-		}
+	[table selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionBottom];
+	[NSTimer scheduledTimerWithTimeInterval:0.15 target:self selector:@selector(delayedScrollToSection) userInfo:nil repeats:NO];
 }
 
 -(void) focusNextElementAfter:(TemplateElement*)element
@@ -398,6 +381,39 @@
 	[[[viewArray objectAtIndex:section] objectAtIndex:row] beginEditing];
 }
 
+-(void) editElementAfterIndexPath:(NSIndexPath*)indexPath
+{
+	/*
+	NSMutableDictionary * dict = [element dictionary];
+	NSUInteger section = [[dict objectForKey:elementSectionIndexKey] integerValue];
+	NSUInteger row = [[dict objectForKey:elementRowIndexKey] integerValue];
+	*/
+	
+	NSUInteger section = [indexPath section];
+	NSUInteger row = [indexPath row];
+	NSMutableDictionary * sectionDict = [dataArray objectAtIndex:section];
+	NSMutableArray * sectionData = [sectionDict valueForKey:sectionDataKey];
+	NSMutableDictionary * dict = [sectionData objectAtIndex:row];
+	
+	if(section > 0 && row == 0)
+		{
+		[sectionDict setValue:[dict objectForKey:@"label"] forKey:sectionHeaderKey];
+		[table reloadData];
+		}
+	
+	row++;
+	if(row >= [sectionData count])
+		{
+		row = 0;
+		section ++;
+		if(section >= [dataArray count])
+			{
+			// TODO: refactor this, since it's almost identical to what's used in focusNextElementAfter
+			return; 
+			}
+		}
+	[[[viewArray objectAtIndex:section] objectAtIndex:row] beginEditing];
+}
 
 -(void) moveElementFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath
 {
@@ -500,7 +516,26 @@
 	[table reloadData];
 }
 
+
+-(void) setIndexes
+{
+	NSUInteger section = 0;
+	for(NSMutableArray * rowArray in viewArray)
+		{
+		NSUInteger row = 0;
+		for(TemplateElement * element in rowArray)
+			{
+			NSMutableDictionary * dict = [element dictionary];
+			[dict setValue:[NSNumber numberWithInteger:section] forKey:elementSectionIndexKey];
+			[dict setValue:[NSNumber numberWithInteger:row] forKey:elementRowIndexKey];
+			row ++;
+			}
+		section ++;
+		}
+}
+
 #pragma mark Temporary
+
 - (IBAction)dump
 {
 	NSLog(@"\n%@", dataArray);
