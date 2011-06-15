@@ -46,7 +46,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUITableView" id="613129501">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">314</int>
+						<int key="NSvFlags">306</int>
 						<string key="NSFrame">{{0, 112}, {768, 265}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
@@ -86,12 +86,12 @@
 					</object>
 					<object class="IBUIView" id="634131786">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">306</int>
+						<int key="NSvFlags">290</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUIButton" id="1026946663">
 								<reference key="NSNextResponder" ref="634131786"/>
-								<int key="NSvFlags">319</int>
+								<int key="NSvFlags">300</int>
 								<string key="NSFrame">{{20, 20}, {124, 64}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
@@ -119,7 +119,7 @@
 							</object>
 							<object class="IBUIButton" id="1069956820">
 								<reference key="NSNextResponder" ref="634131786"/>
-								<int key="NSvFlags">319</int>
+								<int key="NSvFlags">300</int>
 								<string key="NSFrame">{{152, 20}, {132, 64}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
@@ -141,7 +141,7 @@
 							</object>
 							<object class="IBUIButton" id="1001163567">
 								<reference key="NSNextResponder" ref="634131786"/>
-								<int key="NSvFlags">319</int>
+								<int key="NSvFlags">300</int>
 								<string key="NSFrame">{{292, 20}, {132, 64}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
@@ -159,7 +159,7 @@
 							</object>
 							<object class="IBUIButton" id="784370998">
 								<reference key="NSNextResponder" ref="634131786"/>
-								<int key="NSvFlags">319</int>
+								<int key="NSvFlags">297</int>
 								<string key="NSFrame">{{596, 20}, {152, 64}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
@@ -417,10 +417,10 @@
 						<reference key="object" ref="634131786"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1026946663"/>
 							<reference ref="1069956820"/>
 							<reference ref="1001163567"/>
 							<reference ref="784370998"/>
+							<reference ref="1026946663"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 						<string key="objectName">ButtonContainer View</string>

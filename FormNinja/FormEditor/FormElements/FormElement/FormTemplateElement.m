@@ -58,9 +58,11 @@
 
 -(void) setDictionary:(NSMutableDictionary *)arg
 {
-	[self.view setNeedsDisplay];
-	[self.dictionary release];
-	self.dictionary = [arg retain];
+	[super setDictionary:arg];
+//	[self.view setNeedsDisplay];
+//	[self.dictionary release];
+//	dictionary = [arg retain];
+	
 	[self.labelLabel setText:[self.dictionary objectForKey:@"label"]];
     NSNumber *index=[self.dictionary objectForKey:@"label alignment"];
     if ([index intValue]==0) {
