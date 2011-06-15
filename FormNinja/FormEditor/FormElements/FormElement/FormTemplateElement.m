@@ -59,20 +59,20 @@
 -(void) setDictionary:(NSMutableDictionary *)arg
 {
 	[self.view setNeedsDisplay];
-	[dictionary release];
-	dictionary = [arg retain];
-	[labelLabel setText:[dictionary objectForKey:@"label"]];
-    NSNumber *index=[dictionary objectForKey:@"label alignment"];
+	[self.dictionary release];
+	self.dictionary = [arg retain];
+	[self.labelLabel setText:[self.dictionary objectForKey:@"label"]];
+    NSNumber *index=[self.dictionary objectForKey:@"label alignment"];
     if ([index intValue]==0) {
-        labelLabel.textAlignment=UITextAlignmentLeft;
+        self.labelLabel.textAlignment=UITextAlignmentLeft;
     }
     else if([index intValue]==1)
     {
-        labelLabel.textAlignment=UITextAlignmentCenter; 
+        self.labelLabel.textAlignment=UITextAlignmentCenter; 
     }
     else if([index intValue]==2)
     {
-        labelLabel.textAlignment=UITextAlignmentRight;
+        self.labelLabel.textAlignment=UITextAlignmentRight;
     }
 }
 

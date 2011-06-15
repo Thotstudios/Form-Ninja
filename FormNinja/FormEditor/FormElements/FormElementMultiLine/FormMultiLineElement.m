@@ -58,45 +58,45 @@
 
 -(IBAction) reset
 {
-	[dictionary removeObjectForKey:@"filled value"];
-    [valueField setText:[dictionary objectForKey:@"value"]];
+	[self.dictionary removeObjectForKey:@"filled value"];
+    [self.valueField setText:[self.dictionary objectForKey:@"value"]];
 }
 
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
     
-	[labelLabel setText:[dictionary objectForKey:@"label"]];
-    NSNumber *index=[dictionary objectForKey:@"label alignment"];
+	[self.labelLabel setText:[self.dictionary objectForKey:@"label"]];
+    NSNumber *index=[self.dictionary objectForKey:@"label alignment"];
     if ([index intValue]==0) {
-        labelLabel.textAlignment=UITextAlignmentLeft;
+        self.labelLabel.textAlignment=UITextAlignmentLeft;
     }
     else if([index intValue]==1)
     {
-        labelLabel.textAlignment=UITextAlignmentCenter; 
+        self.labelLabel.textAlignment=UITextAlignmentCenter; 
     }
     else if([index intValue]==2)
     {
-        labelLabel.textAlignment=UITextAlignmentRight;
+        self.labelLabel.textAlignment=UITextAlignmentRight;
     }
     
-    NSString *stringValue=[dictionary valueForKey:@"filled value"];
+    NSString *stringValue=[self.dictionary valueForKey:@"filled value"];
     if (stringValue) {
-        [valueField setText:stringValue];
+        [self.valueField setText:stringValue];
     }
 	else
     {
-        [valueField setText:[dictionary valueForKey:@"value"]];
+        [self.valueField setText:[self.dictionary valueForKey:@"value"]];
     }
-	[minLabel setText:[dictionary valueForKey:@"minimum length"]];
-	[maxLabel setText:[dictionary valueForKey:@"maximum length"]];
+	[self.minLabel setText:[self.dictionary valueForKey:@"minimum length"]];
+	[self.maxLabel setText:[self.dictionary valueForKey:@"maximum length"]];
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
 	NSString * key = @"filled value";
 	
-	if(key) [dictionary setValue:[textView text] forKey:key];
+	if(key) [self.dictionary setValue:[textView text] forKey:key];
 }
 - (void)textViewDidChange:(UITextView *)textView
 {

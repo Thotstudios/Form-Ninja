@@ -60,24 +60,24 @@
 	//[super reset];
 	//[dictionary setValue:@"Address" forKey:@"type"];
     //if the reset button is hit, kill all filled fields, and reset to the template-defined versions
-    [dictionary removeObjectForKey:@"filled address line"];
-    [dictionary removeObjectForKey:@"filled address line 2"];
-    [dictionary removeObjectForKey:@"filled city name"];
-    [dictionary removeObjectForKey:@"filled abbr"];
-    [dictionary removeObjectForKey:@"filled zip code"];
-	[addressLineOneField setText:[dictionary valueForKey:@"address line"]];
-	[addressLineTwoField setText:[dictionary valueForKey:@"address line 2"]];
-	[cityNameField setText:[dictionary valueForKey:@"city name"]];
-	[stateAbbrField setText:[dictionary valueForKey:@"state abbr"]];
-	[zipCodeField setText:[dictionary valueForKey:@"zip code"]];
+    [self.dictionary removeObjectForKey:@"filled address line"];
+    [self.dictionary removeObjectForKey:@"filled address line 2"];
+    [self.dictionary removeObjectForKey:@"filled city name"];
+    [self.dictionary removeObjectForKey:@"filled abbr"];
+    [self.dictionary removeObjectForKey:@"filled zip code"];
+	[self.addressLineOneField setText:[self.dictionary valueForKey:@"address line"]];
+	[self.addressLineTwoField setText:[self.dictionary valueForKey:@"address line 2"]];
+	[self.cityNameField setText:[self.dictionary valueForKey:@"city name"]];
+	[self.stateAbbrField setText:[self.dictionary valueForKey:@"state abbr"]];
+	[self.zipCodeField setText:[self.dictionary valueForKey:@"zip code"]];
 }
 
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
     
-	[labelLabel setText:[dictionary objectForKey:@"label"]];
-    NSNumber *index=[dictionary objectForKey:@"label alignment"];
+	[self.labelLabel setText:[self.dictionary objectForKey:@"label"]];
+    NSNumber *index=[self.dictionary objectForKey:@"label alignment"];
     if ([index intValue]==0) {
         labelLabel.textAlignment=UITextAlignmentLeft;
     }
@@ -91,54 +91,54 @@
     }
     
     NSString *stringValue;
-    stringValue=[dictionary valueForKey:@"filled address line"];
+    stringValue=[self.dictionary valueForKey:@"filled address line"];
     if (stringValue) {//if the 'filled' value exists, use it, otherwise...
-        [addressLineOneField setText:stringValue];
+        [self.addressLineOneField setText:stringValue];
     }
     else
     {//use form defined value
-        [addressLineOneField setText:[dictionary valueForKey:@"address line"]];
+        [self.addressLineOneField setText:[self.dictionary valueForKey:@"address line"]];
     }
     stringValue=nil;//Not really needed since dictionaries return nil for keys not found; included for code clarity reading
     
     
-    stringValue=[dictionary valueForKey:@"filled address line 2"];
+    stringValue=[self.dictionary valueForKey:@"filled address line 2"];
     if (stringValue) {
-        [addressLineTwoField setText:stringValue];
+        [self.addressLineTwoField setText:stringValue];
     }
     else
     {
-        [addressLineTwoField setText:[dictionary valueForKey:@"address line 2"]];
+        [self.addressLineTwoField setText:[self.dictionary valueForKey:@"address line 2"]];
     }
     stringValue=nil;
     
-    stringValue=[dictionary valueForKey:@"filled city name"];
+    stringValue=[self.dictionary valueForKey:@"filled city name"];
     if (stringValue) {
-        [cityNameField setText:stringValue];
+        [self.cityNameField setText:stringValue];
     }
     else
     {
-        [cityNameField setText:[dictionary valueForKey:@"city name"]];
+        [self.cityNameField setText:[self.dictionary valueForKey:@"city name"]];
     }
     stringValue=nil;
     
-    stringValue=[dictionary valueForKey:@"filled state abbr"];
+    stringValue=[self.dictionary valueForKey:@"filled state abbr"];
     if (stringValue) {
-        [stateAbbrField setText:stringValue];
+        [self.stateAbbrField setText:stringValue];
     }
     else
     {
-        [stateAbbrField setText:[dictionary valueForKey:@"state abbr"]];
+        [self.stateAbbrField setText:[self.dictionary valueForKey:@"state abbr"]];
     }
     stringValue=nil;
     
-    stringValue=[dictionary valueForKey:@"filled zip code"];
+    stringValue=[self.dictionary valueForKey:@"filled zip code"];
     if (stringValue) {
-        [zipCodeField setText:stringValue];
+        [self.zipCodeField setText:stringValue];
     }
     else
     {
-        [zipCodeField setText:[dictionary valueForKey:@"zip code"]];
+        [self.zipCodeField setText:[self.dictionary valueForKey:@"zip code"]];
     }
     stringValue=nil;
 	
@@ -175,7 +175,7 @@
             break;
 	}
 	if(key)
-		[dictionary setValue:[textField text] forKey:key];
+		[self.dictionary setValue:[textField text] forKey:key];
 }
 
 @end
