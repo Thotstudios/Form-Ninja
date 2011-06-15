@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "JSON.h"
 #import "SyncManager.h"
+#import "AccountClass.h"
 
 #import "ElementPicker.h"
 #import "TemplateElement.h"
@@ -252,14 +253,19 @@
 	[self setDataArray:[NSMutableArray array]];
 	[self setViewArray:[NSMutableArray array]];
 	
-	//TemplateElement * element = [ElementPicker elementOfType:@"MetaData" delegate:self];
+	NSString * creator = nil;
+	AccountClass * user = [AccountClass sharedAccountClass];
+	if([user firstName] && [user lastName])
+		creator = [NSString stringWithFormat:@"%@ %@", [user firstName], [user lastName]];
+	if(!creator)
+		creator = @"Princess Angelina Contessa Louisa Francesca Banana Fana Bobesca the Third";
 	
 	NSMutableDictionary * dict;
 	dict = [NSMutableDictionary dictionary];
 	[dict setValue:@"MetaData" forKey:elementTypeKey];
 	[dict setValue:name forKey:templateNameKey];
 	[dict setValue:group forKey:templateGroupKey];
-	[dict setValue:@"Bob Johnson" forKey:templateCreatorKey];
+	[dict setValue:creator forKey:templateCreatorKey];
 	[dict setValue:[NSDate date] forKey:templateCreationDateKey];
 	
 	[dataArray addObject:dict];
