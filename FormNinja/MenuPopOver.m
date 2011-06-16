@@ -16,6 +16,8 @@ static NSString* MenuType_toEnum[] = {
     logoutMenuOption,
     newFormMenuOption,
     newTemplateMenuOption,
+    airPrintFormMenuOption,
+    emailFormMenuOption
 };
 
 
@@ -40,7 +42,11 @@ static NSString* MenuType_toEnum[] = {
     [super viewDidLoad];
 
     //Load map types
-    if (self.menuType == accountProfileMenu){ 
+    if (self.menuType == formManagerMenu){ 
+        self.menuOptions = [NSArray arrayWithObjects: airPrintFormMenuOption, emailFormMenuOption, syncMenuOption, logoutMenuOption, newTemplateMenuOption,  nil];
+    }
+    
+    else{
         self.menuOptions = [NSArray arrayWithObjects:syncMenuOption, logoutMenuOption, newTemplateMenuOption, nil];
     }
 }

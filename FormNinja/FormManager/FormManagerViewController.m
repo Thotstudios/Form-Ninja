@@ -8,6 +8,7 @@
 
 #import "FormManagerViewController.h"
 #import "Constants.h"
+#import "PopOverManager.h"
 
 @implementation FormManagerViewController
 
@@ -52,6 +53,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //Menu button
+	UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
+                                  initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
+    self.navigationItem.rightBarButtonItem = menuButton;
+    [menuButton release];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
 }
 
 - (void)viewDidUnload
@@ -98,6 +110,11 @@
 	// [formEditorViewController clear];
 	[self.navigationController pushViewController:formEditorViewController animated:YES];
 	// [formEditorViewController setData:nil/*selected data*/];
+}
+
+//Presents popover menu
+- (void) menuButtonAction:(id) sender{
+    [[PopOverManager sharedManager] createMenuPopOver:formManagerMenu fromButton:sender];
 }
 
 -(void) disableButtons

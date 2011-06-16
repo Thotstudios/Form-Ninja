@@ -87,7 +87,10 @@ static PopOverManager *sharedManager = nil;
     switch (type) {
         case accountProfileMenu:
             popOver.popoverContentSize = CGSizeMake(320, 44*3);
-
+            break;
+            
+        case formManagerMenu:
+            popOver.popoverContentSize = CGSizeMake(320, 44*5);
             break;
             
         default:
