@@ -62,6 +62,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
     [[PopOverManager sharedManager] setDelegate:self];
 }
 
