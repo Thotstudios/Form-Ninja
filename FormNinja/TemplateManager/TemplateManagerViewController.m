@@ -12,6 +12,8 @@
 #import "TemplateEditorController.h"
 #import "TextFieldAlert.h"
 
+#import "PopOverManager.h"
+
 @interface TemplateManagerViewController()
 -(void) loadTemplateList;
 -(void) filterByGroupName;
@@ -81,6 +83,12 @@
 	[self setGroupNameList:[NSMutableArray array]];
 	[self setTemplateList:[NSMutableArray array]];
 	[self setFilteredTemplateList:[NSMutableArray array]];
+    
+    //Menu button
+	UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
+                                  initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
+    self.navigationItem.rightBarButtonItem = menuButton;
+    [menuButton release];
 }
 -(void) viewWillAppear:(BOOL)animated
 {
@@ -91,6 +99,11 @@
 	
 	[self filterByGroupName];
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
+}
+
 -(void) viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
@@ -287,6 +300,12 @@
 - (IBAction)createTemplate
 {
 	[TextFieldAlert showWithTitle:@"New Template Name" delegate:self selector:@selector(createTemplateWithName:)];
+}
+
+
+//Menu button action
+- (void) menuButtonAction:(id) sender{
+    [[PopOverManager sharedManager] createMenuPopOver:accountProfileMenu fromButton:sender];
 }
 
 #pragma mark - TableView DataSource

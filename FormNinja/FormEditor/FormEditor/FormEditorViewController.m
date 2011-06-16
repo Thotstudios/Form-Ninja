@@ -9,6 +9,7 @@
 #import "FormEditorViewController.h"
 #import "FormTemplateElement.h"
 #import "FormElementPicker.h"
+#import "PopOverManager.h"
 
 @implementation FormEditorViewController
 
@@ -60,7 +61,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    //Menu button
+	UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
+                                  initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
+    self.navigationItem.rightBarButtonItem = menuButton;
+    [menuButton release];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
 }
 
 - (void)viewDidUnload
@@ -119,6 +129,12 @@
 			[viewArray addObject:rowArray];
         }
     }
+}
+
+
+//Presents popover menu
+- (void) menuButtonAction:(id) sender{
+    [[PopOverManager sharedManager] createMenuPopOver:accountProfileMenu fromButton:sender];
 }
 
 @end

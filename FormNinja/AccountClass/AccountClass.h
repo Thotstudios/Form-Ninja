@@ -45,6 +45,7 @@
 - (void) invalidate;
 
 + (AccountClass *) sharedAccountClass;
++ (void) logout;
 + (void) invalidateAccountInformation;
 
 @end

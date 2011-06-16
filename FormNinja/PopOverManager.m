@@ -1,6 +1,7 @@
 #import "PopOverManager.h"
 #import "Constants.h"
 #import "MenuPopOver.h"
+#import "AccountClass.h"
 
 
 @interface PopOverManager ()
@@ -121,6 +122,11 @@ static PopOverManager *sharedManager = nil;
             if([delegate respondsToSelector:@selector(emailForm)])
                 [self.delegate emailForm];
 
+            break;
+            
+        case menuLogoutSelected:
+            [AccountClass logout];
+            [appDelegate.navigationController popToRootViewControllerAnimated:NO];
             break;
             
         default:
