@@ -8,7 +8,7 @@
 
 #import "FormManagerViewController.h"
 #import "Constants.h"
-#import "PopOverManager.h"
+
 
 @implementation FormManagerViewController
 
@@ -61,9 +61,13 @@
     [menuButton release];
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    [[PopOverManager sharedManager] setDelegate:self];
+}
 
 - (void)viewWillDisappear:(BOOL)animated{
     [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
+    [[PopOverManager sharedManager] setDelegate:nil];
 }
 
 - (void)viewDidUnload
@@ -141,6 +145,19 @@
 	}
 	// TODO: lite version
 }
+
+
+- (void) emailForm{
+    //Get selected form and email
+    NSLog(@"email");
+}
+
+- (void) airPrintForm{
+    //Get selected form and airprint
+    NSLog(@"airprint");
+}
+
+
 #pragma mark - TableView DataSource
 
 

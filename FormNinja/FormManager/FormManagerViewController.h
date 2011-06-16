@@ -12,7 +12,9 @@
 
 #import "FormEditorViewController.h"
 
-@interface FormManagerViewController : TemplateManagerViewController
+#import "PopOverManager.h"
+
+@interface FormManagerViewController : TemplateManagerViewController <PopOverManagerDelegate>
 {
 	NSMutableArray * formList;
 	
