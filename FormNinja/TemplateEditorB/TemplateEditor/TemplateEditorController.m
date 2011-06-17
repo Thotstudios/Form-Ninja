@@ -287,7 +287,11 @@
 -(void) editTemplateAtPath:(NSString*)pathArg
 {
 	[self setPath:pathArg];
-	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:path]]; 
+	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:path]];
+	[self generateViewArray];
+	
+	NSMutableDictionary * dict = [dataArray objectAtIndex:0];
+	NSLog(@"%@", dict);
 }
 
 -(BOOL) templateIsValid

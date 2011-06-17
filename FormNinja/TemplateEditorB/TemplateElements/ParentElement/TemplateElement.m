@@ -19,6 +19,15 @@
 
 #pragma mark - View lifecycle
 
+-(id) init
+{
+	if((self = [super init]) == nil) return nil;
+	
+	[self setDictionary:[NSMutableDictionary dictionary]];
+	[self reset];
+	
+	return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -57,7 +66,7 @@
 {
 	[labelField setText:nil];
 	[dictionary removeAllObjects];
-	[dictionary setValue:elementLabelKey forKey:elementTypeKey];
+	[dictionary setValue:@"Label" forKey:elementTypeKey];
 	[labelAlignmentControl setSelectedSegmentIndex:0];
 }
 

@@ -51,6 +51,7 @@ static NSMutableDictionary * elementDictionary = nil;
 	
 	[self setElementList:[[elementDictionary allKeys] mutableCopy]];
 	[elementList removeObject:@"MetaData"];
+	[elementList removeObject:@"Label"];
 	[elementList sortUsingSelector:@selector(compare:)];
 	return self;
 }
@@ -170,7 +171,6 @@ static NSMutableDictionary * elementDictionary = nil;
 
 +(void) loadElementDictionary
 {
-	NSLog(@"%@ (%i)", elementDictionary, [elementDictionary count]);
 	if(elementDictionary) return;
 	
 	NSString * path;
@@ -189,7 +189,8 @@ static NSMutableDictionary * elementDictionary = nil;
 	if(element)
 		{
 		[element setDelegate:delegate];
-		[element setDictionary:[NSMutableDictionary dictionaryWithObject:type forKey:elementTypeKey]];
+		//[element reset];
+		//[element setDictionary:[NSMutableDictionary dictionaryWithObject:type forKey:elementTypeKey]];
 		}
 	return element;
 }

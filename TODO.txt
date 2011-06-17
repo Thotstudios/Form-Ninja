@@ -26,6 +26,7 @@ Chad:
 * Network is avilable?
 * Syncing
 * Table Element obtain strings from user.
+* TextFieldAlert return key.
 
 Critical changes:
 
