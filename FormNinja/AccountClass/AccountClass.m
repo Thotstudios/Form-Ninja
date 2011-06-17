@@ -69,6 +69,22 @@
 }
 
 
++ (void) logout{
+    //Expire info
+    NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
+	[opt setInteger:0 forKey:loginExpirationKey];
+	[opt synchronize];
+    
+    //Remove user info locally
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:userInformation];
+    [defaults synchronize];
+    
+    //Invalidate singleton 
+    [[self sharedAccountClass] invalidate];
+}
+
+
 + (void) invalidateAccountInformation
 {
     //Remove user info locally

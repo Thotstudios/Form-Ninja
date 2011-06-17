@@ -11,6 +11,7 @@
 #import "JSON.h"
 #import "SyncManager.h"
 #import "AccountClass.h"
+#import "PopOverManager.h"
 
 #import "ElementPicker.h"
 #import "TemplateElement.h"
@@ -69,6 +70,16 @@
 }
 #pragma mark - View lifecycle
 
+- (void)viewDidLoad
+{
+    //Menu button
+	UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
+                                  initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
+    self.navigationItem.rightBarButtonItem = menuButton;
+    [menuButton release];
+}
+
+
 -(void) viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
@@ -86,6 +97,7 @@
 -(void) viewDidDisappear:(BOOL)animated
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
 	[super viewDidDisappear:animated];
 }
 
@@ -234,6 +246,10 @@
 -(void) delayedScrollToSection
 {
 	[table scrollToRowAtIndexPath:[table indexPathForSelectedRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
+- (void) menuButtonAction:(id) sender{
+    [[PopOverManager sharedManager] createMenuPopOver:accountProfileMenu fromButton:sender];
 }
 
 #pragma mark Template Functions

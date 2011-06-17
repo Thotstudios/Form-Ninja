@@ -1,6 +1,7 @@
 #import "PopOverManager.h"
 #import "Constants.h"
 #import "MenuPopOver.h"
+#import "AccountClass.h"
 
 
 @interface PopOverManager ()
@@ -15,6 +16,8 @@
 @synthesize permitCurrentPopoverControllerToDismiss;
 @synthesize appDelegate;
 @synthesize mainMenu;
+@synthesize delegate;
+
 
 static PopOverManager *sharedManager = nil;
 
@@ -87,7 +90,10 @@ static PopOverManager *sharedManager = nil;
     switch (type) {
         case accountProfileMenu:
             popOver.popoverContentSize = CGSizeMake(320, 44*3);
-
+            break;
+            
+        case formManagerMenu:
+            popOver.popoverContentSize = CGSizeMake(320, 44*5);
             break;
             
         default:
@@ -102,7 +108,30 @@ static PopOverManager *sharedManager = nil;
     
 }
 
-- (void)dismissCurrentPopoverController:(BOOL)animated withSelectedOption:(NSString *) selectedOption{
+- (void)dismissCurrentPopoverController:(BOOL)animated withSelectedOption:(int) selectedOption{
+    [self dismissCurrentPopoverController:YES];
+
+    switch (selectedOption) {
+        case menuAirPrintFormSelected:
+            if([delegate respondsToSelector:@selector(airPrintForm)])
+               [self.delegate airPrintForm];
+            
+            break;
+            
+        case menuEmailFormSelected:
+            if([delegate respondsToSelector:@selector(emailForm)])
+                [self.delegate emailForm];
+
+            break;
+            
+        case menuLogoutSelected:
+            [AccountClass logout];
+            [appDelegate.navigationController popToRootViewControllerAnimated:NO];
+            break;
+            
+        default:
+            break;
+    }
     
 }
 

@@ -9,6 +9,7 @@
 #import "FormManagerViewController.h"
 #import "Constants.h"
 
+
 @interface FormManagerViewController()
 -(void) loadFormList;
 @end
@@ -60,9 +61,29 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
 	[self setFormList:[NSMutableArray array]];
 	[self setFilteredFormList:[NSMutableArray array]];
 	[self setFormNameList:[NSMutableArray array]];
+
+    //Menu button
+	UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
+                                  initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
+    self.navigationItem.rightBarButtonItem = menuButton;
+    [menuButton release];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[PopOverManager sharedManager] setDelegate:self];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+    [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
+    [[PopOverManager sharedManager] setDelegate:nil];
 }
 
 - (void)viewDidUnload
@@ -167,6 +188,11 @@
 	// [formEditorViewController setData:nil/*selected data*/];
 }
 
+//Presents popover menu
+- (void) menuButtonAction:(id) sender{
+    [[PopOverManager sharedManager] createMenuPopOver:formManagerMenu fromButton:sender];
+}
+
 -(void) disableButtons
 {
 	[super disableButtons];
@@ -191,6 +217,19 @@
 	}
 	// TODO: lite version
 }
+
+
+- (void) emailForm{
+    //Get selected form and email
+    NSLog(@"email");
+}
+
+- (void) airPrintForm{
+    //Get selected form and airprint
+    NSLog(@"airprint");
+}
+
+
 #pragma mark - TableView DataSource
 
 

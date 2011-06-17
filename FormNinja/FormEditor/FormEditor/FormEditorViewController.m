@@ -10,6 +10,7 @@
 #import "FormTemplateElement.h"
 #import "FormElementPicker.h"
 #import "AccountClass.h"
+#import "PopOverManager.h"
 
 @implementation FormEditorViewController
 
@@ -60,6 +61,22 @@
 	
 	[self setPath:[NSString stringWithFormat:@"%@/%@-%@-%@-%@", FORM_PATH, group, template, agent, formName]];
 }
+-(void) viewDidLoad
+{
+    [super viewDidLoad];
+
+    //Menu button
+	UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
+                                  initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
+    self.navigationItem.rightBarButtonItem = menuButton;
+    [menuButton release];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
+
+}
 -(void) editFormAtPath:(NSString*) pathArg
 {
 	[self setPath:pathArg];
@@ -76,6 +93,12 @@
 -(TemplateElement*) getElementOfType:(NSString*)type
 {
 	return [FormElementPicker formElementOfType:type delegate:self];
+}
+
+
+//Presents popover menu
+- (void) menuButtonAction:(id) sender{
+    [[PopOverManager sharedManager] createMenuPopOver:accountProfileMenu fromButton:sender];
 }
 
 @end

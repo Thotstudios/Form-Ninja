@@ -134,12 +134,15 @@
 #define logoutMenuOption @"Logout"
 #define newFormMenuOption @"Start New Form"
 #define newTemplateMenuOption @"Start New Template"
+#define airPrintFormMenuOption @"AirPrint Form"
+#define emailFormMenuOption @"Email Form" 
 
 //NSArray * const MenuType_toEnum[];
 
 //Indicates what location type to share
 typedef enum{
 	accountProfileMenu,
+    formManagerMenu
 } MenuType;
 
 //Indicates selected popover menu action
@@ -147,6 +150,8 @@ typedef enum{
 	menuSyncSelected,
     menuLogoutSelected,
     menuNewFormSelected,
-    menuNewTemplateSelected
+    menuNewTemplateSelected,
+    menuAirPrintFormSelected,
+    menuEmailFormSelected
 } MenuSelectType;
 
