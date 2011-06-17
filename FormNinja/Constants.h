@@ -123,10 +123,11 @@
 #define FORM_PATH		([NSString stringWithFormat:@"%@/Forms", DOCUMENTS_PATH])
 #define FORM_EXT		(@".xml")
 
-#define CONFIRM_DELETE_TEMPLATE_TITLE_STR	@"Are you sure you want to delete this template?" /* TODO: localize */
-#define CONFIRM_DELETE_TEMPLATE_BUTTON_STR	@"Yes, delete it" /* TODO: localize */
-#define REQUEST_NEW_TEMPLATE_NAME_STR		@"New Template Name"
-#define SIGNATURE_REQUIRED_STR				@"Signature Required"
+#define CONFIRM_DELETE_TEMPLATE_STR		@"Are you sure you want to delete this template?" /* TODO: localize */
+#define CONFIRM_DELETE_SECTION_STR		@"Are you sure you want to delete this section?" /* TODO: localize */
+#define CONFIRM_DELETE_BUTTON_STR		@"Yes, delete it" /* TODO: localize */
+#define REQUEST_NEW_TEMPLATE_NAME_STR	@"New Template Name"
+#define SIGNATURE_REQUIRED_STR			@"Signature Required"
 
 
 //Popover menu constants

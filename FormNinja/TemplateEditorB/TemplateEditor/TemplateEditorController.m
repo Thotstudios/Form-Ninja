@@ -289,9 +289,6 @@
 	[self setPath:pathArg];
 	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:path]];
 	[self generateViewArray];
-	
-	NSMutableDictionary * dict = [dataArray objectAtIndex:0];
-	NSLog(@"%@", dict);
 }
 
 -(BOOL) templateIsValid
@@ -344,6 +341,75 @@
 	[TextFieldAlert showWithTitle:@"New Section Name" delegate:self selector:@selector(addSectionWithName:)];
 }
 
+-(void) confirmDeleteSelectedSection
+{
+	NSIndexPath * indexPath = [table indexPathForSelectedRow];
+	NSUInteger section = [indexPath section];
+	
+	[dataArray removeObjectAtIndex:section];
+	[viewArray removeObjectAtIndex:section];
+	
+	[table reloadData];
+}
+-(void) deleteSectionAtIndexPath:(NSIndexPath*)indexPath
+{
+	NSUInteger row = [indexPath row];
+	NSUInteger section = [indexPath section];
+	NSMutableDictionary * sectionDict = [dataArray objectAtIndex:section];
+	NSMutableArray * sectionData = [sectionDict objectForKey:sectionDataKey];
+	
+	if(row > 0)
+		{
+		NSLog(@"ERROR: Delete section from non-zero row");
+		return;
+		}
+	
+	[table selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+	if([sectionData count] > 1) 
+		{
+		UIActionSheet *popupQuery = [[[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_SECTION_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_BUTTON_STR otherButtonTitles:nil] autorelease];
+		[popupQuery setTag:1];
+		[popupQuery showInView:self.view];
+		}
+	else
+		{
+		[self confirmDeleteSelectedSection];
+		}
+}
+-(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	if([actionSheet tag] == 1 && buttonIndex == [actionSheet destructiveButtonIndex])
+		[self confirmDeleteSelectedSection];
+}
+-(void) moveSectionFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex
+{
+	if(fromIndex == 0 || toIndex == 0) // cannot move metadata
+		return;
+	if(fromIndex > [dataArray count] || toIndex > [dataArray count]) // OOB
+		return;
+	
+	
+	id temp;
+	temp = [[dataArray objectAtIndex:fromIndex] retain];
+	[dataArray removeObjectAtIndex:fromIndex];
+	[dataArray insertObject:temp atIndex:toIndex];
+	[temp release];
+	
+	temp = [[viewArray objectAtIndex:fromIndex] retain];
+	[viewArray removeObjectAtIndex:fromIndex];
+	[viewArray insertObject:temp atIndex:toIndex];
+	[temp release];
+	
+	[self setIndexes];
+	
+	NSIndexSet * fromIndexSet = [NSIndexSet indexSetWithIndex:fromIndex];
+	NSIndexSet * toIndexSet = [NSIndexSet indexSetWithIndex:toIndex];
+	
+	[table beginUpdates];
+	[table insertSections:toIndexSet withRowAnimation:UITableViewRowAnimationFade];
+	[table deleteSections:fromIndexSet withRowAnimation:UITableViewRowAnimationFade];
+	[table endUpdates];
+}
 #pragma mark Element Functions
 - (void)addElement
 {
@@ -441,24 +507,25 @@
 	int fromRow = [fromIndexPath row];
 	int toRow = [toIndexPath row];
 	
-	if(toSection <= 0) return;
-	if(toSection >= [dataArray count]) return;
-	
-	if(fromSection == 0) return;
+	if(fromSection == 0) return; // can't move metadata
 	if(fromSection >= [dataArray count]) return;
+	
+	if(toSection <= 0) return; // can't replace metadata
+	if(toSection >= [dataArray count]) return;
 	
 	NSMutableDictionary * fromSectionDict = [dataArray objectAtIndex:fromSection];
 	NSMutableDictionary * toSectionDict = [dataArray objectAtIndex:toSection];
 	NSMutableArray * fromSectionData = [fromSectionDict objectForKey:sectionDataKey];
 	NSMutableArray * toSectionData = [toSectionDict objectForKey:sectionDataKey];
 	
-	if(toRow == 0) return;
-	if(toRow >= [toSectionData count]) return;
+	if(fromRow == 0) return; // can't move section title
+	if(fromRow >= [fromSectionData count]) return;
 	
-	if(fromRow == 0) return;
-	if(fromRow >= [toSectionData count]) return;
+	if(toRow == 0) return; // can't replace section title
+	if(toRow > [toSectionData count]) return;
 
 	id temp;
+	
 	
 	temp = [[fromSectionData objectAtIndex:fromRow] retain];
 	[fromSectionData removeObjectAtIndex:fromRow];
@@ -474,41 +541,52 @@
 	if([[viewArray objectAtIndex:fromSection] count] == 0)
 		[viewArray removeObjectAtIndex:fromSection];
 	
-	
 	[self setIndexes];
-	[table reloadData];
 	
+	NSArray * fromIndexPathList = [NSArray arrayWithObject:fromIndexPath];
+	NSArray * toIndexPathList = [NSArray arrayWithObject:toIndexPath];
+	[table beginUpdates];
+	[table insertRowsAtIndexPaths:toIndexPathList withRowAnimation:UITableViewRowAnimationMiddle];
+	[table deleteRowsAtIndexPaths:fromIndexPathList withRowAnimation:UITableViewRowAnimationLeft];
+	[table endUpdates];
 }
 
 - (void) moveUpElementAtIndexPath:(NSIndexPath*)fromIndexPath
 {
 	NSUInteger row = [fromIndexPath row];
 	NSUInteger section = [fromIndexPath section];
-	NSIndexPath * toIndexPath = nil;
-	
-	if(row) row--;
+	if(row == 0) // move section up
+		{
+		[self moveSectionFromIndex:section toIndex:section-1];
+		return;
+		}
+	if(row > 1) row--;
 	else if(section)
 		{
 		section--;
 		row = [[viewArray objectAtIndex:section] count];
 		}
-	
+	NSIndexPath * toIndexPath;
 	toIndexPath = [NSIndexPath indexPathForRow:row	inSection:section];
+
 	[self moveElementFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
 }
 - (void) moveDownElementAtIndexPath:(NSIndexPath*)fromIndexPath
 {
 	NSUInteger row = [fromIndexPath row];
 	NSUInteger section = [fromIndexPath section];
-	NSIndexPath * toIndexPath = nil;
-	
+	if(row == 0) // move section down
+		{
+		[self moveSectionFromIndex:section toIndex:section+1];
+		return;
+		}
 	row++;
 	if(row >= [[viewArray objectAtIndex:section] count])
 		{
-		row = 0;
+		row = 1;
 		section ++;
 		}
-	
+	NSIndexPath * toIndexPath;
 	toIndexPath = [NSIndexPath indexPathForRow:row	inSection:section];
 	[self moveElementFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
 }
@@ -522,7 +600,11 @@
 	NSMutableDictionary * sectionDict = [dataArray objectAtIndex:section];
 	NSMutableArray * sectionData = [sectionDict objectForKey:sectionDataKey];
 	
-	if(row == 0 && [sectionData count] > 1) return;
+	if(row == 0) // trying to delete section
+		{
+		[self deleteSectionAtIndexPath:indexPath];
+		return;
+		}
 	
 	[sectionData removeObjectAtIndex:row];
 	if([sectionData count])

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TemplateEditorController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TemplateEditorController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 {
 	UITableView *table;
 	NSMutableArray * dataArray;

@@ -253,7 +253,7 @@
 }
 - (IBAction)deleteSelectedTemplate
 {
-    UIActionSheet *popupQuery = [[[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_TEMPLATE_TITLE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_TEMPLATE_BUTTON_STR otherButtonTitles:nil] autorelease];
+    UIActionSheet *popupQuery = [[[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_TEMPLATE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_BUTTON_STR otherButtonTitles:nil] autorelease];
 	[popupQuery setTag:1];
 	[popupQuery showInView:self.view];
 }

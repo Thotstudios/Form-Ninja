@@ -39,8 +39,8 @@
 {
 	[super reset];
 	[dictionary setValue:@"Single-Line" forKey:elementTypeKey];
-	[dictionary setValue:[NSNumber numberWithInt:0] forKey:elementMinLengthKey];
-	[dictionary setValue:[NSNumber numberWithInt:0] forKey:elementMaxLengthKey];
+	[dictionary setValue:@"0" forKey:elementMinLengthKey];
+	[dictionary setValue:@"0" forKey:elementMaxLengthKey];
 	[valueField setText:nil];
 	[minimumLengthField setText:@"0"];
 	[maximumLengthField setText:@"0"];
