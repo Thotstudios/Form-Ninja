@@ -170,6 +170,7 @@ static NSMutableDictionary * elementDictionary = nil;
 
 +(void) loadElementDictionary
 {
+	NSLog(@"%@ (%i)", elementDictionary, [elementDictionary count]);
 	if(elementDictionary) return;
 	
 	NSString * path;

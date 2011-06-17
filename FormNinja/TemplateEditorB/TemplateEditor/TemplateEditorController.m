@@ -318,7 +318,7 @@
 #pragma mark Section Functions
 -(void) addSectionWithName:(NSString*)headerName
 {
-	TemplateElement * element = [ElementPicker elementOfType:elementLabelKey delegate:self];
+	TemplateElement * element = [ElementPicker elementOfType:@"Label" delegate:self];
 	[[element dictionary] setValue:headerName forKey:elementLabelKey];
 	[element setDictionary:[element dictionary]];
 	
