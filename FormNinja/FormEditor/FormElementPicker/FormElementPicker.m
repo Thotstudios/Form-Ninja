@@ -13,25 +13,22 @@
 @implementation FormElementPicker
 
 static NSMutableDictionary * elementDictionary = nil;
-static BOOL dictionaryIsLoaded = NO;
 
 +(void) loadElementDictionary
 {
+	if(elementDictionary) return;
+	
 	NSString * path;
 	path = [[NSBundle mainBundle] pathForResource:@"ElementList" ofType:@"plist"];
 	
 	elementDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-	
-	dictionaryIsLoaded = YES;
 }
 
 
-+(FormTemplateElement*) formElementOfType:(NSString *)type
++(FormTemplateElement*) formElementOfType:(NSString *)type delegate:(id)delegate
 {
-    NSLog(@"FormElementPicker");
-	if(!dictionaryIsLoaded) [self loadElementDictionary];
+	[FormElementPicker loadElementDictionary];
 	
-	NSMutableDictionary * dict = [NSMutableDictionary dictionary];
 	FormTemplateElement * element = nil;
 	
 	
@@ -41,11 +38,10 @@ static BOOL dictionaryIsLoaded = NO;
 		element = [[[FormTemplateElement alloc] init] autorelease];
 	
 	if(element)
-    {
-		[element.view setFrame:CGRectMake(0, 0, 768, element.view.frame.size.height)];
-		[dict setValue:type forKey:@"type"];
-		[element setDictionary:dict];
-    }
+		{
+		[element setDelegate:delegate];
+		[element setDictionary:[NSMutableDictionary dictionaryWithObject:type forKey:elementTypeKey]];
+		}
 	return element;
 }
 

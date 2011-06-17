@@ -63,6 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	// TODO: fix magic strings:
     UIImage *logoutRedImage=[UIImage imageNamed:@"LogoutRed.png"];
     UIImage *formsRedImage=[UIImage imageNamed:@"formsRed.png"];
     UIImage *groupsRedImage=[UIImage imageNamed:@"GroupsRed.png"];

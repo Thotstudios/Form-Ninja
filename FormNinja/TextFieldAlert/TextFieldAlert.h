@@ -18,6 +18,9 @@
 	
 	float textFieldHeight;
 	float textFieldWidth;
+	
+	CGRect portraitFrame;
+	CGRect landscapeFrame;
 }
 @property (nonatomic, retain) UITextField * textField;
 @property (nonatomic, retain) id callback;

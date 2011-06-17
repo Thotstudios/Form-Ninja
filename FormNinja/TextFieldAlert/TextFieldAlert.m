@@ -7,7 +7,7 @@
 //
 
 #import "TextFieldAlert.h"
-
+#import "Constants.h"
 
 @implementation TextFieldAlert
 @synthesize callback;
@@ -16,7 +16,7 @@
 
 -(id) initWithTitle:(NSString*)title delegate:(id)delegateArg selector:(SEL)selectorArg
 {
-	if(!(self = [super initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:@"confirm", nil])) return self;
+	if(!(self = [super initWithTitle:title message:nil delegate:nil cancelButtonTitle:CANCEL_STR otherButtonTitles:CONFIRM_STR, nil])) return self;
 	
 	[self setCallback:delegateArg];
 	[self setSelector:selectorArg];
@@ -25,6 +25,9 @@
 	
 	textFieldHeight = 31;
 	textFieldWidth = 262;
+	
+	landscapeFrame = CGRectMake(356, 130, 284, 146);
+	portraitFrame = CGRectMake(242, 318, 284, 146);
 	
 	return self;
 }
@@ -56,11 +59,19 @@
 	return YES;
 }
 
+-(CGRect) getProperFrame
+{
+	CGRect rect;
+	if(UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]))
+		rect = portraitFrame;
+	else
+		rect = landscapeFrame;
+	return rect;
+}
 -(void) layoutSubviews
 {
-	if(![self orientationChanged])
-		return;
 	[super layoutSubviews];
+	
 	
 	UIView * curView;
 	int i = 0;
@@ -71,11 +82,9 @@
 		}
 	
 	CGRect rect = self.frame;
-	rect.origin.y -= 0.50 * textFieldHeight;
-	rect.size.height += textFieldHeight;
-	if(textField.frame.size.width == 0)
-		rect.size.height += 4;
+	rect = [self getProperFrame];
 	[self setFrame:rect];
+	[[self.subviews objectAtIndex:0] setFrame:CGRectMake(0, 0, rect.size.width, rect.size.height)];
 	
 	float yPosition = curView.frame.origin.y + curView.frame.size.height + 8;
 	[textField setFrame:CGRectMake(11, yPosition, textFieldWidth, textFieldHeight)];

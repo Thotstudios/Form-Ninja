@@ -29,4 +29,6 @@
 -(id) initWithTitle:(NSString *)title delegate:(id)delegate onSuccess:(SEL)success onFailure:(SEL)failure;
 -(id) initWithDelegate:(id)delegate onSuccess:(SEL)success onFailure:(SEL)failure;
 
++(void) showWithDelegate:(id)delegate onSuccess:(SEL)success onFailure:(SEL)failure;
+
 @end

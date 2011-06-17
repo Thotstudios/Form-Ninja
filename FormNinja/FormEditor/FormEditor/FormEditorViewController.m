@@ -9,65 +9,61 @@
 #import "FormEditorViewController.h"
 #import "FormTemplateElement.h"
 #import "FormElementPicker.h"
+#import "AccountClass.h"
 
 @implementation FormEditorViewController
 
+
 -(IBAction) saveButtonPressed
 {
+	if(!([[NSFileManager defaultManager] fileExistsAtPath:FORM_PATH]))
+		[[NSFileManager defaultManager] createDirectoryAtPath:FORM_PATH withIntermediateDirectories:YES attributes:nil error:nil];
+	
+	if([dataArray writeToFile:path atomically:YES])
+		{
+		[[[[UIAlertView alloc] initWithTitle:FORM_SAVED_STR message:nil delegate:nil cancelButtonTitle:OKAY_STR otherButtonTitles:nil] autorelease] show];
+		}
+	else
+		{
+		[[[[UIAlertView alloc] initWithTitle:SAVE_FAILED_STR message:nil delegate:nil cancelButtonTitle:OKAY_STR otherButtonTitles:nil] autorelease] show];
+		}
+	
     //set form completion date.
     
     //Concern/Note to self:  I need to detect that throughout entire view, because if the form is completed, then no values should be editable.
 }
--(IBAction) dumpButtonPressed
-{
-    
-}
+
 -(IBAction) finishButtonPressed
 {
     
 }
 
--(void) newFormWithTemplate:(NSMutableArray *)data
+
+-(void) newFormWithTemplateAtPath:(NSString *)pathArg
 {
-	[self setDataArray:data];
-	// TODO: whatever (view) updates need to be called
+	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:pathArg]];
+	NSMutableDictionary * dict = [dataArray objectAtIndex:0];
+	
+	NSString * group = [dict objectForKey:templateGroupKey];
+	NSString * template = [dict objectForKey:templateNameKey];
+	NSString * agent;
+	AccountClass * user = [AccountClass sharedAccountClass];
+	if([user firstName] && [user lastName])
+		agent = [NSString stringWithFormat:@"%@ %@", [user firstName], [user lastName]];
+	else
+		agent = @"John Doe";
+	NSString * formName = [NSString stringWithFormat:@"%i", time(0)];
+	
+	[dict setValue:formName forKey:formNameKey];
+	[dict setValue:agent forKey:formAgentKey];
+	[dict setValue:[NSDate date] forKey:formBeginDateKey];
+	
+	[self setPath:[NSString stringWithFormat:@"%@/%@-%@-%@-%@", FORM_PATH, group, template, agent, formName]];
 }
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(void) editFormAtPath:(NSString*) pathArg
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	[self setPath:pathArg];
+	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:path]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -76,49 +72,10 @@
 	return YES;
 }
 
-- (void) generateViewArray
+# pragma mark - Member Functions
+-(TemplateElement*) getElementOfType:(NSString*)type
 {
-    NSLog(@"Test");
-	[self setViewArray:[NSMutableArray array]];
-	if([dataArray count])
-    {
-		NSString * type;
-		TemplateElement * element;
-		
-		NSMutableArray * rowArray;
-		for(NSMutableDictionary * sectionDict in dataArray)
-        {
-			rowArray = [NSMutableArray array];
-			NSMutableArray * sectionData = [sectionDict objectForKey:sectionDataKey];
-			if(sectionData)
-				for(NSMutableDictionary *dict in sectionData)
-                {
-                    NSLog(@"Test2");
-					type = [dict objectForKey:elementTypeKey];
-					if(type)
-                    {
-                        NSLog(@"test: %@", type);
-						element = [FormElementPicker formElementOfType:type];
-						[element setDictionary:dict]; // TODO: fix
-						[rowArray addObject:element];
-                    }
-                }
-			else
-            {
-				NSMutableDictionary *dict = sectionDict;
-				
-				type = [dict objectForKey:elementTypeKey];
-				if(type)
-                {
-                    NSLog(@"Test3");
-					element = [FormElementPicker formElementOfType:type];
-					[element setDictionary:dict]; // TODO fix
-					[rowArray addObject:element];
-                }
-            }
-			[viewArray addObject:rowArray];
-        }
-    }
+	return [FormElementPicker formElementOfType:type delegate:self];
 }
 
 @end

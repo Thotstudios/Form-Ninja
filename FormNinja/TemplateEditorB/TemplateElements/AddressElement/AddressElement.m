@@ -44,7 +44,7 @@
 -(void) reset
 {
 	[super reset];
-	[dictionary setValue:@"Address" forKey:@"type"];
+	[dictionary setValue:@"Address" forKey:elementTypeKey];
 	[addressLineOneField setText:nil];
 	[addressLineTwoField setText:nil];
 	[cityNameField setText:nil];
@@ -54,11 +54,11 @@
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
-	[addressLineOneField setText:[dictionary valueForKey:@"address line"]];
-	[addressLineTwoField setText:[dictionary valueForKey:@"address line 2"]];
-	[cityNameField setText:[dictionary valueForKey:@"city name"]];
-	[stateAbbrField setText:[dictionary valueForKey:@"state abbr"]];
-	[zipCodeField setText:[dictionary valueForKey:@"zip code"]];
+	[addressLineOneField setText:[dictionary valueForKey:elementAddressLineKey]];
+	[addressLineTwoField setText:[dictionary valueForKey:elementAddressLine2Key]];
+	[cityNameField setText:[dictionary valueForKey:elementAddressCityNameKey]];
+	[stateAbbrField setText:[dictionary valueForKey:elementAddressStateKey]];
+	[zipCodeField setText:[dictionary valueForKey:elementAddressZipKey]];
 	
 }
 #pragma mark - Delegate Methods:
@@ -118,27 +118,27 @@
 	switch ([textField tag])
 	{
 		case 1: // label
-		key = @"label";
+		key = elementLabelKey;
 		break;
 		
 		case 2: // addr 1
-		key = @"address line";
+		key = elementAddressLineKey;
 		break;
 		
 		case 3: // addr 2
-		key = @"address line 2";
+		key = elementAddressLine2Key;
 		break;
 		
 		case 4: // city
-		key = @"city name";
+		key = elementAddressCityNameKey;
 		break;
 		
 		case 5: // state
-		key = @"state abbr";
+		key = elementAddressStateKey;
 		break;
 		
 		case 6: // zip
-		key = @"zip code";
+		key = elementAddressZipKey;
 		break;
 	}
 	if(key)

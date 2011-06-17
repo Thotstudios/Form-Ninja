@@ -6,6 +6,15 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+// General Strings
+#define OKAY_STR			@"OK"
+#define CANCEL_STR			@"Cancel"
+#define CONFIRM_STR			@"Confirm"
+#define CLEAR_STR			@"Clear"
+#define TEMPLATE_SAVED_STR	@"Template Saved"
+#define FORM_SAVED_STR		@"Form Saved"
+#define FORM_FINAL_STR		@"Form Completed"
+#define SAVE_FAILED_STR		@"Failed to Save"
 
 //User info 
 #define userInformation @"userInformation"
@@ -63,11 +72,44 @@
 #define elementSectionIndexKey		@"section index"
 #define elementRowIndexKey			@"row index"
 
+#define filePathKey					@"path"
+
+#define formNameKey					@"form name"
+#define formAgentKey				@"form agent"
+#define formBeginDateKey			@"form begin date"
+#define formFinalDateKey			@"form final date"
+
+// Element dictionary keys
+#define elementLabelKey				@"label"
+#define elementValueKey				@"value"
+#define elementFormValueKey			@"form value"
+#define elementMinLengthKey			@"minimum length"
+#define elementMaxLengthKey			@"maximum length"
+
+#define elementAddressLineKey			@"address line"
+#define elementFormAddressLineKey		@"form address line"
+#define elementAddressLine2Key			@"address line 2"
+#define elementFormAddressLine2Key		@"form address line 2"
+#define elementAddressCityNameKey		@"city name"
+#define elementFormAddressCityNameKey	@"form city name"
+#define elementAddressStateKey			@"state abbr"
+#define elementFormAddressStateKey		@"form state abbr"
+#define elementAddressZipKey			@"zip code"
+#define elementFormAddressZipKey		@"form zip code"
+
+#define elementTableDataKey			@"table data"
+#define elementSignatureImageKey	@"signature image"
+#define elementCoordinatesKey		@"coordinates"
+
+
+
+
 //Form URLs
-#define updateAccountURL @"http://thotstudios.com/formninja/accountUpdate.php"
-#define accountRegisterURL @"http://www.thotstudios.com/formninja/register.php"
-#define userLoginURL @"http://thotstudios.com/formninja/login.php"
-#define templateUploadURL @"http://thotstudios.com/formninja/templateUpload.php"
+#define userInfoURL			@"http://www.rilburskryler.net/mobile/userinfo.php"
+#define updateAccountURL	@"http://thotstudios.com/formninja/accountUpdate.php"
+#define accountRegisterURL	@"http://www.thotstudios.com/formninja/register.php"
+#define userLoginURL		@"http://thotstudios.com/formninja/login.php"
+#define templateUploadURL	@"http://thotstudios.com/formninja/templateUpload.php"
 
 // Group Constants
 #define ALL_GROUPS_STR @"All Groups" /* TODO: localize */
@@ -75,16 +117,16 @@
 // Template constants
 #define DOCUMENTS_PATH	([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0])
 
-#define TEMPLATE_DIR	(@"Templates")
-#define TEMPLATE_PATH	([NSString stringWithFormat:@"%@/%@", DOCUMENTS_PATH, TEMPLATE_DIR])
+#define TEMPLATE_PATH	([NSString stringWithFormat:@"%@/Templates", DOCUMENTS_PATH])
 #define TEMPLATE_EXT	(@".xml")
 
-#define FORM_DIR		(@"Forms")
-#define FORM_PATH		([NSString stringWithFormat:@"%@/%@", DOCUMENTS_PATH, TEMPLATE_DIR])
+#define FORM_PATH		([NSString stringWithFormat:@"%@/Forms", DOCUMENTS_PATH])
 #define FORM_EXT		(@".xml")
 
-#define CONFIRM_DELETE_TEMPLATE_TITLE_STR @"Are you sure you want to delete this template?" /* TODO: localize */
-#define CONFIRM_DELETE_TEMPLATE_BUTTON_STR @"Yes, delete it" /* TODO: localize */
+#define CONFIRM_DELETE_TEMPLATE_TITLE_STR	@"Are you sure you want to delete this template?" /* TODO: localize */
+#define CONFIRM_DELETE_TEMPLATE_BUTTON_STR	@"Yes, delete it" /* TODO: localize */
+#define REQUEST_NEW_TEMPLATE_NAME_STR		@"New Template Name"
+#define SIGNATURE_REQUIRED_STR				@"Signature Required"
 
 
 //Popover menu constants

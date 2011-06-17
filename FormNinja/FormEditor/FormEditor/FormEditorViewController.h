@@ -10,13 +10,16 @@
 #import "TemplateEditorController.h"
 #import "Constants.h"
 
-@interface FormEditorViewController : TemplateEditorController {
-    
+@interface FormEditorViewController : TemplateEditorController
+{
 }
-- (void) newFormWithTemplate:(NSMutableArray*)data;
+
+//- (void) newFormWithTemplate:(NSMutableArray*)data;
+
+- (void) newFormWithTemplateAtPath:(NSString*)pathArg;
+- (void) editFormAtPath:(NSString*)pathArg;
 
 -(IBAction) saveButtonPressed;
--(IBAction) dumpButtonPressed;
 -(IBAction) finishButtonPressed;
 
 @end

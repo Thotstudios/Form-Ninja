@@ -63,7 +63,7 @@
 //	[self.dictionary release];
 //	dictionary = [arg retain];
 	
-	[self.labelLabel setText:[self.dictionary objectForKey:@"label"]];
+	[self.labelLabel setText:[self.dictionary objectForKey:elementLabelKey]];
     NSNumber *index=[self.dictionary objectForKey:@"label alignment"];
     if ([index intValue]==0) {
         self.labelLabel.textAlignment=UITextAlignmentLeft;

@@ -38,7 +38,7 @@
 -(IBAction) reset
 {
 	[super reset];
-	[dictionary setValue:@"Single-Line" forKey:@"type"];
+	[dictionary setValue:@"Multi-Line" forKey:elementTypeKey];
 	[valueField setText:nil];
 	[minimumLengthField setText:nil];
 	[maximumLengthField setText:nil];
@@ -46,9 +46,9 @@
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
-	[valueField setText:[dictionary valueForKey:@"value"]];
-	[minimumLengthField setText:[dictionary valueForKey:@"minimum length"]];
-	[maximumLengthField setText:[dictionary valueForKey:@"maximum length"]];
+	[valueField setText:[dictionary valueForKey:elementValueKey]];
+	[minimumLengthField setText:[dictionary valueForKey:elementMinLengthKey]];
+	[maximumLengthField setText:[dictionary valueForKey:elementMaxLengthKey]];
 }
 #pragma mark - Delegate Methods:
 #pragma mark -Text Field
@@ -95,15 +95,15 @@
 	switch ([textField tag])
 	{
 		case 1:
-		key = @"label";
+		key = elementLabelKey;
 		break;
 		
 		case 2:
-		key = @"minimum length";
+		key = elementMinLengthKey;
 		break;
 		
 		case 3:
-		key = @"maximum length";
+		key = elementMaxLengthKey;
 		break;
 	}
 	
@@ -119,7 +119,7 @@
 }
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-	NSString * key = @"value";
+	NSString * key = elementValueKey;
 	
 	if(key) [dictionary setValue:[textView text] forKey:key];
 }

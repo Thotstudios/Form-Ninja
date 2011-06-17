@@ -34,7 +34,7 @@
 - (IBAction)reset
 {
 	[super reset];
-	[dictionary setValue:@"Repeating" forKey:@"type"];
+	[dictionary setValue:@"Repeating" forKey:elementTypeKey];
 }
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
@@ -47,7 +47,7 @@
 
 - (IBAction)addElement
 {
-	[[[[ElementPicker alloc] initWithDelegate:self selector:@selector(newElementOfType:)] autorelease] show];
+	[ElementPicker showWithDelegate:self selector:@selector(newElementOfType:)];
 }
 
 @end

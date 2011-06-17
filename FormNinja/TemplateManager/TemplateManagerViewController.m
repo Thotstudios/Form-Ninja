@@ -129,7 +129,7 @@
 	[filteredTemplateList removeAllObjects];
 	for(NSDictionary * dict in templateList)
 		{
-		if([group isEqualToString:ALL_GROUPS_STR] || [group isEqualToString:[dict valueForKey:@"group name"]])
+		if([group isEqualToString:ALL_GROUPS_STR] || [group isEqualToString:[dict valueForKey:templateGroupKey]])
 			[filteredTemplateList addObject:dict];
 		}
 	[templateTable reloadData];
@@ -152,9 +152,10 @@
 	
 	NSString * path;
 	NSMutableArray * data;
-	NSString * name;
-	NSString * group;
 	NSMutableDictionary * dict;
+	NSString * group;
+	NSString * name;
+	BOOL published;
 	
 	// clear the name list and path list
 	[groupNameList removeAllObjects];
@@ -177,10 +178,11 @@
 				dict = temp;
 			else
 				dict = [temp objectAtIndex:0];
-			name = [dict objectForKey:@"template name"];
-			group = [dict objectForKey:@"group name"];
+			name = [dict objectForKey:templateNameKey];
+			group = [dict objectForKey:templateGroupKey];
+			published = [[dict objectForKey:templatePublishedKey] boolValue];
+			dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:path, filePathKey, group, templateGroupKey, name, templateNameKey, [NSNumber numberWithBool:published], templatePublishedKey, data, @"data", nil];
 			[self addGroupName:group];
-			dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:path, @"path", group, @"group name", name, @"template name", data, @"data", nil];
 			}
 		if([dict count])
 			[templateList addObject:dict];
@@ -195,17 +197,15 @@
 -(BOOL) isTemplateAtIndexPublished:(NSUInteger)index
 {
 	NSDictionary * dict = [filteredTemplateList objectAtIndex:index];
-	NSArray * data = [dict valueForKey:@"data"];
-	NSDictionary * meta = [data objectAtIndex:0];
-	id value = [meta valueForKey:templatePublishedKey];
-	BOOL isPublished = [value boolValue];
-	return isPublished;
+	return [[dict objectForKey:templatePublishedKey] boolValue];
 }
+
 -(BOOL) isSelectedTemplatePublished
 {
 	NSUInteger index = [[templateTable indexPathForSelectedRow] row];
 	return [self isTemplateAtIndexPublished:index];
 }
+
 -(void) disableButtons
 {
 	[deleteTemplateButton setEnabled:NO];	[deleteTemplateButton setAlpha:0.50];
@@ -230,8 +230,8 @@
 
 -(void) confirmDeleteSelectedTemplate
 {
-	//NSUInteger row = [[templateTableView indexPathForSelectedRow] row];
-	NSString * path = [[filteredTemplateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:@"path"];
+	NSUInteger row = [[templateTable indexPathForSelectedRow] row];
+	NSString * path = [[filteredTemplateList objectAtIndex:row] objectForKey:filePathKey];
 	[[NSFileManager defaultManager] removeItemAtPath:path error:NULL];
 	[self loadTemplateList];
 	
@@ -244,22 +244,25 @@
 	[popupQuery setTag:1];
 	[popupQuery showInView:self.view];
 }
-
+-(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	if([actionSheet tag] == 1 && buttonIndex == [actionSheet destructiveButtonIndex])
+		[self confirmDeleteSelectedTemplate];
+}
 
 - (IBAction)editSelectedTemplate
 {
 	NSUInteger row = [[templateTable indexPathForSelectedRow] row];
 	NSDictionary * dict = [filteredTemplateList objectAtIndex:row];
-	NSMutableArray * data = [dict objectForKey:@"data"];
+	NSString * path = [dict objectForKey:filePathKey];
 	
-	[templateEditor clear];
+	[templateEditor editTemplateAtPath:path];
 	[self.navigationController pushViewController:templateEditor animated:YES];
-	[templateEditor setDataArray:data];
 }
 
 - (void) copySelectedTemplateWithName:(NSString*)name
 {
-	NSString * path = [[filteredTemplateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:@"path"];
+	NSString * path = [[filteredTemplateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:filePathKey];
 	NSLog(@"Should duplicate and rename file at path:\n%@", path);
 	// TODO
 	// push editor
@@ -269,9 +272,7 @@
 
 - (IBAction)copySelectedTemplate
 {
-	[[[[TextFieldAlert alloc] initWithTitle:@"New Template Name"
-								   delegate:self
-								   selector:@selector(copySelectedTemplateWithName:)] autorelease] show];
+	[TextFieldAlert showWithTitle:REQUEST_NEW_TEMPLATE_NAME_STR delegate:self selector:@selector(copySelectedTemplateWithName:)];
 }
 
 -(void) createTemplateWithName:(NSString*)name
@@ -286,7 +287,7 @@
 
 - (IBAction)createTemplate
 {
-	[TextFieldAlert showWithTitle:@"New Template Name" delegate:self selector:@selector(createTemplateWithName:)];
+	[TextFieldAlert showWithTitle:REQUEST_NEW_TEMPLATE_NAME_STR delegate:self selector:@selector(createTemplateWithName:)];
 }
 
 #pragma mark - TableView DataSource
@@ -362,7 +363,10 @@
 		break;
 		
 		case 2: // template table
-		text = [[filteredTemplateList objectAtIndex:[indexPath row]] objectForKey:@"template name"];
+		text = [[filteredTemplateList objectAtIndex:[indexPath row]] objectForKey:templateNameKey];
+		// NOTE: assign not published
+		if(![self isTemplateAtIndexPublished:[indexPath row]])
+			text = [NSString stringWithFormat:@"%@ (Not Published)", text];
 		break;
 		
 		default:

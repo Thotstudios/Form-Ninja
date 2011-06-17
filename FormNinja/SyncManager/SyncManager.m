@@ -65,7 +65,7 @@ static NSMutableDictionary *syncList;
 - (NSString *) formatTemplate:(NSMutableArray *) array{
     //Convert nsdate object to string as json cannot parse nsdate objects
     NSMutableDictionary *dict = [[[NSMutableDictionary alloc] initWithDictionary:[array objectAtIndex:0]] autorelease];
-    [dict setObject:[NSString stringWithFormat:@"%@",[dict objectForKey:@"creation date"]] forKey:@"creation date"]; //replace old nsdate with nsstring  
+    [dict setObject:[NSString stringWithFormat:@"%@",[dict objectForKey:templateCreationDateKey]] forKey:templateCreationDateKey]; //replace old nsdate with nsstring  
     
     NSMutableArray *dbArray = [[[NSMutableArray alloc] initWithArray:array] autorelease];
     [dbArray removeObjectAtIndex:0]; //Replace meta data dict
@@ -73,7 +73,7 @@ static NSMutableDictionary *syncList;
     
     //Check for json incompatible Signature fields
     for (NSMutableDictionary *dictionary in dbArray) {
-        NSString *type = [dictionary objectForKey:@"type"];
+        NSString *type = [dictionary objectForKey:elementTypeKey];
         
         if ([type isEqualToString:@"Signature"]) {
             if([dictionary objectForKey:@"signature"]){ //Check for signature nsdata

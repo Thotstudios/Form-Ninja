@@ -117,16 +117,10 @@
 	NSUserDefaults * opt = [NSUserDefaults standardUserDefaults];
 	[opt setBool:remember forKey:rememberUserKey]; 
 	[opt synchronize];
-	
-	//[opt boolForKey:@"remember user"]; // MAGIC: stay_logged_in_key
 }
 
 - (IBAction) loginButtonAction
-{
-    //Test account info
-    //un:test pass:test
-    NSLog(@"login (%@:%@)", [usernameField text], [passwordField text]);
-    
+{    
     //Dismiss keyboard
     [self.usernameField resignFirstResponder];
     [self.passwordField resignFirstResponder];
@@ -149,7 +143,7 @@
 
 - (void) getUserInfo{
     //Prepare form
-    NSURL *urlToSend = [[[NSURL alloc] initWithString: @"http://www.rilburskryler.net/mobile/userinfo.php"] autorelease];
+    NSURL *urlToSend = [[[NSURL alloc] initWithString: userInfoURL] autorelease];
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
     [request setPostValue:self.usernameField.text forKey:formUsername];  
     [request setPostValue:self.passwordField.text forKey:formPassword];  
@@ -213,7 +207,7 @@
     NSLog(@"%@", jsonDict);
     NSString *userAccepted = [jsonDict objectForKey:formUserAccepted]; //Get response
     
-    if([userAccepted isEqualToString:@"True"]){
+    if([userAccepted isEqualToString:formTrue]){
         self.loadAlert.alertLabel.text = @"Login successful";
         [self.loadAlert stopActivityIndicator];
         

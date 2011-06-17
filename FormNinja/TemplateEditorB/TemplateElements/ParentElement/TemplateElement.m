@@ -22,8 +22,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	//dictionary = [[NSMutableDictionary alloc] init];
-	//[self reset];
 }
 
 - (void)viewDidUnload
@@ -59,7 +57,7 @@
 {
 	[labelField setText:nil];
 	[dictionary removeAllObjects];
-	[dictionary setValue:@"Label" forKey:@"type"];
+	[dictionary setValue:elementLabelKey forKey:elementTypeKey];
 	[labelAlignmentControl setSelectedSegmentIndex:0];
 }
 
@@ -68,7 +66,7 @@
 	[self.view setNeedsDisplay];
 	[dictionary release];
 	dictionary = [arg retain];
-	[labelField setText:[dictionary objectForKey:@"label"]];
+	[labelField setText:[dictionary objectForKey:elementLabelKey]];
 	[labelAlignmentControl setSelectedSegmentIndex:[[dictionary objectForKey:@"label alignment"] integerValue]];
 }
 
@@ -142,7 +140,7 @@
 	switch ([textField tag])
 	{
 		case 1:
-		key = @"label";
+		key = elementLabelKey;
 		break;
 	}
 	if(key)

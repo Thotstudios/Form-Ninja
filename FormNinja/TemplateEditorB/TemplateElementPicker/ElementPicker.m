@@ -34,7 +34,7 @@ static NSMutableDictionary * elementDictionary = nil;
 
 -(id) initWithDelegate:(id)delegateArg selector:(SEL)selectorArg
 {
-	if(!(self = [super initWithTitle:@"Select Type" message:nil delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Confirm", nil])) return self;
+	if(!(self = [super initWithTitle:@"Select Type" message:nil delegate:nil cancelButtonTitle:CANCEL_STR otherButtonTitles:CONFIRM_STR, nil])) return self;
 	
 	[self setCallback:delegateArg];
 	[self setSelector:selectorArg];
@@ -43,6 +43,9 @@ static NSMutableDictionary * elementDictionary = nil;
 	tableWidth = 262;
 	tableHeight = 160;
 	horizontalMargin = 11;
+	
+	portraitFrame = CGRectMake(242, 385, 284, 275);
+	landscapeFrame = CGRectMake(370, 257, 284, 275);
 	
 	[ElementPicker loadElementDictionary];
 	
@@ -80,6 +83,16 @@ static NSMutableDictionary * elementDictionary = nil;
 	[super show];
 }
 
+-(CGRect) getProperFrame
+{
+	CGRect rect;
+	if(UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]))
+		rect = portraitFrame;
+	else
+		rect = landscapeFrame;
+	return rect;
+}
+
 -(void) layoutSubviews
 {
 	if(![self orientationChanged])
@@ -95,11 +108,9 @@ static NSMutableDictionary * elementDictionary = nil;
 		}
 	
 	CGRect rect = self.frame;
-	rect.origin.y -= 0.50 * tableHeight;
-	rect.size.height += tableHeight;
-	if(table.frame.size.width == 0)
-		rect.size.height += 16;
+	rect = [self getProperFrame];
 	[self setFrame:rect];
+	[[self.subviews objectAtIndex:0] setFrame:CGRectMake(0, 0, rect.size.width, rect.size.height)];
 	
 	float yPosition = curView.frame.origin.y + curView.frame.size.height + 8;
 	[table setFrame:CGRectMake(horizontalMargin, yPosition, tableWidth, tableHeight)];
@@ -176,12 +187,15 @@ static NSMutableDictionary * elementDictionary = nil;
 	
 	if(element)
 		{
-		//[element.view setFrame:CGRectMake(0, 0, 768, element.view.frame.size.height)];
 		[element setDelegate:delegate];
-		[element setDictionary:[NSMutableDictionary dictionaryWithObject:type forKey:@"type"]];
+		[element setDictionary:[NSMutableDictionary dictionaryWithObject:type forKey:elementTypeKey]];
 		}
 	return element;
 }
 
++(void) showWithDelegate:(id)delegateArg selector:(SEL)selectorArg
+{
+	[[[[ElementPicker alloc] initWithDelegate:delegateArg selector:selectorArg] autorelease] show];
+}
 @end
 

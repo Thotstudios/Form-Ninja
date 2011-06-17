@@ -40,14 +40,14 @@
 - (IBAction)reset
 {
 	[super reset];
-	[dictionary setValue:@"Signature" forKey:@"type"];
+	[dictionary setValue:elementSignatureImageKey forKey:elementTypeKey];
 	[imageView setImage:nil];
 }
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
 	
-	NSData *imageData = [NSData dataWithData:[dictionary valueForKey:@"signature"]];
+	NSData *imageData = [NSData dataWithData:[dictionary valueForKey:elementSignatureImageKey]];
 	UIImage *image = [UIImage imageWithData:imageData];
 	[imageView setImage:image];
 }
@@ -57,13 +57,13 @@
 	[imageView setImage:image];
 
 	NSData * imageData = UIImagePNGRepresentation(image);
-	[dictionary setValue:imageData forKey:@"signature"];
+	[dictionary setValue:imageData forKey:elementSignatureImageKey];
     
     
     //Get location info if possible
     if([[LocationManager locationManager] hasValidLocation]){
         NSString *coordinates = [NSString stringWithFormat:@"%f,%f", [LocationManager locationManager].latitude, [LocationManager locationManager].longitude];
-        [dictionary setValue:coordinates forKey:@"coordinates"]; //Set dict value
+        [dictionary setValue:coordinates forKey:elementCoordinatesKey]; //Set dict value
     }
 }
 -(void) failure
@@ -72,7 +72,7 @@
 
 - (IBAction)requestSignature
 {
-	[[[[SignatureAlertView alloc] initWithDelegate:self onSuccess:@selector(success:) onFailure:@selector(failure)] autorelease] show];
+	[SignatureAlertView showWithDelegate:self onSuccess:@selector(success:) onFailure:@selector(failure)];
 	
 }
 

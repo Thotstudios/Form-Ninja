@@ -709,8 +709,8 @@
 			isa = PBXGroup;
 			children = (
 				F7C0DC8013A07259009ACEB6 /* FormEditor */,
-				F7C0DC8413A07259009ACEB6 /* FormElementPicker */,
 				F7C0DC8813A07259009ACEB6 /* FormElements */,
+				F7C0DC8413A07259009ACEB6 /* FormElementPicker */,
 			);
 			path = FormEditor;
 			sourceTree = "<group>";

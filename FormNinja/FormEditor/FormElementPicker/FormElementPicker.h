@@ -14,6 +14,6 @@
     
 }
 
-+(FormTemplateElement*) formElementOfType:(NSString *)type;
++(FormTemplateElement*) formElementOfType:(NSString *)type delegate:(id)delegate;
 
 @end

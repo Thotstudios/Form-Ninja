@@ -35,7 +35,7 @@
 - (IBAction)reset
 {
 	[super reset];
-	[dictionary setValue:@"Table" forKey:@"type"];
+	[dictionary setValue:@"Table" forKey:elementTypeKey];
 	[table reloadData];
 }
 -(void)	setDictionary:(NSMutableDictionary *)arg
@@ -48,7 +48,7 @@
 {
 	// TODO
 	// TEMP:
-	NSMutableArray * data = [dictionary valueForKey:@"data"];
+	NSMutableArray * data = [dictionary valueForKey:elementTableDataKey];
 	if(!data) data = [NSMutableArray array];
 	switch([data count])
 	{
@@ -63,7 +63,7 @@
 		[data addObject:[NSString stringWithFormat:@"line %i", [data count]]];
 		break;
 	}
-	[dictionary setValue:data forKey:@"data"];
+	[dictionary setValue:data forKey:elementTableDataKey];
 	[table reloadData];
 }
 
@@ -76,7 +76,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	NSMutableArray * data = [dictionary valueForKey:@"data"];
+	NSMutableArray * data = [dictionary valueForKey:elementTableDataKey];
 	return [data count] + 1;
 }
 
@@ -85,9 +85,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPathArg
 {
-	NSMutableArray * data = [dictionary valueForKey:@"data"];
+	NSMutableArray * data = [dictionary valueForKey:elementTableDataKey];
 	
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Table Element Cell";
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -114,7 +114,7 @@
 {
 	UITableViewCellEditingStyle style = UITableViewCellEditingStyleDelete;
 	
-	NSMutableArray * data = [dictionary valueForKey:@"data"];
+	NSMutableArray * data = [dictionary valueForKey:elementTableDataKey];
 	
 	if([indexPathArg row] == [data count])
 		style = UITableViewCellEditingStyleInsert;
@@ -123,7 +123,7 @@
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPathArg
 {
-	NSMutableArray * data = [dictionary valueForKey:@"data"];
+	NSMutableArray * data = [dictionary valueForKey:elementTableDataKey];
 	
 	if (editingStyle == UITableViewCellEditingStyleDelete)
 		{
@@ -141,7 +141,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPathArg
 {
-	NSMutableArray * data = [dictionary valueForKey:@"data"];
+	NSMutableArray * data = [dictionary valueForKey:elementTableDataKey];
 	return [indexPathArg row] < [data count];
 }
 
@@ -149,7 +149,7 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-	NSMutableArray * data = [dictionary valueForKey:@"data"];
+	NSMutableArray * data = [dictionary valueForKey:elementTableDataKey];
 	if([fromIndexPath row] < [data count] && [toIndexPath row] < [data count])
 		{
 		id temp = [[data objectAtIndex:[fromIndexPath row]] retain];

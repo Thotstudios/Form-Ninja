@@ -107,28 +107,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	/*
-	NSDateFormatter * formatter = [[[NSDateFormatter alloc] init] autorelease];
-	[formatter setDateStyle:NSDateFormatterNoStyle];
-	NSDate * date = nil;
-	*/
-	/*
-	switch([textField tag])
-	{
-		case 0: default: // error
-		[textField resignFirstResponder];
-		break;
-		
-		case 1: // template name
-		break;
-		case 2: // template group
-		break;
-		case 3: // creator name
-		break;
-		case 4: // creation date
-		break;
-	}
-	*/
 	[self editNextElement];
 	[textField resignFirstResponder];
 	return YES;
@@ -140,19 +118,19 @@
 	switch ([textField tag])
 	{
 		case 1: // template name
-		key = @"template name";
+		key = templateNameKey;
 		break;
 		
 		case 2: // template group
-		key = @"group name";
+		key = templateGroupKey;
 		break;
 		
 		case 3: // creator name
-		key = @"creator name";
+		key = templateCreatorKey;
 		break;
 		
 		case 4: // creation date
-		key = @"creation date";
+		key = templateCreationDateKey;
 		break;
 	}
 	if(key)

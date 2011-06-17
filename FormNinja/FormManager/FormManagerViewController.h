@@ -15,6 +15,8 @@
 @interface FormManagerViewController : TemplateManagerViewController
 {
 	NSMutableArray * formList;
+	NSMutableArray * filteredFormList;
+	NSMutableArray * formNameList;
 	
 	UITableView *formTable;
 	UIButton *createFormButton;
@@ -23,10 +25,13 @@
 	FormEditorViewController *formEditorViewController;
 }
 
+// Member Objects
 @property (nonatomic, retain) NSMutableArray * formList;
+@property (nonatomic, retain) NSMutableArray * filteredFormList;
+@property (nonatomic, retain) NSMutableArray * formNameList;
 
+// Interface Objects
 @property (nonatomic, retain) IBOutlet UITableView *formTable;
-
 @property (nonatomic, retain) IBOutlet UIButton *createFormButton;
 @property (nonatomic, retain) IBOutlet UIButton *resumeFormButton;
 

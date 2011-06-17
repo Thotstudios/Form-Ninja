@@ -58,14 +58,14 @@
 
 - (IBAction)reset
 {
-    [self.dictionary removeObjectForKey:@"filled value"];
-	[self.valueField setText:[self.dictionary valueForKey:@"value"]];
+    [self.dictionary removeObjectForKey:elementFormValueKey];
+	[self.valueField setText:[self.dictionary valueForKey:elementValueKey]];
 }
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
     
-	[self.labelLabel setText:[self.dictionary objectForKey:@"label"]];
+	[self.labelLabel setText:[self.dictionary objectForKey:elementLabelKey]];
     NSNumber *index=[self.dictionary objectForKey:@"label alignment"];
     if ([index intValue]==0) {
         self.labelLabel.textAlignment=UITextAlignmentLeft;
@@ -79,17 +79,17 @@
         self.labelLabel.textAlignment=UITextAlignmentRight;
     }
     
-    NSString *stringValue=[self.dictionary valueForKey:@"filled value"];
+    NSString *stringValue=[self.dictionary valueForKey:elementFormValueKey];
     if (stringValue) {
         [self.valueField setText:stringValue];
     }
     else
     {
-        [self.valueField setText:[self.dictionary valueForKey:@"value"]];
+        [self.valueField setText:[self.dictionary valueForKey:elementValueKey]];
     }
     
-	[self.minLength setText:[self.dictionary valueForKey:@"minimum length"]];
-	[self.maxLength setText:[self.dictionary valueForKey:@"maximum length"]];
+	[self.minLength setText:[self.dictionary valueForKey:elementMinLengthKey]];
+	[self.maxLength setText:[self.dictionary valueForKey:elementMaxLengthKey]];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -97,20 +97,21 @@
 	id key = nil;
 	switch ([textField tag])
 	{
+		// TODO: fix these:
 		case 1:
-            key = @"filled label";
+            key = @"filled label"; // wait, what?
             break;
             
 		case 2:
-            key = @"filled minimum length";
+            key = @"filled minimum length"; // these aren't available
             break;
             
 		case 3:
-            key = @"filled maximum length";
+            key = @"filled maximum length"; // on forms.
             break;
             
 		case 4:
-            key = @"filled value";
+            key = elementFormValueKey;
             break;
 	}
 	if(key)

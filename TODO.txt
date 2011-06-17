@@ -4,28 +4,40 @@ This is not official or required in any way.
 It's more like quick notes to ourselves and each other.
 
 Chad:
-* Unpublished templates should have a 'Resume' button instead of a "Modify" button
-* Validate Template before publishing.
-* Template Versioning.
-* Add autosave for Templates and Forms for crashes/unexpected exits
-* Refactor const strings into Constants.h
-* Belt icon next to templates (and forms?).
-* Add GPS info to signature element.
 * Forms and Templates save to PendingUploads folder.
 * PendingUploads folder is checked for sync.
 * Send regular ipa files.
 * Export/email/sync/print button(s) on Form Manager.
-* Change hard-coded #defines in TemplateEditor
 * Clean up template renaming.
 * Clean up section header titles.
 * Template Sections need delete function.
 * TextFieldAlert should handle rotate and resize.
 * Deleting templates should reconsider group names.
-* Finish Element buttons.
 * TextFieldAlert should have delegate return key.
-* Check bug with "title" not showing up for TextFieldAlert when addSection called.
 * Sanitize template names.
-* Give TemplateEditor a path object so it can rename templates and manage the file directory.
+* Fix form meta data
+* Generally fix form section displays
+* Unpublished templates should have a 'Resume' button instead of a "Modify" button.
+* Validate Template before publishing.
+* Add autosave for Templates and Forms for crashes/unexpected exits.
+* Change hard-coded #defines in TemplateEditor
+* Belt icon next to templates (and forms?).
+* Add GPS info to signature element.
+
+Critical changes:
+
+Important changes:
+Inform user when no templates are available for form manager.
+1. We need a way to view a completed form
+2. When viewing the completed form with signature & GPS coordinate we need to be able to click them to view in google maps
+
+Minor changes:
+Create "Checklist" template & form element.
+Write form editor finish function, and link to signature element as appropriate.
+
+It-Would-Be-Nice changes:
+Email form as pdf (if it's not a ton of work).
+
 
 Paul:
 * Optionally write a TODO list here.

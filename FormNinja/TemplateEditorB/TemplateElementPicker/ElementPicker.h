@@ -21,6 +21,9 @@
 	float tableHeight;
 	float horizontalMargin;
 	
+	CGRect portraitFrame;
+	CGRect landscapeFrame;
+	
 	NSMutableArray * elementList;
 }
 
@@ -30,6 +33,7 @@
 @property (nonatomic, retain) NSMutableArray * elementList;
 
 -(id) initWithDelegate:(id)delegateArg selector:(SEL)selectorArg;
++(void) showWithDelegate:(id)delegateArg selector:(SEL)selectorArg;
 
 // Class Methods:
 +(TemplateElement*) elementOfType:(NSString*)arg delegate:(id)delegate;

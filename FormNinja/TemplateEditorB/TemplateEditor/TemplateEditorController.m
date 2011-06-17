@@ -36,6 +36,7 @@
 @synthesize table;
 @synthesize dataArray;
 @synthesize viewArray;
+@synthesize path;
 
 #pragma mark - Init and Memory
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -51,6 +52,7 @@
     [table release];
 	[dataArray release];
 	[viewArray release];
+	[path release];
     [super dealloc];
 }
 
@@ -59,6 +61,7 @@
     [self setTable:nil];
 	[self setDataArray:nil];
 	[self setViewArray:nil];
+	[self setPath:nil];
 	
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -128,6 +131,11 @@
 
 #pragma mark - Member Functions
 
+-(TemplateElement*) getElementOfType:(NSString*)type
+{
+	return [ElementPicker elementOfType:type delegate:self];
+}
+
 - (void) generateViewArray
 {
 	[self setViewArray:[NSMutableArray array]];
@@ -147,7 +155,7 @@
 					type = [dict objectForKey:elementTypeKey];
 					if(type)
 						{
-						element = [ElementPicker elementOfType:type delegate:self];
+						element = [self getElementOfType:type];
 						[element setDictionary:dict]; // TODO: fix
 						[rowArray addObject:element];
 						}
@@ -159,7 +167,7 @@
 				type = [dict objectForKey:elementTypeKey];
 				if(type)
 					{
-					element = [ElementPicker elementOfType:type delegate:self];
+					element = [self getElementOfType:type];
 					[element setDictionary:dict]; // TODO fix
 					[rowArray addObject:element];
 					}
@@ -183,22 +191,22 @@
 	return;
 }
 
--(void) saveToPath:(NSString*)path
+-(void) saveToPath:(NSString*)pathArg
 {
-	if(!path) return;
+	if(!pathArg) return;
 	
 	if(!([[NSFileManager defaultManager] fileExistsAtPath:TEMPLATE_PATH]))
 		[[NSFileManager defaultManager] createDirectoryAtPath:TEMPLATE_PATH withIntermediateDirectories:YES attributes:nil error:nil];
 	
-	if([dataArray writeToFile:path atomically:YES])
+	if([dataArray writeToFile:pathArg atomically:YES])
 		{
-		UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Template saved."	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"OK", nil];
+		UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:TEMPLATE_SAVED_STR	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:OKAY_STR, nil];
 		[popupQuery showInView:self.view];
 		[popupQuery release];
 		}
 	else
 		{
-		UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Failed to save."	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:@"OK" otherButtonTitles:nil];
+		UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:SAVE_FAILED_STR	delegate:nil cancelButtonTitle:nil destructiveButtonTitle:OKAY_STR otherButtonTitles:nil];
 		[popupQuery showInView:self.view];
 		[popupQuery release];
 		}
@@ -208,17 +216,6 @@
 {
 	[self.view endEditing:NO];
 	
-	NSMutableDictionary * dict;
-	dict = [dataArray objectAtIndex:0];
-	
-	NSString * group = [dict objectForKey:templateGroupKey];
-	NSString * template = [dict objectForKey:templateNameKey];
-	
-	if(!group) group = @"No Group";
-	if(!template) template = [NSString stringWithFormat:@"%i", time(0)];
-	
-	NSString * path;
-	path = [NSString stringWithFormat:@"%@/%@-%@%@", TEMPLATE_PATH, group, template, TEMPLATE_EXT];
 	if(path)
 		{
 		[self saveToPath:path];
@@ -253,7 +250,7 @@
 	if([user firstName] && [user lastName])
 		creator = [NSString stringWithFormat:@"%@ %@", [user firstName], [user lastName]];
 	if(!creator)
-		creator = @"Princess Angelina Contessa Louisa Francesca Banana Fana Bobesca the Third";
+		creator = @"John Doe";
 	
 	NSMutableDictionary * dict;
 	dict = [NSMutableDictionary dictionary];
@@ -264,13 +261,18 @@
 	[dict setValue:[NSDate date] forKey:templateCreationDateKey];
 	
 	[dataArray addObject:dict];
-	//[viewArray addObject:[NSMutableArray arrayWithObject:element]];
 	
-	//[self generateViewArray];
+	[self setPath:[NSString stringWithFormat:@"%@/%@-%@%@", TEMPLATE_PATH, group, name, TEMPLATE_EXT]];
 	
 	[table reloadData];
 	
-	[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(addSection) userInfo:nil repeats:NO];
+	[NSTimer scheduledTimerWithTimeInterval:0.15 target:self selector:@selector(addSection) userInfo:nil repeats:NO];
+}
+
+-(void) editTemplateAtPath:(NSString*)pathArg
+{
+	[self setPath:pathArg];
+	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:path]]; 
 }
 
 -(BOOL) templateIsValid
@@ -300,8 +302,8 @@
 #pragma mark Section Functions
 -(void) addSectionWithName:(NSString*)headerName
 {
-	TemplateElement * element = [ElementPicker elementOfType:@"Label" delegate:self];
-	[[element dictionary] setValue:headerName forKey:@"label"];
+	TemplateElement * element = [ElementPicker elementOfType:elementLabelKey delegate:self];
+	[[element dictionary] setValue:headerName forKey:elementLabelKey];
 	[element setDictionary:[element dictionary]];
 	
 	NSMutableDictionary * sectionDict = [NSMutableDictionary dictionary];
@@ -320,15 +322,13 @@
 
 -(IBAction) addSection
 {
-	[[[[TextFieldAlert alloc] initWithTitle:@"New Section Name"
-								   delegate:self
-								   selector:@selector(addSectionWithName:)] autorelease] show];
+	[TextFieldAlert showWithTitle:@"New Section Name" delegate:self selector:@selector(addSectionWithName:)];
 }
 
 #pragma mark Element Functions
 - (void)addElement
 {
-	[[[[ElementPicker alloc] initWithDelegate:self selector:@selector(newElementOfType:)] autorelease] show];
+	[ElementPicker showWithDelegate:self selector:@selector(newElementOfType:)];
 }
 - (void)addElementBelowIndexPath:(NSIndexPath*)indexPath
 {
@@ -397,7 +397,7 @@
 	
 	if(section > 0 && row == 0)
 		{
-		[sectionDict setValue:[dict objectForKey:@"label"] forKey:sectionHeaderKey];
+		[sectionDict setValue:[dict objectForKey:elementLabelKey] forKey:sectionHeaderKey];
 		[table reloadData];
 		}
 	
@@ -534,13 +534,6 @@
 		}
 }
 
-#pragma mark Temporary
-
-- (IBAction)dump
-{
-	NSLog(@"\n%@", dataArray);
-}
-
 #pragma mark - TableView DataSource
 
 -(NSString*) tableView:(UITableView*) tableView titleForHeaderInSection:(NSInteger)section
@@ -551,7 +544,7 @@
 	
 	if(!ret) ret = [dict objectForKey:sectionHeaderKey];
 	if(!ret) ret = [dict objectForKey:elementTypeKey];
-	if(!ret) ret = [dict objectForKey:@"label"];
+	if(!ret) ret = [dict objectForKey:elementLabelKey];
 	if(!ret) ret = @"Section Title Missing";
 	return ret;
 }
@@ -580,9 +573,11 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    if (cell == nil)
+		{
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+		}
     
     // Configure the cell...
 	for (UIView *view in cell.subviews) {

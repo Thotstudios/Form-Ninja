@@ -14,6 +14,7 @@
 	UITableView *table;
 	NSMutableArray * dataArray;
 	NSMutableArray * viewArray;
+	NSString * path;
 }
 
 // Interface Elments
@@ -22,15 +23,14 @@
 // Data Members
 @property (nonatomic, retain) NSMutableArray * dataArray;
 @property (nonatomic, retain) NSMutableArray * viewArray;
+@property (nonatomic, retain) NSString * path;
 
 - (void) newTemplateWithName:(NSString*)name group:(NSString*)group;
+- (void) editTemplateAtPath:(NSString*)pathArg;
 
 - (IBAction)save;
 - (IBAction)clear;
 - (IBAction)addSection;
 - (IBAction)toggleEditing;
-
-// TODO: temporary
-- (IBAction)dump;
 
 @end

@@ -9,6 +9,7 @@
 #import "SignatureAlertView.h"
 
 #import "SignatureView.h"
+#import "Constants.h"
 
 #define signWidth 400
 #define signHeight 150
@@ -25,7 +26,7 @@
 
 -(id) initWithTitle:(NSString *)title delegate:(id)delegateArg onSuccess:(SEL)successArg onFailure:(SEL)failureArg
 {
-	if(!(self = [super initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"Cancel Signing" otherButtonTitles:@"Clear Signature", @"Confirm Signature", nil])) return self;
+	if(!(self = [super initWithTitle:title message:nil delegate:nil cancelButtonTitle:CANCEL_STR otherButtonTitles:CLEAR_STR, CONFIRM_STR, nil])) return self;
 	
 	[self setCallback:delegateArg];
 	[self setSuccess:successArg];
@@ -35,7 +36,7 @@
 }
 -(id) initWithDelegate:(id)delegateArg onSuccess:(SEL)successArg onFailure:(SEL)failureArg
 {
-	return [self initWithTitle:@"Signature Required" delegate:delegateArg onSuccess:successArg onFailure:failureArg];
+	return [self initWithTitle:SIGNATURE_REQUIRED_STR delegate:delegateArg onSuccess:successArg onFailure:failureArg];
 }
 
 -(void) show
@@ -109,5 +110,10 @@
 		break;
 	}
 	[super dismissWithClickedButtonIndex:buttonIndex animated:animated];
+}
+
++(void) showWithDelegate:(id)delegate onSuccess:(SEL)success onFailure:(SEL)failure
+{
+	[[[[SignatureAlertView alloc] initWithDelegate:delegate onSuccess:success onFailure:failure] autorelease] show];
 }
 @end
