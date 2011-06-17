@@ -23,6 +23,9 @@ Chad:
 * Change hard-coded #defines in TemplateEditor
 * Belt icon next to templates (and forms?).
 * Add GPS info to signature element.
+* Network is avilable?
+* Syncing
+* Table Element obtain strings from user.
 
 Critical changes:
 

@@ -199,7 +199,6 @@
 	[self generateViewArray];
 	[self setIndexes];
 	[table reloadData]; // TODO: use something faster
-	//[table selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
 	return;
 }
 
@@ -366,7 +365,7 @@
 	[sectionData insertObject:[element dictionary] atIndex:row];
 	[[viewArray objectAtIndex:section] insertObject:element atIndex:row];
 	[self setIndexes];
-	[table reloadData]; // TODO
+	[table reloadData]; // TODO: user faster thing
 }
 -(void) selectElementAtIndexPath:(NSIndexPath*)indexPath
 {
