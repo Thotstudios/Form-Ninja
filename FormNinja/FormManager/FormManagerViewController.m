@@ -131,6 +131,7 @@
 	NSMutableDictionary * dict;
 	
 	
+	[formList removeAllObjects];
 	[formNameList removeAllObjects];
 	
 	for(NSString * file in directory)

@@ -27,6 +27,8 @@ Chad:
 * Syncing
 * Table Element obtain strings from user.
 * TextFieldAlert return key.
+* Write Form Finish function.
+* Enable Form Finish Button.
 
 Critical changes:
 
@@ -42,6 +44,8 @@ Write form editor finish function, and link to signature element as appropriate.
 It-Would-Be-Nice changes:
 Email form as pdf (if it's not a ton of work).
 
+1. Once a form is competed - nothing happens. (Maybe it should be greyed out)
+2. No toggle to enable GPS
 
 Paul:
 * Optionally write a TODO list here.

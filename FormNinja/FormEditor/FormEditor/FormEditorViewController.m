@@ -53,7 +53,7 @@
 		agent = [NSString stringWithFormat:@"%@ %@", [user firstName], [user lastName]];
 	else
 		agent = @"John Doe";
-	NSString * formName = [NSString stringWithFormat:@"%i", time(0)];
+	NSString * formName = [NSString stringWithFormat:@"%@-%i", template, time(0)];
 	
 	[dict setValue:formName forKey:formNameKey];
 	[dict setValue:agent forKey:formAgentKey];
