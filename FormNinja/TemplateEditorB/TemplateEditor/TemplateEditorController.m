@@ -273,7 +273,7 @@
 	[dict setValue:name forKey:templateNameKey];
 	[dict setValue:group forKey:templateGroupKey];
 	[dict setValue:creator forKey:templateCreatorKey];
-	[dict setValue:[NSDate date] forKey:templateCreationDateKey];
+	//[dict setValue:[NSDate date] forKey:templateCreationDateKey];
 	
 	[dataArray addObject:dict];
 	

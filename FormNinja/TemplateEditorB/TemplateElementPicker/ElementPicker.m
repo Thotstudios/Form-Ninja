@@ -108,8 +108,7 @@ static NSMutableDictionary * elementDictionary = nil;
 		i++;
 		}
 	
-	CGRect rect = self.frame;
-	rect = [self getProperFrame];
+	CGRect rect = [self getProperFrame];
 	[self setFrame:rect];
 	[[self.subviews objectAtIndex:0] setFrame:CGRectMake(0, 0, rect.size.width, rect.size.height)];
 	

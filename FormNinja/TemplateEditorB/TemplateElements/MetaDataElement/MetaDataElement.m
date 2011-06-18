@@ -40,23 +40,6 @@
     [super dealloc];
 }
 
-
-#pragma mark - Instance Methods
--(void) setDate
-{
-	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
-	
-	NSDate *date = [dictionary valueForKey:templateCreationDateKey];
-	if(!date)
-		{
-		date = [NSDate date];
-		[dictionary setValue:date forKey:templateCreationDateKey];
-		}
-	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-	[creationDateField setText:[dateFormatter stringFromDate:date]];
-
-}
-
 #pragma mark - Inherited Methods
 -(void) beginEditing
 {
@@ -74,11 +57,20 @@
 {
 	//[self reset];
 	[super setDictionary:dict];
-
+	
+	if(![dictionary valueForKey:templateCreationDateKey])
+		{
+		NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+		[dateFormatter setTimeStyle:NSDateFormatterFullStyle];
+		NSString * dateString = [dateFormatter stringFromDate:[NSDate date]];
+		[dictionary setValue:dateString forKey:templateCreationDateKey];
+		}
+	
 	[templateNameField setText:[dictionary valueForKey:templateNameKey]];
 	[templateGroupField setText:[dictionary valueForKey:templateGroupKey]];
 	[creatorNameField setText:[dictionary valueForKey:templateCreatorKey]];
-	[self setDate];
+	[creationDateField setText:[dictionary valueForKey:templateCreationDateKey]];
 	[publishedSwitch setOn:[[dictionary valueForKey:templatePublishedKey] boolValue]];
 }
 

@@ -109,7 +109,9 @@
 -(void) filterFormsByTemplate
 {
 	[filteredFormList removeAllObjects];
-	NSString * templateName = [[templateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:templateNameKey];
+	NSString * templateName = nil;
+	if([templateList count])
+		templateName = [[templateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:templateNameKey];
 	for(NSDictionary * dict in formList)
 		{
 		if(!templateName || [templateName isEqualToString:[dict objectForKey:templateNameKey]])

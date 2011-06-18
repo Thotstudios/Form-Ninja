@@ -14,6 +14,7 @@
 @synthesize requestButton;
 @synthesize confirmButton;
 @synthesize imageView;
+@synthesize gpsLabel;
 
 #pragma mark - View lifecycle
 
@@ -22,6 +23,7 @@
 	[self setRequestButton:nil];
 	[self setConfirmButton:nil];
 	[self setImageView:nil];
+	[self setGpsLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -32,6 +34,7 @@
 	[requestButton release];
 	[confirmButton release];
 	[imageView release];
+	[gpsLabel release];
     [super dealloc];
 }
 
@@ -40,14 +43,14 @@
 - (IBAction)reset
 {
 	[super reset];
-	[dictionary setValue:elementSignatureImageKey forKey:elementTypeKey];
+	[dictionary setValue:@"Signature" forKey:elementTypeKey];
 	[imageView setImage:nil];
 }
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
-	
-	NSData *imageData = [NSData dataWithData:[dictionary valueForKey:elementSignatureImageKey]];
+	NSString * imageString = [dictionary valueForKey:elementSignatureImageKey];
+	NSData *imageData = [imageString dataUsingEncoding:NSUTF8StringEncoding];
 	UIImage *image = [UIImage imageWithData:imageData];
 	[imageView setImage:image];
 }
@@ -61,10 +64,16 @@
     
     
     //Get location info if possible
-    if([[LocationManager locationManager] hasValidLocation]){
+    if([[LocationManager locationManager] hasValidLocation])
+		{
         NSString *coordinates = [NSString stringWithFormat:@"%f,%f", [LocationManager locationManager].latitude, [LocationManager locationManager].longitude];
         [dictionary setValue:coordinates forKey:elementCoordinatesKey]; //Set dict value
     }
+	else
+		{
+		[dictionary setValue:@"N/A" forKey:elementCoordinatesKey];
+		}
+	[gpsLabel setText:[NSString stringWithFormat:@"GPS: %@", [dictionary objectForKey:elementCoordinatesKey]]];
 }
 -(void) failure
 {
