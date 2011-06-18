@@ -81,7 +81,7 @@
 }
 - (IBAction)abortFormPressed
 {
-	UIActionSheet * sheet = [[[UIActionSheet alloc] initWithTitle:@"Really abondon this form?" delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_BUTTON_STR otherButtonTitles:nil] autorelease];
+	UIActionSheet * sheet = [[[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_FORM_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_BUTTON_STR otherButtonTitles:nil] autorelease];
 	[sheet setTag:1];
 	[sheet showInView:self.view];
 }

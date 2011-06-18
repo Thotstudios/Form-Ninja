@@ -132,6 +132,7 @@
 
 #define CONFIRM_DELETE_TEMPLATE_STR		@"Are you sure you want to delete this template?" /* TODO: localize */
 #define CONFIRM_DELETE_SECTION_STR		@"Are you sure you want to delete this section?" /* TODO: localize */
+#define CONFIRM_DELETE_FORM_STR			@"Are you sure you want to abandon this form?" /* TODO: localize */
 #define CONFIRM_DELETE_BUTTON_STR		@"Yes, delete it" /* TODO: localize */
 #define REQUEST_NEW_TEMPLATE_NAME_STR	@"New Template Name"
 #define SIGNATURE_REQUIRED_STR			@"Signature Required"
