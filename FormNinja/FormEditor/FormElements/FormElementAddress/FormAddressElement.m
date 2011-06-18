@@ -141,6 +141,11 @@
         [self.zipCodeField setText:[self.dictionary valueForKey:elementAddressZipKey]];
     }
     stringValue=nil;
+    
+    stringValue=[self.dictionary valueForKey:@"finished"];
+    if ([[NSString stringWithFormat:@"yes"] isEqualToString:stringValue]) {
+        //self.zipCodeField.edita
+    }
 	
 }
 
@@ -176,6 +181,11 @@
 	}
 	if(key)
 		[self.dictionary setValue:[textField text] forKey:key];
+}
+
+-(void)setFinished
+{
+    [self.dictionary setValue:@"yes" forKey:@"finished"];
 }
 
 @end
