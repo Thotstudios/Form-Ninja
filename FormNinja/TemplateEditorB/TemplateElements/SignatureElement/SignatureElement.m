@@ -15,6 +15,7 @@
 @synthesize confirmButton;
 @synthesize imageView;
 @synthesize gpsLabel;
+@synthesize gpsSwitch;
 
 #pragma mark - View lifecycle
 
@@ -24,6 +25,7 @@
 	[self setConfirmButton:nil];
 	[self setImageView:nil];
 	[self setGpsLabel:nil];
+    [self setGpsSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -35,6 +37,7 @@
 	[confirmButton release];
 	[imageView release];
 	[gpsLabel release];
+    [gpsSwitch release];
     [super dealloc];
 }
 
@@ -86,6 +89,9 @@
 
 - (IBAction)confirmSignature
 {
+}
+
+- (IBAction)toggleAllowGps {
 }
 @end
 

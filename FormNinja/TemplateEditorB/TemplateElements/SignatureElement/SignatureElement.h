@@ -16,12 +16,15 @@
 	UIButton *confirmButton;
 	UIImageView *imageView;
 	UILabel *gpsLabel;
+	UISwitch *gpsSwitch;
 }
 @property (nonatomic, retain) IBOutlet UIButton *requestButton;
 @property (nonatomic, retain) IBOutlet UIButton *confirmButton;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UILabel *gpsLabel;
+@property (nonatomic, retain) IBOutlet UISwitch *gpsSwitch;
 - (IBAction)requestSignature;
 - (IBAction)confirmSignature;
+- (IBAction)toggleAllowGps;
 
 @end
