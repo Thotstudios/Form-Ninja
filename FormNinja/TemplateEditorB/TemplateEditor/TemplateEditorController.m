@@ -385,7 +385,7 @@
 {
 	if(fromIndex == 0 || toIndex == 0) // cannot move metadata
 		return;
-	if(fromIndex > [dataArray count] || toIndex > [dataArray count]) // OOB
+	if(fromIndex > [dataArray count] || toIndex >= [dataArray count]) // OOB
 		return;
 	
 	
@@ -472,13 +472,17 @@
 	NSMutableDictionary * dict = [element dictionary];
 	NSUInteger section = [[dict objectForKey:elementSectionIndexKey] integerValue];
 	NSUInteger row = [[dict objectForKey:elementRowIndexKey] integerValue];
-	*/
+	 */
 	
 	NSUInteger section = [indexPath section];
 	NSUInteger row = [indexPath row];
 	NSMutableDictionary * sectionDict = [dataArray objectAtIndex:section];
 	NSMutableArray * sectionData = [sectionDict valueForKey:sectionDataKey];
-	NSMutableDictionary * dict = [sectionData objectAtIndex:row];
+	
+	NSMutableDictionary * dict;
+	if(row >= [sectionData count])
+		dict = [sectionData objectAtIndex:row];
+	else return;
 	
 	if(section > 0 && row == 0)
 		{

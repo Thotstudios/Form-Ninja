@@ -29,6 +29,8 @@ Chad:
 * TextFieldAlert return key.
 * Write Form Finish function.
 * Enable Form Finish Button.
+* Some part of the signature view is numb to tap downs, but still draws.
+* CLean up Form Manager form filtering.
 
 Critical changes:
 

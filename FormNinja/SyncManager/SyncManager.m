@@ -117,7 +117,7 @@ static NSMutableDictionary *syncList;
 	NSString *fileName;
 	fileName = [NSString stringWithFormat:@"%@-%@", group, templateName];
 
-    [syncList setObject:templateData forKey:fileName];
+    [syncList setValue:templateData forKey:fileName];
 }
 
 

@@ -56,8 +56,6 @@
 		case 1: [data addObject:@"Obtain string"];				break;
 		case 2: [data addObject:@"from user"];					break;
 		case 3: [data addObject:@"using TextFieldAlertView"];	break;
-		case 4: [data addObject:@"TODO:"];						break;
-		case 5: [data addObject:@"Write TextFieldAlertView"];	break;
 		
 		default:
 		[data addObject:[NSString stringWithFormat:@"line %i", [data count]]];
