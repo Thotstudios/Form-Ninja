@@ -49,8 +49,7 @@
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
-	NSString * imageString = [dictionary valueForKey:elementSignatureImageKey];
-	NSData *imageData = [imageString dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *imageData = [dictionary valueForKey:elementSignatureImageKey];
 	UIImage *image = [UIImage imageWithData:imageData];
 	[imageView setImage:image];
 }
