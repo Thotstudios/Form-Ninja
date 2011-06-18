@@ -63,6 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.clipsToBounds=true;
 	// TODO: fix magic strings:
     UIImage *logoutRedImage=[UIImage imageNamed:@"LogoutRed.png"];
     UIImage *formsRedImage=[UIImage imageNamed:@"formsRed.png"];

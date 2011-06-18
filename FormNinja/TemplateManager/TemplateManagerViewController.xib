@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
-		<string key="IBDocument.SystemVersion">10J869</string>
+		<string key="IBDocument.SystemVersion">10J567</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.HIToolboxVersion">462.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">301</string>
@@ -47,7 +47,7 @@
 					<object class="IBUITableView" id="613129501">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">306</int>
-						<string key="NSFrame">{{0, 112}, {768, 265}}</string>
+						<string key="NSFrame">{{0, 104}, {768, 281}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="623961694"/>
@@ -72,6 +72,7 @@
 						<string key="NSFrame">{{0, 385}, {768, 575}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="622027297"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUITag">2</int>
@@ -92,7 +93,7 @@
 							<object class="IBUIButton" id="1026946663">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">300</int>
-								<string key="NSFrame">{{20, 20}, {124, 64}}</string>
+								<string key="NSFrame">{{0, 53}, {154, 51}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1069956820"/>
@@ -105,7 +106,6 @@
 									<double key="NSSize">15</double>
 									<int key="NSfFlags">16</int>
 								</object>
-								<int key="IBUIButtonType">1</int>
 								<string key="IBUINormalTitle">Delete</string>
 								<reference key="IBUIHighlightedTitleColor" ref="622027297"/>
 								<object class="NSColor" key="IBUINormalTitleColor" id="687541570">
@@ -116,11 +116,15 @@
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC41AA</bytes>
 								</object>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">deleteRed.png</string>
+								</object>
 							</object>
 							<object class="IBUIButton" id="1069956820">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">300</int>
-								<string key="NSFrame">{{152, 20}, {132, 64}}</string>
+								<string key="NSFrame">{{154, 53}, {154, 51}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1001163567"/>
@@ -130,7 +134,6 @@
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<reference key="IBUIFont" ref="1016713546"/>
-								<int key="IBUIButtonType">1</int>
 								<string key="IBUINormalTitle">Copy</string>
 								<reference key="IBUIHighlightedTitleColor" ref="622027297"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
@@ -138,11 +141,15 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="168668303"/>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">CopyRed.png</string>
+								</object>
 							</object>
 							<object class="IBUIButton" id="1001163567">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">300</int>
-								<string key="NSFrame">{{292, 20}, {132, 64}}</string>
+								<string key="NSFrame">{{308, 53}, {154, 51}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="784370998"/>
@@ -151,11 +158,14 @@
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<reference key="IBUIFont" ref="1016713546"/>
-								<int key="IBUIButtonType">1</int>
 								<string key="IBUINormalTitle">Edit</string>
 								<reference key="IBUIHighlightedTitleColor" ref="622027297"/>
 								<reference key="IBUINormalTitleColor" ref="687541570"/>
 								<reference key="IBUINormalTitleShadowColor" ref="168668303"/>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">editRed.png</string>
+								</object>
 							</object>
 							<object class="IBUIButton" id="784370998">
 								<reference key="NSNextResponder" ref="634131786"/>
@@ -417,10 +427,10 @@
 						<reference key="object" ref="634131786"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1069956820"/>
-							<reference ref="1001163567"/>
 							<reference ref="784370998"/>
 							<reference ref="1026946663"/>
+							<reference ref="1001163567"/>
+							<reference ref="1069956820"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 						<string key="objectName">ButtonContainer View</string>
@@ -429,6 +439,7 @@
 						<int key="objectID">5</int>
 						<reference key="object" ref="1026946663"/>
 						<reference key="parent" ref="634131786"/>
+						<string key="objectName">Button - Delete</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">6</int>
@@ -506,13 +517,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addSection</string>
 							<string>clear</string>
-							<string>dump</string>
 							<string>save</string>
 							<string>toggleEditing</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -525,7 +534,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addSection</string>
 							<string>clear</string>
-							<string>dump</string>
 							<string>save</string>
 							<string>toggleEditing</string>
 						</object>
@@ -537,10 +545,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">clear</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">dump</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -700,6 +704,21 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>CopyRed.png</string>
+				<string>deleteRed.png</string>
+				<string>editRed.png</string>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{154, 51}</string>
+				<string>{154, 51}</string>
+				<string>{154, 51}</string>
+			</object>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">301</string>
 	</data>
 </archive>

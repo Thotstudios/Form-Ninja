@@ -89,6 +89,16 @@
                                   initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
     self.navigationItem.rightBarButtonItem = menuButton;
     [menuButton release];
+    
+    //Tab appearances
+    //UIImage *copyBlackImage=[UIImage imageNamed:@"CopyBlack.png"];
+    //[copyTemplateButton setImage:copyBlackImage forState:UIControlStateHighlighted];
+    UIImage *deleteBlackImage=[UIImage imageNamed:@"deleteBlack.png"];
+    [deleteTemplateButton setImage:deleteBlackImage forState:UIControlStateHighlighted];
+    UIImage *editBlackImage=[UIImage imageNamed:@"editBlack.png"];
+    [editTemplateButton setImage:editBlackImage forState:UIControlStateHighlighted];
+
+    
 }
 -(void) viewWillAppear:(BOOL)animated
 {

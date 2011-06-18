@@ -71,6 +71,10 @@
                                   initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
     self.navigationItem.rightBarButtonItem = menuButton;
     [menuButton release];
+    
+    
+    UIImage *createBlackImage=[UIImage imageNamed:@"startNewFormBlack.png"];
+    [createFormButton setImage:createBlackImage forState:UIControlStateHighlighted];
 }
 
 - (void) viewWillAppear:(BOOL)animated
