@@ -178,7 +178,7 @@
     //clear fields
     self.usernameField.text = nil;
     self.passwordField.text = nil;
-    [self performSelector:@selector(gotoMenu) withObject:nil afterDelay:3];
+    [self performSelector:@selector(gotoMenu) withObject:nil afterDelay:0];
 }
 
 

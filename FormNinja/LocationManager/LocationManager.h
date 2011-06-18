@@ -28,6 +28,7 @@
 
 - (void) startUpdates;
 - (void) stopUpdates;
+- (NSString *) getAccuracy;
 - (BOOL) locationServicesEnabled;
 - (BOOL) hasValidLocation;
 

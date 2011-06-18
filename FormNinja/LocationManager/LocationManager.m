@@ -126,6 +126,23 @@ static BOOL initialized = NO; //Indicates location manager initialization
 }
 
 
+- (NSString *) getAccuracy{
+    if (locationManager)
+	{
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [formatter setMaximumFractionDigits:2];
+        
+        NSNumber *number = [NSNumber numberWithDouble: locationManager.location.horizontalAccuracy];
+        NSString *accuracy = [formatter stringFromNumber:number];
+        [formatter release];
+        
+		return [NSString stringWithFormat:@"%@ m", accuracy];
+	}
+    
+    else return @"N/A";
+}
+
 
 #pragma mark - CLLocationManagerDelegate Methods
 

@@ -95,6 +95,8 @@
 		{
         NSString *coordinates = [NSString stringWithFormat:@"%f,%f", [LocationManager locationManager].latitude, [LocationManager locationManager].longitude];
         [dictionary setValue:coordinates forKey:elementCoordinatesKey]; //Set dict value
+        [dictionary setValue:[[LocationManager locationManager] getAccuracy] forKey:elementCoordinatesAccuracyKey];
+            NSLog(@"%@", [[LocationManager locationManager] getAccuracy]);
 		}
 	else
 		{
