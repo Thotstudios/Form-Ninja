@@ -16,5 +16,7 @@
 	<string>SingleLineElement</string>
 	<key>Table</key>
 	<string>TableElement</string>
+	<key>GeoSignature</key>
+	<string>GeoSignatureElement</string>
 </dict>
 </plist>

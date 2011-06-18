@@ -97,9 +97,11 @@
 #define elementAddressZipKey			@"zip code"
 #define elementFormAddressZipKey		@"form zip code"
 
-#define elementTableDataKey			@"table data"
-#define elementSignatureImageKey	@"signature image"
-#define elementCoordinatesKey		@"coordinates"
+#define elementTableDataKey				@"table data"
+#define elementSignatureImageKey		@"signature image"
+#define elementCoordinatesEnabledKey	@"GPS Enabled"
+#define elementCoordinatesKey			@"coordinates"
+#define elementCoordinatesAccuracyKey	@"GPS Accuracy"
 
 
 
@@ -128,6 +130,7 @@
 #define CONFIRM_DELETE_BUTTON_STR		@"Yes, delete it" /* TODO: localize */
 #define REQUEST_NEW_TEMPLATE_NAME_STR	@"New Template Name"
 #define SIGNATURE_REQUIRED_STR			@"Signature Required"
+#define TABLE_NEW_ENTRY_STR				@"New Entry"
 
 
 //Popover menu constants

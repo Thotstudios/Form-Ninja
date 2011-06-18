@@ -8,14 +8,11 @@
 
 #import "SignatureElement.h"
 #import "SignatureAlertView.h"
-#import "LocationManager.h"
 
 @implementation SignatureElement
 @synthesize requestButton;
 @synthesize confirmButton;
 @synthesize imageView;
-@synthesize gpsLabel;
-@synthesize gpsSwitch;
 
 #pragma mark - View lifecycle
 
@@ -24,8 +21,6 @@
 	[self setRequestButton:nil];
 	[self setConfirmButton:nil];
 	[self setImageView:nil];
-	[self setGpsLabel:nil];
-    [self setGpsSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -36,8 +31,6 @@
 	[requestButton release];
 	[confirmButton release];
 	[imageView release];
-	[gpsLabel release];
-    [gpsSwitch release];
     [super dealloc];
 }
 
@@ -63,19 +56,7 @@
 
 	NSData * imageData = UIImagePNGRepresentation(image);
 	[dictionary setValue:imageData forKey:elementSignatureImageKey];
-    
-    
-    //Get location info if possible
-    if([[LocationManager locationManager] hasValidLocation])
-		{
-        NSString *coordinates = [NSString stringWithFormat:@"%f,%f", [LocationManager locationManager].latitude, [LocationManager locationManager].longitude];
-        [dictionary setValue:coordinates forKey:elementCoordinatesKey]; //Set dict value
-    }
-	else
-		{
-		[dictionary setValue:@"N/A" forKey:elementCoordinatesKey];
-		}
-	[gpsLabel setText:[NSString stringWithFormat:@"GPS: %@", [dictionary objectForKey:elementCoordinatesKey]]];
+
 }
 -(void) failure
 {
@@ -91,8 +72,6 @@
 {
 }
 
-- (IBAction)toggleAllowGps {
-}
 @end
 
 

@@ -7,14 +7,13 @@
 //
 
 #import "TableElement.h"
-
+#import "TextFieldAlert.h"
 
 @implementation TableElement
 @synthesize table;
 //@synthesize data;
 
 #pragma mark - View lifecycle
-
 
 - (void)viewDidUnload
 {
@@ -36,6 +35,7 @@
 {
 	[super reset];
 	[dictionary setValue:@"Table" forKey:elementTypeKey];
+	[table setEditing:YES animated:YES];
 	[table reloadData];
 }
 -(void)	setDictionary:(NSMutableDictionary *)arg
@@ -44,25 +44,20 @@
 	[table reloadData];
 }
 
+-(void) addTableItem:(NSString*)item
+{
+	NSMutableArray* data = [dictionary valueForKey:elementTableDataKey];
+	if(!data)
+		{
+		data = [NSMutableArray array];
+		[dictionary setValue:data forKey:elementTableDataKey];
+		}
+	[data addObject:item];
+	[table reloadData];
+}
 - (IBAction)addTableItem
 {
-	// TODO
-	// TEMP:
-	NSMutableArray * data = [dictionary valueForKey:elementTableDataKey];
-	if(!data) data = [NSMutableArray array];
-	switch([data count])
-	{
-		case 0: [data addObject:@"TODO:"];						break;
-		case 1: [data addObject:@"Obtain string"];				break;
-		case 2: [data addObject:@"from user"];					break;
-		case 3: [data addObject:@"using TextFieldAlertView"];	break;
-		
-		default:
-		[data addObject:[NSString stringWithFormat:@"line %i", [data count]]];
-		break;
-	}
-	[dictionary setValue:data forKey:elementTableDataKey];
-	[table reloadData];
+	[TextFieldAlert showWithTitle:TABLE_NEW_ENTRY_STR delegate:self selector:@selector(addTableItem:)];
 }
 
 - (IBAction)toggleEditing
@@ -96,7 +91,7 @@
 	if([indexPathArg row] < [data count])
 	[[cell textLabel] setText:[data objectAtIndex:[indexPathArg row]]];
 	else
-		[[cell textLabel] setText:@"New Line"];
+		[[cell textLabel] setText:TABLE_NEW_ENTRY_STR];
 	
 	
     return cell;
