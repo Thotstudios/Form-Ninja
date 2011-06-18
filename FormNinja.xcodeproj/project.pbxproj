@@ -46,8 +46,6 @@
 		F72187901390EFDC000BA9DF /* ElementPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F721876A1390EFDC000BA9DF /* ElementPicker.m */; };
 		F72187911390EFDC000BA9DF /* AddressElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F721876E1390EFDC000BA9DF /* AddressElement.m */; };
 		F72187921390EFDC000BA9DF /* AddressElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F721876F1390EFDC000BA9DF /* AddressElement.xib */; };
-		F72187931390EFDC000BA9DF /* CreditCardElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187721390EFDC000BA9DF /* CreditCardElement.m */; };
-		F72187941390EFDC000BA9DF /* CreditCardElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187731390EFDC000BA9DF /* CreditCardElement.xib */; };
 		F72187951390EFDC000BA9DF /* MetaDataElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187761390EFDC000BA9DF /* MetaDataElement.m */; };
 		F72187961390EFDC000BA9DF /* MetaDataElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187771390EFDC000BA9DF /* MetaDataElement.xib */; };
 		F72187971390EFDC000BA9DF /* MultiLineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F721877A1390EFDC000BA9DF /* MultiLineElement.m */; };
@@ -195,9 +193,6 @@
 		F721876D1390EFDC000BA9DF /* AddressElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressElement.h; sourceTree = "<group>"; };
 		F721876E1390EFDC000BA9DF /* AddressElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressElement.m; sourceTree = "<group>"; };
 		F721876F1390EFDC000BA9DF /* AddressElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressElement.xib; sourceTree = "<group>"; };
-		F72187711390EFDC000BA9DF /* CreditCardElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardElement.h; sourceTree = "<group>"; };
-		F72187721390EFDC000BA9DF /* CreditCardElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardElement.m; sourceTree = "<group>"; };
-		F72187731390EFDC000BA9DF /* CreditCardElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditCardElement.xib; sourceTree = "<group>"; };
 		F72187751390EFDC000BA9DF /* MetaDataElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataElement.h; sourceTree = "<group>"; };
 		F72187761390EFDC000BA9DF /* MetaDataElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaDataElement.m; sourceTree = "<group>"; };
 		F72187771390EFDC000BA9DF /* MetaDataElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MetaDataElement.xib; sourceTree = "<group>"; };
@@ -529,7 +524,6 @@
 				F72187801390EFDC000BA9DF /* SignatureElement */,
 				F792BCD913AD3AF200116F72 /* GeoSignatureElement */,
 				F7D004E81392317F00DD4D2B /* RepeatingElement */,
-				F72187701390EFDC000BA9DF /* CreditCardElement */,
 			);
 			name = TemplateElements;
 			path = TemplateEditorB/TemplateElements;
@@ -543,16 +537,6 @@
 				F721876F1390EFDC000BA9DF /* AddressElement.xib */,
 			);
 			path = AddressElement;
-			sourceTree = "<group>";
-		};
-		F72187701390EFDC000BA9DF /* CreditCardElement */ = {
-			isa = PBXGroup;
-			children = (
-				F72187711390EFDC000BA9DF /* CreditCardElement.h */,
-				F72187721390EFDC000BA9DF /* CreditCardElement.m */,
-				F72187731390EFDC000BA9DF /* CreditCardElement.xib */,
-			);
-			path = CreditCardElement;
 			sourceTree = "<group>";
 		};
 		F72187741390EFDC000BA9DF /* MetaDataElement */ = {
@@ -983,7 +967,6 @@
 				F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */,
 				F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */,
 				F72187921390EFDC000BA9DF /* AddressElement.xib in Resources */,
-				F72187941390EFDC000BA9DF /* CreditCardElement.xib in Resources */,
 				F72187961390EFDC000BA9DF /* MetaDataElement.xib in Resources */,
 				F72187981390EFDC000BA9DF /* MultiLineElement.xib in Resources */,
 				F721879A1390EFDC000BA9DF /* TemplateElement.xib in Resources */,
@@ -1062,7 +1045,6 @@
 				F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */,
 				F72187901390EFDC000BA9DF /* ElementPicker.m in Sources */,
 				F72187911390EFDC000BA9DF /* AddressElement.m in Sources */,
-				F72187931390EFDC000BA9DF /* CreditCardElement.m in Sources */,
 				F72187951390EFDC000BA9DF /* MetaDataElement.m in Sources */,
 				F72187971390EFDC000BA9DF /* MultiLineElement.m in Sources */,
 				F72187991390EFDC000BA9DF /* TemplateElement.m in Sources */,

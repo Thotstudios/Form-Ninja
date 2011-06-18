@@ -46,6 +46,7 @@
 	[textField setTextAlignment:UITextAlignmentCenter];
 	[self addSubview:textField];
 	[textField setDelegate:self];
+	[textField setAutocapitalizationType:UITextAutocapitalizationTypeWords];
 	[textField becomeFirstResponder];
 	[super show];
 }
@@ -118,6 +119,14 @@
 	[[[[TextFieldAlert alloc] initWithTitle:title
 								   delegate:delegateArg
 								   selector:selectorArg] autorelease] show];
+}
+
+#pragma mark - TextField Delegate
+-(BOOL) textFieldShouldReturn:(UITextField *)textFieldArg
+{
+	[textFieldArg resignFirstResponder];
+	[self dismissWithClickedButtonIndex:1 animated:YES];
+	return YES;
 }
 
 @end

@@ -112,6 +112,11 @@
 
 #pragma mark -Text View
 
+-(BOOL) textViewShouldBeginEditing:(UITextView *)textView
+{
+	return allowEditing;
+}
+
 -(void) selectElementAtIndexPath:(NSIndexPath*)indexPath {}
 -(void) textViewDidBeginEditing:(UITextView *)textView
 {
