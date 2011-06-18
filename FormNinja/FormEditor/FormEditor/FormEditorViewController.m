@@ -113,6 +113,9 @@
 {
 	[self setPath:pathArg];
 	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:path]];
+	NSMutableDictionary * dict = [dataArray objectAtIndex:0];
+	if([[dict valueForKey:formCompletedKey] boolValue])
+		[self setAllowEditing:NO];
 }
 
 # pragma mark - Member Functions
