@@ -72,8 +72,8 @@
 		F78C994013A0741C00494C12 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C993F13A0741C00494C12 /* FormNinjaLoginViewController.m */; };
 		F792BCDE13AD3B2900116F72 /* GeoSignatureElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F792BCDC13AD3B2900116F72 /* GeoSignatureElement.m */; };
 		F792BCDF13AD3B2900116F72 /* GeoSignatureElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F792BCDD13AD3B2900116F72 /* GeoSignatureElement.xib */; };
-		F792BCE413AD3E6300116F72 /* FormGeoSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = F792BCE213AD3E6300116F72 /* FormGeoSignature.m */; };
-		F792BCE513AD3E6300116F72 /* FormGeoSignature.xib in Resources */ = {isa = PBXBuildFile; fileRef = F792BCE313AD3E6300116F72 /* FormGeoSignature.xib */; };
+		F792BCE413AD3E6300116F72 /* FormGeoSignatureElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F792BCE213AD3E6300116F72 /* FormGeoSignatureElement.m */; };
+		F792BCE513AD3E6300116F72 /* FormGeoSignatureElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F792BCE313AD3E6300116F72 /* FormGeoSignatureElement.xib */; };
 		F7BC423713886CF300911EB5 /* FormManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC423513886CF300911EB5 /* FormManagerViewController.m */; };
 		F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC423613886CF300911EB5 /* FormManagerViewController.xib */; };
 		F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */; };
@@ -237,9 +237,9 @@
 		F792BCDB13AD3B2900116F72 /* GeoSignatureElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeoSignatureElement.h; path = FormNinja/TemplateEditorB/TemplateElements/GeoSignatureElement/GeoSignatureElement.h; sourceTree = SOURCE_ROOT; };
 		F792BCDC13AD3B2900116F72 /* GeoSignatureElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeoSignatureElement.m; path = FormNinja/TemplateEditorB/TemplateElements/GeoSignatureElement/GeoSignatureElement.m; sourceTree = SOURCE_ROOT; };
 		F792BCDD13AD3B2900116F72 /* GeoSignatureElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GeoSignatureElement.xib; path = FormNinja/TemplateEditorB/TemplateElements/GeoSignatureElement/GeoSignatureElement.xib; sourceTree = SOURCE_ROOT; };
-		F792BCE113AD3E6300116F72 /* FormGeoSignature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormGeoSignature.h; path = FormElementGeoSignature/FormGeoSignature.h; sourceTree = "<group>"; };
-		F792BCE213AD3E6300116F72 /* FormGeoSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormGeoSignature.m; path = FormElementGeoSignature/FormGeoSignature.m; sourceTree = "<group>"; };
-		F792BCE313AD3E6300116F72 /* FormGeoSignature.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormGeoSignature.xib; path = FormElementGeoSignature/FormGeoSignature.xib; sourceTree = "<group>"; };
+		F792BCE113AD3E6300116F72 /* FormGeoSignatureElement.h */ = {isa = PBXFileReference; fileEncoding = 4; name = FormGeoSignatureElement.h; path = FormElementGeoSignature/FormGeoSignatureElement.h; sourceTree = "<group>"; };
+		F792BCE213AD3E6300116F72 /* FormGeoSignatureElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormGeoSignatureElement.m; path = FormElementGeoSignature/FormGeoSignatureElement.m; sourceTree = "<group>"; };
+		F792BCE313AD3E6300116F72 /* FormGeoSignatureElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormGeoSignatureElement.xib; path = FormElementGeoSignature/FormGeoSignatureElement.xib; sourceTree = "<group>"; };
 		F7BC423413886CF300911EB5 /* FormManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormManagerViewController.h; path = FormManager/FormManagerViewController.h; sourceTree = "<group>"; };
 		F7BC423513886CF300911EB5 /* FormManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormManagerViewController.m; path = FormManager/FormManagerViewController.m; sourceTree = "<group>"; };
 		F7BC423613886CF300911EB5 /* FormManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormManagerViewController.xib; path = FormManager/FormManagerViewController.xib; sourceTree = "<group>"; };
@@ -704,9 +704,9 @@
 		F792BCE013AD3E3900116F72 /* FormElementGeoSignature */ = {
 			isa = PBXGroup;
 			children = (
-				F792BCE113AD3E6300116F72 /* FormGeoSignature.h */,
-				F792BCE213AD3E6300116F72 /* FormGeoSignature.m */,
-				F792BCE313AD3E6300116F72 /* FormGeoSignature.xib */,
+				F792BCE113AD3E6300116F72 /* FormGeoSignatureElement.h */,
+				F792BCE213AD3E6300116F72 /* FormGeoSignatureElement.m */,
+				F792BCE313AD3E6300116F72 /* FormGeoSignatureElement.xib */,
 			);
 			name = FormElementGeoSignature;
 			sourceTree = "<group>";
@@ -1027,7 +1027,7 @@
 				4246219C13ACF2550042575F /* startNewFormBlack.png in Resources */,
 				4246219D13ACF2550042575F /* startNewFormRed.png in Resources */,
 				F792BCDF13AD3B2900116F72 /* GeoSignatureElement.xib in Resources */,
-				F792BCE513AD3E6300116F72 /* FormGeoSignature.xib in Resources */,
+				F792BCE513AD3E6300116F72 /* FormGeoSignatureElement.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1090,7 +1090,7 @@
 				D9E3248213A6C801009724D8 /* MenuPopOver.m in Sources */,
 				D9E3248313A6C801009724D8 /* PopOverManager.m in Sources */,
 				F792BCDE13AD3B2900116F72 /* GeoSignatureElement.m in Sources */,
-				F792BCE413AD3E6300116F72 /* FormGeoSignature.m in Sources */,
+				F792BCE413AD3E6300116F72 /* FormGeoSignatureElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
