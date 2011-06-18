@@ -188,20 +188,25 @@
 	[self.navigationController pushViewController:formEditorViewController animated:YES];
 }
 
-- (IBAction)resumeSelectedForm
+-(void) loadSelectedForm
 {
 	NSUInteger row = [[formTable indexPathForSelectedRow] row];
 	NSDictionary * dict = [filteredFormList objectAtIndex:row];
 	NSString * path = [dict objectForKey:filePathKey];
 	
-	[formEditorViewController editFormAtPath:path];
+	[formEditorViewController loadFormAtPath:path];
 	[self.navigationController pushViewController:formEditorViewController animated:YES];
+}
+- (IBAction)editSelectedForm
+{
+	[formEditorViewController setAllowEditing:YES];
+	[self loadSelectedForm];
 }
 
 - (IBAction)viewSelectedForm
 {
 	[formEditorViewController setAllowEditing:NO];
-	[self resumeSelectedForm];
+	[self loadSelectedForm];
 }
 
 //Presents popover menu

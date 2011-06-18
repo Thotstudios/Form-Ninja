@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "FormGeoSignature.h"
+#import "FormGeoSignatureElement.h"
 
 
-@implementation FormGeoSignature
+@implementation FormGeoSignatureElement
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -35,6 +35,34 @@
 
 #pragma mark - Methods
 
+-(BOOL) isValid
+{
+	BOOL ret = [super isValid];
+	NSUInteger minLength = [[dictionary valueForKey:elementMinLengthKey] integerValue];
+	NSUInteger maxLength = [[dictionary valueForKey:elementMaxLengthKey] integerValue];
+	NSUInteger curLength = [[dictionary valueForKey:elementValueKey] length];
+	if(ret && minLength > 0 && curLength < minLength)
+		{
+		ret = NO;
+		[valueField setTextColor:[UIColor redColor]];
+		[minimumLengthField setTextColor:[UIColor redColor]];
+		}
+	
+	if(ret && maxLength > 0 && curLength > maxLength)
+		{
+		ret = NO;
+		[valueField setTextColor:[UIColor redColor]];
+		[maximumLengthField setTextColor:[UIColor redColor]];
+		}
+	if(ret)
+		{
+		[valueField setTextColor:[UIColor blackColor]];
+		[minimumLengthField setTextColor:[UIColor blackColor]];
+		[maximumLengthField setTextColor:[UIColor blackColor]];
+		}
+	return ret;
+}
+
 - (IBAction)reset
 {
 	[super reset];
@@ -119,6 +147,7 @@
 	}
 	if(key)
 		[dictionary setValue:[textField text] forKey:key];
+	[self isValid];
 }
 
 @end

@@ -10,7 +10,7 @@
 
 #import "GeoSignatureElement.h"
 
-@interface FormGeoSignature : GeoSignatureElement {
+@interface FormGeoSignatureElement : GeoSignatureElement {
     
 }
 

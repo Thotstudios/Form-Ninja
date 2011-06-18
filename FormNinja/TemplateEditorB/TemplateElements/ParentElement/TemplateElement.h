@@ -14,12 +14,14 @@
 {
 	id delegate;
 	NSMutableDictionary * dictionary;
+	BOOL allowEditing;
 	UITextField *labelField;
 	UISegmentedControl *labelAlignmentControl;
 }
 
 @property (nonatomic, retain) id delegate;
 @property (nonatomic, retain) NSMutableDictionary * dictionary;
+@property BOOL allowEditing;
 @property (nonatomic, retain) IBOutlet UITextField *labelField;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *labelAlignmentControl;
 

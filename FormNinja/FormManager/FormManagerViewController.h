@@ -41,7 +41,7 @@
 @property (nonatomic, retain) IBOutlet FormEditorViewController *formEditorViewController;
 
 - (IBAction)newFormWithSelectedTemplate;
-- (IBAction)resumeSelectedForm;
+- (IBAction)editSelectedForm;
 - (IBAction)viewSelectedForm;
 
 @end

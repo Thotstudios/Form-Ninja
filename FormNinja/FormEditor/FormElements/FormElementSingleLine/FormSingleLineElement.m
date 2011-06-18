@@ -66,27 +66,21 @@
 	[super setDictionary:arg];
     
 	[self.labelLabel setText:[self.dictionary objectForKey:elementLabelKey]];
-    NSNumber *index=[self.dictionary objectForKey:@"label alignment"];
-    if ([index intValue]==0) {
-        self.labelLabel.textAlignment=UITextAlignmentLeft;
-    }
-    else if([index intValue]==1)
-    {
-        self.labelLabel.textAlignment=UITextAlignmentCenter; 
-    }
-    else if([index intValue]==2)
-    {
-        self.labelLabel.textAlignment=UITextAlignmentRight;
-    }
-    
-    NSString *stringValue=[self.dictionary valueForKey:elementFormValueKey];
-    if (stringValue) {
-        [self.valueField setText:stringValue];
-    }
-    else
-    {
-        [self.valueField setText:[self.dictionary valueForKey:elementValueKey]];
-    }
+	switch ([[dictionary valueForKey:@"label alignment"] intValue])
+	{
+		case 0: default:
+		[labelLabel setTextAlignment:UITextAlignmentLeft];
+		break;
+		case 1:
+		[labelLabel setTextAlignment:UITextAlignmentCenter];
+		break;
+		case 2:
+		[labelLabel setTextAlignment:UITextAlignmentRight];
+		break;
+	}
+	NSString * valueString = [dictionary valueForKey:elementFormValueKey];
+	if(!valueString) valueString = [dictionary valueForKey:elementValueKey];
+	[valueField setText:valueString];
     
 	[self.minLength setText:[self.dictionary valueForKey:elementMinLengthKey]];
 	[self.maxLength setText:[self.dictionary valueForKey:elementMaxLengthKey]];
@@ -94,28 +88,8 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-	id key = nil;
-	switch ([textField tag])
-	{
-		// TODO: fix these:
-		case 1:
-            key = @"filled label"; // wait, what?
-            break;
-            
-		case 2:
-            key = @"filled minimum length"; // these aren't available
-            break;
-            
-		case 3:
-            key = @"filled maximum length"; // on forms.
-            break;
-            
-		case 4:
-            key = elementFormValueKey;
-            break;
-	}
-	if(key)
-		[self.dictionary setValue:[textField text] forKey:key];
+	if([textField tag] == 4)
+		[self.dictionary setValue:[textField text] forKey:elementFormValueKey];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -124,7 +98,7 @@
     
     //TODO:  Validate length.
     
-    return NO;
+    return YES;
 }
 
 @end
