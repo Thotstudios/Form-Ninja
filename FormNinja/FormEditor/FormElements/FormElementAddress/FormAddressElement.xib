@@ -210,7 +210,6 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUITag">5</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUIText">AL</string>
 						<int key="IBUIBorderStyle">3</int>
