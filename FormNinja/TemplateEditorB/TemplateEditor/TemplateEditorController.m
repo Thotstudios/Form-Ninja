@@ -270,7 +270,7 @@
 	
 	[dataArray addObject:dict];
 	
-	[self setPath:[NSString stringWithFormat:@"%@/%@-%@%@", TEMPLATE_PATH, group, name, TEMPLATE_EXT]];
+	[self setPath:[NSString stringWithFormat:@"%@/%@-%@.%@", TEMPLATE_PATH, group, name, TEMPLATE_EXT]];
 	
 	[table reloadData];
 	

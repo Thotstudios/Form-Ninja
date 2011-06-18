@@ -10,9 +10,8 @@
 #import "TableElement.h"
 
 @interface FormTemplateElement : TemplateElement {
-    
+	UILabel *labelLabel;
 }
-
 @property (nonatomic, retain) IBOutlet UILabel *labelLabel;
 
 @end

@@ -60,11 +60,13 @@
 	//[super reset];
 	//[dictionary setValue:@"Address" forKey:elementTypeKey];
     //if the reset button is hit, kill all filled fields, and reset to the template-defined versions
+	
     [self.dictionary removeObjectForKey:elementFormAddressLineKey];
     [self.dictionary removeObjectForKey:elementFormAddressLine2Key];
     [self.dictionary removeObjectForKey:elementFormAddressCityNameKey];
     [self.dictionary removeObjectForKey:elementFormAddressStateKey];
     [self.dictionary removeObjectForKey:elementFormAddressZipKey];
+	
 	[self.addressLineOneField setText:[self.dictionary valueForKey:elementAddressLineKey]];
 	[self.addressLineTwoField setText:[self.dictionary valueForKey:elementAddressLine2Key]];
 	[self.cityNameField setText:[self.dictionary valueForKey:elementAddressCityNameKey]];
@@ -75,21 +77,7 @@
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
-    
-	[self.labelLabel setText:[self.dictionary objectForKey:elementLabelKey]];
-    NSNumber *index=[self.dictionary objectForKey:@"label alignment"];
-    if ([index intValue]==0) {
-        labelLabel.textAlignment=UITextAlignmentLeft;
-    }
-    else if([index intValue]==1)
-    {
-        labelLabel.textAlignment=UITextAlignmentCenter; 
-    }
-    else if([index intValue]==2)
-    {
-        labelLabel.textAlignment=UITextAlignmentRight;
-    }
-    
+
     NSString *stringValue;
     stringValue=[self.dictionary valueForKey:elementFormAddressLineKey];
     if (stringValue) {//if the 'filled' value exists, use it, otherwise...
@@ -148,6 +136,7 @@
     }
 	
 }
+
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {

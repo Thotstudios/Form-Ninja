@@ -18,7 +18,7 @@
 @property BOOL allowEditing;
 
 - (void) newFormWithTemplateAtPath:(NSString*)pathArg;
-- (void) editFormAtPath:(NSString*)pathArg;
+- (void) loadFormAtPath:(NSString*)pathArg;
 
 -(IBAction) saveButtonPressed;
 -(IBAction) finishButtonPressed;

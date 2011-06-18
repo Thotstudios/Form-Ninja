@@ -14,6 +14,7 @@
 
 @synthesize delegate;
 @synthesize dictionary;
+@synthesize allowEditing;
 @synthesize labelField;
 @synthesize labelAlignmentControl;
 
@@ -24,6 +25,7 @@
 	if((self = [super init]) == nil) return nil;
 	
 	[self setDictionary:[NSMutableDictionary dictionary]];
+	[self setAllowEditing:YES];
 	[self reset];
 	
 	return self;
@@ -54,6 +56,12 @@
 
 #pragma mark - Overloaded Methods
 
+-(BOOL) isValid
+{
+	BOOL ret = YES;
+	return ret;
+}
+
 -(void) beginEditing
 {
 	if(labelField)
@@ -79,11 +87,6 @@
 	[labelAlignmentControl setSelectedSegmentIndex:[[dictionary objectForKey:@"label alignment"] integerValue]];
 }
 
--(BOOL) isValid
-{
-	BOOL ret = YES;
-	return ret;
-}
 #pragma mark - Non-overloaded Methods
 
 - (NSIndexPath *) indexPath
@@ -130,7 +133,12 @@
 	[dictionary setValue:[NSNumber numberWithInteger:[segmentedControl selectedSegmentIndex]] forKey:@"label alignment"];
 }
 
-#pragma mark - TextFieldDelegate
+#pragma mark - TextField Delegate
+
+-(BOOL) textFieldShouldBeginEditing:(UITextField *)textField
+{
+	return allowEditing;
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {	
