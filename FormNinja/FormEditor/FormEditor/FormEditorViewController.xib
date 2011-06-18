@@ -73,7 +73,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{100, 20}, {72, 64}}</string>
 								<reference key="NSSuperview" ref="267949624"/>
-								<reference key="NSNextKeyView" ref="34635630"/>
+								<reference key="NSNextKeyView" ref="146319637"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<float key="IBUIAlpha">0.5</float>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -109,6 +109,26 @@
 								<reference key="IBUIFont" ref="830504930"/>
 								<int key="IBUIButtonType">1</int>
 								<string key="IBUINormalTitle">Save</string>
+								<reference key="IBUIHighlightedTitleColor" ref="2686633"/>
+								<object class="NSColor" key="IBUINormalTitleColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+								</object>
+								<reference key="IBUINormalTitleShadowColor" ref="8617936"/>
+							</object>
+							<object class="IBUIButton" id="146319637">
+								<reference key="NSNextResponder" ref="267949624"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{180, 20}, {106, 64}}</string>
+								<reference key="NSSuperview" ref="267949624"/>
+								<reference key="NSNextKeyView" ref="34635630"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<reference key="IBUIFont" ref="830504930"/>
+								<int key="IBUIButtonType">1</int>
+								<string key="IBUINormalTitle">Abort Form</string>
 								<reference key="IBUIHighlightedTitleColor" ref="2686633"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
 									<int key="NSColorSpace">1</int>
@@ -201,6 +221,15 @@
 					</object>
 					<int key="connectionID">19</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">abortFormPressed</string>
+						<reference key="source" ref="146319637"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">22</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -248,6 +277,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="603241551"/>
 							<reference ref="533855512"/>
+							<reference ref="146319637"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 						<string key="objectName">Button Container</string>
@@ -262,6 +292,11 @@
 						<reference key="object" ref="533855512"/>
 						<reference key="parent" ref="267949624"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">21</int>
+						<reference key="object" ref="146319637"/>
+						<reference key="parent" ref="267949624"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -272,6 +307,7 @@
 					<string>-2.CustomClassName</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
+					<string>21.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
@@ -282,6 +318,7 @@
 					<string>FormEditorViewController</string>
 					<string>UIResponder</string>
 					<string>{{353, 156}, {1024, 768}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -301,7 +338,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">20</int>
+			<int key="maxID">22</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

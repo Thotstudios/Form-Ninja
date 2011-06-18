@@ -259,21 +259,14 @@
 	
 	[self setDataArray:[NSMutableArray array]];
 	[self setViewArray:[NSMutableArray array]];
-	
-	NSString * creator = nil;
-	AccountClass * user = [AccountClass sharedAccountClass];
-	if([user firstName] && [user lastName])
-		creator = [NSString stringWithFormat:@"%@ %@", [user firstName], [user lastName]];
-	if(!creator)
-		creator = @"John Doe";
+
+	// TODO: refactor to create metadata element and set *its* dictionary.
 	
 	NSMutableDictionary * dict;
 	dict = [NSMutableDictionary dictionary];
 	[dict setValue:@"MetaData" forKey:elementTypeKey];
 	[dict setValue:name forKey:templateNameKey];
 	[dict setValue:group forKey:templateGroupKey];
-	[dict setValue:creator forKey:templateCreatorKey];
-	//[dict setValue:[NSDate date] forKey:templateCreationDateKey];
 	
 	[dataArray addObject:dict];
 	

@@ -23,6 +23,7 @@
 @synthesize formTable;
 @synthesize createFormButton;
 @synthesize resumeFormButton;
+@synthesize viewFormButton;
 
 @synthesize formEditorViewController;
 
@@ -44,6 +45,7 @@
     [formEditorViewController release];
 	[createFormButton release];
 	[resumeFormButton release];
+    [viewFormButton release];
     [super dealloc];
 }
 
@@ -99,6 +101,7 @@
     [self setFormEditorViewController:nil];
 	[self setCreateFormButton:nil];
 	[self setResumeFormButton:nil];
+    [self setViewFormButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -162,12 +165,14 @@
 			// begin date
 			// end date
 			
-			dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:path, filePathKey, group, templateGroupKey, templateName, templateNameKey, formName, formNameKey, data, @"data", nil];
+			dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:path, filePathKey, group, templateGroupKey, templateName, templateNameKey, formName, formNameKey, nil];
 			}
 		if(dict)
 			{
 			[formList addObject:dict];
-			[formNameList addObject:[dict objectForKey:formNameKey]];
+			if([[formMetaData valueForKey:formCompletedKey] boolValue])
+				formName = [NSString stringWithFormat:@"%@ (Incomplete)"];
+			[formNameList addObject:formName];
 			}
 		}
 	[self filterFormsByTemplate];
@@ -185,14 +190,18 @@
 
 - (IBAction)resumeSelectedForm
 {
-	// [formEditorViewController clear];
 	NSUInteger row = [[formTable indexPathForSelectedRow] row];
 	NSDictionary * dict = [filteredFormList objectAtIndex:row];
 	NSString * path = [dict objectForKey:filePathKey];
 	
 	[formEditorViewController editFormAtPath:path];
 	[self.navigationController pushViewController:formEditorViewController animated:YES];
-	// [formEditorViewController setData:nil/*selected data*/];
+}
+
+- (IBAction)viewSelectedForm
+{
+	[formEditorViewController setAllowEditing:NO];
+	[self resumeSelectedForm];
 }
 
 //Presents popover menu
@@ -205,6 +214,7 @@
 	[super disableButtons];
 	[createFormButton setEnabled:NO];	[createFormButton setAlpha:0.50];
 	[resumeFormButton setEnabled:NO];	[resumeFormButton setAlpha:0.50];
+	[viewFormButton setEnabled:NO];		[viewFormButton setAlpha:0.50];
 	// TODO: lite version
 }
 -(void) enableButtons 
@@ -219,9 +229,10 @@
 		[createFormButton setEnabled:NO];	[createFormButton setAlpha:0.50];
 		}
 	if([formTable indexPathForSelectedRow])
-	{
-	[resumeFormButton setEnabled:YES];	[resumeFormButton setAlpha:1.00];
-	}
+		{
+		[resumeFormButton setEnabled:YES];	[resumeFormButton setAlpha:1.00];
+		[viewFormButton setEnabled:YES];	[viewFormButton setAlpha:1.00];
+		}
 	// TODO: lite version
 }
 
@@ -257,7 +268,7 @@
 	if([table tag] < 3)
 		ret = [super tableView:table titleForHeaderInSection:section];
 	else
-		ret = @"Incomplete Forms"; // TODO: localize
+		ret = @"Forms"; // TODO: localize
 	return ret;
 }
 - (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -14,6 +14,7 @@
 
 @implementation FormEditorViewController
 
+@synthesize allowEditing;
 
 -(IBAction) saveButtonPressed
 {
@@ -29,15 +30,39 @@
 		[[[[UIAlertView alloc] initWithTitle:SAVE_FAILED_STR message:nil delegate:nil cancelButtonTitle:OKAY_STR otherButtonTitles:nil] autorelease] show];
 		}
 	
-    //set form completion date.
-    
-    //Concern/Note to self:  I need to detect that throughout entire view, because if the form is completed, then no values should be editable.
 }
 
 -(IBAction) finishButtonPressed
 {
+    NSMutableDictionary * dict = [dataArray objectAtIndex:0];
+	[dict setValue:[NSNumber numberWithBool:YES] forKey:formCompletedKey];
+	[dict setValue:CURRENT_DATE_AND_TIME forKey:formFinalDateKey];
     
+    //Concern/Note to self:  I need to detect that throughout entire view, because if the form is completed, then no values should be editable.
+	
+	// Do whatever else to finalized the form
+	// e.g. upload to database, or add to pending sync list
+	
+	[self saveButtonPressed];
 }
+
+-(void) abortFormConfirmed
+{
+	[[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+	[self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)abortFormPressed
+{
+	UIActionSheet * sheet = [[[UIActionSheet alloc] initWithTitle:@"Really abondon this form?" delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_BUTTON_STR otherButtonTitles:nil] autorelease];
+	[sheet setTag:1];
+	[sheet showInView:self.view];
+}
+-(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	if([actionSheet tag] == 1 && buttonIndex == [actionSheet destructiveButtonIndex])
+		[self abortFormConfirmed];
+}
+
 
 
 -(void) newFormWithTemplateAtPath:(NSString *)pathArg
@@ -57,7 +82,7 @@
 	
 	[dict setValue:formName forKey:formNameKey];
 	[dict setValue:agent forKey:formAgentKey];
-	[dict setValue:[NSDate date] forKey:formBeginDateKey];
+	[dict setValue:CURRENT_DATE_AND_TIME forKey:formBeginDateKey];
 	
 	[self setPath:[NSString stringWithFormat:@"%@/%@-%@-%@-%@", FORM_PATH, group, template, agent, formName]];
 }

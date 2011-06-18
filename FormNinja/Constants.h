@@ -16,6 +16,10 @@
 #define FORM_FINAL_STR		@"Form Completed"
 #define SAVE_FAILED_STR		@"Failed to Save"
 
+// Shortcuts
+#define CURRENT_DATE_AND_TIME	[NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle]
+#define CURRENT_USERNAME		[NSString stringWithFormat:@"%@ %@", [[AccountClass sharedAccountClass] firstName], [[AccountClass sharedAccountClass] lastName]]
+
 //User info 
 #define userInformation @"userInformation"
 #define userIDNumber @"userID"
@@ -78,6 +82,7 @@
 #define formAgentKey				@"form agent"
 #define formBeginDateKey			@"form begin date"
 #define formFinalDateKey			@"form final date"
+#define formCompletedKey			@"Form Completed"
 
 // Element dictionary keys
 #define elementLabelKey				@"label"

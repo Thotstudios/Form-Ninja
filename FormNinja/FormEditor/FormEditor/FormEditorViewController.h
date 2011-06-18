@@ -12,14 +12,16 @@
 
 @interface FormEditorViewController : TemplateEditorController
 {
+	BOOL allowEditing;
 }
 
-//- (void) newFormWithTemplate:(NSMutableArray*)data;
+@property BOOL allowEditing;
 
 - (void) newFormWithTemplateAtPath:(NSString*)pathArg;
 - (void) editFormAtPath:(NSString*)pathArg;
 
 -(IBAction) saveButtonPressed;
 -(IBAction) finishButtonPressed;
+- (IBAction)abortFormPressed;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "MetaDataElement.h"
 #import "Constants.h"
+#import "AccountClass.h"
 
 @implementation MetaDataElement
 @synthesize templateNameField;
@@ -55,17 +56,12 @@
 }
 -(void)	setDictionary:(NSMutableDictionary *)dict
 {
-	//[self reset];
 	[super setDictionary:dict];
 	
 	if(![dictionary valueForKey:templateCreationDateKey])
-		{
-		NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
-		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-		[dateFormatter setTimeStyle:NSDateFormatterFullStyle];
-		NSString * dateString = [dateFormatter stringFromDate:[NSDate date]];
-		[dictionary setValue:dateString forKey:templateCreationDateKey];
-		}
+		[dictionary setValue:CURRENT_DATE_AND_TIME forKey:templateCreationDateKey];
+	if(![dictionary valueForKey:templateCreatorKey])
+		[dictionary setValue:CURRENT_USERNAME forKey:templateCreatorKey];
 	
 	[templateNameField setText:[dictionary valueForKey:templateNameKey]];
 	[templateGroupField setText:[dictionary valueForKey:templateGroupKey]];

@@ -7,7 +7,7 @@
 //
 
 #import "FormMetaDataElement.h"
-
+#import "AccountClass.h"
 
 @implementation FormMetaDataElement
 
@@ -59,12 +59,6 @@
 
 -(void) setDate
 {
-	/*
-     NSDateFormatter * formatter = [[[NSDateFormatter alloc] init] autorelease];
-     [formatter setDateStyle:NSDateFormatterNoStyle];
-     NSDate * date = [NSDate date];
-     [creationDateField setText:[NSString stringWithFormat:@"%@", date]];
-	 */
 	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
 	
 	NSDate *date = [self.dictionary valueForKey:formBeginDateKey];
@@ -82,17 +76,28 @@
 {
 	//[self reset];
 	[super setDictionary:arg];
+	
+	if(![dictionary valueForKey:formBeginDateKey])
+		[dictionary setValue:CURRENT_DATE_AND_TIME forKey:formBeginDateKey];
+	if(![dictionary valueForKey:formAgentKey])
+		[dictionary setValue:CURRENT_USERNAME forKey:formAgentKey];
+	if(![dictionary valueForKey:formFinalDateKey])
+		[dictionary setValue:@"Not Finished" forKey:formFinalDateKey];
+
 	[templateNameLabel setText:[self.dictionary valueForKey:templateNameKey]];
 	[templateGroupLabel setText:[self.dictionary valueForKey:templateGroupKey]];
 	[creatorNameLabel setText:[self.dictionary valueForKey:templateCreatorKey]];
-	//if([dictionary valueforKey:@"formStartDate"]==nil) then set start date
-	//[creationDateField setText:[dictionary valueForKey:templateCreationDateKey]];
+	[creationDateLabel setText:[dictionary valueForKey:templateCreationDateKey]];
     
+	[formStartLabel setText:[dictionary valueForKey:formBeginDateKey]];
+	[formFinishLabel setText:[dictionary valueForKey:formFinalDateKey]];
     
+	return;
+	
+	
 	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
     
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-	[creationDateLabel setText:[dateFormatter stringFromDate:[self.dictionary valueForKey:templateCreationDateKey]]];
     NSDate *date = [self.dictionary valueForKey:formBeginDateKey];
 	if(!date)
     {

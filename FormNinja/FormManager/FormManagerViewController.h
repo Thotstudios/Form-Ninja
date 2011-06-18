@@ -11,7 +11,6 @@
 #import "TemplateManagerViewController.h"
 
 #import "FormEditorViewController.h"
-
 #import "PopOverManager.h"
 
 @interface FormManagerViewController : TemplateManagerViewController <PopOverManagerDelegate>
@@ -23,6 +22,7 @@
 	UITableView *formTable;
 	UIButton *createFormButton;
 	UIButton *resumeFormButton;
+	UIButton *viewFormButton;
 	
 	FormEditorViewController *formEditorViewController;
 }
@@ -36,10 +36,12 @@
 @property (nonatomic, retain) IBOutlet UITableView *formTable;
 @property (nonatomic, retain) IBOutlet UIButton *createFormButton;
 @property (nonatomic, retain) IBOutlet UIButton *resumeFormButton;
+@property (nonatomic, retain) IBOutlet UIButton *viewFormButton;
 
 @property (nonatomic, retain) IBOutlet FormEditorViewController *formEditorViewController;
 
 - (IBAction)newFormWithSelectedTemplate;
 - (IBAction)resumeSelectedForm;
+- (IBAction)viewSelectedForm;
 
 @end
