@@ -77,20 +77,20 @@
 	//[self reset];
 	[super setDictionary:arg];
 	
-	if(![dictionary valueForKey:formBeginDateKey])
-		[dictionary setValue:CURRENT_DATE_AND_TIME forKey:formBeginDateKey];
-	if(![dictionary valueForKey:formAgentKey])
-		[dictionary setValue:CURRENT_USERNAME forKey:formAgentKey];
-	if(![dictionary valueForKey:formFinalDateKey])
-		[dictionary setValue:@"Not Finished" forKey:formFinalDateKey];
+	if(![self.dictionary valueForKey:formBeginDateKey])
+		[self.dictionary setValue:CURRENT_DATE_AND_TIME forKey:formBeginDateKey];
+	if(![self.dictionary valueForKey:formAgentKey])
+		[self.dictionary setValue:CURRENT_USERNAME forKey:formAgentKey];
+	if(![self.dictionary valueForKey:formFinalDateKey])
+		[self.dictionary setValue:@"Not Finished" forKey:formFinalDateKey];
 
 	[templateNameLabel setText:[self.dictionary valueForKey:templateNameKey]];
 	[templateGroupLabel setText:[self.dictionary valueForKey:templateGroupKey]];
 	[creatorNameLabel setText:[self.dictionary valueForKey:templateCreatorKey]];
-	[creationDateLabel setText:[dictionary valueForKey:templateCreationDateKey]];
+	[creationDateLabel setText:[self.dictionary valueForKey:templateCreationDateKey]];
     
-	[formStartLabel setText:[dictionary valueForKey:formBeginDateKey]];
-	[formFinishLabel setText:[dictionary valueForKey:formFinalDateKey]];
+	[formStartLabel setText:[self.dictionary valueForKey:formBeginDateKey]];
+	[formFinishLabel setText:[self.dictionary valueForKey:formFinalDateKey]];
     
 	return;
 	

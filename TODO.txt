@@ -23,14 +23,14 @@ Chad:
 * Change hard-coded #defines in TemplateEditor
 * Belt icon next to templates (and forms?).
 * Add GPS info to signature element.
-* Network is avilable?
+* Network is available?
 * Syncing
 * Table Element obtain strings from user.
 * TextFieldAlert return key.
 * Write Form Finish function.
 * Enable Form Finish Button.
 * Some part of the signature view is numb to tap downs, but still draws.
-* CLean up Form Manager form filtering.
+* Clean up Form Manager form filtering.
 
 Critical changes:
 

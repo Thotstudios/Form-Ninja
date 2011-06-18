@@ -66,7 +66,7 @@
 	[super setDictionary:arg];
     
 	[self.labelLabel setText:[self.dictionary objectForKey:elementLabelKey]];
-	switch ([[dictionary valueForKey:@"label alignment"] intValue])
+	switch ([[self.dictionary valueForKey:@"label alignment"] intValue])
 	{
 		case 0: default:
 		[labelLabel setTextAlignment:UITextAlignmentLeft];
@@ -78,9 +78,9 @@
 		[labelLabel setTextAlignment:UITextAlignmentRight];
 		break;
 	}
-	NSString * valueString = [dictionary valueForKey:elementFormValueKey];
-	if(!valueString) valueString = [dictionary valueForKey:elementValueKey];
-	[valueField setText:valueString];
+	NSString * valueString = [self.dictionary valueForKey:elementFormValueKey];
+	if(!valueString) valueString = [self.dictionary valueForKey:elementValueKey];
+	[self.valueField setText:valueString];
     
 	[self.minLength setText:[self.dictionary valueForKey:elementMinLengthKey]];
 	[self.maxLength setText:[self.dictionary valueForKey:elementMaxLengthKey]];
