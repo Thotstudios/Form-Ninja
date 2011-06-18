@@ -201,7 +201,7 @@
 					<object class="IBUITextField" id="3946308">
 						<reference key="NSNextResponder" ref="406267907"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{777, 166}, {76, 31}}</string>
+						<string key="NSFrame">{{777, 127}, {76, 31}}</string>
 						<reference key="NSSuperview" ref="406267907"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="162119989"/>
@@ -228,7 +228,7 @@
 					<object class="IBUITextField" id="932684976">
 						<reference key="NSNextResponder" ref="406267907"/>
 						<int key="NSvFlags">290</int>
-						<string key="NSFrame">{{149, 127}, {704, 31}}</string>
+						<string key="NSFrame">{{149, 127}, {620, 31}}</string>
 						<reference key="NSSuperview" ref="406267907"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="125065711"/>
@@ -300,7 +300,6 @@
 				<string key="NSFrameSize">{1024, 223}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MC43NQA</bytes>
@@ -445,7 +444,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="125065711"/>
 							<reference ref="932684976"/>
-							<reference ref="3946308"/>
 							<reference ref="162119989"/>
 							<reference ref="188945330"/>
 							<reference ref="597719136"/>
@@ -453,6 +451,7 @@
 							<reference ref="509933296"/>
 							<reference ref="286757489"/>
 							<reference ref="1001838340"/>
+							<reference ref="3946308"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
