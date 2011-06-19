@@ -77,6 +77,10 @@
     
     UIImage *createBlackImage=[UIImage imageNamed:@"startNewFormBlack.png"];
     [createFormButton setImage:createBlackImage forState:UIControlStateHighlighted];
+    UIImage *resumeBlackImage=[UIImage imageNamed:@"resumeFormGray.png"];
+    [resumeFormButton setImage:resumeBlackImage forState:UIControlStateHighlighted];
+    UIImage *viewBlackImage=[UIImage imageNamed:@"viewformGray.png"];
+    [viewFormButton setImage:viewBlackImage forState:UIControlStateHighlighted];
 }
 
 - (void) viewWillAppear:(BOOL)animated
