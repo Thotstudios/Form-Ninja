@@ -679,7 +679,7 @@
 	NSUInteger section = [indexPath section];
 	
 	// TODO: NSArray of cell type names
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Template Element Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
