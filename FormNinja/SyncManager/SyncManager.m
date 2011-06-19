@@ -63,24 +63,22 @@ static NSMutableDictionary *syncList;
 
 //Formats template to db compatible json string
 - (NSString *) formatTemplate:(NSMutableArray *) array{
-    //Convert nsdate object to string as json cannot parse nsdate objects
-    NSMutableDictionary *dict = [[[NSMutableDictionary alloc] initWithDictionary:[array objectAtIndex:0]] autorelease];
-    [dict setObject:[NSString stringWithFormat:@"%@",[dict objectForKey:templateCreationDateKey]] forKey:templateCreationDateKey]; //replace old nsdate with nsstring  
-    
     NSMutableArray *dbArray = [[[NSMutableArray alloc] initWithArray:array] autorelease];
-    [dbArray removeObjectAtIndex:0]; //Replace meta data dict
-    [dbArray insertObject:dict atIndex:0];
-    
+    NSLog(@"%@", dbArray);
     //Check for json incompatible Signature fields
     for (NSMutableDictionary *dictionary in dbArray) {
-        NSString *type = [dictionary objectForKey:elementTypeKey];
+        NSArray *dataDict = [dictionary objectForKey:sectionDataKey]; //get section data
         
-        if ([type isEqualToString:@"Signature"]) {
-            if([dictionary objectForKey:@"signature"]){ //Check for signature nsdata
-                NSString *imageData = [ASIHTTPRequest base64forData:[dictionary objectForKey:@"signature"]]; //Convert nsdata image info to base64 json compatible string
+        for(NSMutableDictionary *formData in dataDict){ //loop through form elements in section
+            NSString *type = [formData objectForKey:elementTypeKey];
+        
+            if (formData && ([type isEqualToString:@"GeoSignature"]|| [type isEqualToString:@"Signature"])) {
+                if([formData objectForKey:elementSignatureImageKey]){ //Check for signature nsdata
+                    NSString *imageData = [ASIHTTPRequest base64forData:[formData objectForKey:elementSignatureImageKey]]; //Convert nsdata image info to base64 json compatible string
                 
-                [dictionary setObject:imageData forKey:@"signature"]; //Replace with base 64 data
-            }
+                    [formData setObject:imageData forKey:elementSignatureImageKey]; //Replace with base 64 data
+                }
+            }   
         }
     }
     
