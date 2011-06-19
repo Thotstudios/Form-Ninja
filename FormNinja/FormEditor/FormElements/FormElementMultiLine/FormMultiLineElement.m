@@ -90,6 +90,13 @@
     }
 	[self.minLabel setText:[self.dictionary valueForKey:elementMinLengthKey]];
 	[self.maxLabel setText:[self.dictionary valueForKey:elementMaxLengthKey]];
+    
+    stringValue=[self.dictionary valueForKey:@"finished"];
+    if ([stringValue isEqualToString:@"yes"]) {
+        self.valueField.editable=NO;
+    }
+    else
+        self.valueField.editable=YES;
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
@@ -102,6 +109,11 @@
 {
     [curLabel setText:[NSString stringWithFormat:@"%i",[textView.text length]]];
     //TODO:  validate length
+}
+
+-(void)setFinished
+{
+    [self.dictionary setValue:@"yes" forKey:@"finished"];
 }
 
 @end

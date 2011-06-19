@@ -12,6 +12,9 @@
 @interface FormMultiLineElement : MultiLineElement {
     
 }
+
+-(void)setFinished;
+
 @property (nonatomic, retain) IBOutlet UILabel *labelLabel, *minLabel, *maxLabel, *curLabel;
 
 @end

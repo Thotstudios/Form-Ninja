@@ -89,6 +89,8 @@
     if ([valueString isEqualToString:@"yes"]) {
         valueField.enabled=NO;
     }
+    else
+        valueField.enabled=YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
