@@ -11,7 +11,7 @@
 
 @implementation FormMetaDataElement
 
-@synthesize templateNameLabel, templateGroupLabel, creationDateLabel, creatorNameLabel, formStartLabel, formFinishLabel;
+@synthesize templateNameLabel, templateGroupLabel, creationDateLabel, creatorNameLabel, formStartLabel, formFinishLabel, formFinishGPSLabel, formFillerLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,6 +84,7 @@
 	if(![self.dictionary valueForKey:formFinalDateKey])
 		[self.dictionary setValue:@"Not Finished" forKey:formFinalDateKey];
 
+    [formFillerLabel setText:[self.dictionary valueForKey:formAgentKey]];
 	[templateNameLabel setText:[self.dictionary valueForKey:templateNameKey]];
 	[templateGroupLabel setText:[self.dictionary valueForKey:templateGroupKey]];
 	[creatorNameLabel setText:[self.dictionary valueForKey:templateCreatorKey]];
@@ -91,6 +92,11 @@
     
 	[formStartLabel setText:[self.dictionary valueForKey:formBeginDateKey]];
 	[formFinishLabel setText:[self.dictionary valueForKey:formFinalDateKey]];
+    NSString *valueString=[self.dictionary valueForKey:@"finish location"];
+    if (valueString==nil) {
+        valueString=@"Not Available";
+    }
+    [formFinishGPSLabel setText:valueString];
     
 	return;
 	

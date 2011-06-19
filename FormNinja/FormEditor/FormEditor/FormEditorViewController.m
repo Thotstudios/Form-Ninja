@@ -87,6 +87,8 @@
     //Use loc, if prsent, to set the location
     if (loc!=nil) {
         //[dict setValue:loc forKey:@"finish location"];
+        NSString *coordinates = [NSString stringWithFormat:@"%f,%f,+/-%f", loc.coordinate.latitude, loc.coordinate.longitude, loc.horizontalAccuracy];
+        [dict setValue:coordinates forKey:@"finish location"];
     }
     
     //pass 'set finished' to all elements -- how?

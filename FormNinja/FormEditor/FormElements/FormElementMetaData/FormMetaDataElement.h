@@ -15,6 +15,6 @@
 
 -(void)setFinished;
 
-@property(nonatomic, retain) IBOutlet UILabel *templateNameLabel, *templateGroupLabel, *creatorNameLabel, *creationDateLabel, *formStartLabel, *formFinishLabel;
+@property(nonatomic, retain) IBOutlet UILabel *templateNameLabel, *templateGroupLabel, *creatorNameLabel, *creationDateLabel, *formStartLabel, *formFinishLabel, *formFinishGPSLabel, *formFillerLabel;
 
 @end

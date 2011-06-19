@@ -90,7 +90,7 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    lastLocation=newLocation;
+    self.lastLocation=newLocation;
     [self.accuracyLabel setText:[NSString stringWithFormat:@"+/- %f",newLocation.horizontalAccuracy]];
 }
 
