@@ -43,6 +43,9 @@
     if(![self.dictionary objectForKey:elementCoordinatesKey] || [[self.dictionary objectForKey:elementCoordinatesKey] isEqualToString:@"N/A"]){
         self.mapButton.hidden = TRUE;
     }
+    
+    else
+        self.mapButton.hidden = FALSE;
 }
 
 - (void)viewDidLoad

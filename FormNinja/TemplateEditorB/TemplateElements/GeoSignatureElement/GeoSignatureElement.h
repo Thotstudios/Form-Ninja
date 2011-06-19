@@ -21,5 +21,6 @@ UISwitch *gpsSwitch;
 @property (nonatomic, retain) IBOutlet UISwitch *gpsSwitch;
 
 - (IBAction)toggleAllowGps;
+- (void) check;
 
 @end

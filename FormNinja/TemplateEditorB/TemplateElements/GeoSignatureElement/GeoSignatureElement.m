@@ -103,6 +103,8 @@
 		[dictionary setValue:@"N/A" forKey:elementCoordinatesKey];
 		[dictionary setValue:nil forKey:elementCoordinatesAccuracyKey];
 		}
+    [self check];
+
 	[self fixGpsLabel];
 }
 - (IBAction)toggleAllowGps
@@ -114,5 +116,9 @@
 		[dictionary setValue:nil forKey:elementCoordinatesAccuracyKey];
 		[self fixGpsLabel];
 		}
+}
+
+- (void) check{
+    
 }
 @end
