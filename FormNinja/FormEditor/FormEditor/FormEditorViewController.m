@@ -63,13 +63,11 @@
 
 -(IBAction) finishButtonPressed
 {
-    NSMutableDictionary * dict = [dataArray objectAtIndex:0];
-	[dict setValue:[NSNumber numberWithBool:YES] forKey:formCompletedKey];
-	[dict setValue:CURRENT_DATE_AND_TIME forKey:formFinalDateKey];
     
     //Create about vc
 	FormFinishViewController *finishVC = [[FormFinishViewController alloc] initWithNibName:@"FormFinishViewController" bundle:nil];
     finishVC.modalPresentationStyle = UIModalPresentationFormSheet;
+    finishVC.delegate=self;
 	//Push the view
     [self presentModalViewController:finishVC animated:YES];
 	[finishVC release];
@@ -78,8 +76,24 @@
 	
 	// Do whatever else to finalized the form
 	// e.g. upload to database, or add to pending sync list
-	
-	[self saveButtonPressed];
+}
+
+-(void)formFinishConfirmedWithLocation:(CLLocation *) loc;
+{
+    NSMutableDictionary * dict = [dataArray objectAtIndex:0];
+	[dict setValue:[NSNumber numberWithBool:YES] forKey:formCompletedKey];
+	[dict setValue:CURRENT_DATE_AND_TIME forKey:formFinalDateKey];
+   
+    //Use loc, if prsent, to set the location
+    
+    //pass 'set finished' to all elements -- how?
+    
+    [self saveButtonPressed];
+}
+
+-(void) formFinishAbort
+{
+    
 }
 
 -(void) abortFormConfirmed

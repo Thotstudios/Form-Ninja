@@ -7,12 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
+@protocol FormFinishDelegate <NSObject>
 
-@interface FormFinishViewController : UIViewController {
-    
+@required
+-(void)formFinishConfirmedWithLocation:(CLLocation *) loc;
+-(void)formFinishAbort;
+
+@end
+
+@interface FormFinishViewController : UIViewController <CLLocationManagerDelegate> {
+
 }
 
-- (IBAction) closeButtonAction;
+@property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic, assign) id <FormFinishDelegate> delegate;
+@property (nonatomic, retain) IBOutlet UILabel *accuracyLabel;
+@property (nonatomic, retain) IBOutlet UISegmentedControl *geoSign;
+@property (nonatomic, retain) CLLocation *lastLocation;
+
+- (IBAction) abortFinishButtonPressed;
+- (IBAction) confirmFinishButtonPressed;
 
 @end

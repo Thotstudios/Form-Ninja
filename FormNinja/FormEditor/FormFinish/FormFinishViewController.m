@@ -10,6 +10,11 @@
 
 
 @implementation FormFinishViewController
+@synthesize delegate;
+@synthesize locationManager;
+@synthesize accuracyLabel;
+@synthesize geoSign;
+@synthesize lastLocation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,15 +53,45 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    self.locationManager=[[[CLLocationManager alloc] init] autorelease];
+    self.locationManager.delegate=self;
+    self.locationManager.desiredAccuracy=kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter=kCLDistanceFilterNone;
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    self.locationManager=nil;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
 	return YES;
 }
 
-
-- (IBAction) closeButtonAction{
+- (IBAction) abortFinishButtonPressed
+{
     [self dismissModalViewControllerAnimated:YES];
+}
+- (IBAction) confirmFinishButtonPressed
+{
+    
+    if (geoSign.selectedSegmentIndex==0) {
+        [[self delegate] formFinishConfirmedWithLocation:lastLocation];
+    }
+    else
+        [[self delegate] formFinishConfirmedWithLocation:nil];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    lastLocation=newLocation;
+    [self.accuracyLabel setText:[NSString stringWithFormat:@"+/- %f",newLocation.horizontalAccuracy]];
 }
 
 @end

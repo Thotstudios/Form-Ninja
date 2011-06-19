@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "TemplateEditorController.h"
 #import "Constants.h"
+#import "FormFinishViewController.h"
 
-@interface FormEditorViewController : TemplateEditorController
+@interface FormEditorViewController : TemplateEditorController <FormFinishDelegate>
 {
 	BOOL allowEditing;
 }
