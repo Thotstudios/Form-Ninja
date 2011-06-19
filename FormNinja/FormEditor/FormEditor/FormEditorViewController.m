@@ -11,6 +11,7 @@
 #import "FormElementPicker.h"
 #import "AccountClass.h"
 #import "PopOverManager.h"
+#import "FormFinishViewController.h"
 
 @implementation FormEditorViewController
 
@@ -65,6 +66,13 @@
     NSMutableDictionary * dict = [dataArray objectAtIndex:0];
 	[dict setValue:[NSNumber numberWithBool:YES] forKey:formCompletedKey];
 	[dict setValue:CURRENT_DATE_AND_TIME forKey:formFinalDateKey];
+    
+    //Create about vc
+	FormFinishViewController *finishVC = [[FormFinishViewController alloc] initWithNibName:@"FormFinishViewController" bundle:nil];
+    finishVC.modalPresentationStyle = UIModalPresentationFormSheet;
+	//Push the view
+    [self presentModalViewController:finishVC animated:YES];
+	[finishVC release];
     
     //Concern/Note to self:  I need to detect that throughout entire view, because if the form is completed, then no values should be editable.
 	

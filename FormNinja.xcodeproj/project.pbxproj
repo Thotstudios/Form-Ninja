@@ -38,6 +38,8 @@
 		D922CE95136C926300233C48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922CE94136C926300233C48 /* CoreGraphics.framework */; };
 		D922CE9E136C926300233C48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CE9D136C926300233C48 /* main.m */; };
 		D922CEA1136C926300233C48 /* FormNinjaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */; };
+		D9A2B72413AD73AD007C13A1 /* FormFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A2B72213AD73AD007C13A1 /* FormFinishViewController.m */; };
+		D9A2B72513AD73AD007C13A1 /* FormFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A2B72313AD73AD007C13A1 /* FormFinishViewController.xib */; };
 		D9E3248213A6C801009724D8 /* MenuPopOver.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E3247F13A6C801009724D8 /* MenuPopOver.m */; };
 		D9E3248313A6C801009724D8 /* PopOverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E3248113A6C801009724D8 /* PopOverManager.m */; };
 		F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187651390EFDC000BA9DF /* TemplateEditorController.m */; };
@@ -180,6 +182,9 @@
 		D922CE9D136C926300233C48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D922CE9F136C926300233C48 /* FormNinjaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormNinjaAppDelegate.h; sourceTree = "<group>"; };
 		D922CEA0136C926300233C48 /* FormNinjaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormNinjaAppDelegate.m; sourceTree = "<group>"; };
+		D9A2B72113AD73AD007C13A1 /* FormFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormFinishViewController.h; path = FormEditor/FormFinish/FormFinishViewController.h; sourceTree = "<group>"; };
+		D9A2B72213AD73AD007C13A1 /* FormFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormFinishViewController.m; path = FormEditor/FormFinish/FormFinishViewController.m; sourceTree = "<group>"; };
+		D9A2B72313AD73AD007C13A1 /* FormFinishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormFinishViewController.xib; path = FormEditor/FormFinish/FormFinishViewController.xib; sourceTree = "<group>"; };
 		D9E3247E13A6C801009724D8 /* MenuPopOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuPopOver.h; sourceTree = "<group>"; };
 		D9E3247F13A6C801009724D8 /* MenuPopOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuPopOver.m; sourceTree = "<group>"; };
 		D9E3248013A6C801009724D8 /* PopOverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverManager.h; sourceTree = "<group>"; };
@@ -469,6 +474,17 @@
 			path = FormNinja;
 			sourceTree = "<group>";
 		};
+		D9A2B71B13AD733B007C13A1 /* Form Finish */ = {
+			isa = PBXGroup;
+			children = (
+				D9A2B72113AD73AD007C13A1 /* FormFinishViewController.h */,
+				D9A2B72213AD73AD007C13A1 /* FormFinishViewController.m */,
+				D9A2B72313AD73AD007C13A1 /* FormFinishViewController.xib */,
+			);
+			name = "Form Finish";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D9E3247C13A6C7E3009724D8 /* Menu Popover */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,6 +762,7 @@
 			isa = PBXGroup;
 			children = (
 				F7C0DC8013A07259009ACEB6 /* FormEditor */,
+				D9A2B71B13AD733B007C13A1 /* Form Finish */,
 				F7C0DC8813A07259009ACEB6 /* FormElements */,
 				F7C0DC8413A07259009ACEB6 /* FormElementPicker */,
 			);
@@ -1011,6 +1028,7 @@
 				4246219D13ACF2550042575F /* startNewFormRed.png in Resources */,
 				F792BCDF13AD3B2900116F72 /* GeoSignatureElement.xib in Resources */,
 				F764981C13AD6288000D6694 /* FormGeoSignatureElement.xib in Resources */,
+				D9A2B72513AD73AD007C13A1 /* FormFinishViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1073,6 +1091,7 @@
 				D9E3248313A6C801009724D8 /* PopOverManager.m in Sources */,
 				F792BCDE13AD3B2900116F72 /* GeoSignatureElement.m in Sources */,
 				F764981B13AD6288000D6694 /* FormGeoSignatureElement.m in Sources */,
+				D9A2B72413AD73AD007C13A1 /* FormFinishViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
