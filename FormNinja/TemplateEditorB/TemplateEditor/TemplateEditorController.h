@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSMutableArray * dataArray;
 @property (nonatomic, retain) NSMutableArray * viewArray;
 @property (nonatomic, retain) NSString * path;
+@property (nonatomic, retain) IBOutlet UIButton *addButton, *arrangeButton, *clearButton, *saveButton;
 
 - (void) newTemplateWithName:(NSString*)name group:(NSString*)group;
 - (void) editTemplateAtPath:(NSString*)pathArg;
