@@ -16,7 +16,8 @@
 @interface FormManagerViewController : TemplateManagerViewController <PopOverManagerDelegate>
 {
 	NSMutableArray * formList;
-	NSMutableArray * filteredFormList;
+	NSMutableArray * formListFilteredByGroup;
+	NSMutableArray * formListFilteredByTemplate;
 	NSMutableArray * formNameList;
 	
 	UITableView *formTable;
@@ -29,7 +30,8 @@
 
 // Member Objects
 @property (nonatomic, retain) NSMutableArray * formList;
-@property (nonatomic, retain) NSMutableArray * filteredFormList;
+@property (nonatomic, retain) NSMutableArray * formListFilteredByGroup;
+@property (nonatomic, retain) NSMutableArray * formListFilteredByTemplate;
 @property (nonatomic, retain) NSMutableArray * formNameList;
 
 // Interface Objects

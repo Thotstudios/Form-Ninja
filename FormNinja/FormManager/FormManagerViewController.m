@@ -12,12 +12,14 @@
 
 @interface FormManagerViewController()
 -(void) loadFormList;
+-(void) filterFormsByGroup;
 @end
 
 @implementation FormManagerViewController
 
 @synthesize formList;
-@synthesize filteredFormList;
+@synthesize formListFilteredByGroup;
+@synthesize formListFilteredByTemplate;
 @synthesize formNameList;
 
 @synthesize formTable;
@@ -39,7 +41,8 @@
 - (void)dealloc
 {
 	[formList release];
-	[filteredFormList release];
+	[formListFilteredByGroup release];
+	[formListFilteredByTemplate release];
 	[formNameList release];
     [formTable release];
     [formEditorViewController release];
@@ -65,7 +68,8 @@
     // Do any additional setup after loading the view from its nib.
 
 	[self setFormList:[NSMutableArray array]];
-	[self setFilteredFormList:[NSMutableArray array]];
+	[self setFormListFilteredByGroup:[NSMutableArray array]];
+	[self setFormListFilteredByTemplate:[NSMutableArray array]];
 	[self setFormNameList:[NSMutableArray array]];
 
     //Menu button
@@ -95,7 +99,8 @@
 - (void)viewDidUnload
 {
 	[self setFormList:nil];
-	[self setFilteredFormList:nil];
+	[self setFormListFilteredByGroup:nil];
+	[self setFormListFilteredByTemplate:nil];
 	[self setFormNameList:nil];
     [self setFormTable:nil];
     [self setFormEditorViewController:nil];
@@ -111,19 +116,39 @@
 {
 	[super viewDidAppear:animated];
 	[self loadFormList];
+	[self filterFormsByGroup];
+	[formTable reloadData];
 }
 #pragma mark - Instance Methods
+
+-(void) filterFormsByGroup
+{
+	[formListFilteredByGroup removeAllObjects];
+	[formListFilteredByTemplate removeAllObjects];
+	
+	NSString * groupName = [groupNameList objectAtIndex:[[groupTable indexPathForSelectedRow] row]];
+	for(NSDictionary * dict in formList)
+		{
+		if([groupName isEqualToString:[dict valueForKey:templateGroupKey]])
+			{
+			[formListFilteredByGroup addObject:dict];
+			[formListFilteredByTemplate addObject:dict];
+			}
+		}
+}
+
 -(void) filterFormsByTemplate
 {
-	[filteredFormList removeAllObjects];
+	[formListFilteredByTemplate removeAllObjects];
 	NSString * templateName = nil;
 	if([templateList count])
 		templateName = [[templateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:templateNameKey];
-	for(NSDictionary * dict in formList)
+	for(NSDictionary * dict in formListFilteredByGroup)
 		{
-		if(!templateName || [templateName isEqualToString:[dict objectForKey:templateNameKey]])
-			[filteredFormList addObject:dict];
+		if([templateName isEqualToString:[dict objectForKey:templateNameKey]])
+			[formListFilteredByTemplate addObject:dict];
 		}
+	//[templateTable reloadData];
 	[formTable reloadData];
 }
 
@@ -138,7 +163,6 @@
 	NSString * group;
 	NSMutableDictionary * formMetaData;
 	NSMutableDictionary * dict;
-	
 	
 	[formList removeAllObjects];
 	[formNameList removeAllObjects];
@@ -175,7 +199,7 @@
 			[formNameList addObject:formName];
 			}
 		}
-	[self filterFormsByTemplate];
+	//[self filterFormsByTemplate];
 }
 
 - (IBAction)newFormWithSelectedTemplate
@@ -191,7 +215,7 @@
 -(void) loadSelectedForm
 {
 	NSUInteger row = [[formTable indexPathForSelectedRow] row];
-	NSDictionary * dict = [filteredFormList objectAtIndex:row];
+	NSDictionary * dict = [formListFilteredByTemplate objectAtIndex:row];
 	NSString * path = [dict objectForKey:filePathKey];
 	
 	[formEditorViewController loadFormAtPath:path];
@@ -242,6 +266,11 @@
 		[resumeFormButton setEnabled:YES];	[resumeFormButton setAlpha:1.00];
 		[viewFormButton setEnabled:YES];	[viewFormButton setAlpha:1.00];
 		}
+	else
+		{
+		[resumeFormButton setEnabled:NO];	[resumeFormButton setAlpha:0.50];
+		[viewFormButton setEnabled:NO];		[viewFormButton setAlpha:0.50];
+		}
 	// TODO: lite version
 }
 
@@ -267,7 +296,7 @@
 	if([table tag] < 3)
 		r = [super tableView:table numberOfRowsInSection:section];
 	else
-		r = [filteredFormList count];
+		r = [formListFilteredByTemplate count];
 	
 	return r;
 }
@@ -310,7 +339,7 @@
 	switch ([table tag])
 	{
 		case 3: // forms
-		[[cell textLabel] setText:[[filteredFormList objectAtIndex:row] objectForKey:formNameKey]];
+		[[cell textLabel] setText:[[formListFilteredByTemplate objectAtIndex:row] objectForKey:formNameKey]];
 		break;
 			
 		case 2: // templates
@@ -342,10 +371,14 @@
 	switch([table tag])
 	{
 		case 1: // group table
+		[self filterFormsByGroup];
+		[formTable reloadData];
 		break;
 		
 		case 2: // template table
 		[self filterFormsByTemplate];
+		[formTable reloadData];
+		[self enableButtons];
 		break;
 		
 		case 3: // form table

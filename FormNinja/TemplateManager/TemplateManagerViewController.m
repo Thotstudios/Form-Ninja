@@ -119,6 +119,9 @@
 	[super viewDidAppear:animated];
 	[groupTable reloadData];
 	[templateTable reloadData];
+	[groupTable selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+							animated:YES
+					  scrollPosition:UITableViewScrollPositionTop];
 }
 
 - (void)viewDidUnload
@@ -211,9 +214,6 @@
 			[templateList addObject:dict];
 		
 		}
-	[groupTable selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
-							animated:YES
-					  scrollPosition:UITableViewScrollPositionTop];
 	[self filterByGroupName];
 } // end load template list
 
@@ -225,6 +225,8 @@
 
 -(BOOL) isSelectedTemplatePublished
 {
+	NSIndexPath * indexPath = [templateTable indexPathForSelectedRow];
+	if(!indexPath) return NO;
 	NSUInteger index = [[templateTable indexPathForSelectedRow] row];
 	return [self isTemplateAtIndexPublished:index];
 }
@@ -364,14 +366,14 @@
 	NSString *CellIdentifier = nil;
 	switch ([table tag])
 	{
-		case 2: // templates
-		CellIdentifier = @"Template Table Cell";
-		break;
-		
 		case 1: // groups
 		CellIdentifier = @"Group Table Cell";
 		break;
 			
+		case 2: // templates
+		CellIdentifier = @"Template Table Cell";
+		break;
+		
 		default:
 		CellIdentifier = @"Cell";
 		break;
@@ -387,15 +389,15 @@
 	NSString * text = nil;
 	switch([table tag])
 	{
-		case 1: // group table
-		text = [groupNameList objectAtIndex:[indexPath row]];
-		break;
-		
 		case 2: // template table
 		text = [[filteredTemplateList objectAtIndex:[indexPath row]] objectForKey:templateNameKey];
 		// NOTE: assign not published
 		if(![self isTemplateAtIndexPublished:[indexPath row]])
 			text = [NSString stringWithFormat:@"%@ (Not Published)", text];
+		break;
+		
+		case 1: // group table
+		text = [groupNameList objectAtIndex:[indexPath row]];
 		break;
 		
 		default:
