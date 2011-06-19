@@ -6,37 +6,26 @@ It's more like quick notes to ourselves and each other.
 Chad:
 * Forms and Templates save to PendingUploads folder.
 * PendingUploads folder is checked for sync.
-* Send regular ipa files.
-* Export/email/sync/print button(s) on Form Manager.
 * Clean up template renaming.
 * Clean up section header titles.
-* Template Sections need delete function.
-* TextFieldAlert should handle rotate and resize.
 * Deleting templates should reconsider group names.
-* TextFieldAlert should have delegate return key.
 * Sanitize template names.
-* Fix form meta data
-* Generally fix form section displays
+* Fix form meta data; Generally fix form section displays
 * Unpublished templates should have a 'Resume' button instead of a "Modify" button.
 * Validate Template before publishing.
 * Add autosave for Templates and Forms for crashes/unexpected exits.
 * Change hard-coded #defines in TemplateEditor
 * Belt icon next to templates (and forms?).
-* Add GPS info to signature element.
 * Network is available?
 * Syncing
 * Table Element obtain strings from user.
-* TextFieldAlert return key.
-* Write Form Finish function.
 * Enable Form Finish Button.
 * Some part of the signature view is numb to tap downs, but still draws.
-* Clean up Form Manager form filtering.
 
 Critical changes:
 
 Important changes:
 Inform user when no templates are available for form manager.
-1. We need a way to view a completed form
 2. When viewing the completed form with signature & GPS coordinate we need to be able to click them to view in google maps
 
 Minor changes:
@@ -45,9 +34,6 @@ Write form editor finish function, and link to signature element as appropriate.
 
 It-Would-Be-Nice changes:
 Email form as pdf (if it's not a ton of work).
-
-1. Once a form is competed - nothing happens. (Maybe it should be greyed out)
-2. No toggle to enable GPS
 
 Paul:
 * Optionally write a TODO list here.
