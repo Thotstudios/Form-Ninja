@@ -51,4 +51,9 @@
 {
 	return allowEditing;
 }
+
+-(void)setFinished
+{
+    [self.dictionary setValue:@"yes" forKey:@"finished"];
+}
 @end
