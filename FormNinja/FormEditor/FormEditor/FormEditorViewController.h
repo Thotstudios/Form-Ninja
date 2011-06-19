@@ -17,6 +17,7 @@
 }
 
 @property BOOL allowEditing;
+@property (nonatomic, retain) IBOutlet UIButton *saveButton, *abortButton, *finishButton;
 
 - (void) newFormWithTemplateAtPath:(NSString*)pathArg;
 - (void) loadFormAtPath:(NSString*)pathArg;
