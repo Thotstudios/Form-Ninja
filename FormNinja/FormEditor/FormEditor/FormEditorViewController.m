@@ -85,6 +85,9 @@
 	[dict setValue:CURRENT_DATE_AND_TIME forKey:formFinalDateKey];
    
     //Use loc, if prsent, to set the location
+    if (loc!=nil) {
+        //[dict setValue:loc forKey:@"finish location"];
+    }
     
     //pass 'set finished' to all elements -- how?
     
@@ -93,7 +96,7 @@
 
 -(void) formFinishAbort
 {
-    
+    //I don't think we need to do anything on abort.
 }
 
 -(void) abortFormConfirmed
