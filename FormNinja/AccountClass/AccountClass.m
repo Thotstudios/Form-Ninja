@@ -31,6 +31,11 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *userDict = [defaults dictionaryForKey:userInformation]; //get user info
     
+    if(!userDict){
+        self.userID = @"-1";
+        return;
+    }
+    
     self.userID = [userDict objectForKey:userIDNumber];
     self.username = [userDict objectForKey:userName];
     self.firstName = [userDict objectForKey:userFirstName];
