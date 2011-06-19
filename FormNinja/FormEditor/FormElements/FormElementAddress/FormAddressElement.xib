@@ -180,7 +180,6 @@
 						<string key="NSFrame">{{676, 166}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="406267907"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -284,7 +283,7 @@
 					</object>
 					<object class="IBUITextField" id="311881396">
 						<reference key="NSNextResponder" ref="406267907"/>
-						<int key="NSvFlags">290</int>
+						<int key="NSvFlags">288</int>
 						<string key="NSFrame">{{149, 127}, {364, 31}}</string>
 						<reference key="NSSuperview" ref="406267907"/>
 						<reference key="NSWindow"/>
