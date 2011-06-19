@@ -143,7 +143,12 @@
     //Get user account class
     self.account = [AccountClass sharedAccountClass];
     
-    if(self.account.username == nil){ //if no username, there is no user info stored
+    if ([self.account.userID isEqualToString:@"-1"]){
+        self.confirmButton.userInteractionEnabled = FALSE;
+        return;
+    }
+    
+    else if(self.account.username == nil){ //if no username, there is no user info stored
         //clear fields
         self.usernameTextField.text = self.firstNameTextField.text = self.lastNameTextField.text = self.passwordTextField.text = self.passwordConfirmTextField.text = self.passwordChangeTextField.text = self.companyNameTextField.text = self.emailAddressTextField.text = self.phoneNumberTextField.text = self.zipCodeTextField.text = self.zipCodeExtTextField.text = nil;
     }

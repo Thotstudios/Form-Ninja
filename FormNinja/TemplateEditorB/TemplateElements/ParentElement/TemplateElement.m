@@ -46,7 +46,7 @@
 
 - (void)dealloc
 {
-	[delegate release];
+	//[delegate release];
 	[dictionary release];
 	[labelField release];
 	[labelAlignmentControl release];

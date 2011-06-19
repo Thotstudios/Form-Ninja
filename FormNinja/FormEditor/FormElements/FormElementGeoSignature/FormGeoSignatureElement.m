@@ -7,9 +7,12 @@
 //
 
 #import "FormGeoSignatureElement.h"
+#import "GPSMapViewController.h"
 
 
 @implementation FormGeoSignatureElement
+
+@synthesize mapButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +25,7 @@
 
 - (void)dealloc
 {
+    [mapButton release];
     [super dealloc];
 }
 
@@ -35,15 +39,22 @@
 
 #pragma mark - View lifecycle
 
+- (void) check{
+    if(![self.dictionary objectForKey:elementCoordinatesKey] || [[self.dictionary objectForKey:elementCoordinatesKey] isEqualToString:@"N/A"]){
+        self.mapButton.hidden = TRUE;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self performSelector:@selector(check) withObject:nil afterDelay:0];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    self.mapButton = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -57,6 +68,21 @@
 -(void)setFinished
 {
     [self.dictionary setValue:@"yes" forKey:@"finished"];
+}
+
+- (IBAction) viewSigButtonAction{    NSLog(@"%@",dictionary);
+    
+    GPSMapViewController *gpsVS = [[GPSMapViewController alloc] 
+                                   initWithNibName:@"GPSMapViewController" 
+                                   bundle:nil];
+    
+    NSString *coordinates = [dictionary objectForKey:elementCoordinatesKey];
+    gpsVS.sigCoordinates = coordinates;
+    
+    [self.delegate presentModalViewController:gpsVS animated:YES];
+    
+    [gpsVS release];
+    
 }
 
 @end

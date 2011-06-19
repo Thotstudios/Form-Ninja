@@ -69,8 +69,10 @@
 {
     [self dismissModalViewControllerAnimated:YES];
 }
+
 - (IBAction) confirmFinishButtonPressed
 {
+    NSLog(@"%d", geoSign.selectedSegmentIndex);
     
     if (geoSign.selectedSegmentIndex==0) {
         [[self delegate] formFinishConfirmedWithLocation:YES];

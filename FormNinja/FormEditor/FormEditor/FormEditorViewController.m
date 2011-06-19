@@ -148,6 +148,13 @@
 		[self setAllowEditing:NO];
 }
 
+#pragma mark - Table Functions
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return NO;
+}
+
 # pragma mark - Member Functions
 -(TemplateElement*) getElementOfType:(NSString*)type
 {

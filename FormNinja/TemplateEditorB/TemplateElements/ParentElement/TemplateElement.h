@@ -19,7 +19,7 @@
 	UISegmentedControl *labelAlignmentControl;
 }
 
-@property (nonatomic, retain) id delegate;
+@property (nonatomic, assign) id delegate;
 @property (nonatomic, retain) NSMutableDictionary * dictionary;
 @property BOOL allowEditing;
 @property (nonatomic, retain) IBOutlet UITextField *labelField;
