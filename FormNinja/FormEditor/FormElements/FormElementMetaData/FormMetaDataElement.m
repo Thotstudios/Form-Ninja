@@ -106,7 +106,7 @@
     }
     [formStartLabel setText:[dateFormatter stringFromDate:[self.dictionary valueForKey:formBeginDateKey]]];
     date=[self.dictionary valueForKey:formFinalDateKey];
-    if (date) {
+    if (!date) {
         [formFinishLabel setText:@"Not Finished"];
     }
     else
@@ -114,6 +114,11 @@
         [formFinishLabel setText:[dateFormatter stringFromDate:[self.dictionary valueForKey:formFinalDateKey]]];
     }
 
+}
+
+-(void)setFinished
+{
+    [self.dictionary setValue:[NSDate date] forKey:formFinalDateKey];
 }
 
 @end
