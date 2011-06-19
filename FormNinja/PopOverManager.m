@@ -93,6 +93,7 @@ static PopOverManager *sharedManager = nil;
             break;
             
         case formManagerMenu:
+        case formManagerNoSendMenu:
             popOver.popoverContentSize = CGSizeMake(320, 44*5);
             break;
             

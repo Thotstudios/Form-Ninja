@@ -152,7 +152,8 @@
 //Indicates what location type to share
 typedef enum{
 	accountProfileMenu,
-    formManagerMenu
+    formManagerMenu,
+    formManagerNoSendMenu
 } MenuType;
 
 //Indicates selected popover menu action

@@ -42,7 +42,7 @@ static NSString* MenuType_toEnum[] = {
     [super viewDidLoad];
 
     //Load map types
-    if (self.menuType == formManagerMenu){ 
+    if (self.menuType == formManagerMenu || self.menuType == formManagerNoSendMenu){ 
         self.menuOptions = [NSArray arrayWithObjects: airPrintFormMenuOption, emailFormMenuOption, syncMenuOption, logoutMenuOption, newTemplateMenuOption,  nil];
     }
     
@@ -117,8 +117,15 @@ static NSString* MenuType_toEnum[] = {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
+    
 	NSString *optionName = [self.menuOptions objectAtIndex:indexPath.row];
 	cell.textLabel.text = optionName; 
+    
+    if (self.menuType == formManagerNoSendMenu && ([optionName isEqualToString:airPrintFormMenuOption] || [optionName isEqualToString:emailFormMenuOption])) {
+        cell.userInteractionEnabled = NO;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [[cell textLabel] setTextColor:[UIColor grayColor]];
+    }
     
     return cell;
 }

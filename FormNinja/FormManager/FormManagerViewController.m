@@ -211,7 +211,11 @@
 
 //Presents popover menu
 - (void) menuButtonAction:(id) sender{
-    [[PopOverManager sharedManager] createMenuPopOver:formManagerMenu fromButton:sender];
+    if([formTable indexPathForSelectedRow])
+        [[PopOverManager sharedManager] createMenuPopOver:formManagerMenu fromButton:sender];
+    
+    else
+        [[PopOverManager sharedManager] createMenuPopOver:formManagerNoSendMenu fromButton:sender];
 }
 
 -(void) disableButtons
