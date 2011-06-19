@@ -89,12 +89,10 @@
    
     //Use loc, if prsent, to set the location
     if (getLocation == YES && [locationManager hasValidLocation]) {
-        NSLog(@"get");
         //[dict setValue:loc forKey:@"finish location"];
         NSString *coordinates = [NSString stringWithFormat:@"%.2f,%.2f,+/-%.2f", locationManager.latitude, locationManager.longitude, [locationManager getAccuracy]];
         [dict setValue:coordinates forKey:@"finish location"];
     }
-    else NSLog(@"no get");
     
     //pass 'set finished' to all elements -- how?
     
