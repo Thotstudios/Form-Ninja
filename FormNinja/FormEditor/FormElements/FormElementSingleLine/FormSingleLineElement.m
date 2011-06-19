@@ -84,6 +84,11 @@
     
 	[self.minLength setText:[self.dictionary valueForKey:elementMinLengthKey]];
 	[self.maxLength setText:[self.dictionary valueForKey:elementMaxLengthKey]];
+    
+    valueString=[self.dictionary valueForKey:@"finished"];
+    if ([valueString isEqualToString:@"yes"]) {
+        valueField.enabled=NO;
+    }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -99,6 +104,11 @@
     //TODO:  Validate length.
     
     return YES;
+}
+
+-(void)setFinished
+{
+    [self.dictionary setValue:@"yes" forKey:@"finished"];
 }
 
 @end
