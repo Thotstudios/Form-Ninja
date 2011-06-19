@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		421EA44513ACEF4400ED5259 /* CopyRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 421EA44013ACEF4400ED5259 /* CopyRed.png */; };
 		421EA44613ACEF4400ED5259 /* deleteBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 421EA44113ACEF4400ED5259 /* deleteBlack.png */; };
 		421EA44713ACEF4400ED5259 /* deleteRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 421EA44213ACEF4400ED5259 /* deleteRed.png */; };
 		421EA44813ACEF4400ED5259 /* editBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 421EA44313ACEF4400ED5259 /* editBlack.png */; };
@@ -19,6 +18,11 @@
 		4257214C13AE755E004B8693 /* ResumeRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257214813AE755E004B8693 /* ResumeRed.png */; };
 		4257214D13AE755E004B8693 /* ViewformGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257214913AE755E004B8693 /* ViewformGray.png */; };
 		4257214E13AE755E004B8693 /* viewformRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257214A13AE755E004B8693 /* viewformRed.png */; };
+		4257215013AE76CD004B8693 /* CopyGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257214F13AE76CD004B8693 /* CopyGray.png */; };
+		4257215313AE76D3004B8693 /* NewTemplateGRAY.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257215113AE76D3004B8693 /* NewTemplateGRAY.png */; };
+		4257215413AE76D3004B8693 /* NewTemplateRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257215213AE76D3004B8693 /* NewTemplateRed.png */; };
+		4257215613AE77B8004B8693 /* Copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257215513AE77B8004B8693 /* Copy.png */; };
+		4257215813AE782B004B8693 /* FormNinja_IpadIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257215713AE782B004B8693 /* FormNinja_IpadIcon.png */; };
 		D904731C13982ADC00B87E4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D904731B13982ADC00B87E4E /* CoreLocation.framework */; };
 		D917B3F81378D0B000E75140 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */; };
 		D917B3F91378D0B000E75140 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3EC1378D0B000E75140 /* ASIDownloadCache.m */; };
@@ -134,7 +138,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		421EA44013ACEF4400ED5259 /* CopyRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CopyRed.png; sourceTree = "<group>"; };
 		421EA44113ACEF4400ED5259 /* deleteBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBlack.png; sourceTree = "<group>"; };
 		421EA44213ACEF4400ED5259 /* deleteRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteRed.png; sourceTree = "<group>"; };
 		421EA44313ACEF4400ED5259 /* editBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBlack.png; sourceTree = "<group>"; };
@@ -146,6 +149,11 @@
 		4257214813AE755E004B8693 /* ResumeRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeRed.png; sourceTree = "<group>"; };
 		4257214913AE755E004B8693 /* ViewformGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ViewformGray.png; sourceTree = "<group>"; };
 		4257214A13AE755E004B8693 /* viewformRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = viewformRed.png; sourceTree = "<group>"; };
+		4257214F13AE76CD004B8693 /* CopyGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CopyGray.png; sourceTree = "<group>"; };
+		4257215113AE76D3004B8693 /* NewTemplateGRAY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewTemplateGRAY.png; sourceTree = "<group>"; };
+		4257215213AE76D3004B8693 /* NewTemplateRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewTemplateRed.png; sourceTree = "<group>"; };
+		4257215513AE77B8004B8693 /* Copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Copy.png; sourceTree = "<group>"; };
+		4257215713AE782B004B8693 /* FormNinja_IpadIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FormNinja_IpadIcon.png; sourceTree = "<group>"; };
 		D904731B13982ADC00B87E4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D90A13DC1382250200857A4C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D917B3E81378D0B000E75140 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = FormNinja/ASI/ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -409,6 +417,7 @@
 		D922CE81136C926300233C48 = {
 			isa = PBXGroup;
 			children = (
+				4257215713AE782B004B8693 /* FormNinja_IpadIcon.png */,
 				F768C5B7137DEFEB00191858 /* TODO.txt */,
 				D922CE96136C926300233C48 /* FormNinja */,
 				D922CEB0136CAB1F00233C48 /* XIB */,
@@ -676,7 +685,10 @@
 				F778DD52137DC60E00B444F6 /* TemplateManagerViewController.h */,
 				F7F248D51385E8ED00E0FD2A /* TemplateManagerViewController.m */,
 				F7F248D71385E8F800E0FD2A /* TemplateManagerViewController.xib */,
-				421EA44013ACEF4400ED5259 /* CopyRed.png */,
+				4257215113AE76D3004B8693 /* NewTemplateGRAY.png */,
+				4257215213AE76D3004B8693 /* NewTemplateRed.png */,
+				4257215513AE77B8004B8693 /* Copy.png */,
+				4257214F13AE76CD004B8693 /* CopyGray.png */,
 				421EA44113ACEF4400ED5259 /* deleteBlack.png */,
 				421EA44213ACEF4400ED5259 /* deleteRed.png */,
 				421EA44313ACEF4400ED5259 /* editBlack.png */,
@@ -1047,7 +1059,6 @@
 				F7C0DCBA13A07259009ACEB6 /* FormSingleLineElement.xib in Resources */,
 				F7C0DCBC13A07259009ACEB6 /* FormTableElement.xib in Resources */,
 				F78C993D13A073F600494C12 /* MainMenu.xib in Resources */,
-				421EA44513ACEF4400ED5259 /* CopyRed.png in Resources */,
 				421EA44613ACEF4400ED5259 /* deleteBlack.png in Resources */,
 				421EA44713ACEF4400ED5259 /* deleteRed.png in Resources */,
 				421EA44813ACEF4400ED5259 /* editBlack.png in Resources */,
@@ -1062,6 +1073,11 @@
 				4257214C13AE755E004B8693 /* ResumeRed.png in Resources */,
 				4257214D13AE755E004B8693 /* ViewformGray.png in Resources */,
 				4257214E13AE755E004B8693 /* viewformRed.png in Resources */,
+				4257215013AE76CD004B8693 /* CopyGray.png in Resources */,
+				4257215313AE76D3004B8693 /* NewTemplateGRAY.png in Resources */,
+				4257215413AE76D3004B8693 /* NewTemplateRed.png in Resources */,
+				4257215613AE77B8004B8693 /* Copy.png in Resources */,
+				4257215813AE782B004B8693 /* FormNinja_IpadIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

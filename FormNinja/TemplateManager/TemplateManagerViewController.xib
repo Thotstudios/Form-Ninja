@@ -143,7 +143,7 @@
 								<reference key="IBUINormalTitleShadowColor" ref="168668303"/>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">CopyRed.png</string>
+									<string key="NSResourceName">Copy.png</string>
 								</object>
 							</object>
 							<object class="IBUIButton" id="1001163567">
@@ -170,7 +170,7 @@
 							<object class="IBUIButton" id="784370998">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">297</int>
-								<string key="NSFrame">{{596, 20}, {152, 64}}</string>
+								<string key="NSFrame">{{614, 51}, {154, 53}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="613129501"/>
@@ -179,7 +179,6 @@
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<reference key="IBUIFont" ref="1016713546"/>
-								<int key="IBUIButtonType">1</int>
 								<string key="IBUINormalTitle">New Template</string>
 								<reference key="IBUIHighlightedTitleColor" ref="622027297"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
@@ -187,6 +186,10 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="168668303"/>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">NewTemplateRed.png</string>
+								</object>
 							</object>
 						</object>
 						<string key="NSFrameSize">{768, 104}</string>
@@ -708,13 +711,15 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>CopyRed.png</string>
+				<string>Copy.png</string>
+				<string>NewTemplateRed.png</string>
 				<string>deleteRed.png</string>
 				<string>editRed.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{154, 51}</string>
+				<string>{150, 51}</string>
+				<string>{150, 53}</string>
 				<string>{154, 51}</string>
 				<string>{154, 51}</string>
 			</object>

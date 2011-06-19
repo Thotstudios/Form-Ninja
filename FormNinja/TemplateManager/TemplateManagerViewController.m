@@ -97,6 +97,10 @@
     [deleteTemplateButton setImage:deleteBlackImage forState:UIControlStateHighlighted];
     UIImage *editBlackImage=[UIImage imageNamed:@"editBlack.png"];
     [editTemplateButton setImage:editBlackImage forState:UIControlStateHighlighted];
+    UIImage *copyBlackImage=[UIImage imageNamed:@"CopyGray.png"];
+    [copyTemplateButton setImage:copyBlackImage forState:UIControlStateHighlighted];
+    UIImage *newBlackImage=[UIImage imageNamed:@"NewTemplateGRAY.png"];
+    [createTemplateButton setImage:newBlackImage forState:UIControlStateHighlighted];
 
     
 }
