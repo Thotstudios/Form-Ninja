@@ -11,9 +11,13 @@
 #import "GeoSignatureElement.h"
 
 @interface FormGeoSignatureElement : GeoSignatureElement {
-    
+    IBOutlet UIButton *mapButton;
 }
 
+@property (nonatomic, retain) UIButton *mapButton;
+
+
 -(void)setFinished;
+- (IBAction) viewSigButtonAction;
 
 @end

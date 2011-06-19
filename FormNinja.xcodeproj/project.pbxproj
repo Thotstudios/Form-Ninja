@@ -42,6 +42,8 @@
 		D9A2B72513AD73AD007C13A1 /* FormFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A2B72313AD73AD007C13A1 /* FormFinishViewController.xib */; };
 		D9E3248213A6C801009724D8 /* MenuPopOver.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E3247F13A6C801009724D8 /* MenuPopOver.m */; };
 		D9E3248313A6C801009724D8 /* PopOverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E3248113A6C801009724D8 /* PopOverManager.m */; };
+		DA29FA3C13AE6CA200CF1C8D /* GPSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA29FA3A13AE6CA200CF1C8D /* GPSMapViewController.m */; };
+		DA29FA3D13AE6CA200CF1C8D /* GPSMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA29FA3B13AE6CA200CF1C8D /* GPSMapViewController.xib */; };
 		F721878D1390EFDC000BA9DF /* TemplateEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72187651390EFDC000BA9DF /* TemplateEditorController.m */; };
 		F721878E1390EFDC000BA9DF /* TemplateEditorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187661390EFDC000BA9DF /* TemplateEditorController.xib */; };
 		F721878F1390EFDC000BA9DF /* ElementList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F72187681390EFDC000BA9DF /* ElementList.plist */; };
@@ -189,6 +191,9 @@
 		D9E3247F13A6C801009724D8 /* MenuPopOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuPopOver.m; sourceTree = "<group>"; };
 		D9E3248013A6C801009724D8 /* PopOverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverManager.h; sourceTree = "<group>"; };
 		D9E3248113A6C801009724D8 /* PopOverManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopOverManager.m; sourceTree = "<group>"; };
+		DA29FA3913AE6CA200CF1C8D /* GPSMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSMapViewController.h; sourceTree = "<group>"; };
+		DA29FA3A13AE6CA200CF1C8D /* GPSMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSMapViewController.m; sourceTree = "<group>"; };
+		DA29FA3B13AE6CA200CF1C8D /* GPSMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSMapViewController.xib; sourceTree = "<group>"; };
 		F72187641390EFDC000BA9DF /* TemplateEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateEditorController.h; sourceTree = "<group>"; };
 		F72187651390EFDC000BA9DF /* TemplateEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateEditorController.m; sourceTree = "<group>"; };
 		F72187661390EFDC000BA9DF /* TemplateEditorController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateEditorController.xib; sourceTree = "<group>"; };
@@ -496,6 +501,16 @@
 			name = "Menu Popover";
 			sourceTree = "<group>";
 		};
+		DA29FA3F13AE6CA700CF1C8D /* GPS Map */ = {
+			isa = PBXGroup;
+			children = (
+				DA29FA3913AE6CA200CF1C8D /* GPSMapViewController.h */,
+				DA29FA3A13AE6CA200CF1C8D /* GPSMapViewController.m */,
+				DA29FA3B13AE6CA200CF1C8D /* GPSMapViewController.xib */,
+			);
+			name = "GPS Map";
+			sourceTree = "<group>";
+		};
 		F72187611390EFCE000BA9DF /* TemplateEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -772,6 +787,7 @@
 		F7C0DC8013A07259009ACEB6 /* FormEditor */ = {
 			isa = PBXGroup;
 			children = (
+				DA29FA3F13AE6CA700CF1C8D /* GPS Map */,
 				F7C0DC8113A07259009ACEB6 /* FormEditorViewController.h */,
 				F7C0DC8213A07259009ACEB6 /* FormEditorViewController.m */,
 				F7C0DC8313A07259009ACEB6 /* FormEditorViewController.xib */,
@@ -1029,6 +1045,7 @@
 				F792BCDF13AD3B2900116F72 /* GeoSignatureElement.xib in Resources */,
 				F764981C13AD6288000D6694 /* FormGeoSignatureElement.xib in Resources */,
 				D9A2B72513AD73AD007C13A1 /* FormFinishViewController.xib in Resources */,
+				DA29FA3D13AE6CA200CF1C8D /* GPSMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1092,6 +1109,7 @@
 				F792BCDE13AD3B2900116F72 /* GeoSignatureElement.m in Sources */,
 				F764981B13AD6288000D6694 /* FormGeoSignatureElement.m in Sources */,
 				D9A2B72413AD73AD007C13A1 /* FormFinishViewController.m in Sources */,
+				DA29FA3C13AE6CA200CF1C8D /* GPSMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

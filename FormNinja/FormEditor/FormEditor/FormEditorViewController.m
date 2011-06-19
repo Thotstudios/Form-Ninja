@@ -12,6 +12,7 @@
 #import "AccountClass.h"
 #import "PopOverManager.h"
 #import "FormFinishViewController.h"
+#import "LocationManager.h"
 
 @implementation FormEditorViewController
 
@@ -78,18 +79,22 @@
 	// e.g. upload to database, or add to pending sync list
 }
 
--(void)formFinishConfirmedWithLocation:(CLLocation *) loc;
+-(void)formFinishConfirmedWithLocation:(BOOL) getLocation;
 {
     NSMutableDictionary * dict = [dataArray objectAtIndex:0];
 	[dict setValue:[NSNumber numberWithBool:YES] forKey:formCompletedKey];
 	[dict setValue:CURRENT_DATE_AND_TIME forKey:formFinalDateKey];
+    
+    LocationManager *locationManager = [LocationManager locationManager];
    
     //Use loc, if prsent, to set the location
-    if (loc!=nil) {
+    if (getLocation == YES && [locationManager hasValidLocation]) {
+        NSLog(@"get");
         //[dict setValue:loc forKey:@"finish location"];
-        NSString *coordinates = [NSString stringWithFormat:@"%f,%f,+/-%f", loc.coordinate.latitude, loc.coordinate.longitude, loc.horizontalAccuracy];
+        NSString *coordinates = [NSString stringWithFormat:@"%.2f,%.2f,+/-%.2f", locationManager.latitude, locationManager.longitude, [locationManager getAccuracy]];
         [dict setValue:coordinates forKey:@"finish location"];
     }
+    else NSLog(@"no get");
     
     //pass 'set finished' to all elements -- how?
     

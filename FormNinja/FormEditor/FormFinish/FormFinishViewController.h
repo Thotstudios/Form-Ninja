@@ -12,20 +12,18 @@
 @protocol FormFinishDelegate <NSObject>
 
 @required
--(void)formFinishConfirmedWithLocation:(CLLocation *) loc;
+-(void)formFinishConfirmedWithLocation:(BOOL) getLocation;
 -(void)formFinishAbort;
 
 @end
 
-@interface FormFinishViewController : UIViewController <CLLocationManagerDelegate> {
+@interface FormFinishViewController : UIViewController {
 
 }
 
-@property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, assign) id <FormFinishDelegate> delegate;
 @property (nonatomic, retain) IBOutlet UILabel *accuracyLabel;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *geoSign;
-@property (nonatomic, retain) CLLocation *lastLocation;
 
 - (IBAction) abortFinishButtonPressed;
 - (IBAction) confirmFinishButtonPressed;
