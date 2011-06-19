@@ -87,10 +87,10 @@
     
     valueString=[self.dictionary valueForKey:@"finished"];
     if ([valueString isEqualToString:@"yes"]) {
-        valueField.enabled=NO;
+        self.valueField.enabled=NO;
     }
     else
-        valueField.enabled=YES;
+        self.valueField.enabled=YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
