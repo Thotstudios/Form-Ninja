@@ -64,7 +64,7 @@ static NSMutableDictionary *syncList;
 //Formats template to db compatible json string
 - (NSString *) formatTemplate:(NSMutableArray *) array{
     NSMutableArray *dbArray = [[[NSMutableArray alloc] initWithArray:array] autorelease];
-    NSLog(@"%@", dbArray);
+   // NSLog(@"%@", dbArray);
     //Check for json incompatible Signature fields
     for (NSMutableDictionary *dictionary in dbArray) {
         NSArray *dataDict = [dictionary objectForKey:sectionDataKey]; //get section data
