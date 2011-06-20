@@ -202,17 +202,23 @@
 		}
 }
 
-- (IBAction)clear
+-(void) clearConfirm
 {
-	NSMutableDictionary * preserve;
+NSMutableDictionary * preserve;
 	preserve = [[[dataArray objectAtIndex:0] retain] autorelease];
 	[dataArray removeAllObjects];
 	[dataArray addObject:preserve];
 	[viewArray removeAllObjects];
 	[self generateViewArray];
 	[self setIndexes];
-	[table reloadData]; // TODO: use something faster
-	return;
+	[table reloadData];
+}
+
+- (IBAction)clear
+{
+	UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_TEMPLATE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_BUTTON_STR otherButtonTitles:nil];
+	[sheet setTag:2];
+	[sheet showInView:self.view];
 }
 
 -(void) saveToPath:(NSString*)pathArg
@@ -382,11 +388,7 @@
 		[self confirmDeleteSelectedSection];
 		}
 }
--(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-	if([actionSheet tag] == 1 && buttonIndex == [actionSheet destructiveButtonIndex])
-		[self confirmDeleteSelectedSection];
-}
+
 -(void) moveSectionFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex
 {
 	if(fromIndex == 0 || toIndex == 0) // cannot move metadata
@@ -759,6 +761,24 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+#pragma mark - ActionSheet Delegate
+-(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	if([actionSheet destructiveButtonIndex] == buttonIndex)
+		{
+		switch([actionSheet tag])
+			{
+				case 1:
+				[self confirmDeleteSelectedSection];
+				break;
+				
+				case 2:
+				[self clearConfirm];
+				break;
+			}
+		}
 }
 
 @end
