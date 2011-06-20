@@ -20,10 +20,12 @@
 #define keyboardHeightPortrait		264
 #define keyboardHeightLandscape		352
 
-#define tableHeightFullPortrait		(960 - 112)
+#define editorBarHeight				81
+
+#define tableHeightFullPortrait		(960 - editorBarHeight)
 #define tableHeightHalfPortrait		(tableHeightFullPortrait - keyboardHeightPortrait)
 
-#define tableHeightFullLandscape	(704 - 112)
+#define tableHeightFullLandscape	(704 - editorBarHeight)
 #define tableHeightHalfLandscape	(tableHeightFullLandscape - keyboardHeightLandscape)
 
 @interface TemplateEditorController()
