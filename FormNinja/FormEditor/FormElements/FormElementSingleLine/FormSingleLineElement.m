@@ -11,7 +11,7 @@
 
 @implementation FormSingleLineElement
 
-@synthesize labelLabel, curLength, maxLength, minLength;
+@synthesize curLength, maxLength, minLength;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,19 +65,6 @@
 {
 	[super setDictionary:arg];
     
-	[self.labelLabel setText:[self.dictionary objectForKey:elementLabelKey]];
-	switch ([[self.dictionary valueForKey:@"label alignment"] intValue])
-	{
-		case 0: default:
-		[labelLabel setTextAlignment:UITextAlignmentLeft];
-		break;
-		case 1:
-		[labelLabel setTextAlignment:UITextAlignmentCenter];
-		break;
-		case 2:
-		[labelLabel setTextAlignment:UITextAlignmentRight];
-		break;
-	}
 	NSString * valueString = [self.dictionary valueForKey:elementFormValueKey];
 	if(!valueString) valueString = [self.dictionary valueForKey:elementValueKey];
 	[self.valueField setText:valueString];

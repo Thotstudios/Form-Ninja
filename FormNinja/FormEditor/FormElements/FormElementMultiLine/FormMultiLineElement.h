@@ -15,6 +15,6 @@
 
 -(void)setFinished;
 
-@property (nonatomic, retain) IBOutlet UILabel *labelLabel, *minLabel, *maxLabel, *curLabel;
+@property (nonatomic, retain) IBOutlet UILabel *minLabel, *maxLabel, *curLabel;
 
 @end

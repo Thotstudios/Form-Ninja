@@ -11,7 +11,7 @@
 
 @implementation FormMultiLineElement
 
-@synthesize labelLabel, minLabel, maxLabel, curLabel;
+@synthesize minLabel, maxLabel, curLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,20 +65,6 @@
 -(void)	setDictionary:(NSMutableDictionary *)arg
 {
 	[super setDictionary:arg];
-    
-	[self.labelLabel setText:[self.dictionary objectForKey:elementLabelKey]];
-    NSNumber *index=[self.dictionary objectForKey:@"label alignment"];
-    if ([index intValue]==0) {
-        self.labelLabel.textAlignment=UITextAlignmentLeft;
-    }
-    else if([index intValue]==1)
-    {
-        self.labelLabel.textAlignment=UITextAlignmentCenter; 
-    }
-    else if([index intValue]==2)
-    {
-        self.labelLabel.textAlignment=UITextAlignmentRight;
-    }
     
     NSString *stringValue=[self.dictionary valueForKey:elementFormValueKey];
     if (stringValue) {

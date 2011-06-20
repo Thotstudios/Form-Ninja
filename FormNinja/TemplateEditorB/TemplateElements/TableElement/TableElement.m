@@ -29,6 +29,12 @@
     [super dealloc];
 }
 
+-(void) viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	[table setEditing:YES];
+}
+
 #pragma mark - Methods
 
 - (IBAction)reset
@@ -52,7 +58,9 @@
 		data = [NSMutableArray array];
 		[dictionary setValue:data forKey:elementTableDataKey];
 		}
+	NSArray * indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:[data count] inSection:0]];
 	[data addObject:item];
+	[table insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
 	[table reloadData];
 }
 - (IBAction)addTableItem
@@ -153,6 +161,8 @@
 	
 	[table reloadData];
 }
+
+#pragma mark - TextField Delegate
 
 
 @end

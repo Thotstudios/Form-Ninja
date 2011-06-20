@@ -78,6 +78,24 @@
 	[labelAlignmentControl setSelectedSegmentIndex:0];
 }
 
+-(void) setLabelAlignment
+{
+	NSInteger opt = [[dictionary valueForKey:@"label alignment"] integerValue];
+	switch(opt)
+	{
+		case 0:
+		[labelField setTextAlignment:UITextAlignmentLeft];
+		break;
+		
+		case 1:
+		[labelField setTextAlignment:UITextAlignmentCenter];
+		break;
+		
+		case 2:
+		[labelField setTextAlignment:UITextAlignmentRight];
+		break;
+	}
+}
 -(void) setDictionary:(NSMutableDictionary *)arg
 {
 	[self.view setNeedsDisplay];
@@ -85,6 +103,7 @@
 	dictionary = [arg retain];
 	[labelField setText:[dictionary objectForKey:elementLabelKey]];
 	[labelAlignmentControl setSelectedSegmentIndex:[[dictionary objectForKey:@"label alignment"] integerValue]];
+	[self setLabelAlignment];
 }
 
 #pragma mark - Non-overloaded Methods
@@ -131,6 +150,7 @@
 - (IBAction)segmentedControlValueDidChange:(UISegmentedControl*)segmentedControl
 {
 	[dictionary setValue:[NSNumber numberWithInteger:[segmentedControl selectedSegmentIndex]] forKey:@"label alignment"];
+	[self setLabelAlignment];
 }
 
 #pragma mark - TextField Delegate

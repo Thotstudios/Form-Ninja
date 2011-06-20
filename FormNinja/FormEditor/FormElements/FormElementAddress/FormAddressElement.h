@@ -13,8 +13,6 @@
 
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *labelLabel;
-
 -(void) setFinished;
 
 @end
