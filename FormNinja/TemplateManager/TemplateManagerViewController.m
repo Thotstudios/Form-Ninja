@@ -39,15 +39,6 @@
 
 #pragma mark - Memory
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)dealloc
 {
 	[groupNameList release];
@@ -66,14 +57,6 @@
     [super dealloc];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -89,32 +72,16 @@
                                   initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
     self.navigationItem.rightBarButtonItem = menuButton;
     [menuButton release];
-    
-    //Tab appearances
-    //UIImage *copyBlackImage=[UIImage imageNamed:@"CopyBlack.png"];
-    //[copyTemplateButton setImage:copyBlackImage forState:UIControlStateHighlighted];
-    UIImage *deleteBlackImage=[UIImage imageNamed:@"deleteBlack.png"];
-    [deleteTemplateButton setImage:deleteBlackImage forState:UIControlStateHighlighted];
-    UIImage *editBlackImage=[UIImage imageNamed:@"editBlack.png"];
-    [editTemplateButton setImage:editBlackImage forState:UIControlStateHighlighted];
-    UIImage *copyBlackImage=[UIImage imageNamed:@"CopyGray.png"];
-    [copyTemplateButton setImage:copyBlackImage forState:UIControlStateHighlighted];
-    UIImage *newBlackImage=[UIImage imageNamed:@"NewTemplateGRAY.png"];
-    [createTemplateButton setImage:newBlackImage forState:UIControlStateHighlighted];
-
-    
 }
 -(void) viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	
 	[self loadTemplateList];
-//	[groupTableView selectRowAtIndexPath:[NSIndexPath indexPathWithIndexes:(NSUInteger[2]){0,0} length:2] animated:YES scrollPosition:UITableViewScrollPositionTop];
-	
 	[self filterByGroupName];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated
+{
     [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
 }
 

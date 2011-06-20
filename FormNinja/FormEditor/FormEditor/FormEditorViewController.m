@@ -30,11 +30,6 @@
                                   initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
     self.navigationItem.rightBarButtonItem = menuButton;
     [menuButton release];
-    
-    UIImage *blackSaveImage=[UIImage imageNamed:@"formsavegray.png"];
-    [self.saveButton setImage:blackSaveImage forState:UIControlStateHighlighted];
-    UIImage *finishGray=[UIImage imageNamed:@"FinishGrayl.png"];
-    [self.finishButton setImage:finishGray forState:UIControlStateHighlighted];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

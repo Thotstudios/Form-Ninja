@@ -4,9 +4,6 @@ This is not official or required in any way.
 It's more like quick notes to ourselves and each other.
 
 Chad:
-* Forms and Templates save to PendingUploads folder.
-* PendingUploads folder is checked for sync.
-* Clean up template renaming.
 * Clean up section header titles.
 * Deleting templates should reconsider group names.
 * Sanitize template names.
@@ -18,9 +15,8 @@ Chad:
 * Belt icon next to templates (and forms?).
 * Network is available?
 * Syncing
-* Table Element obtain strings from user.
-* Enable Form Finish Button.
 * Some part of the signature view is numb to tap downs, but still draws.
+* Check Form Finish method for completeness.
 
 Critical changes:
 

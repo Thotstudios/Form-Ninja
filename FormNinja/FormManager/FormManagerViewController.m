@@ -29,15 +29,6 @@
 
 @synthesize formEditorViewController;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)dealloc
 {
 	[formList release];
@@ -50,14 +41,6 @@
 	[resumeFormButton release];
     [viewFormButton release];
     [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -77,19 +60,15 @@
                                   initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
     self.navigationItem.rightBarButtonItem = menuButton;
     [menuButton release];
-    
-    
-    UIImage *createBlackImage=[UIImage imageNamed:@"startNewFormBlack.png"];
-    [createFormButton setImage:createBlackImage forState:UIControlStateHighlighted];
-    UIImage *resumeBlackImage=[UIImage imageNamed:@"resumeFormGray.png"];
-    [resumeFormButton setImage:resumeBlackImage forState:UIControlStateHighlighted];
-    UIImage *viewBlackImage=[UIImage imageNamed:@"viewformGray.png"];
-    [viewFormButton setImage:viewBlackImage forState:UIControlStateHighlighted];
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+	
+	[self loadFormList];
+	[self filterFormsByGroup];
+	
     [[PopOverManager sharedManager] setDelegate:self];
 }
 
@@ -116,13 +95,6 @@
     // e.g. self.myOutlet = nil;
 }
 
--(void) viewDidAppear:(BOOL)animated
-{
-	[super viewDidAppear:animated];
-	[self loadFormList];
-	[self filterFormsByGroup];
-	[formTable reloadData];
-}
 #pragma mark - Instance Methods
 
 -(void) filterFormsByGroup
@@ -139,6 +111,7 @@
 			[formListFilteredByTemplate addObject:dict];
 			}
 		}
+	[formTable reloadData];
 }
 
 -(void) filterFormsByTemplate
@@ -152,7 +125,6 @@
 		if([templateName isEqualToString:[dict objectForKey:templateNameKey]])
 			[formListFilteredByTemplate addObject:dict];
 		}
-	//[templateTable reloadData];
 	[formTable reloadData];
 }
 

@@ -43,13 +43,6 @@
 @synthesize addButton, arrangeButton, clearButton, saveButton;
 
 #pragma mark - Init and Memory
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
 
 - (void)dealloc
 {
@@ -80,22 +73,16 @@
                                   initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonAction:)]; 
     self.navigationItem.rightBarButtonItem = menuButton;
     [menuButton release];
-    
-    
-    UIImage *blackAddImage=[UIImage imageNamed:@"AddSectionGray.png"];
-    [addButton setImage:blackAddImage forState:UIControlStateHighlighted];
-    UIImage *blackArrangeImage=[UIImage imageNamed:@"ArrangeGray.png"];
-    [arrangeButton setImage:blackArrangeImage forState:UIControlStateHighlighted];
-    UIImage *blackSaveImage=[UIImage imageNamed:@"savegray.png"];
-    [saveButton setImage:blackSaveImage forState:UIControlStateHighlighted];
-    UIImage *blackClearImage=[UIImage imageNamed:@"ClearGray.png"];
-    [clearButton setImage:blackClearImage forState:UIControlStateHighlighted];
 }
 
 
 -(void) viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+	
+	[self setIndexes];
+	[self generateViewArray];
+	
 	[[NSNotificationCenter defaultCenter]
 	 addObserver:self
 	 selector:@selector(keyboardWillShow:)
@@ -129,13 +116,6 @@
 	if(orient == UIDeviceOrientationLandscapeLeft || orient == UIDeviceOrientationLandscapeRight)
 		height = tableHeightFullLandscape;
 	[table setFrame:CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, height)];
-}
-
--(void) viewDidAppear:(BOOL)animated
-{
-	[self setIndexes];
-	[self generateViewArray];
-	[table reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
