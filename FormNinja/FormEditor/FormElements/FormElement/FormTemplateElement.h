@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TableElement.h"
 
-@interface FormTemplateElement : TemplateElement {
-	UILabel *labelLabel;
+@interface FormTemplateElement: TemplateElement
+{
+
 }
-@property (nonatomic, retain) IBOutlet UILabel *labelLabel;
 
 -(void)setFinished;
 

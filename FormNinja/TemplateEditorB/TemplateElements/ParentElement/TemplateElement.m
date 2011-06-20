@@ -80,7 +80,7 @@
 
 -(void) setLabelAlignment
 {
-	NSInteger opt = [[dictionary valueForKey:@"label alignment"] integerValue];
+	NSInteger opt = [[dictionary valueForKey:elementLabelAlignment] integerValue];
 	switch(opt)
 	{
 		case 0:
@@ -102,7 +102,7 @@
 	[dictionary release];
 	dictionary = [arg retain];
 	[labelField setText:[dictionary objectForKey:elementLabelKey]];
-	[labelAlignmentControl setSelectedSegmentIndex:[[dictionary objectForKey:@"label alignment"] integerValue]];
+	[labelAlignmentControl setSelectedSegmentIndex:[[dictionary objectForKey:elementLabelAlignment] integerValue]];
 	[self setLabelAlignment];
 }
 
@@ -149,7 +149,7 @@
 
 - (IBAction)segmentedControlValueDidChange:(UISegmentedControl*)segmentedControl
 {
-	[dictionary setValue:[NSNumber numberWithInteger:[segmentedControl selectedSegmentIndex]] forKey:@"label alignment"];
+	[dictionary setValue:[NSNumber numberWithInteger:[segmentedControl selectedSegmentIndex]] forKey:elementLabelAlignment];
 	[self setLabelAlignment];
 }
 

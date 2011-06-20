@@ -86,6 +86,7 @@
 
 // Element dictionary keys
 #define elementLabelKey				@"label"
+#define elementLabelAlignment		@"label alignment"
 #define elementValueKey				@"value"
 #define elementFormValueKey			@"form value"
 #define elementMinLengthKey			@"minimum length"
