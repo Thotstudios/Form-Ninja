@@ -68,10 +68,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void)setFinished
-{
-    [self.dictionary setValue:@"yes" forKey:@"finished"];
-}
 
 - (IBAction) viewSigButtonAction{    NSLog(@"%@",dictionary);
     

@@ -77,7 +77,6 @@
 {
 	[super viewWillAppear:animated];
 	[self loadTemplateList];
-	[self filterByGroupName];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

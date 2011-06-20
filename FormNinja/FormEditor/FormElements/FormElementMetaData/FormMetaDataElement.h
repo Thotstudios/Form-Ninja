@@ -11,10 +11,15 @@
 
 @interface FormMetaDataElement : MetaDataElement {
     
+	UITextField *formAgentField;
+	UITextField *formBeginDateField;
+	UITextField *formFinalDateField;
+	UITextField *formCoordinatesField;
 }
 
--(void)setFinished;
-
-@property(nonatomic, retain) IBOutlet UILabel *templateNameLabel, *templateGroupLabel, *creatorNameLabel, *creationDateLabel, *formStartLabel, *formFinishLabel, *formFinishGPSLabel, *formFillerLabel;
+@property (nonatomic, retain) IBOutlet UITextField *formAgentField;
+@property (nonatomic, retain) IBOutlet UITextField *formBeginDateField;
+@property (nonatomic, retain) IBOutlet UITextField *formFinalDateField;
+@property (nonatomic, retain) IBOutlet UITextField *formCoordinatesField;
 
 @end

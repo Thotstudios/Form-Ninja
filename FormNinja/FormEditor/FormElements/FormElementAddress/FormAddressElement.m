@@ -171,9 +171,4 @@
 		[self.dictionary setValue:[textField text] forKey:key];
 }
 
--(void)setFinished
-{
-    [self.dictionary setValue:@"yes" forKey:@"finished"];
-}
-
 @end

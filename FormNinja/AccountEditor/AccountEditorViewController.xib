@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
-		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.SystemVersion">10J869</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">462.00</string>
+		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">301</string>
@@ -376,7 +376,6 @@
 								<string key="NSFrame">{{121, 825}, {566, 148}}</string>
 								<reference key="NSSuperview" ref="632259094"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -559,7 +558,7 @@
 								<reference key="NSNextKeyView" ref="110447682"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC43NQA</bytes>
+									<bytes key="NSWhite">MQA</bytes>
 									<reference key="NSCustomColorSpace" ref="203141368"/>
 								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -1109,13 +1108,13 @@
 							<reference ref="730561150"/>
 							<reference ref="182607140"/>
 							<reference ref="504510336"/>
-							<reference ref="606782994"/>
 							<reference ref="194024191"/>
 							<reference ref="514393075"/>
 							<reference ref="468055617"/>
 							<reference ref="692027359"/>
 							<reference ref="570381947"/>
 							<reference ref="732531344"/>
+							<reference ref="606782994"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -1234,11 +1233,6 @@
 						<reference key="parent" ref="570381947"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">8</int>
-						<reference key="object" ref="110447682"/>
-						<reference key="parent" ref="732531344"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">68</int>
 						<reference key="object" ref="516984638"/>
 						<reference key="parent" ref="732531344"/>
@@ -1273,6 +1267,11 @@
 						<int key="objectID">105</int>
 						<reference key="object" ref="514393075"/>
 						<reference key="parent" ref="632259094"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">8</int>
+						<reference key="object" ref="110447682"/>
+						<reference key="parent" ref="732531344"/>
 					</object>
 				</object>
 			</object>

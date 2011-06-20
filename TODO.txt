@@ -19,6 +19,12 @@ Chad:
 * Check Form Finish method for completeness.
 
 Critical changes:
+1) Viewing/Editing a form causes a crash.
+2) GPS accuracy isn't shown to user.
+3) No image for Abort Form button on Form Editor page.
+4) No image for Cancel button on Profile page.
+5) Address Element is misaligned and State Abbr is occluded.
+
 
 Important changes:
 Inform user when no templates are available for form manager.

@@ -80,8 +80,8 @@
 {
 	[super viewWillAppear:animated];
 	
-	[self setIndexes];
 	[self generateViewArray];
+	[self setIndexes];
 	
 	[[NSNotificationCenter defaultCenter]
 	 addObserver:self
@@ -98,6 +98,8 @@
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
+	
+	[table reloadData];
 	[super viewDidDisappear:animated];
 }
 
@@ -143,7 +145,7 @@
 
 - (void) generateViewArray
 {
-	[self setViewArray:[NSMutableArray array]];
+	[viewArray removeAllObjects];
 	if([dataArray count])
 		{
 		NSString * type;
@@ -196,7 +198,7 @@ NSMutableDictionary * preserve;
 
 - (IBAction)clear
 {
-	UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_TEMPLATE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_BUTTON_STR otherButtonTitles:nil];
+	UIActionSheet * sheet = [[[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_TEMPLATE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_BUTTON_STR otherButtonTitles:nil] autorelease];
 	[sheet setTag:2];
 	[sheet showInView:self.view];
 }
@@ -280,6 +282,7 @@ NSMutableDictionary * preserve;
 {
 	[self setPath:pathArg];
 	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:path]];
+	[self setViewArray:[NSMutableArray array]];
 	[self generateViewArray];
 }
 

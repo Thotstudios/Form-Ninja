@@ -65,7 +65,12 @@
 
 -(void) fixGpsLabel
 {
-	[gpsLabel setText:[NSString stringWithFormat:@"GPS: %@", [dictionary objectForKey:elementCoordinatesKey]]];
+	if([[dictionary valueForKey:elementCoordinatesAccuracyKey] length])
+	[gpsLabel setText:[NSString stringWithFormat:GPS_COORD_AND_ACC_FORMAT,
+					   [dictionary objectForKey:elementCoordinatesKey],
+					   [dictionary valueForKey:elementCoordinatesAccuracyKey]]];
+	else
+		[gpsLabel setText:@"Include GPS"];
 }
 
 #pragma mark - Inherited Methods
@@ -76,7 +81,7 @@
 	[dictionary setValue:@"GeoSignature" forKey:elementTypeKey];
 	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:elementCoordinatesEnabledKey];
 	[dictionary setValue:@"N/A" forKey:elementCoordinatesKey];
-	[dictionary setValue:nil forKey:elementCoordinatesAccuracyKey];
+	[dictionary setValue:@"" forKey:elementCoordinatesAccuracyKey];
 	[self fixGpsLabel];
 	[gpsSwitch setOn:YES];
 }
@@ -90,21 +95,20 @@
 {
 	[super success:image];
     
-    //Get location info if possible
-    if([[LocationManager locationManager] hasValidLocation])
+    LocationManager *locationManager = [LocationManager locationManager];
+    if([locationManager hasValidLocation])
 		{
-        NSString *coordinates = [NSString stringWithFormat:@"%f,%f", [LocationManager locationManager].latitude, [LocationManager locationManager].longitude];
-        [dictionary setValue:coordinates forKey:elementCoordinatesKey]; //Set dict value
-        [dictionary setValue:[[LocationManager locationManager] getAccuracy] forKey:elementCoordinatesAccuracyKey];
-            //NSLog(@"%@", [[LocationManager locationManager] getAccuracy]);
+        NSString *coordinates = [NSString stringWithFormat:GPS_COORDINATES_FORMAT, locationManager.latitude, locationManager.longitude];
+        [dictionary setValue:coordinates forKey:elementCoordinatesKey];
+		NSString * accuracy = [NSString stringWithFormat:GPS_ACCURACY_FORMAT, [locationManager getAccuracy]];
+        [dictionary setValue:accuracy forKey:elementCoordinatesAccuracyKey];
 		}
 	else
 		{
 		[dictionary setValue:@"N/A" forKey:elementCoordinatesKey];
-		[dictionary setValue:nil forKey:elementCoordinatesAccuracyKey];
+		[dictionary setValue:@"" forKey:elementCoordinatesAccuracyKey];
 		}
     [self check];
-
 	[self fixGpsLabel];
 }
 - (IBAction)toggleAllowGps
@@ -113,12 +117,12 @@
 	if(![gpsSwitch isOn])
 		{
 		[dictionary setValue:@"N/A" forKey:elementCoordinatesKey];
-		[dictionary setValue:nil forKey:elementCoordinatesAccuracyKey];
+		[dictionary setValue:@"" forKey:elementCoordinatesAccuracyKey];
 		[self fixGpsLabel];
 		}
 }
 
 - (void) check{
-    
+    // check what? -Chad
 }
 @end

@@ -35,7 +35,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
-	
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -82,21 +81,21 @@
 
 -(void)formFinishConfirmedWithLocation:(BOOL) getLocation;
 {
-    NSMutableDictionary * dict = [self.dataArray objectAtIndex:0];
+	TemplateElement * element = [[self.viewArray objectAtIndex:0] objectAtIndex:0];
+    NSMutableDictionary * dict = [element dictionary];
 	[dict setValue:[NSNumber numberWithBool:YES] forKey:formCompletedKey];
 	[dict setValue:CURRENT_DATE_AND_TIME forKey:formFinalDateKey];
     
     LocationManager *locationManager = [LocationManager locationManager];
-   
-    //Use loc, if prsent, to set the location
-    if (getLocation == YES && [locationManager hasValidLocation]) {
-        //[dict setValue:loc forKey:@"finish location"];
-        NSString *coordinates = [NSString stringWithFormat:@"%.2f,%.2f,+/-%.2f", locationManager.latitude, locationManager.longitude, [locationManager getAccuracy]];
-        [dict setValue:coordinates forKey:@"finish location"];
-    }
-    
-    //pass 'set finished' to all elements -- how?
-    
+	
+    if (getLocation == YES && [locationManager hasValidLocation])
+		{
+        NSString * coordinates = [NSString stringWithFormat:GPS_COORDINATES_FORMAT, locationManager.latitude, locationManager.longitude];
+        [dict setValue:coordinates forKey:formCoordinatesKey];
+		NSString * accuracy = [NSString stringWithFormat:GPS_ACCURACY_FORMAT, [locationManager getAccuracy]];
+		[dict setValue:accuracy forKey:formCoordinatesAccuracyKey];
+		[element setDictionary:dict];
+		}
     [self saveButtonPressed];
 }
 
@@ -125,6 +124,8 @@
 -(void) newFormWithTemplateAtPath:(NSString *)pathArg
 {
 	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:pathArg]];
+	[self setViewArray:[NSMutableArray array]];
+	[self generateViewArray];
 	NSMutableDictionary * dict = [self.dataArray objectAtIndex:0];
 	
 	NSString * group = [dict objectForKey:templateGroupKey];
@@ -144,6 +145,7 @@
 {
 	[self setPath:pathArg];
 	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:self.path]];
+	[self setViewArray:[NSMutableArray array]];
 	NSMutableDictionary * dict = [self.dataArray objectAtIndex:0];
 	if([[dict valueForKey:formCompletedKey] boolValue])
 		[self setAllowEditing:NO];

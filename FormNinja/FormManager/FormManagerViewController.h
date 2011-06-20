@@ -24,6 +24,7 @@
 	UIButton *createFormButton;
 	UIButton *resumeFormButton;
 	UIButton *viewFormButton;
+	UIButton *deleteFormButton;
 	
 	FormEditorViewController *formEditorViewController;
 }
@@ -39,11 +40,13 @@
 @property (nonatomic, retain) IBOutlet UIButton *createFormButton;
 @property (nonatomic, retain) IBOutlet UIButton *resumeFormButton;
 @property (nonatomic, retain) IBOutlet UIButton *viewFormButton;
+@property (nonatomic, retain) IBOutlet UIButton *deleteFormButton;
 
 @property (nonatomic, retain) IBOutlet FormEditorViewController *formEditorViewController;
 
 - (IBAction)newFormWithSelectedTemplate;
 - (IBAction)editSelectedForm;
 - (IBAction)viewSelectedForm;
+- (IBAction)deleteSelectedForm;
 
 @end

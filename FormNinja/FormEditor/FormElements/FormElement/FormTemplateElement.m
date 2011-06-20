@@ -11,16 +11,4 @@
 
 @implementation FormTemplateElement
 
-#pragma mark - Inherited Methods
-
-#pragma mark - Delegate Methods
--(BOOL) textFieldShouldBeginEditing:(UITextField *)textField
-{
-	return allowEditing;
-}
-
--(void)setFinished
-{
-    [self.dictionary setValue:@"yes" forKey:@"finished"];
-}
 @end

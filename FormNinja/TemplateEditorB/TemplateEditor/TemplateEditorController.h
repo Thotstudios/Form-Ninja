@@ -28,6 +28,7 @@
 
 - (void) newTemplateWithName:(NSString*)name group:(NSString*)group;
 - (void) editTemplateAtPath:(NSString*)pathArg;
+-(void) generateViewArray;
 
 - (IBAction)save;
 - (IBAction)clear;

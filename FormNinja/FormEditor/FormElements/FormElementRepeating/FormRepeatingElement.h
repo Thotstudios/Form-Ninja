@@ -13,6 +13,4 @@
     
 }
 
--(void)setFinished;
-
 @end

@@ -7,14 +7,17 @@
 //
 
 // General Strings
-#define OKAY_STR			@"OK"
-#define CANCEL_STR			@"Cancel"
-#define CONFIRM_STR			@"Confirm"
-#define CLEAR_STR			@"Clear"
-#define TEMPLATE_SAVED_STR	@"Template Saved"
-#define FORM_SAVED_STR		@"Form Saved"
-#define FORM_FINAL_STR		@"Form Completed"
-#define SAVE_FAILED_STR		@"Failed to Save"
+#define OKAY_STR					@"OK"
+#define CANCEL_STR					@"Cancel"
+#define CONFIRM_STR					@"Confirm"
+#define CLEAR_STR					@"Clear"
+#define TEMPLATE_SAVED_STR			@"Template Saved"
+#define FORM_SAVED_STR				@"Form Saved"
+#define FORM_FINAL_STR				@"Form Completed"
+#define SAVE_FAILED_STR				@"Failed to Save"
+#define GPS_COORDINATES_FORMAT		@"%.3f, %.3f"
+#define GPS_ACCURACY_FORMAT			@"+/- %@"
+#define GPS_COORD_AND_ACC_FORMAT	@"GPS: (%@), %@"
 
 // Shortcuts
 #define CURRENT_DATE_AND_TIME	[NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle]
@@ -83,6 +86,8 @@
 #define formBeginDateKey			@"form begin date"
 #define formFinalDateKey			@"form final date"
 #define formCompletedKey			@"Form Completed"
+#define formCoordinatesKey			@"Form Coordinates"
+#define formCoordinatesAccuracyKey	@"Form GPS Accuracy"
 
 // Element dictionary keys
 #define elementLabelKey				@"label"

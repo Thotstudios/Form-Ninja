@@ -26,6 +26,7 @@
 @synthesize createFormButton;
 @synthesize resumeFormButton;
 @synthesize viewFormButton;
+@synthesize deleteFormButton;
 
 @synthesize formEditorViewController;
 
@@ -40,6 +41,7 @@
 	[createFormButton release];
 	[resumeFormButton release];
     [viewFormButton release];
+    [deleteFormButton release];
     [super dealloc];
 }
 
@@ -67,7 +69,6 @@
     [super viewWillAppear:animated];
 	
 	[self loadFormList];
-	[self filterFormsByGroup];
 	
     [[PopOverManager sharedManager] setDelegate:self];
 }
@@ -90,6 +91,7 @@
 	[self setCreateFormButton:nil];
 	[self setResumeFormButton:nil];
     [self setViewFormButton:nil];
+    [self setDeleteFormButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -170,17 +172,19 @@
 		if(dict)
 			{
 			[formList addObject:dict];
-			if([[formMetaData valueForKey:formCompletedKey] boolValue])
-				formName = [NSString stringWithFormat:@"%@ (Incomplete)"];
+			if(![[formMetaData valueForKey:formCompletedKey] boolValue])
+				formName = [NSString stringWithFormat:@"%@ (Incomplete)", formName];
 			[formNameList addObject:formName];
 			}
 		}
-	//[self filterFormsByTemplate];
+	[self filterFormsByGroup];
 }
 
 - (IBAction)newFormWithSelectedTemplate
 {
-	NSUInteger row = [[templateTable indexPathForSelectedRow] row];
+	NSIndexPath * indexPath = [templateTable indexPathForSelectedRow];
+	if(!indexPath) return;
+	NSUInteger row = [indexPath row];
 	NSDictionary * dict = [filteredTemplateList objectAtIndex:row];
 	NSString * path = [dict objectForKey:filePathKey];
 	
@@ -190,7 +194,9 @@
 
 -(void) loadSelectedForm
 {
-	NSUInteger row = [[formTable indexPathForSelectedRow] row];
+	NSIndexPath * indexPath = [formTable indexPathForSelectedRow];
+	if(!indexPath) return;
+	NSUInteger row = [indexPath row];
 	NSDictionary * dict = [formListFilteredByTemplate objectAtIndex:row];
 	NSString * path = [dict objectForKey:filePathKey];
 	
@@ -209,6 +215,25 @@
 	[self loadSelectedForm];
 }
 
+-(void) deleteSelectedFormConfirm
+{
+	NSIndexPath * indexPath = [formTable indexPathForSelectedRow];
+	if(!indexPath) return;
+	NSInteger row = [indexPath row];
+	NSDictionary * dict = [formListFilteredByTemplate objectAtIndex:row];
+	NSString * path = [dict valueForKey:filePathKey];
+	[[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+	[self loadFormList];
+	[self disableButtons];
+}
+- (IBAction)deleteSelectedForm
+{
+	if(![formTable indexPathForSelectedRow]) return;
+	UIActionSheet * sheet = [[[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_FORM_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_BUTTON_STR otherButtonTitles:nil] autorelease];
+	[sheet setTag:2];
+	[sheet showInView:self.view];
+}
+
 //Presents popover menu
 - (void) menuButtonAction:(id) sender{
     if([formTable indexPathForSelectedRow])
@@ -224,6 +249,7 @@
 	[createFormButton setEnabled:NO];	[createFormButton setAlpha:0.50];
 	[resumeFormButton setEnabled:NO];	[resumeFormButton setAlpha:0.50];
 	[viewFormButton setEnabled:NO];		[viewFormButton setAlpha:0.50];
+	[deleteFormButton setEnabled:NO];	[deleteFormButton setAlpha:0.50];
 	// TODO: lite version
 }
 -(void) enableButtons 
@@ -241,11 +267,13 @@
 		{
 		[resumeFormButton setEnabled:YES];	[resumeFormButton setAlpha:1.00];
 		[viewFormButton setEnabled:YES];	[viewFormButton setAlpha:1.00];
+		[deleteFormButton setEnabled:YES];	[deleteFormButton setAlpha:1.00];
 		}
 	else
 		{
 		[resumeFormButton setEnabled:NO];	[resumeFormButton setAlpha:0.50];
 		[viewFormButton setEnabled:NO];		[viewFormButton setAlpha:0.50];
+		[deleteFormButton setEnabled:NO];	[deleteFormButton setAlpha:0.50];
 		}
 	// TODO: lite version
 }
@@ -361,5 +389,20 @@
 		[self enableButtons];
 		break;
 	}
+}
+
+#pragma mark - ActionSheet Delegate
+-(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	if([actionSheet destructiveButtonIndex] == buttonIndex)
+		{
+		switch ([actionSheet tag])
+			{
+				case 2:
+				[self deleteSelectedFormConfirm];
+				break;
+			}
+		}
+	
 }
 @end
