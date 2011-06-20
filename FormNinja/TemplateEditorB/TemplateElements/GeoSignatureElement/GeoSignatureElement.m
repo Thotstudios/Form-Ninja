@@ -96,7 +96,7 @@
 	[super success:image];
     
     LocationManager *locationManager = [LocationManager locationManager];
-    if([locationManager hasValidLocation])
+    if([locationManager hasValidLocation]  && [gpsSwitch isOn])
 		{
         NSString *coordinates = [NSString stringWithFormat:GPS_COORDINATES_FORMAT, locationManager.latitude, locationManager.longitude];
         [dictionary setValue:coordinates forKey:elementCoordinatesKey];
@@ -108,7 +108,6 @@
 		[dictionary setValue:@"N/A" forKey:elementCoordinatesKey];
 		[dictionary setValue:@"" forKey:elementCoordinatesAccuracyKey];
 		}
-    [self check];
 	[self fixGpsLabel];
 }
 - (IBAction)toggleAllowGps
@@ -122,7 +121,4 @@
 		}
 }
 
-- (void) check{
-    // check what? -Chad
-}
 @end

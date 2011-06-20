@@ -39,19 +39,10 @@
 
 #pragma mark - View lifecycle
 
-- (void) check{
-    if(![self.dictionary objectForKey:elementCoordinatesKey] || [[self.dictionary objectForKey:elementCoordinatesKey] isEqualToString:@"N/A"]){
-        self.mapButton.hidden = TRUE;
-    }
-    
-    else
-        self.mapButton.hidden = FALSE;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self performSelector:@selector(check) withObject:nil afterDelay:0];
 }
 
 - (void)viewDidUnload
@@ -69,7 +60,7 @@
 }
 
 
-- (IBAction) viewSigButtonAction{    NSLog(@"%@",dictionary);
+- (IBAction) viewSigButtonAction{
     
     GPSMapViewController *gpsVS = [[GPSMapViewController alloc] 
                                    initWithNibName:@"GPSMapViewController" 
