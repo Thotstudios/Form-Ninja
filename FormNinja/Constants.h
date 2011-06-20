@@ -6,6 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+
+// TODO: TEMPORARY:
+#define USE_DEMONSTRATION_FILES		1
+
 // General Strings
 #define OKAY_STR					@"OK"
 #define CANCEL_STR					@"Cancel"

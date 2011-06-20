@@ -17,6 +17,10 @@ Chad:
 * Syncing
 * Some part of the signature view is numb to tap downs, but still draws.
 * Check Form Finish method for completeness.
+* Adding an element should auto-edit that element.
+* Add Multi-line default length requirements.
+* Clean up template renaming (currently, templates are named, but file is not).
+* Form Manager, filter by template get the wrong template?
 
 Critical changes:
 1) Viewing/Editing a form causes a crash.

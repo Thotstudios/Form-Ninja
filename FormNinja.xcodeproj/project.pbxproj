@@ -101,6 +101,10 @@
 		F78C994013A0741C00494C12 /* FormNinjaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C993F13A0741C00494C12 /* FormNinjaLoginViewController.m */; };
 		F792BCDE13AD3B2900116F72 /* GeoSignatureElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F792BCDC13AD3B2900116F72 /* GeoSignatureElement.m */; };
 		F792BCDF13AD3B2900116F72 /* GeoSignatureElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F792BCDD13AD3B2900116F72 /* GeoSignatureElement.xib */; };
+		F7AAC66A13AFF6040042CBB1 /* FileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AAC66913AFF6040042CBB1 /* FileWriter.m */; };
+		F7AAC67D13B000230042CBB1 /* Demonstration-Customer Evaluation-Thot Studios-Customer Evaluation-1308608473.xml in Resources */ = {isa = PBXBuildFile; fileRef = F7AAC67A13B000230042CBB1 /* Demonstration-Customer Evaluation-Thot Studios-Customer Evaluation-1308608473.xml */; };
+		F7AAC67E13B000230042CBB1 /* Demonstration-Customer Evaluation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F7AAC67B13B000230042CBB1 /* Demonstration-Customer Evaluation.xml */; };
+		F7AAC67F13B000230042CBB1 /* Demonstration-W-2.xml in Resources */ = {isa = PBXBuildFile; fileRef = F7AAC67C13B000230042CBB1 /* Demonstration-W-2.xml */; };
 		F7BC423713886CF300911EB5 /* FormManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC423513886CF300911EB5 /* FormManagerViewController.m */; };
 		F7BC423813886CF300911EB5 /* FormManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BC423613886CF300911EB5 /* FormManagerViewController.xib */; };
 		F7BC423D1388709F00911EB5 /* GroupManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */; };
@@ -295,6 +299,11 @@
 		F792BCDB13AD3B2900116F72 /* GeoSignatureElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeoSignatureElement.h; path = FormNinja/TemplateEditorB/TemplateElements/GeoSignatureElement/GeoSignatureElement.h; sourceTree = SOURCE_ROOT; };
 		F792BCDC13AD3B2900116F72 /* GeoSignatureElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeoSignatureElement.m; path = FormNinja/TemplateEditorB/TemplateElements/GeoSignatureElement/GeoSignatureElement.m; sourceTree = SOURCE_ROOT; };
 		F792BCDD13AD3B2900116F72 /* GeoSignatureElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GeoSignatureElement.xib; path = FormNinja/TemplateEditorB/TemplateElements/GeoSignatureElement/GeoSignatureElement.xib; sourceTree = SOURCE_ROOT; };
+		F7AAC66813AFF6040042CBB1 /* FileWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileWriter.h; path = FormNinja/Demonstration/FileWriter.h; sourceTree = "<group>"; };
+		F7AAC66913AFF6040042CBB1 /* FileWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileWriter.m; path = FormNinja/Demonstration/FileWriter.m; sourceTree = "<group>"; };
+		F7AAC67A13B000230042CBB1 /* Demonstration-Customer Evaluation-Thot Studios-Customer Evaluation-1308608473.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Demonstration-Customer Evaluation-Thot Studios-Customer Evaluation-1308608473.xml"; sourceTree = "<group>"; };
+		F7AAC67B13B000230042CBB1 /* Demonstration-Customer Evaluation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Demonstration-Customer Evaluation.xml"; sourceTree = "<group>"; };
+		F7AAC67C13B000230042CBB1 /* Demonstration-W-2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Demonstration-W-2.xml"; sourceTree = "<group>"; };
 		F7BC423413886CF300911EB5 /* FormManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormManagerViewController.h; path = FormManager/FormManagerViewController.h; sourceTree = "<group>"; };
 		F7BC423513886CF300911EB5 /* FormManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormManagerViewController.m; path = FormManager/FormManagerViewController.m; sourceTree = "<group>"; };
 		F7BC423613886CF300911EB5 /* FormManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormManagerViewController.xib; path = FormManager/FormManagerViewController.xib; sourceTree = "<group>"; };
@@ -453,6 +462,7 @@
 			children = (
 				4257215713AE782B004B8693 /* FormNinja_IpadIcon.png */,
 				F768C5B7137DEFEB00191858 /* TODO.txt */,
+				F7AAC66613AFF5DC0042CBB1 /* Demonstration */,
 				D922CE96136C926300233C48 /* FormNinja */,
 				D922CEB0136CAB1F00233C48 /* XIB */,
 				D922CE8F136C926300233C48 /* Frameworks */,
@@ -500,7 +510,6 @@
 				F7E2B563137E49D600EA89D0 /* Account */,
 				F778DD51137DC60E00B444F6 /* TemplateManager */,
 				F72187611390EFCE000BA9DF /* TemplateEditor */,
-				F72187671390EFDC000BA9DF /* ElementPicker */,
 				F7BC423913886CF800911EB5 /* FormManager */,
 				F7C0DC7F13A07259009ACEB6 /* FormEditor */,
 				F7BC423F138870A200911EB5 /* GroupManager */,
@@ -568,6 +577,7 @@
 			children = (
 				F72187631390EFDC000BA9DF /* TemplateEditor */,
 				F721876B1390EFDC000BA9DF /* TemplateElements */,
+				F72187671390EFDC000BA9DF /* ElementPicker */,
 			);
 			name = TemplateEditor;
 			sourceTree = "<group>";
@@ -793,6 +803,25 @@
 			path = SignatureElement;
 			sourceTree = "<group>";
 		};
+		F7AAC66613AFF5DC0042CBB1 /* Demonstration */ = {
+			isa = PBXGroup;
+			children = (
+				F7AAC66813AFF6040042CBB1 /* FileWriter.h */,
+				F7AAC66913AFF6040042CBB1 /* FileWriter.m */,
+			);
+			name = Demonstration;
+			sourceTree = "<group>";
+		};
+		F7AAC67913B000230042CBB1 /* DemonstrationFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F7AAC67A13B000230042CBB1 /* Demonstration-Customer Evaluation-Thot Studios-Customer Evaluation-1308608473.xml */,
+				F7AAC67B13B000230042CBB1 /* Demonstration-Customer Evaluation.xml */,
+				F7AAC67C13B000230042CBB1 /* Demonstration-W-2.xml */,
+			);
+			path = DemonstrationFiles;
+			sourceTree = "<group>";
+		};
 		F7BC423913886CF800911EB5 /* FormManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,6 +851,7 @@
 		F7C0DC5213A07067009ACEB6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7AAC67913B000230042CBB1 /* DemonstrationFiles */,
 				F7C0DC5313A07067009ACEB6 /* formNinjaLogo.png */,
 				F7C0DC5413A07067009ACEB6 /* formsGray.png */,
 				F7C0DC5513A07067009ACEB6 /* formsRed.png */,
@@ -1146,6 +1176,9 @@
 				4257217713AEC8B8004B8693 /* submit.png in Resources */,
 				4257217813AEC8B8004B8693 /* submitGray.png in Resources */,
 				4257217A13AEC9C5004B8693 /* Plus.png in Resources */,
+				F7AAC67D13B000230042CBB1 /* Demonstration-Customer Evaluation-Thot Studios-Customer Evaluation-1308608473.xml in Resources */,
+				F7AAC67E13B000230042CBB1 /* Demonstration-Customer Evaluation.xml in Resources */,
+				F7AAC67F13B000230042CBB1 /* Demonstration-W-2.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1210,6 +1243,7 @@
 				F764981B13AD6288000D6694 /* FormGeoSignatureElement.m in Sources */,
 				D9A2B72413AD73AD007C13A1 /* FormFinishViewController.m in Sources */,
 				DA29FA3C13AE6CA200CF1C8D /* GPSMapViewController.m in Sources */,
+				F7AAC66A13AFF6040042CBB1 /* FileWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

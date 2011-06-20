@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Form Completed</key>
+		<true/>
+		<key>Form Coordinates</key>
+		<string>Not Available</string>
+		<key>Form GPS Accuracy</key>
+		<string></string>
+		<key>creation date</key>
+		<string>Jun 20, 2011 3:12:20 PM</string>
+		<key>creator name</key>
+		<string>Thot Studios</string>
+		<key>form agent</key>
+		<string>Thot Studios</string>
+		<key>form begin date</key>
+		<string>Jun 20, 2011 3:21:13 PM</string>
+		<key>form final date</key>
+		<string>Jun 20, 2011 3:22:43 PM</string>
+		<key>form name</key>
+		<string>Customer Evaluation-1308608473</string>
+		<key>group name</key>
+		<string>Demonstration</string>
+		<key>published</key>
+		<true/>
+		<key>row index</key>
+		<integer>0</integer>
+		<key>section index</key>
+		<integer>0</integer>
+		<key>template name</key>
+		<string>Customer Evaluation</string>
+		<key>type</key>
+		<string>MetaData</string>
+	</dict>
+	<dict>
+		<key>header</key>
+		<string>Customer Information</string>
+		<key>row index</key>
+		<integer>0</integer>
+		<key>section data</key>
+		<array>
+			<dict>
+				<key>label</key>
+				<string>Customer Information</string>
+				<key>row index</key>
+				<integer>0</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Label</string>
+			</dict>
+			<dict>
+				<key>form value</key>
+				<string>Goldilocks</string>
+				<key>label</key>
+				<string>Customer Name</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>1</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>form address line</key>
+				<string>123 Fictional Lane</string>
+				<key>form address line 2</key>
+				<string></string>
+				<key>form state abbr</key>
+				<string>FL</string>
+				<key>form zip code</key>
+				<string>12345</string>
+				<key>label</key>
+				<string>Customer Address (Optional)</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>row index</key>
+				<integer>2</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Address</string>
+				<key>zip code</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>form value</key>
+				<string>Goldilocks@example.com</string>
+				<key>label</key>
+				<string>Customer Email (Optional)</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>3</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>Customer Phone Number (Optional)</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>4</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>form value</key>
+				<string>I love this app! It's not too hot and not too cold; it's juuuuuust right.</string>
+				<key>label</key>
+				<string>Customer Comments</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>5</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Multi-Line</string>
+				<key>value</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>section index</key>
+		<integer>1</integer>
+	</dict>
+</array>
+</plist>

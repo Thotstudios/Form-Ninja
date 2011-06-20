@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>creation date</key>
+		<string>Jun 20, 2011 2:22:44 PM</string>
+		<key>creator name</key>
+		<string>Thot Studios</string>
+		<key>group name</key>
+		<string>Demonstration</string>
+		<key>published</key>
+		<true/>
+		<key>row index</key>
+		<integer>0</integer>
+		<key>section index</key>
+		<integer>0</integer>
+		<key>template name</key>
+		<string>W-2</string>
+		<key>type</key>
+		<string>MetaData</string>
+	</dict>
+	<dict>
+		<key>header</key>
+		<string>Wage And Tax Statement</string>
+		<key>row index</key>
+		<integer>0</integer>
+		<key>section data</key>
+		<array>
+			<dict>
+				<key>label</key>
+				<string>Wage And Tax Statement</string>
+				<key>row index</key>
+				<integer>0</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Label</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>a. Employee's Social Security Number</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>1</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>b. Employer Identification Number (EIN)</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>2</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>c1. Employer's Name</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>3</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>address line</key>
+				<string></string>
+				<key>address line 2</key>
+				<string></string>
+				<key>city name</key>
+				<string></string>
+				<key>label</key>
+				<string>c2. Employer's Address And Zip Code</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>row index</key>
+				<integer>4</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>state abbr</key>
+				<string></string>
+				<key>type</key>
+				<string>Address</string>
+				<key>zip code</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>d. Control Number</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>5</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>e1. Employee's First Name And Initial</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>6</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>e2. Employee's Last Name</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>7</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>e3. Employee's Suffix</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>8</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>address line</key>
+				<string></string>
+				<key>label</key>
+				<string>f. Employee's Address And Zip Code</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>row index</key>
+				<integer>9</integer>
+				<key>section index</key>
+				<integer>1</integer>
+				<key>type</key>
+				<string>Address</string>
+			</dict>
+		</array>
+		<key>section index</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>header</key>
+		<string>Wages</string>
+		<key>row index</key>
+		<integer>0</integer>
+		<key>section data</key>
+		<array>
+			<dict>
+				<key>label</key>
+				<string>Wages</string>
+				<key>row index</key>
+				<integer>0</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Label</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>1. Wages, Tips, Other Compensation</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>1</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>2. Federal Income Tax Withheld</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>2</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>3. Social Security Wages</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>3</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>4. Social Security Tax Withheld</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>4</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>5. Medicare Wages And Tips</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>5</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>6. Medicare Tax Withheld</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>6</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>7. Social Security Tips</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>7</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>8. Allocated Tips</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>8</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>10. Dependent Care Benefits</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>9</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+				<key>value</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>11. Nonqualified Plans</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>10</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>12a. See Instructions For Box 12</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>11</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>12b.</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>12</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>12c.</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>13</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>12d.</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>14</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>13.</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>15</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>14. Other</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>16</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Multi-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>15. State &amp; Employer's State ID Number</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>17</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>16. State Wages, Tips, Etc</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>18</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>17. State Income Tax</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>19</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>18. Local Wages, Tips, Etc</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>20</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>19. Local Income Tax</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>21</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+			<dict>
+				<key>label</key>
+				<string>20. Locality Name</string>
+				<key>label alignment</key>
+				<integer>1</integer>
+				<key>maximum length</key>
+				<string>0</string>
+				<key>minimum length</key>
+				<string>0</string>
+				<key>row index</key>
+				<integer>22</integer>
+				<key>section index</key>
+				<integer>2</integer>
+				<key>type</key>
+				<string>Single-Line</string>
+			</dict>
+		</array>
+		<key>section index</key>
+		<integer>2</integer>
+	</dict>
+</array>
+</plist>

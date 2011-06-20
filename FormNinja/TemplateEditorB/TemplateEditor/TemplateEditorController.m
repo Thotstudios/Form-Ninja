@@ -427,6 +427,8 @@ NSMutableDictionary * preserve;
 	[[viewArray objectAtIndex:section] insertObject:element atIndex:row];
 	[self setIndexes];
 	[table reloadData]; // TODO: user faster thing
+	indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+	[table selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
 }
 -(void) selectElementAtIndexPath:(NSIndexPath*)indexPath
 {
@@ -590,16 +592,18 @@ NSMutableDictionary * preserve;
 {
 	NSUInteger row = [indexPath row];
 	NSUInteger section = [indexPath section];
-	if(section == 0) return; // can't delete MetaData
+	if(section <= 0) return; // can't delete MetaData
+	if(section >= [dataArray count]) return;
 	
 	NSMutableDictionary * sectionDict = [dataArray objectAtIndex:section];
 	NSMutableArray * sectionData = [sectionDict objectForKey:sectionDataKey];
 	
-	if(row == 0) // trying to delete section
+	if(row <= 0) // trying to delete section title
 		{
-		[self deleteSectionAtIndexPath:indexPath];
+		if(row == 0) [self deleteSectionAtIndexPath:indexPath];
 		return;
 		}
+	if(row >= [sectionData count]) return;
 	
 	[sectionData removeObjectAtIndex:row];
 	if([sectionData count])
