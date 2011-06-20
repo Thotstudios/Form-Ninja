@@ -27,6 +27,8 @@
 
 @implementation AccountEditorViewController
 
+@synthesize scroller;
+
 @synthesize account;
 @synthesize usernameTextField;
 @synthesize passwordTextField;
@@ -40,7 +42,7 @@
 @synthesize zipCodeTextField;
 @synthesize zipCodeExtTextField;
 
-@synthesize changePasswordButton, changePasswordConfirmButton, confirmButton;
+@synthesize changePasswordButton, changePasswordConfirmButton, confirmButton, cancelButton;
 @synthesize changePasswordView;
 
 @synthesize securityQuestionView;
@@ -96,10 +98,36 @@
     self.loadAlert.view.hidden = YES;
 	[self.view addSubview:self.loadAlert.view];
 	
+    
+    UIImage *blackSubmitImage=[UIImage imageNamed:@"submitGray.png"];
+    [confirmButton setImage:blackSubmitImage forState:UIControlStateHighlighted];
+    
+    scroller.contentSize=CGSizeMake(768, 960);
 }
 
 
+-(void) viewDidDisappear:(BOOL)animated
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
+	[super viewDidDisappear:animated];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+	
+    [[NSNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(keyboardWillShow:)
+	 name:UIKeyboardWillShowNotification
+	 object:nil];
+	[[NSNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(keyboardWillHide:)
+	 name:UIKeyboardWillHideNotification
+	 object:nil];
+    
     if ([self isEmpty:self.passwordChangeTextField.text] || [self isEmpty:self.passwordConfirmTextField.text]) {
 		self.changePasswordConfirmButton.userInteractionEnabled = FALSE;
 		self.changePasswordConfirmButton.alpha = .7;    
@@ -126,6 +154,24 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
+}
+
+-(void) keyboardWillShow:(id)selector
+{//264, 352
+	UIDeviceOrientation orient = [[UIDevice currentDevice] orientation];
+	if(orient == UIDeviceOrientationLandscapeLeft || orient == UIDeviceOrientationLandscapeRight)
+        [scroller setFrame:CGRectMake(scroller.frame.origin.x, scroller.frame.origin.y, scroller.frame.size.width, scroller.frame.size.height-352)];
+    else
+        [scroller setFrame:CGRectMake(scroller.frame.origin.x, scroller.frame.origin.y, scroller.frame.size.width, scroller.frame.size.height-264)];
+    
+}
+-(void) keyboardWillHide:(id)selector
+{
+	UIDeviceOrientation orient = [[UIDevice currentDevice] orientation];
+	if(orient == UIDeviceOrientationLandscapeLeft || orient == UIDeviceOrientationLandscapeRight)
+        [scroller setFrame:CGRectMake(scroller.frame.origin.x, scroller.frame.origin.y, scroller.frame.size.width, scroller.frame.size.height+352)];
+    else
+        [scroller setFrame:CGRectMake(scroller.frame.origin.x, scroller.frame.origin.y, scroller.frame.size.width, scroller.frame.size.height+264)];
 }
 
 

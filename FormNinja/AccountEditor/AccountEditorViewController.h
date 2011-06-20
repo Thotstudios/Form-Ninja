@@ -43,6 +43,9 @@
 }
 
 @property (nonatomic, retain) AccountClass * account;
+
+@property (nonatomic, retain) IBOutlet UIScrollView *scroller;
+
 @property (nonatomic, retain) IBOutlet UITextField *usernameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *passwordTextField;
 @property (nonatomic, retain) IBOutlet UITextField *passwordChangeTextField;
@@ -55,7 +58,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeTextField;
 @property (nonatomic, retain) IBOutlet UITextField *zipCodeExtTextField;
 
-@property (nonatomic, retain) IBOutlet UIButton *changePasswordButton, *changePasswordConfirmButton, *confirmButton;
+@property (nonatomic, retain) IBOutlet UIButton *changePasswordButton, *changePasswordConfirmButton, *confirmButton, *cancelButton;
 
 @property (nonatomic, retain) IBOutlet UIView *changePasswordView;
 

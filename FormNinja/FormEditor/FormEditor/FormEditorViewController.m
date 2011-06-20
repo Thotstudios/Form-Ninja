@@ -57,7 +57,7 @@
 	if(!([[NSFileManager defaultManager] fileExistsAtPath:FORM_PATH]))
 		[[NSFileManager defaultManager] createDirectoryAtPath:FORM_PATH withIntermediateDirectories:YES attributes:nil error:nil];
 	
-	if([dataArray writeToFile:path atomically:YES])
+	if([self.dataArray writeToFile:self.path atomically:YES])
 		{
 		[[[[UIAlertView alloc] initWithTitle:FORM_SAVED_STR message:nil delegate:nil cancelButtonTitle:OKAY_STR otherButtonTitles:nil] autorelease] show];
 		}
@@ -87,7 +87,7 @@
 
 -(void)formFinishConfirmedWithLocation:(BOOL) getLocation;
 {
-    NSMutableDictionary * dict = [dataArray objectAtIndex:0];
+    NSMutableDictionary * dict = [self.dataArray objectAtIndex:0];
 	[dict setValue:[NSNumber numberWithBool:YES] forKey:formCompletedKey];
 	[dict setValue:CURRENT_DATE_AND_TIME forKey:formFinalDateKey];
     
@@ -112,7 +112,7 @@
 
 -(void) abortFormConfirmed
 {
-	[[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+	[[NSFileManager defaultManager] removeItemAtPath:self.path error:nil];
 	[self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)abortFormPressed
@@ -130,7 +130,7 @@
 -(void) newFormWithTemplateAtPath:(NSString *)pathArg
 {
 	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:pathArg]];
-	NSMutableDictionary * dict = [dataArray objectAtIndex:0];
+	NSMutableDictionary * dict = [self.dataArray objectAtIndex:0];
 	
 	NSString * group = [dict objectForKey:templateGroupKey];
 	NSString * template = [dict objectForKey:templateNameKey];
@@ -148,8 +148,8 @@
 -(void) loadFormAtPath:(NSString*) pathArg
 {
 	[self setPath:pathArg];
-	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:path]];
-	NSMutableDictionary * dict = [dataArray objectAtIndex:0];
+	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:self.path]];
+	NSMutableDictionary * dict = [self.dataArray objectAtIndex:0];
 	if([[dict valueForKey:formCompletedKey] boolValue])
 		[self setAllowEditing:NO];
 }
