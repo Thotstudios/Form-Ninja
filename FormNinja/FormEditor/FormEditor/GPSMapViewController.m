@@ -45,11 +45,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray *coordArray = [self.sigCoordinates componentsSeparatedByString:@","];
-    NSLog(@"%@", coordArray);
-    
-    NSString *urlAddress = [NSString stringWithFormat:@"http://maps.google.com/?q=%@", self.sigCoordinates];
-    
+    self.webView.delegate = self;
+//    NSArray *coordArray = [self.sigCoordinates componentsSeparatedByString:@","];
+}
+
+
+- (void) viewDidAppear:(BOOL)animated{
+    NSArray *coordArray = [self.sigCoordinates componentsSeparatedByString:@", "];
+
+    NSString *urlAddress = [NSString stringWithFormat:@"http://maps.google.com/?q=%@,%@",[coordArray objectAtIndex:0], [coordArray objectAtIndex:1]];
+    NSLog(@"%@", urlAddress);
     //Create a URL object.
     NSURL *url = [NSURL URLWithString:urlAddress];
     
@@ -60,7 +65,9 @@
     [self.webView loadRequest:requestObj];
     
     [self.activityView startAnimating];
+
 }
+
 
 - (void)viewDidUnload
 {

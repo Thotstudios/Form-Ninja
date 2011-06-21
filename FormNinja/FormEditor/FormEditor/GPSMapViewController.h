@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface GPSMapViewController : UIViewController {
+@interface GPSMapViewController : UIViewController <UIWebViewDelegate>{
     IBOutlet UIWebView *webView;
     IBOutlet UIActivityIndicatorView *activityView;
     NSString *sigCoordinates;

@@ -67,6 +67,7 @@
                                    bundle:nil];
     
     NSString *coordinates = [dictionary objectForKey:elementCoordinatesKey];
+    NSLog(@"%@", coordinates);
     gpsVS.sigCoordinates = coordinates;
     
     [self.delegate presentModalViewController:gpsVS animated:YES];
