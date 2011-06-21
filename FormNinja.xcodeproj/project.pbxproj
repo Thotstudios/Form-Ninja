@@ -42,6 +42,7 @@
 		4257217A13AEC9C5004B8693 /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257217913AEC9C4004B8693 /* Plus.png */; };
 		429F556113B0435F003705B2 /* abortForm.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F555F13B0435F003705B2 /* abortForm.png */; };
 		429F556213B0435F003705B2 /* abortFormRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F556013B0435F003705B2 /* abortFormRed.png */; };
+		42D6105413B04E940014545E /* Groups.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42D6105313B04E940014545E /* Groups.jpg */; };
 		D904731C13982ADC00B87E4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D904731B13982ADC00B87E4E /* CoreLocation.framework */; };
 		D917B3F81378D0B000E75140 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */; };
 		D917B3F91378D0B000E75140 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3EC1378D0B000E75140 /* ASIDownloadCache.m */; };
@@ -196,6 +197,7 @@
 		4257217913AEC9C4004B8693 /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus.png; sourceTree = "<group>"; };
 		429F555F13B0435F003705B2 /* abortForm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abortForm.png; sourceTree = "<group>"; };
 		429F556013B0435F003705B2 /* abortFormRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abortFormRed.png; sourceTree = "<group>"; };
+		42D6105313B04E940014545E /* Groups.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Groups.jpg; sourceTree = "<group>"; };
 		D904731B13982ADC00B87E4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D90A13DC1382250200857A4C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D917B3E81378D0B000E75140 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = FormNinja/ASI/ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -848,6 +850,7 @@
 				F7BC423A1388709F00911EB5 /* GroupManagerViewController.h */,
 				F7BC423B1388709F00911EB5 /* GroupManagerViewController.m */,
 				F7BC423C1388709F00911EB5 /* GroupManagerViewController.xib */,
+				42D6105313B04E940014545E /* Groups.jpg */,
 			);
 			name = GroupManager;
 			sourceTree = "<group>";
@@ -1187,6 +1190,7 @@
 				F7AAC67F13B000230042CBB1 /* Demonstration-W-2.xml in Resources */,
 				429F556113B0435F003705B2 /* abortForm.png in Resources */,
 				429F556213B0435F003705B2 /* abortFormRed.png in Resources */,
+				42D6105413B04E940014545E /* Groups.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
