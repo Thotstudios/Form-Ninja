@@ -130,7 +130,6 @@
 		F7C0DC7113A07067009ACEB6 /* templatesGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC6013A07067009ACEB6 /* templatesGray.png */; };
 		F7C0DC7213A07067009ACEB6 /* TemplatesRed.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC6113A07067009ACEB6 /* TemplatesRed.png */; };
 		F7C0DC7313A07067009ACEB6 /* TestNinja.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC6213A07067009ACEB6 /* TestNinja.png */; };
-		F7C0DC7413A07067009ACEB6 /* ThotLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC6313A07067009ACEB6 /* ThotLogo.png */; };
 		F7C0DCA913A07259009ACEB6 /* FormEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DC8213A07259009ACEB6 /* FormEditorViewController.m */; };
 		F7C0DCAA13A07259009ACEB6 /* FormEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C0DC8313A07259009ACEB6 /* FormEditorViewController.xib */; };
 		F7C0DCAB13A07259009ACEB6 /* FormElementPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0DC8613A07259009ACEB6 /* FormElementPicker.m */; };
@@ -336,7 +335,6 @@
 		F7C0DC6013A07067009ACEB6 /* templatesGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = templatesGray.png; sourceTree = "<group>"; };
 		F7C0DC6113A07067009ACEB6 /* TemplatesRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplatesRed.png; sourceTree = "<group>"; };
 		F7C0DC6213A07067009ACEB6 /* TestNinja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestNinja.png; sourceTree = "<group>"; };
-		F7C0DC6313A07067009ACEB6 /* ThotLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThotLogo.png; sourceTree = "<group>"; };
 		F7C0DC8113A07259009ACEB6 /* FormEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormEditorViewController.h; sourceTree = "<group>"; };
 		F7C0DC8213A07259009ACEB6 /* FormEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormEditorViewController.m; sourceTree = "<group>"; };
 		F7C0DC8313A07259009ACEB6 /* FormEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormEditorViewController.xib; sourceTree = "<group>"; };
@@ -881,7 +879,6 @@
 				F7C0DC6013A07067009ACEB6 /* templatesGray.png */,
 				F7C0DC6113A07067009ACEB6 /* TemplatesRed.png */,
 				F7C0DC6213A07067009ACEB6 /* TestNinja.png */,
-				F7C0DC6313A07067009ACEB6 /* ThotLogo.png */,
 			);
 			name = Resources;
 			path = FormNinja/Resources;
@@ -1143,7 +1140,6 @@
 				F7C0DC7113A07067009ACEB6 /* templatesGray.png in Resources */,
 				F7C0DC7213A07067009ACEB6 /* TemplatesRed.png in Resources */,
 				F7C0DC7313A07067009ACEB6 /* TestNinja.png in Resources */,
-				F7C0DC7413A07067009ACEB6 /* ThotLogo.png in Resources */,
 				F7C0DCAA13A07259009ACEB6 /* FormEditorViewController.xib in Resources */,
 				F7C0DCAC13A07259009ACEB6 /* FormElementPicker.xib in Resources */,
 				F7C0DCAE13A07259009ACEB6 /* FormTemplateElement.xib in Resources */,
