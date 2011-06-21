@@ -11,6 +11,8 @@
 #import "AccountClass.h"
 #import "AccountEditorViewController.h"
 
+#import "FileWriter.h" // DEMO
+
 @interface MainMenu ()
 -(void) updateLoginExpirationLabel;
 @end
@@ -77,6 +79,9 @@
     [templateButton setImage:templatesRedImage forState:UIControlStateHighlighted];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.tintColor=[UIColor colorWithRed:196.0/256 green:3.0/256 blue:21.0/256 alpha:1];
+	
+	
+	[FileWriter installDemoFiles]; // DEMO
 }
 -(void) viewDidAppear:(BOOL)animated
 {

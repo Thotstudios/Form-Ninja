@@ -94,8 +94,8 @@
         [dict setValue:coordinates forKey:formCoordinatesKey];
 		NSString * accuracy = [NSString stringWithFormat:GPS_ACCURACY_FORMAT, [locationManager getAccuracy]];
 		[dict setValue:accuracy forKey:formCoordinatesAccuracyKey];
-		[element setDictionary:dict];
 		}
+	[element setDictionary:dict];
     [self saveButtonPressed];
 }
 

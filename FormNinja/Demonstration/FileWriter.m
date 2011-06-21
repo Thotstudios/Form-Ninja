@@ -29,6 +29,8 @@
 
 +(void) installDemoFiles
 {
+	if(!USE_DEMONSTRATION_FILES) return;
+	
 	[FileWriter installDemoTemplateName:@"Demonstration-W-2.xml"];
 	[FileWriter installDemoTemplateName:@"Demonstration-Customer Evaluation.xml"];
 	
