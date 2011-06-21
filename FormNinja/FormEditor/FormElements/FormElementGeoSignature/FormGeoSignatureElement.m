@@ -59,6 +59,16 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void) fixGpsLabel{
+    [super fixGpsLabel];
+    NSLog(@"called");
+    if([dictionary objectForKey:elementCoordinatesKey]== nil || [[dictionary objectForKey:elementCoordinatesKey] isEqualToString:@"N/A"])
+        self.mapButton.hidden = TRUE;
+    
+    else
+        self.mapButton.hidden = FALSE;
+}
+
 
 - (IBAction) viewSigButtonAction{
     
@@ -67,7 +77,6 @@
                                    bundle:nil];
     
     NSString *coordinates = [dictionary objectForKey:elementCoordinatesKey];
-    NSLog(@"%@", coordinates);
     gpsVS.sigCoordinates = coordinates;
     
     [self.delegate presentModalViewController:gpsVS animated:YES];
