@@ -139,6 +139,7 @@
 	
 	[self setPath:[NSString stringWithFormat:@"%@/%@-%@-%@-%@.%@", FORM_PATH, group, template, agent, formName, FORM_EXT]];
 	[self setAllowEditing:YES];
+	[self.table reloadData];
 }
 
 -(void) loadFormAtPath:(NSString*) pathArg
@@ -149,6 +150,8 @@
 	NSMutableDictionary * dict = [self.dataArray objectAtIndex:0];
 	if([[dict valueForKey:formCompletedKey] boolValue])
 		[self setAllowEditing:NO];
+	[self generateViewArray];
+	[self.table reloadData];
 }
 
 #pragma mark - Table Functions

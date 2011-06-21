@@ -93,7 +93,7 @@
 							<object class="IBUIButton" id="1026946663">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">300</int>
-								<string key="NSFrame">{{0, 20}, {154, 51}}</string>
+								<string key="NSFrame">{{0, 18}, {150, 53}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1069956820"/>
@@ -128,12 +128,11 @@
 							<object class="IBUIButton" id="1069956820">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">300</int>
-								<string key="NSFrame">{{154, 20}, {154, 51}}</string>
+								<string key="NSFrame">{{158, 18}, {150, 53}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1001163567"/>
 								<bool key="IBUIOpaque">NO</bool>
-								<float key="IBUIAlpha">0.5</float>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
@@ -151,13 +150,13 @@
 								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">Copy.png</string>
+									<string key="NSResourceName">CopyRed.png</string>
 								</object>
 							</object>
 							<object class="IBUIButton" id="1001163567">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">300</int>
-								<string key="NSFrame">{{308, 20}, {154, 51}}</string>
+								<string key="NSFrame">{{316, 20}, {150, 53}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="784370998"/>
@@ -182,7 +181,7 @@
 							<object class="IBUIButton" id="784370998">
 								<reference key="NSNextResponder" ref="634131786"/>
 								<int key="NSvFlags">297</int>
-								<string key="NSFrame">{{614, 20}, {154, 51}}</string>
+								<string key="NSFrame">{{618, 18}, {150, 53}}</string>
 								<reference key="NSSuperview" ref="634131786"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="613129501"/>
@@ -446,9 +445,9 @@
 						<reference key="object" ref="634131786"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1001163567"/>
-							<reference ref="1069956820"/>
 							<reference ref="1026946663"/>
+							<reference ref="1069956820"/>
+							<reference ref="1001163567"/>
 							<reference ref="784370998"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
@@ -513,7 +512,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="0.0"/>
+					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="0.0"/>
 				</object>
@@ -777,8 +776,8 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>Copy.png</string>
 				<string>CopyGray.png</string>
+				<string>CopyRed.png</string>
 				<string>NewTemplateGRAY.png</string>
 				<string>NewTemplateRed.png</string>
 				<string>deleteBlack.png</string>
@@ -788,8 +787,8 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{153, 50}</string>
-				<string>{153, 50}</string>
+				<string>{150, 53}</string>
+				<string>{150, 53}</string>
 				<string>{150, 53}</string>
 				<string>{150, 53}</string>
 				<string>{154, 51}</string>

@@ -99,6 +99,7 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [[PopOverManager sharedManager] dismissCurrentPopoverController:YES]; //dismiss popover
 	
+	[viewArray removeAllObjects];
 	[table reloadData];
 	[super viewDidDisappear:animated];
 }
@@ -273,6 +274,7 @@ NSMutableDictionary * preserve;
 	
 	[self setPath:[NSString stringWithFormat:@"%@/%@-%@.%@", TEMPLATE_PATH, group, name, TEMPLATE_EXT]];
 	
+	[self generateViewArray];
 	[table reloadData];
 	
 	[NSTimer scheduledTimerWithTimeInterval:0.15 target:self selector:@selector(addSection) userInfo:nil repeats:NO];
@@ -284,6 +286,7 @@ NSMutableDictionary * preserve;
 	[self setDataArray:[NSMutableArray arrayWithContentsOfFile:path]];
 	[self setViewArray:[NSMutableArray array]];
 	[self generateViewArray];
+	[table reloadData];
 }
 
 -(BOOL) templateIsValid
