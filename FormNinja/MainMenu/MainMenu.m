@@ -81,12 +81,12 @@
     self.navigationController.navigationBar.tintColor=[UIColor colorWithRed:196.0/256 green:3.0/256 blue:21.0/256 alpha:1];
 	
 	
-	[FileWriter installDemoFiles]; // DEMO
 }
 -(void) viewDidAppear:(BOOL)animated
 {
 	[self updateLoginExpirationLabel];
 	[self.versionLabel setText:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"]];
+	[FileWriter installDemoFiles]; // DEMO
 }
 
 - (void)viewDidUnload
