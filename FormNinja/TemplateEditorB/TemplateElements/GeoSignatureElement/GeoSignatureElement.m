@@ -66,9 +66,9 @@
 -(void) fixGpsLabel
 {
 	if([[dictionary valueForKey:elementCoordinatesAccuracyKey] length])
-	[gpsLabel setText:[NSString stringWithFormat:GPS_COORD_AND_ACC_FORMAT,
-					   [dictionary objectForKey:elementCoordinatesKey],
-					   [dictionary valueForKey:elementCoordinatesAccuracyKey]]];
+		[gpsLabel setText:[NSString stringWithFormat:GPS_COORD_AND_ACC_FORMAT,
+						   [dictionary objectForKey:elementCoordinatesKey],
+						   [dictionary valueForKey:elementCoordinatesAccuracyKey]]];
 	else
 		[gpsLabel setText:@"Include GPS"];
 }

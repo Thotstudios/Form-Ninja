@@ -185,6 +185,7 @@
 		
 		}
 	[self filterByGroupName];
+	[groupTable reloadData];
 } // end load template list
 
 -(BOOL) isTemplateAtIndexPublished:(NSUInteger)index
@@ -225,13 +226,15 @@
 
 -(void) confirmDeleteSelectedTemplate
 {
-	NSUInteger row = [[templateTable indexPathForSelectedRow] row];
+	NSIndexPath * indexPath = [templateTable indexPathForSelectedRow];
+	if(!indexPath) return;
+	NSUInteger row = [indexPath row];
 	NSString * path = [[filteredTemplateList objectAtIndex:row] objectForKey:filePathKey];
 	[[NSFileManager defaultManager] removeItemAtPath:path error:NULL];
 	[self loadTemplateList];
+	[self disableButtons];
 	
-	// TODO: DROP from table
-	[self disableButtons]; // because now there's no template selected
+	// TODO: DROP from database
 }
 - (IBAction)deleteSelectedTemplate
 {
