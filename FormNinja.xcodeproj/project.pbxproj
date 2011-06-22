@@ -84,6 +84,7 @@
 		F721879E1390EFDC000BA9DF /* SignatureElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187881390EFDC000BA9DF /* SignatureElement.xib */; };
 		F721879F1390EFDC000BA9DF /* SingleLineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F721878B1390EFDC000BA9DF /* SingleLineElement.m */; };
 		F72187A01390EFDC000BA9DF /* SingleLineElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F721878C1390EFDC000BA9DF /* SingleLineElement.xib */; };
+		F757907313B1A1F500EA4F3B /* ThotStudiosGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F757907213B1A1F500EA4F3B /* ThotStudiosGray.png */; };
 		F758017713B06956008F4560 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = F758017213B06956008F4560 /* Background.png */; };
 		F758017813B06956008F4560 /* CancelGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F758017313B06956008F4560 /* CancelGray.png */; };
 		F758017913B06956008F4560 /* CancelRed.png in Resources */ = {isa = PBXBuildFile; fileRef = F758017413B06956008F4560 /* CancelRed.png */; };
@@ -277,6 +278,7 @@
 		F721878A1390EFDC000BA9DF /* SingleLineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLineElement.h; sourceTree = "<group>"; };
 		F721878B1390EFDC000BA9DF /* SingleLineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineElement.m; sourceTree = "<group>"; };
 		F721878C1390EFDC000BA9DF /* SingleLineElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleLineElement.xib; sourceTree = "<group>"; };
+		F757907213B1A1F500EA4F3B /* ThotStudiosGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThotStudiosGray.png; sourceTree = "<group>"; };
 		F758017213B06956008F4560 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		F758017313B06956008F4560 /* CancelGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CancelGray.png; sourceTree = "<group>"; };
 		F758017413B06956008F4560 /* CancelRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CancelRed.png; sourceTree = "<group>"; };
@@ -879,6 +881,7 @@
 				F7C0DC6013A07067009ACEB6 /* templatesGray.png */,
 				F7C0DC6113A07067009ACEB6 /* TemplatesRed.png */,
 				F7C0DC6213A07067009ACEB6 /* TestNinja.png */,
+				F757907213B1A1F500EA4F3B /* ThotStudiosGray.png */,
 			);
 			name = Resources;
 			path = FormNinja/Resources;
@@ -1195,6 +1198,7 @@
 				F758018113B06BCD008F4560 /* CopyRed.png in Resources */,
 				F758018213B06BCD008F4560 /* StartNewFormGray.png in Resources */,
 				F758018313B06BCD008F4560 /* StartNewFormRed.png in Resources */,
+				F757907313B1A1F500EA4F3B /* ThotStudiosGray.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

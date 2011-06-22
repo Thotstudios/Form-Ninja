@@ -69,7 +69,6 @@
 						<string key="NSFrame">{{177, 806}, {450, 95}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -126,7 +125,7 @@
 					<object class="IBUIImageView" id="617168336">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{595, 464}, {120, 56}}</string>
+						<string key="NSFrame">{{565, 464}, {150, 47}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="116492153"/>
@@ -134,7 +133,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">ThotLogo.png</string>
+							<string key="NSResourceName">ThotStudiosGray.png</string>
 						</object>
 					</object>
 					<object class="IBUIView" id="23876681">
@@ -514,8 +513,8 @@
 							<reference ref="116492153"/>
 							<reference ref="432175375"/>
 							<reference ref="23876681"/>
-							<reference ref="617168336"/>
 							<reference ref="321753911"/>
+							<reference ref="617168336"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1097,7 +1096,7 @@
 				<string>Background.png</string>
 				<string>FormNinjaLogo.png</string>
 				<string>LoginBackground.png</string>
-				<string>ThotLogo.png</string>
+				<string>ThotStudiosGray.png</string>
 				<string>loginred.png</string>
 				<string>registerButtonRed.png</string>
 			</object>
@@ -1106,7 +1105,7 @@
 				<string>{768, 1024}</string>
 				<string>{437, 97}</string>
 				<string>{662, 303}</string>
-				<string>{236, 117}</string>
+				<string>{197, 62}</string>
 				<string>{126, 42}</string>
 				<string>{126, 42}</string>
 			</object>
