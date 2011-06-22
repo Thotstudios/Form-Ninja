@@ -34,7 +34,7 @@
 	[FileWriter installDemoTemplateName:@"Demonstration-W-2.xml"];
 	[FileWriter installDemoTemplateName:@"Demonstration-Customer Evaluation.xml"];
 	
-	[FileWriter installDemoFormName:@"Demonstration-Customer Evaluation-Thot Studios-Customer Evaluation-1308608473"];
+	[FileWriter installDemoFormName:@"Demonstration-Customer Evaluation-Thot Studios-Customer Evaluation-1308608473.xml"];
 }
 
 @end

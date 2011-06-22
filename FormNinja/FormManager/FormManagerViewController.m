@@ -107,7 +107,7 @@
 	NSString * groupName = [groupNameList objectAtIndex:[[groupTable indexPathForSelectedRow] row]];
 	for(NSDictionary * dict in formList)
 		{
-		if([groupName isEqualToString:[dict valueForKey:templateGroupKey]])
+		if([groupName isEqualToString:ALL_GROUPS_STR] || [groupName isEqualToString:[dict valueForKey:templateGroupKey]])
 			{
 			[formListFilteredByGroup addObject:dict];
 			[formListFilteredByTemplate addObject:dict];
