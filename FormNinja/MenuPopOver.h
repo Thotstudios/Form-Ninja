@@ -2,8 +2,8 @@
 //  MenuPopOver.h
 //  FormNinja
 //
-//  Created by Ollin on 6/10/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Paul Salazar on 6/10/11.
+//  Copyright 2011 Thot Studios. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

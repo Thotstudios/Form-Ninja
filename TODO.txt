@@ -5,10 +5,8 @@ It's more like quick notes to ourselves and each other.
 
 Chad:
 * Clean up section header titles.
-* Deleting templates should reconsider group names.
 * Sanitize template names.
 * Fix form meta data; Generally fix form section displays
-* Unpublished templates should have a 'Resume' button instead of a "Modify" button.
 * Validate Template before publishing.
 * Add autosave for Templates and Forms for crashes/unexpected exits.
 * Change hard-coded #defines in TemplateEditor
@@ -20,18 +18,11 @@ Chad:
 * Adding an element should auto-edit that element.
 * Add Multi-line default length requirements.
 * Clean up template renaming (currently, templates are named, but file is not).
-* Form Manager, filter by template get the wrong template?
 * forms -> delete all forms -> main menu -> templates -> delete all templates -> menu -> forms -> crash
 * New template with geosignature, publish, save -> new form with that template, back, new form again -> crash
 * graphics in landscape
 
 Critical changes:
-1) Viewing/Editing a form causes a crash.
-2) GPS accuracy isn't shown to user.
-3) No image for Abort Form button on Form Editor page.
-4) No image for Cancel button on Profile page.
-5) Address Element is misaligned and State Abbr is occluded.
-
 
 Important changes:
 Inform user when no templates are available for form manager.
@@ -39,6 +30,8 @@ Inform user when no templates are available for form manager.
 
 Minor changes:
 Create "Checklist" template & form element.
+Create phone number and name and email address elements
+Create a better way to choose an element: e.g. a table of *kinds* of elements which give another table of actual elements.
 Write form editor finish function, and link to signature element as appropriate.
 
 It-Would-Be-Nice changes:
@@ -55,5 +48,5 @@ Ron:
 
 Other:
 * Localization support
-* Change source file creator names (e.g. from Hackenslacker, Programmer, etc)
+* Change source file creator names (e.g. from Thot Studios, Programmer, etc)
 * Change copyright tags (copyright ThotStudios)

@@ -2,8 +2,8 @@
 //  CustomLoadAlertViewController.h
 //  iPlace HD
 //
-//  Created by Ollin on 2/27/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Paul Salazar on 2/27/11.
+//  Copyright 2011 Thot Studios. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -2,8 +2,8 @@
 //  FileWriter.m
 //  FormNinja
 //
-//  Created by Hackenslacker on 6/20/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chad Hatcher on 6/20/11.
+//  Copyright 2011 Thot Studios. All rights reserved.
 //
 
 #import "FileWriter.h"

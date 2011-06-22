@@ -3,7 +3,7 @@
 //  FormNinja
 //
 //  Created by Paul Salazar on 6/19/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Thot Studios. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

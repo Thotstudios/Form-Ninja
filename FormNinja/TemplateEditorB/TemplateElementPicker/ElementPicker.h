@@ -2,8 +2,8 @@
 //  TableElementPicker.h
 //  Dev
 //
-//  Created by Hackenslacker on 5/21/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chad Hatcher on 5/21/11.
+//  Copyright 2011 Thot Studios. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

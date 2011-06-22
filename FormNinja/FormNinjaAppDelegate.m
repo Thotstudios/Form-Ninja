@@ -2,8 +2,8 @@
 //  FormNinjaAppDelegate.m
 //  FormNinja
 //
-//  Created by Ollin on 4/30/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Paul Salazar on 4/30/11.
+//  Copyright 2011 Thot Studios. All rights reserved.
 //
 
 #import "FormNinjaAppDelegate.h"

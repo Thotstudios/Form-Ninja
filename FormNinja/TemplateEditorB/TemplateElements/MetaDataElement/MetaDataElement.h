@@ -2,8 +2,8 @@
 //  MetaDataElement.h
 //  Dev
 //
-//  Created by Hackenslacker on 5/25/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chad Hatcher on 5/25/11.
+//  Copyright 2011 Thot Studios. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

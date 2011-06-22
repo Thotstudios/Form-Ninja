@@ -2,8 +2,8 @@
 //  Constants.h
 //  FormNinja
 //
-//  Created by Ollin on 5/16/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Paul Salazar on 5/16/11.
+//  Copyright 2011 Thot Studios. All rights reserved.
 //
 
 

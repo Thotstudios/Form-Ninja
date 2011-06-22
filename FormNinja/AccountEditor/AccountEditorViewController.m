@@ -2,8 +2,8 @@
 //  AccountEditorViewController.m
 //  FormNinja
 //
-//  Created by Hackenslacker on 5/7/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chad Hatcher on 5/7/11.
+//  Copyright 2011 Thot Studios. All rights reserved.
 //
 
 #import "AccountEditorViewController.h"
