@@ -23,9 +23,7 @@ Chad:
 * Form Manager, filter by template get the wrong template?
 * forms -> delete all forms -> main menu -> templates -> delete all templates -> menu -> forms -> crash
 * New template with geosignature, publish, save -> new form with that template, back, new form again -> crash
-* Disable "resume" for completed forms.
 * graphics in landscape
-* login screen thot logo bug
 
 Critical changes:
 1) Viewing/Editing a form causes a crash.

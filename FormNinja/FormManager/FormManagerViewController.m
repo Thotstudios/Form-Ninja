@@ -99,6 +99,18 @@
 
 #pragma mark - Instance Methods
 
+-(BOOL) isSelectedFormCompleted
+{
+	BOOL ret = NO;
+	NSIndexPath * indexPath = [formTable indexPathForSelectedRow];
+	if(indexPath)
+		{
+		NSInteger row = [indexPath row];
+		NSMutableDictionary * dict = [formListFilteredByTemplate objectAtIndex:row];
+		ret = [[dict valueForKey:formCompletedKey] boolValue];
+		}
+	return ret;
+}
 -(void) filterFormsByGroup
 {
 	[formListFilteredByGroup removeAllObjects];
@@ -120,8 +132,8 @@
 {
 	[formListFilteredByTemplate removeAllObjects];
 	NSString * templateName = nil;
-	if([templateList count])
-		templateName = [[templateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:templateNameKey];
+	if([filteredTemplateList count])
+		templateName = [[filteredTemplateList objectAtIndex:[[templateTable indexPathForSelectedRow] row]] objectForKey:templateNameKey];
 	for(NSDictionary * dict in formListFilteredByGroup)
 		{
 		if([templateName isEqualToString:[dict objectForKey:templateNameKey]])
@@ -141,6 +153,7 @@
 	NSString * group;
 	NSMutableDictionary * formMetaData;
 	NSMutableDictionary * dict;
+	BOOL isComplete;
 	
 	[formList removeAllObjects];
 	[formNameList removeAllObjects];
@@ -166,8 +179,9 @@
 			// agent
 			// begin date
 			// end date
+			isComplete = [[formMetaData valueForKey:formCompletedKey] boolValue];
 			
-			dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:path, filePathKey, group, templateGroupKey, templateName, templateNameKey, formName, formNameKey, nil];
+			dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:path, filePathKey, group, templateGroupKey, templateName, templateNameKey, formName, formNameKey, [NSNumber numberWithBool:isComplete], formCompletedKey, nil];
 			}
 		if(dict)
 			{
@@ -265,7 +279,15 @@
 		}
 	if([formTable indexPathForSelectedRow])
 		{
-		[resumeFormButton setEnabled:YES];	[resumeFormButton setAlpha:1.00];
+		if([self isSelectedFormCompleted])
+			{
+			[resumeFormButton setEnabled:NO];	[resumeFormButton setAlpha:0.50];
+			}
+		else
+			{
+			[resumeFormButton setEnabled:YES];	[resumeFormButton setAlpha:1.00];
+			}
+			
 		[viewFormButton setEnabled:YES];	[viewFormButton setAlpha:1.00];
 		[deleteFormButton setEnabled:YES];	[deleteFormButton setAlpha:1.00];
 		}
