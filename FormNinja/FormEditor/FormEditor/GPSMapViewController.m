@@ -50,7 +50,9 @@
 }
 
 
-- (void) viewDidAppear:(BOOL)animated{
+- (void) viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
     NSArray *coordArray = [self.sigCoordinates componentsSeparatedByString:@", "];
 
     NSString *urlAddress = [NSString stringWithFormat:@"http://maps.google.com/?q=%@,%@",[coordArray objectAtIndex:0], [coordArray objectAtIndex:1]];

@@ -164,6 +164,10 @@
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC41AA</bytes>
 								</object>
+								<object class="NSCustomResource" key="IBUIHighlightedImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">TemplatesRed.png</string>
+								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">templatesGray.png</string>
@@ -189,6 +193,10 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="611889720"/>
+								<object class="NSCustomResource" key="IBUIHighlightedImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">ProfileRed.png</string>
+								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">ProfileGray.png</string>
@@ -214,6 +222,10 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="611889720"/>
+								<object class="NSCustomResource" key="IBUIHighlightedImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">LogoutRed.png</string>
+								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">LogoutGray.png</string>
@@ -239,6 +251,10 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="611889720"/>
+								<object class="NSCustomResource" key="IBUIHighlightedImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">formsRed.png</string>
+								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">formsGray.png</string>
@@ -264,6 +280,10 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="611889720"/>
+								<object class="NSCustomResource" key="IBUIHighlightedImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">GroupsRed.png</string>
+								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">groupsGray.png</string>
@@ -616,11 +636,11 @@
 						<reference key="object" ref="606049273"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1067831438"/>
 							<reference ref="564808286"/>
 							<reference ref="607914908"/>
 							<reference ref="742392705"/>
 							<reference ref="728590960"/>
+							<reference ref="1067831438"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -685,6 +705,7 @@
 					<string>14.CustomClassName</string>
 					<string>14.IBPluginDependency</string>
 					<string>16.IBPluginDependency</string>
+					<string>16.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>18.CustomClassName</string>
 					<string>18.IBPluginDependency</string>
 					<string>2.IBEditorWindowLastContentRect</string>
@@ -693,14 +714,18 @@
 					<string>23.CustomClassName</string>
 					<string>23.IBPluginDependency</string>
 					<string>26.IBPluginDependency</string>
+					<string>26.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>28.IBPluginDependency</string>
+					<string>28.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>5.IBPluginDependency</string>
+					<string>5.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>52.CustomClassName</string>
 					<string>52.IBPluginDependency</string>
 					<string>53.CustomClassName</string>
 					<string>53.IBPluginDependency</string>
 					<string>56.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
+					<string>6.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>68.IBPluginDependency</string>
 					<string>69.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
@@ -713,6 +738,7 @@
 					<string>AccountEditorViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="1"/>
 					<string>FormNinjaLoginViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{353, 156}, {1024, 768}}</string>
@@ -721,14 +747,18 @@
 					<string>TemplateManagerViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="1"/>
 					<string>FormManagerViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>GroupManagerViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1768,10 +1798,15 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>Background.png</string>
 				<string>FormNinjaLogo.png</string>
+				<string>GroupsRed.png</string>
 				<string>LogoutGray.png</string>
+				<string>LogoutRed.png</string>
 				<string>ProfileGray.png</string>
+				<string>ProfileRed.png</string>
+				<string>TemplatesRed.png</string>
 				<string>TestNinja.png</string>
 				<string>formsGray.png</string>
+				<string>formsRed.png</string>
 				<string>groupsGray.png</string>
 				<string>templatesGray.png</string>
 			</object>
@@ -1779,9 +1814,14 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{768, 1024}</string>
 				<string>{437, 97}</string>
+				<string>{259, 259}</string>
+				<string>{518, 64}</string>
 				<string>{518, 64}</string>
 				<string>{259, 259}</string>
+				<string>{259, 259}</string>
+				<string>{259, 259}</string>
 				<string>{107, 489}</string>
+				<string>{259, 259}</string>
 				<string>{259, 259}</string>
 				<string>{259, 259}</string>
 				<string>{259, 259}</string>

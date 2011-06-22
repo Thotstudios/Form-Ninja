@@ -66,24 +66,13 @@
 {
     [super viewDidLoad];
     self.view.clipsToBounds=true;
-	// TODO: fix magic strings:
-    UIImage *logoutRedImage=[UIImage imageNamed:@"LogoutRed.png"];
-    UIImage *formsRedImage=[UIImage imageNamed:@"formsRed.png"];
-    UIImage *groupsRedImage=[UIImage imageNamed:@"GroupsRed.png"];
-    UIImage *profileRedImage=[UIImage imageNamed:@"ProfileRed.png"];
-    UIImage *templatesRedImage=[UIImage imageNamed:@"TemplatesRed.png"];
-    [logoutButton setImage:logoutRedImage forState:UIControlStateHighlighted];
-    [formsButton setImage:formsRedImage forState:UIControlStateHighlighted];
-    [groupsButton setImage:groupsRedImage forState:UIControlStateHighlighted];
-    [profileButton setImage:profileRedImage forState:UIControlStateHighlighted];
-    [templateButton setImage:templatesRedImage forState:UIControlStateHighlighted];
+	
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.tintColor=[UIColor colorWithRed:196.0/256 green:3.0/256 blue:21.0/256 alpha:1];
-	
-	
 }
 -(void) viewDidAppear:(BOOL)animated
 {
+	[super viewDidAppear:animated];
 	[self updateLoginExpirationLabel];
 	[self.versionLabel setText:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"]];
 	[FileWriter installDemoFiles]; // DEMO
