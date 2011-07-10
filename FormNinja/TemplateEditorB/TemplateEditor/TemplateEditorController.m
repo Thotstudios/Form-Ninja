@@ -76,12 +76,20 @@
 }
 
 
+-(void) viewDidAppear:(BOOL)animated
+{
+	NSLog(@"TemplateEditor ViewDidAppear");
+	[super viewDidAppear:animated];
+}
 -(void) viewWillAppear:(BOOL)animated
 {
+	NSLog(@"TempalteEditor ViewWillAppear");
+	
 	[super viewWillAppear:animated];
 	
 	[self generateViewArray];
 	[self setIndexes];
+	[table reloadData];
 	
 	[[NSNotificationCenter defaultCenter]
 	 addObserver:self
