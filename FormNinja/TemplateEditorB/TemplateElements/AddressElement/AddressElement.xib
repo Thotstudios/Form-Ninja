@@ -119,7 +119,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUIText"/>
 						<int key="IBUIBorderStyle">3</int>
-						<string key="IBUIPlaceholder">&lt;Address Label (e.g. Mailling Address)&gt;</string>
+						<string key="IBUIPlaceholder">&lt;Address Label (e.g. Mailing Address)&gt;</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
@@ -229,7 +229,7 @@
 					</object>
 					<object class="IBUITextField" id="251983307">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">290</int>
+						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{149, 149}, {364, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="836211306"/>
