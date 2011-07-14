@@ -44,7 +44,8 @@ Ron:
 * FormElementMultiline:  Validate current length.
 * FormElementSingleline: validate current length.
 * FormAddressElement:  Validate zip is numerics.
-* MainMenu:  The 'slide in/out' effect on rotation looks great, but there are graphical errors when you're moving in from another screen in landscape.  Possible fix:  hide images in viewWillAppear, then animate opacity to fade them in in ViewDidAppear.
+* Check possible bugs in FormNinjaLoginViewController.m  (tagged with *BUG*)
+* Kill the delay after login -- need to talk to group about that (tagged with *NOTE* )
 
 Other:
 * Localization support

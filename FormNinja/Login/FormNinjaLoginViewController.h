@@ -12,7 +12,7 @@
 @class CustomLoadAlertViewController, AccountEditorViewController;
 
 
-@interface FormNinjaLoginViewController : UIViewController {
+@interface FormNinjaLoginViewController : UIViewController <UITextFieldDelegate> {
     IBOutlet UITextField *usernameField;
     IBOutlet UITextField *passwordField;
 	UISwitch *rememberSwitch;

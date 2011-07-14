@@ -86,6 +86,13 @@
 
 #pragma mark - Instance Methods
 
+
+- (IBAction)pressedRegisterButton
+{
+    accountEditor.type = 0;
+	[self.navigationController pushViewController:accountEditor animated:YES];
+}
+
 //Pushes alert view
 - (void) pushAlertView
 {
@@ -213,6 +220,7 @@
         [self.loadAlert stopActivityIndicator];
         
         //If there is no user information stored locally, store it
+        //*BUG*:  what if account info exists, but is for different account?  Need to check for that
         AccountClass *account = [AccountClass sharedAccountClass];
         if(account.username == nil){
             NSDictionary *userDict = [jsonDict objectForKey:formUserInformation]; 
@@ -225,6 +233,7 @@
     else{
         self.loadAlert.alertLabel.text = @"Login failed";
         [self.loadAlert stopActivityIndicator];
+        //*NOTE* Kill delay?
         [self performSelector:@selector(userAuthenticatedFailed:) withObject:[jsonDict objectForKey:formError] afterDelay:3];
     }
 }
@@ -266,6 +275,20 @@
 		}	
 	
 	return TRUE;
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField{
+    if(textField==usernameField)
+    {
+        [usernameField resignFirstResponder];
+        [passwordField becomeFirstResponder];
+    }
+    else if (textField==passwordField)
+    {
+        [passwordField resignFirstResponder];
+        [self loginButtonAction];
+    }
+    return true;
 }
 
 
@@ -310,12 +333,5 @@
 	[rememberSwitch release];
 	[accountEditor release];
     [super dealloc];
-}
-
-
-- (IBAction)pressedRegisterButton
-{
-    accountEditor.type = 0;
-	[self.navigationController pushViewController:accountEditor animated:YES];
 }
 @end
