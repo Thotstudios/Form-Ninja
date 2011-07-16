@@ -12,6 +12,7 @@
 @interface TemplateEditorController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 {
 	UITableView *table;
+	UIButton *publishButton;
 	NSMutableArray * dataArray;
 	NSMutableArray * viewArray;
 	NSString * path;
@@ -19,6 +20,7 @@
 
 // Interface Elments
 @property (nonatomic, retain) IBOutlet UITableView *table;
+@property (nonatomic, retain) IBOutlet UIButton *publishButton;
 
 // Data Members
 @property (nonatomic, retain) NSMutableArray * dataArray;
@@ -31,7 +33,7 @@
 -(void) generateViewArray;
 
 - (IBAction)save;
-- (IBAction)clear;
+- (IBAction)pressedPublish;
 - (IBAction)addSection;
 - (IBAction)toggleEditing;
 

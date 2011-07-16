@@ -74,7 +74,7 @@
 {
 	[labelField setText:nil];
 	[dictionary removeAllObjects];
-	[dictionary setValue:@"Label" forKey:elementTypeKey];
+	[dictionary setValue:[NSString stringWithFormat:@"%@", [self class]] forKey:elementTypeKey];
 	[labelAlignmentControl setSelectedSegmentIndex:0];
 }
 
@@ -149,8 +149,11 @@
 
 - (IBAction)segmentedControlValueDidChange:(UISegmentedControl*)segmentedControl
 {
-	[dictionary setValue:[NSNumber numberWithInteger:[segmentedControl selectedSegmentIndex]] forKey:elementLabelAlignment];
-	[self setLabelAlignment];
+	if([segmentedControl tag]==0)
+		{
+		[dictionary setValue:[NSNumber numberWithInteger:[segmentedControl selectedSegmentIndex]] forKey:elementLabelAlignment];
+		[self setLabelAlignment];
+		}
 }
 
 #pragma mark - TextField Delegate

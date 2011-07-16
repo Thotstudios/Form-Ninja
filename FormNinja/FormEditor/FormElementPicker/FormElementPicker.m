@@ -33,6 +33,7 @@ static NSMutableDictionary * elementDictionary = nil;
 	
 	
 	element = [[[NSClassFromString([NSString stringWithFormat:@"Form%@", [elementDictionary valueForKey:type]]) alloc] init] autorelease];
+	if(!element) element = [[[NSClassFromString([NSString stringWithFormat:@"Form%@", type]) alloc] init] autorelease];
 	
 	if(!element)
 		element = [[[FormTemplateElement alloc] init] autorelease];

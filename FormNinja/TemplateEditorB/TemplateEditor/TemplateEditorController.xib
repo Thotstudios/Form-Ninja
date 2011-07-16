@@ -46,7 +46,7 @@
 					<object class="IBUITableView" id="194857317">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, 81}, {768, 879}}</string>
+						<string key="NSFrame">{{0, 73}, {768, 887}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -115,21 +115,28 @@
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<reference key="IBUIFont" ref="240265005"/>
-								<string key="IBUINormalTitle">Clear</string>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">TrebuchetMS-Bold</string>
+									<double key="NSSize">18</double>
+									<int key="NSfFlags">16</int>
+								</object>
+								<string key="IBUINormalTitle">Publish</string>
 								<reference key="IBUIHighlightedTitleColor" ref="467921950"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MQA</bytes>
+									<object class="NSColorSpace" key="NSCustomColorSpace" id="14139973">
+										<int key="NSID">2</int>
+									</object>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="225038046"/>
-								<object class="NSCustomResource" key="IBUIHighlightedImage">
+								<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">ClearGray.png</string>
+									<string key="NSResourceName">TabGray.png</string>
 								</object>
-								<object class="NSCustomResource" key="IBUINormalImage">
+								<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">ClearRed.png</string>
+									<string key="NSResourceName">TabRed.png</string>
 								</object>
 							</object>
 							<object class="IBUIButton" id="232225130">
@@ -196,9 +203,7 @@
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="14139973">
-								<int key="NSID">2</int>
-							</object>
+							<reference key="NSCustomColorSpace" ref="14139973"/>
 						</object>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
@@ -248,15 +253,6 @@
 						<reference key="destination" ref="841351856"/>
 					</object>
 					<int key="connectionID">17</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">clear</string>
-						<reference key="source" ref="864441989"/>
-						<reference key="destination" ref="841351856"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">41</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -325,6 +321,23 @@
 					</object>
 					<int key="connectionID">55</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">pressedPublish</string>
+						<reference key="source" ref="864441989"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">56</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">publishButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="864441989"/>
+					</object>
+					<int key="connectionID">57</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -371,8 +384,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="232225130"/>
 							<reference ref="230084820"/>
-							<reference ref="864441989"/>
 							<reference ref="1039186823"/>
+							<reference ref="864441989"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 						<string key="objectName">Button Container</string>
@@ -428,7 +441,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -448,7 +461,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">55</int>
+			<int key="maxID">57</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -461,7 +474,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addSection</string>
-							<string>clear</string>
+							<string>pressedPublish</string>
 							<string>save</string>
 							<string>toggleEditing</string>
 						</object>
@@ -478,7 +491,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addSection</string>
-							<string>clear</string>
+							<string>pressedPublish</string>
 							<string>save</string>
 							<string>toggleEditing</string>
 						</object>
@@ -489,7 +502,7 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">clear</string>
+								<string key="name">pressedPublish</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -509,11 +522,13 @@
 							<string>addButton</string>
 							<string>arrangeButton</string>
 							<string>clearButton</string>
+							<string>publishButton</string>
 							<string>saveButton</string>
 							<string>table</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
@@ -528,6 +543,7 @@
 							<string>addButton</string>
 							<string>arrangeButton</string>
 							<string>clearButton</string>
+							<string>publishButton</string>
 							<string>saveButton</string>
 							<string>table</string>
 						</object>
@@ -543,6 +559,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">clearButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">publishButton</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -578,8 +598,8 @@
 				<string>AddSectionRed.png</string>
 				<string>ArrangeGray.png</string>
 				<string>ArrangeRed.png</string>
-				<string>ClearGray.png</string>
-				<string>ClearRed.png</string>
+				<string>TabGray.png</string>
+				<string>TabRed.png</string>
 				<string>saveRed.png</string>
 				<string>savegray.png</string>
 			</object>

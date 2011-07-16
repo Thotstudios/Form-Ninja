@@ -118,6 +118,8 @@
 #define elementCoordinatesKey			@"coordinates"
 #define elementCoordinatesAccuracyKey	@"GPS Accuracy"
 
+#define elementRatingKey				@"Rating Element"
+#define elementRatingValueKey			@"Rating Value"
 
 
 

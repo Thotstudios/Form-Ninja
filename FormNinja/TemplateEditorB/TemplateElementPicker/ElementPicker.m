@@ -184,6 +184,8 @@ static NSMutableDictionary * elementDictionary = nil;
 	
 	TemplateElement * element;
 	element = [[[NSClassFromString([elementDictionary valueForKey:type]) alloc] init] autorelease];
+	if(!element)
+		element = [[[NSClassFromString(type) alloc] init] autorelease];
 	
 	if(element)
 		{

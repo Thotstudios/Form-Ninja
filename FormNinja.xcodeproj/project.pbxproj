@@ -84,6 +84,8 @@
 		F721879E1390EFDC000BA9DF /* SignatureElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187881390EFDC000BA9DF /* SignatureElement.xib */; };
 		F721879F1390EFDC000BA9DF /* SingleLineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F721878B1390EFDC000BA9DF /* SingleLineElement.m */; };
 		F72187A01390EFDC000BA9DF /* SingleLineElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F721878C1390EFDC000BA9DF /* SingleLineElement.xib */; };
+		F7529AC913D0D02300357C67 /* FormRatingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7529AC713D0D02300357C67 /* FormRatingElement.m */; };
+		F7529ACA13D0D02300357C67 /* FormRatingElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7529AC813D0D02300357C67 /* FormRatingElement.xib */; };
 		F757907313B1A1F500EA4F3B /* ThotStudiosGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F757907213B1A1F500EA4F3B /* ThotStudiosGray.png */; };
 		F758017713B06956008F4560 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = F758017213B06956008F4560 /* Background.png */; };
 		F758017813B06956008F4560 /* CancelGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F758017313B06956008F4560 /* CancelGray.png */; };
@@ -156,7 +158,11 @@
 		F7D004ED1392342700DD4D2B /* RepeatingElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D004EB1392342700DD4D2B /* RepeatingElement.xib */; };
 		F7D004F2139237D600DD4D2B /* TableElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D004F0139237D600DD4D2B /* TableElement.m */; };
 		F7D004F3139237D600DD4D2B /* TableElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D004F1139237D600DD4D2B /* TableElement.xib */; };
+		F7D24CCC13D0E6B600EEF9C9 /* TabGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D24CCA13D0E6B500EEF9C9 /* TabGray.png */; };
+		F7D24CCD13D0E6B600EEF9C9 /* TabRed.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D24CCB13D0E6B600EEF9C9 /* TabRed.png */; };
 		F7E2B561137E49D000EA89D0 /* AccountClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E2B560137E49D000EA89D0 /* AccountClass.m */; };
+		F7F0DD1613CD5A2B0019565A /* RatingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F0DD1413CD5A2B0019565A /* RatingElement.m */; };
+		F7F0DD1713CD5A2B0019565A /* RatingElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F0DD1513CD5A2B0019565A /* RatingElement.xib */; };
 		F7F248C11385E1C600E0FD2A /* FormNinjaLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248C31385E1C600E0FD2A /* FormNinjaLoginViewController.xib */; };
 		F7F248C41385E1CB00E0FD2A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F248C61385E1CB00E0FD2A /* MainWindow.xib */; };
 		F7F248D41385E8ED00E0FD2A /* TemplateManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F248D51385E8ED00E0FD2A /* TemplateManagerViewController.m */; };
@@ -278,6 +284,9 @@
 		F721878A1390EFDC000BA9DF /* SingleLineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLineElement.h; sourceTree = "<group>"; };
 		F721878B1390EFDC000BA9DF /* SingleLineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineElement.m; sourceTree = "<group>"; };
 		F721878C1390EFDC000BA9DF /* SingleLineElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleLineElement.xib; sourceTree = "<group>"; };
+		F7529AC613D0D02300357C67 /* FormRatingElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormRatingElement.h; path = FormRatingElement/FormRatingElement.h; sourceTree = "<group>"; };
+		F7529AC713D0D02300357C67 /* FormRatingElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormRatingElement.m; path = FormRatingElement/FormRatingElement.m; sourceTree = "<group>"; };
+		F7529AC813D0D02300357C67 /* FormRatingElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormRatingElement.xib; path = FormRatingElement/FormRatingElement.xib; sourceTree = "<group>"; };
 		F757907213B1A1F500EA4F3B /* ThotStudiosGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThotStudiosGray.png; sourceTree = "<group>"; };
 		F758017213B06956008F4560 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		F758017313B06956008F4560 /* CancelGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CancelGray.png; sourceTree = "<group>"; };
@@ -375,8 +384,13 @@
 		F7D004EF139237D600DD4D2B /* TableElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableElement.h; path = TableElement/TableElement.h; sourceTree = "<group>"; };
 		F7D004F0139237D600DD4D2B /* TableElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableElement.m; path = TableElement/TableElement.m; sourceTree = "<group>"; };
 		F7D004F1139237D600DD4D2B /* TableElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableElement.xib; path = TableElement/TableElement.xib; sourceTree = "<group>"; };
+		F7D24CCA13D0E6B500EEF9C9 /* TabGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabGray.png; sourceTree = "<group>"; };
+		F7D24CCB13D0E6B600EEF9C9 /* TabRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabRed.png; sourceTree = "<group>"; };
 		F7E2B55F137E49D000EA89D0 /* AccountClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountClass.h; path = AccountClass/AccountClass.h; sourceTree = "<group>"; };
 		F7E2B560137E49D000EA89D0 /* AccountClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountClass.m; path = AccountClass/AccountClass.m; sourceTree = "<group>"; };
+		F7F0DD1313CD5A2B0019565A /* RatingElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingElement.h; path = RatingElement/RatingElement.h; sourceTree = "<group>"; };
+		F7F0DD1413CD5A2B0019565A /* RatingElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingElement.m; path = RatingElement/RatingElement.m; sourceTree = "<group>"; };
+		F7F0DD1513CD5A2B0019565A /* RatingElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingElement.xib; path = RatingElement/RatingElement.xib; sourceTree = "<group>"; };
 		F7F248C21385E1C600E0FD2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FormNinjaLoginViewController.xib; sourceTree = "<group>"; };
 		F7F248C51385E1CB00E0FD2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		F7F248D51385E8ED00E0FD2A /* TemplateManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemplateManagerViewController.m; sourceTree = "<group>"; };
@@ -633,6 +647,7 @@
 				F7D004EE139237C200DD4D2B /* TableElement */,
 				F72187801390EFDC000BA9DF /* SignatureElement */,
 				F792BCD913AD3AF200116F72 /* GeoSignatureElement */,
+				F7F0DD1113CD59FF0019565A /* RatingElement */,
 				F7D004E81392317F00DD4D2B /* RepeatingElement */,
 			);
 			name = TemplateElements;
@@ -709,6 +724,16 @@
 				F721878C1390EFDC000BA9DF /* SingleLineElement.xib */,
 			);
 			path = SingleLineElement;
+			sourceTree = "<group>";
+		};
+		F7529AC413D0CFEE00357C67 /* FormRatingElement */ = {
+			isa = PBXGroup;
+			children = (
+				F7529AC613D0D02300357C67 /* FormRatingElement.h */,
+				F7529AC713D0D02300357C67 /* FormRatingElement.m */,
+				F7529AC813D0D02300357C67 /* FormRatingElement.xib */,
+			);
+			name = FormRatingElement;
 			sourceTree = "<group>";
 		};
 		F764981713AD6288000D6694 /* FormElementGeoSignature */ = {
@@ -856,6 +881,8 @@
 		F7C0DC5213A07067009ACEB6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7D24CCA13D0E6B500EEF9C9 /* TabGray.png */,
+				F7D24CCB13D0E6B600EEF9C9 /* TabRed.png */,
 				F758017C13B06BCD008F4560 /* CopyGray.png */,
 				F758017D13B06BCD008F4560 /* CopyRed.png */,
 				F758017E13B06BCD008F4560 /* StartNewFormGray.png */,
@@ -937,6 +964,7 @@
 				F7C0DC9D13A07259009ACEB6 /* FormElementSignature */,
 				F764981713AD6288000D6694 /* FormElementGeoSignature */,
 				F7C0DCA513A07259009ACEB6 /* FormElementTable */,
+				F7529AC413D0CFEE00357C67 /* FormRatingElement */,
 			);
 			path = FormElements;
 			sourceTree = "<group>";
@@ -1058,6 +1086,16 @@
 				F768C5AB137DE85800191858 /* AccountEditor */,
 			);
 			name = Account;
+			sourceTree = "<group>";
+		};
+		F7F0DD1113CD59FF0019565A /* RatingElement */ = {
+			isa = PBXGroup;
+			children = (
+				F7F0DD1313CD5A2B0019565A /* RatingElement.h */,
+				F7F0DD1413CD5A2B0019565A /* RatingElement.m */,
+				F7F0DD1513CD5A2B0019565A /* RatingElement.xib */,
+			);
+			name = RatingElement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1199,6 +1237,10 @@
 				F758018213B06BCD008F4560 /* StartNewFormGray.png in Resources */,
 				F758018313B06BCD008F4560 /* StartNewFormRed.png in Resources */,
 				F757907313B1A1F500EA4F3B /* ThotStudiosGray.png in Resources */,
+				F7F0DD1713CD5A2B0019565A /* RatingElement.xib in Resources */,
+				F7529ACA13D0D02300357C67 /* FormRatingElement.xib in Resources */,
+				F7D24CCC13D0E6B600EEF9C9 /* TabGray.png in Resources */,
+				F7D24CCD13D0E6B600EEF9C9 /* TabRed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1264,6 +1306,8 @@
 				D9A2B72413AD73AD007C13A1 /* FormFinishViewController.m in Sources */,
 				DA29FA3C13AE6CA200CF1C8D /* GPSMapViewController.m in Sources */,
 				F7AAC66A13AFF6040042CBB1 /* FileWriter.m in Sources */,
+				F7F0DD1613CD5A2B0019565A /* RatingElement.m in Sources */,
+				F7529AC913D0D02300357C67 /* FormRatingElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,6 +4,8 @@
 <dict>
 	<key>Address</key>
 	<string>AddressElement</string>
+	<key>GeoSignature</key>
+	<string>GeoSignatureElement</string>
 	<key>Label</key>
 	<string>TemplateElement</string>
 	<key>MetaData</key>
@@ -16,7 +18,7 @@
 	<string>SingleLineElement</string>
 	<key>Table</key>
 	<string>TableElement</string>
-	<key>GeoSignature</key>
-	<string>GeoSignatureElement</string>
+	<key>Rating</key>
+	<string>RatingElement</string>
 </dict>
 </plist>

@@ -37,6 +37,7 @@
 @implementation TemplateEditorController
 
 @synthesize table;
+@synthesize publishButton;
 @synthesize dataArray;
 @synthesize viewArray;
 @synthesize path;
@@ -50,6 +51,7 @@
 	[dataArray release];
 	[viewArray release];
 	[path release];
+	[publishButton release];
     [super dealloc];
 }
 
@@ -60,6 +62,7 @@
 	[self setViewArray:nil];
 	[self setPath:nil];
 	
+	[self setPublishButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -75,15 +78,8 @@
     [menuButton release];
 }
 
-
--(void) viewDidAppear:(BOOL)animated
-{
-	NSLog(@"TemplateEditor ViewDidAppear");
-	[super viewDidAppear:animated];
-}
 -(void) viewWillAppear:(BOOL)animated
 {
-	NSLog(@"TempalteEditor ViewWillAppear");
 	
 	[super viewWillAppear:animated];
 	
@@ -195,7 +191,7 @@
 
 -(void) clearConfirm
 {
-NSMutableDictionary * preserve;
+	NSMutableDictionary * preserve;
 	preserve = [[[dataArray objectAtIndex:0] retain] autorelease];
 	[dataArray removeAllObjects];
 	[dataArray addObject:preserve];
@@ -205,11 +201,11 @@ NSMutableDictionary * preserve;
 	[table reloadData];
 }
 
-- (IBAction)clear
+- (IBAction)pressedPublish
 {
-	UIActionSheet * sheet = [[[UIActionSheet alloc] initWithTitle:CONFIRM_DELETE_TEMPLATE_STR delegate:self cancelButtonTitle:nil destructiveButtonTitle:CONFIRM_DELETE_BUTTON_STR otherButtonTitles:nil] autorelease];
-	[sheet setTag:2];
-	[sheet showInView:self.view];
+	[[dataArray objectAtIndex:0] setValue:[NSNumber numberWithBool:YES] forKey:templatePublishedKey];
+	[self save];
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void) saveToPath:(NSString*)pathArg
