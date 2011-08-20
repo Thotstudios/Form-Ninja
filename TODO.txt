@@ -22,6 +22,15 @@ Chad:
 * New template with geosignature, publish, save -> new form with that template, back, new form again -> crash
 * graphics in landscape
 
+////////////
+* Meter indicating usage percent of tier cap.
+* 85% cap warning, 100% cap notice
+* Cap reached: pop-up to upgrade, or manage existing.
+* Over-cap is hard cap.
+* Packages have post-account storage details
+* 3-day grace period
+///////////
+
 Critical changes:
 
 Important changes:
