@@ -35,6 +35,7 @@
 @synthesize usernameField, passwordField, statusLabel, loginButton;
 @synthesize loadAlert;
 @synthesize accountEditor;
+@synthesize registrationTest; // TODO: remove
 
 //git://github.com/Thotsudios/Form-Ninja.git
 
@@ -128,7 +129,7 @@
 }
 
 - (IBAction) loginButtonAction
-{    
+{
     //Dismiss keyboard
     [self.usernameField resignFirstResponder];
     [self.passwordField resignFirstResponder];
@@ -153,8 +154,8 @@
     //Prepare form
     NSURL *urlToSend = [[[NSURL alloc] initWithString: userInfoURL] autorelease];
     ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:urlToSend] autorelease];  
-    [request setPostValue:self.usernameField.text forKey:formUsername];  
-    [request setPostValue:self.passwordField.text forKey:formPassword];  
+    [request setPostValue:self.usernameField.text forKey:formUsername];
+    [request setPostValue:self.passwordField.text forKey:formPassword];
 	
     //Send request
     request.delegate = self;
@@ -198,6 +199,11 @@
 }
 
 
+// TODO: remove:
+-(void) testButtonPressed
+{
+	[self.navigationController pushViewController:registrationTest animated:YES];
+}
 
 #pragma mark - ASIHTTPRequest Delegate Methods
 

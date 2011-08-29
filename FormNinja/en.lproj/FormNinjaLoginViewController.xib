@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">800</int>
-		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.SystemVersion">10K540</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
-		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">462.00</string>
+		<string key="IBDocument.AppKitVersion">1038.36</string>
+		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">301</string>
@@ -53,6 +53,7 @@
 						<string key="NSFrame">{{0, -64}, {768, 1024}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="432175375"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">4</int>
@@ -69,6 +70,7 @@
 						<string key="NSFrame">{{177, 806}, {450, 95}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -94,7 +96,7 @@
 					<object class="IBUIButton" id="432175375">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">319</int>
-						<string key="NSFrameSize">{123, 37}</string>
+						<string key="NSFrameSize">{143, 37}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="23876681"/>
@@ -108,7 +110,7 @@
 							<int key="NSfFlags">16</int>
 						</object>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Bypass Login</string>
+						<string key="IBUINormalTitle">RegistrationTest</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="352411663">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -327,7 +329,7 @@
 				<string key="NSFrame">{{0, 64}, {768, 960}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="432175375"/>
+				<reference key="NSNextKeyView" ref="321753911"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -356,6 +358,18 @@
 			</object>
 			<object class="IBUIViewController" id="971309082">
 				<string key="IBUITitle">Account Registration</string>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
+					<int key="IBUIStatusBarStyle">2</int>
+				</object>
+				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+					<int key="IBUIInterfaceOrientation">1</int>
+					<int key="interfaceOrientation">1</int>
+				</object>
+				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+				<bool key="IBUIHorizontal">NO</bool>
+			</object>
+			<object class="IBUIViewController" id="3254539">
+				<string key="IBUITitle">Testing</string>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
 					<int key="IBUIStatusBarStyle">2</int>
 				</object>
@@ -428,15 +442,6 @@
 					<int key="connectionID">23</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">userAuthenticated</string>
-						<reference key="source" ref="432175375"/>
-						<reference key="destination" ref="841351856"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">27</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">rememberSwitch</string>
 						<reference key="source" ref="841351856"/>
@@ -486,6 +491,23 @@
 					</object>
 					<int key="connectionID">44</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">testButtonPressed</string>
+						<reference key="source" ref="432175375"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">46</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">registrationTest</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="3254539"/>
+					</object>
+					<int key="connectionID">47</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -513,10 +535,10 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="116492153"/>
-							<reference ref="432175375"/>
 							<reference ref="23876681"/>
 							<reference ref="321753911"/>
 							<reference ref="617168336"/>
+							<reference ref="432175375"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -608,6 +630,12 @@
 						<reference key="object" ref="321753911"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">45</int>
+						<reference key="object" ref="3254539"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">RegistrationTest</string>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -631,6 +659,8 @@
 					<string>39.IBPluginDependency</string>
 					<string>40.IBPluginDependency</string>
 					<string>41.IBPluginDependency</string>
+					<string>45.CustomClassName</string>
+					<string>45.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
@@ -654,6 +684,8 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>RegistrationTest</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -671,7 +703,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">44</int>
+			<int key="maxID">47</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -966,7 +998,7 @@
 							<string>loginButtonAction</string>
 							<string>pressedRegisterButton</string>
 							<string>rememberSwitchAction:</string>
-							<string>userAuthenticated</string>
+							<string>testButtonPressed</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -983,7 +1015,7 @@
 							<string>loginButtonAction</string>
 							<string>pressedRegisterButton</string>
 							<string>rememberSwitchAction:</string>
-							<string>userAuthenticated</string>
+							<string>testButtonPressed</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1000,7 +1032,7 @@
 								<string key="candidateClassName">UISwitch</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">userAuthenticated</string>
+								<string key="name">testButtonPressed</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -1013,6 +1045,7 @@
 							<string>loadAlert</string>
 							<string>loginButton</string>
 							<string>passwordField</string>
+							<string>registrationTest</string>
 							<string>rememberSwitch</string>
 							<string>statusLabel</string>
 							<string>usernameField</string>
@@ -1023,6 +1056,7 @@
 							<string>CustomLoadAlertViewController</string>
 							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIViewController</string>
 							<string>UISwitch</string>
 							<string>UILabel</string>
 							<string>UITextField</string>
@@ -1036,6 +1070,7 @@
 							<string>loadAlert</string>
 							<string>loginButton</string>
 							<string>passwordField</string>
+							<string>registrationTest</string>
 							<string>rememberSwitch</string>
 							<string>statusLabel</string>
 							<string>usernameField</string>
@@ -1059,6 +1094,10 @@
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">registrationTest</string>
+								<string key="candidateClassName">UIViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">rememberSwitch</string>
 								<string key="candidateClassName">UISwitch</string>
 							</object>
@@ -1075,6 +1114,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/FormNinjaLoginViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">RegistrationTest</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/RegistrationTest.h</string>
 					</object>
 				</object>
 			</object>

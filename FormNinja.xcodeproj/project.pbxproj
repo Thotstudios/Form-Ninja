@@ -84,6 +84,8 @@
 		F721879E1390EFDC000BA9DF /* SignatureElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72187881390EFDC000BA9DF /* SignatureElement.xib */; };
 		F721879F1390EFDC000BA9DF /* SingleLineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F721878B1390EFDC000BA9DF /* SingleLineElement.m */; };
 		F72187A01390EFDC000BA9DF /* SingleLineElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F721878C1390EFDC000BA9DF /* SingleLineElement.xib */; };
+		F7396017140B2811002DE9D8 /* RegistrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7396015140B2811002DE9D8 /* RegistrationTest.m */; };
+		F7396018140B2811002DE9D8 /* RegistrationTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7396016140B2811002DE9D8 /* RegistrationTest.xib */; };
 		F7529AC913D0D02300357C67 /* FormRatingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F7529AC713D0D02300357C67 /* FormRatingElement.m */; };
 		F7529ACA13D0D02300357C67 /* FormRatingElement.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7529AC813D0D02300357C67 /* FormRatingElement.xib */; };
 		F757907313B1A1F500EA4F3B /* ThotStudiosGray.png in Resources */ = {isa = PBXBuildFile; fileRef = F757907213B1A1F500EA4F3B /* ThotStudiosGray.png */; };
@@ -284,6 +286,9 @@
 		F721878A1390EFDC000BA9DF /* SingleLineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLineElement.h; sourceTree = "<group>"; };
 		F721878B1390EFDC000BA9DF /* SingleLineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineElement.m; sourceTree = "<group>"; };
 		F721878C1390EFDC000BA9DF /* SingleLineElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleLineElement.xib; sourceTree = "<group>"; };
+		F7396014140B2811002DE9D8 /* RegistrationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationTest.h; path = RegistrationTest/RegistrationTest.h; sourceTree = "<group>"; };
+		F7396015140B2811002DE9D8 /* RegistrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationTest.m; path = RegistrationTest/RegistrationTest.m; sourceTree = "<group>"; };
+		F7396016140B2811002DE9D8 /* RegistrationTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegistrationTest.xib; path = RegistrationTest/RegistrationTest.xib; sourceTree = "<group>"; };
 		F7529AC613D0D02300357C67 /* FormRatingElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormRatingElement.h; path = FormRatingElement/FormRatingElement.h; sourceTree = "<group>"; };
 		F7529AC713D0D02300357C67 /* FormRatingElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormRatingElement.m; path = FormRatingElement/FormRatingElement.m; sourceTree = "<group>"; };
 		F7529AC813D0D02300357C67 /* FormRatingElement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormRatingElement.xib; path = FormRatingElement/FormRatingElement.xib; sourceTree = "<group>"; };
@@ -522,6 +527,7 @@
 		D922CE96136C926300233C48 /* FormNinja */ = {
 			isa = PBXGroup;
 			children = (
+				F739600D140B2583002DE9D8 /* RegistrationTest */,
 				D90A13DC1382250200857A4C /* Constants.h */,
 				D9E3247C13A6C7E3009724D8 /* Menu Popover */,
 				F785C16A13A072FF00AADEB6 /* SyncManager */,
@@ -724,6 +730,16 @@
 				F721878C1390EFDC000BA9DF /* SingleLineElement.xib */,
 			);
 			path = SingleLineElement;
+			sourceTree = "<group>";
+		};
+		F739600D140B2583002DE9D8 /* RegistrationTest */ = {
+			isa = PBXGroup;
+			children = (
+				F7396014140B2811002DE9D8 /* RegistrationTest.h */,
+				F7396015140B2811002DE9D8 /* RegistrationTest.m */,
+				F7396016140B2811002DE9D8 /* RegistrationTest.xib */,
+			);
+			name = RegistrationTest;
 			sourceTree = "<group>";
 		};
 		F7529AC413D0CFEE00357C67 /* FormRatingElement */ = {
@@ -1241,6 +1257,7 @@
 				F7529ACA13D0D02300357C67 /* FormRatingElement.xib in Resources */,
 				F7D24CCC13D0E6B600EEF9C9 /* TabGray.png in Resources */,
 				F7D24CCD13D0E6B600EEF9C9 /* TabRed.png in Resources */,
+				F7396018140B2811002DE9D8 /* RegistrationTest.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1308,6 +1325,7 @@
 				F7AAC66A13AFF6040042CBB1 /* FileWriter.m in Sources */,
 				F7F0DD1613CD5A2B0019565A /* RatingElement.m in Sources */,
 				F7529AC913D0D02300357C67 /* FormRatingElement.m in Sources */,
+				F7396017140B2811002DE9D8 /* RegistrationTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

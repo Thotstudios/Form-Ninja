@@ -37,10 +37,11 @@
 
 @property (nonatomic, retain) UILabel *statusLabel;
 
+@property (nonatomic, retain) IBOutlet UIViewController * registrationTest; // TODO: remove
 
 - (IBAction)rememberSwitchAction:(UISwitch*)sender;
 - (IBAction) loginButtonAction;
-- (IBAction) userAuthenticated; // TODO temporary
+- (IBAction) testButtonPressed; // TODO remove
 
 
 - (IBAction)pressedRegisterButton;
