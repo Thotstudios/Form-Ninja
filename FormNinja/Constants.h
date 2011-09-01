@@ -124,11 +124,15 @@
 
 
 //Form URLs
+//Out of date
 #define userInfoURL			@"http://www.rilburskryler.net/mobile/userinfo.php"
 #define updateAccountURL	@"http://thotstudios.com/formninja/accountUpdate.php"
 #define accountRegisterURL	@"http://www.thotstudios.com/formninja/register.php"
 #define userLoginURL		@"http://thotstudios.com/formninja/login.php"
 #define templateUploadURL	@"http://thotstudios.com/formninja/templateUpload.php"
+
+#define baseWebServiceUrl @"http://formninja.thotstudios.com"
+#define registerUserUrl @"/_ipad_register.php"
 
 // Group Constants
 #define ALL_GROUPS_STR @"All Groups" /* TODO: localize */
