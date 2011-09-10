@@ -1,0 +1,10 @@
+Possible Registration Errors:
+
+usernameExists
+usernameInvalid
+passwordMismatch
+passwordInvalid
+emailExists
+emailInvalid
+zipInvalid
+phoneNumberInvalid
