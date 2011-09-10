@@ -8,9 +8,11 @@
 
 #import "WebServiceLink.h"
 #import "RegistrationConnectionHandler.h"
+#import "LoginConnectionHandler.h"
 
 @implementation WebServiceLink
 @synthesize regDelegate;
+@synthesize logDelegate;
 @synthesize receivedData;
 
 
@@ -20,6 +22,14 @@
     [reg setRegDelegate:delegate];
     [reg registerNewUserWithUserName:username andPassword:password andFName:fName andLName:lName andEmail:email andZip:zip andZipExt:zipExt andPhoneNumber:phoneNumber andCompany:company andSecurityQuestion:securityQuestion andSecurityAnswer:securityAnswer];
     return reg;
+}
+
++(LoginConnectionHandler *) loginWithUserName:(NSString *)username andPassword:(NSString *) password withDelegate:(id<loginDelegate>)delegate
+{
+    LoginConnectionHandler *log=[[LoginConnectionHandler alloc] init];
+    [log setLogDelegate:delegate];
+    [log loginWithUsername:username andPassword:password];
+    return log;
 }
 
 /*

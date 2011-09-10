@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "WebServiceLink.h"
 
-@interface RegistrationTest : UIViewController <registrationDelegate> {
+@interface RegistrationTest : UIViewController <registrationDelegate, loginDelegate> {
     
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *usernameField, *passwordField;
 @property (nonatomic, retain) IBOutlet UITextView *resultTextView;
 @property (nonatomic, retain) RegistrationConnectionHandler *registration;
+@property (nonatomic, retain) LoginConnectionHandler *logger;
 
 -(IBAction) fauxRegistrationPressed;
+-(IBAction) loginPressed;
 
 @end

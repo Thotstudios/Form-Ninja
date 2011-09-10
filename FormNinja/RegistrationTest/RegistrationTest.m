@@ -13,6 +13,7 @@
 @synthesize registration;
 @synthesize resultTextView;
 @synthesize usernameField, passwordField;
+@synthesize logger;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -81,6 +82,23 @@
         }
     }
     [resultTextView setText:[NSString stringWithFormat:@"%@%@", resultText, errorText]];
+}
+
+-(IBAction) loginPressed
+{
+    id log=[WebServiceLink loginWithUserName:[usernameField text] andPassword:[passwordField text] withDelegate:self];
+    self.logger=log;
+    NSLog(@"Sending login message...");
+}
+
+-(void) loginSucceeded
+{
+    NSLog(@"succeeded!");
+}
+
+-(void) loginFailedWithErrors:(NSDictionary *)errors
+{
+    NSLog(@"login failed!");
 }
 
 @end

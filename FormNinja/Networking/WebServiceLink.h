@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 //#import "RegistrationConnectionHandler.h"
 @class RegistrationConnectionHandler;
+@class LoginConnectionHandler;
 
 @protocol registrationDelegate
 @required
@@ -32,12 +33,22 @@
  */
 @end
 
+@protocol loginDelegate
+
+-(void) loginSucceeded;
+-(void) loginFailedWithErrors:(NSDictionary *)errors;
+
+@end
+
 @interface WebServiceLink : NSObject {
 }
 
 @property(assign) id <registrationDelegate> regDelegate;
+@property(assign) id <loginDelegate> logDelegate;
 @property(nonatomic, retain) NSMutableData *receivedData;
 
 +(RegistrationConnectionHandler *)registerUserWithDelegate:(id <registrationDelegate>) delegate andUserName:(NSString *) username andPassword:(NSString *) password andFName:(NSString *)fName andLName:(NSString *)lName andEmail:(NSString *)email andZip:(NSString *)zip andZipExt:(NSString *)zipExt andPhoneNumber:(NSString *)phoneNumber andCompany:(NSString *)company andSecurityQuestion:(NSString *)securityQuestion andSecurityAnswer:(NSString *)securityAnswer;
+
++(LoginConnectionHandler *) loginWithUserName:(NSString *)username andPassword:(NSString *) password withDelegate:(id <loginDelegate>) delegate;
 
 @end
