@@ -7,16 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WebServiceLink.h"
+#import "WebServiceMessageQueue.h"
+#import "RegistrationMessage.h"
+#import "LoginMessage.h"
 
-@interface RegistrationTest : UIViewController <registrationDelegate, loginDelegate> {
+@interface RegistrationTest : UIViewController <RegistrationMessageDelegate, LoginMessageDelegate, MessageDelegate> {
     
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *usernameField, *passwordField;
 @property (nonatomic, retain) IBOutlet UITextView *resultTextView;
-@property (nonatomic, retain) RegistrationConnectionHandler *registration;
-@property (nonatomic, retain) LoginConnectionHandler *logger;
+@property (nonatomic, retain) RegistrationMessage *regMessage;
+@property (nonatomic, retain) LoginMessage *loginMessage;
 
 -(IBAction) fauxRegistrationPressed;
 -(IBAction) loginPressed;

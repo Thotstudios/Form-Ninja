@@ -10,10 +10,10 @@
 #import "WebServiceLink.h"
 
 @implementation RegistrationTest
-@synthesize registration;
+@synthesize regMessage;
+@synthesize loginMessage;
 @synthesize resultTextView;
 @synthesize usernameField, passwordField;
-@synthesize logger;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,47 +58,54 @@
 	return YES;
 }
 
--(IBAction) fauxRegistrationPressed
-{
-    id regger=[WebServiceLink registerUserWithDelegate:self andUserName:@"Rilbur" andPassword:@"Rilbur" andFName:@"Fname" andLName:@"lname" andEmail:@"email@email.com" andZip:@"93245" andZipExt:@"2423" andPhoneNumber:@"5596818113" andCompany:@"thotstudios" andSecurityQuestion:@"quest" andSecurityAnswer:@"tion"];
-    self.registration=regger;
-    [resultTextView setText:@"Sending request..."];
-}
+#pragma mark - View Controls
 
-- (void)registrationReturnedWithResult:(BOOL) result andErrors:(NSDictionary *)errors
-{
-    NSString *resultText;
-    NSString *errorText=@"";
-    if(result)
-    {
-        resultText=@"Registration successful!";
-        }
-    else
-    {
-        resultText=@"Registration failed --";
-        NSArray *errorArray=[errors allKeys];
-        for (NSString *error in errorArray) {
-            errorText=[errorText stringByAppendingString:[NSString stringWithFormat:@" %@", error]];
-        }
-    }
-    [resultTextView setText:[NSString stringWithFormat:@"%@%@", resultText, errorText]];
+-(IBAction) fauxRegistrationPressed
+{   
+    /*
+    id regger=[WebServiceLink registerUserWithDelegate:self andUserName:@"Rilbur" andPassword:@"Rilbur" andFName:@"Fname" andLName:@"lname" andEmail:@"email@email.com" andZip:@"93245" andZipExt:@"2423" andPhoneNumber:@"5596818113" andCompany:@"thotstudios" andSecurityQuestion:@"quest" andSecurityAnswer:@"tion"];
+    self.registration=regger;*/
+    self.regMessage=[RegistrationMessage registerNewUserWithUserName:@"Rilbur" andPassword:@"Rilbur" andFName:@"Fname" andLName:@"lname" andEmail:@"email@email.com" andZip:@"93245" andZipExt:@"2423" andPhoneNumber:@"5596818113" andCompany:@"thotstudios" andSecurityQuestion:@"quest" andSecurityAnswer:@"answer" andDelegate:self];
+    [resultTextView setText:@"Sending request..."];
 }
 
 -(IBAction) loginPressed
 {
-    id log=[WebServiceLink loginWithUserName:[usernameField text] andPassword:[passwordField text] withDelegate:self];
-    self.logger=log;
-    NSLog(@"Sending login message...");
+    //id log=[WebServiceLink loginWithUserName:[usernameField text] andPassword:[passwordField text] withDelegate:self];
+    //self.logger=log;
+    [self fauxRegistrationPressed];
+    loginMessage=[LoginMessage loginWithUsername:[self.usernameField text] andPassword:[self.passwordField text] withDelegate:self];
+    
+    NSLog(@"NOTE:  Since this is supposed to test the queue, the system is now queuing both the registration AND login messages!");
 }
 
--(void) loginSucceeded
+#pragma mark - Web Service Delegates
+
+//Registration delegate functions
+-(void)registrationSuccessful
 {
-    NSLog(@"succeeded!");
+    NSLog(@"Registration successful!");
 }
 
--(void) loginFailedWithErrors:(NSDictionary *)errors
+-(void)registrationFailedWithError:(NSError *) error
 {
-    NSLog(@"login failed!");
+    NSLog(@"Registration failed: %@", [error description]);
+}
+
+//Login Delegate FUnctions
+-(void)loginSuccessful
+{
+    NSLog(@"Login successful!");
+}
+-(void)loginFailedWithError:(NSError *)error
+{
+    NSLog(@"login failed :( ");
+}
+
+//message delegate functions
+-(void)messageError:(NSError *)messageError
+{
+    NSLog(@"Message failure: %@", [messageError description]);
 }
 
 @end
