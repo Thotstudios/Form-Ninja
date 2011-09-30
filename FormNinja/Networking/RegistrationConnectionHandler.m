@@ -42,7 +42,7 @@
 	if(theConnection){
 		//Create the NSMutableData to hold the received data
 		//received data is an instance variable declared elsewhere
-		self.receivedData=[NSMutableData alloc];
+		self.receivedData=[NSMutableData data];
 	}
 	else {
 		[self.regDelegate registrationReturnedWithResult:false andErrors:[NSArray arrayWithObject:[NSString stringWithFormat:@"unableToCreateConnection"]]];
