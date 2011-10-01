@@ -37,6 +37,13 @@
 		4257217A13AEC9C5004B8693 /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257217913AEC9C4004B8693 /* Plus.png */; };
 		429F556113B0435F003705B2 /* abortForm.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F555F13B0435F003705B2 /* abortForm.png */; };
 		429F556213B0435F003705B2 /* abortFormRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F556013B0435F003705B2 /* abortFormRed.png */; };
+		42A71962141023E6006894E7 /* RegistrationConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A71961141023E6006894E7 /* RegistrationConnectionHandler.m */; };
+		42A750E414100C04008FD529 /* WebServiceLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A750E314100C04008FD529 /* WebServiceLink.m */; };
+		42ACD54C141BF2E900DE4351 /* LoginConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ACD54B141BF2E900DE4351 /* LoginConnectionHandler.m */; };
+		42FDC4B114362DE7004DA74D /* WebServiceMessageQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDC4B014362DE7004DA74D /* WebServiceMessageQueue.m */; };
+		42FDC4B51436304D004DA74D /* WebServiceMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDC4B41436304D004DA74D /* WebServiceMessage.m */; };
+		42FDC4B814364052004DA74D /* RegistrationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDC4B714364051004DA74D /* RegistrationMessage.m */; };
+		42FDC4BB14366326004DA74D /* LoginMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDC4BA14366323004DA74D /* LoginMessage.m */; };
 		D904731C13982ADC00B87E4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D904731B13982ADC00B87E4E /* CoreLocation.framework */; };
 		D917B3F81378D0B000E75140 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3E91378D0B000E75140 /* ASIAuthenticationDialog.m */; };
 		D917B3F91378D0B000E75140 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D917B3EC1378D0B000E75140 /* ASIDownloadCache.m */; };
@@ -202,6 +209,20 @@
 		4257217913AEC9C4004B8693 /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus.png; sourceTree = "<group>"; };
 		429F555F13B0435F003705B2 /* abortForm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abortForm.png; sourceTree = "<group>"; };
 		429F556013B0435F003705B2 /* abortFormRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abortFormRed.png; sourceTree = "<group>"; };
+		42A71960141023E6006894E7 /* RegistrationConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationConnectionHandler.h; path = FormNinja/Networking/RegistrationConnectionHandler.h; sourceTree = "<group>"; };
+		42A71961141023E6006894E7 /* RegistrationConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationConnectionHandler.m; path = FormNinja/Networking/RegistrationConnectionHandler.m; sourceTree = "<group>"; };
+		42A750E214100C04008FD529 /* WebServiceLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebServiceLink.h; path = FormNinja/Networking/WebServiceLink.h; sourceTree = "<group>"; };
+		42A750E314100C04008FD529 /* WebServiceLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebServiceLink.m; path = FormNinja/Networking/WebServiceLink.m; sourceTree = "<group>"; };
+		42ACD54A141BF2E900DE4351 /* LoginConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginConnectionHandler.h; path = FormNinja/Networking/LoginConnectionHandler.h; sourceTree = "<group>"; };
+		42ACD54B141BF2E900DE4351 /* LoginConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginConnectionHandler.m; path = FormNinja/Networking/LoginConnectionHandler.m; sourceTree = "<group>"; };
+		42FDC4AF14362DE7004DA74D /* WebServiceMessageQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebServiceMessageQueue.h; path = FormNinja/Networking/WebServiceMessageQueue.h; sourceTree = "<group>"; };
+		42FDC4B014362DE7004DA74D /* WebServiceMessageQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebServiceMessageQueue.m; path = FormNinja/Networking/WebServiceMessageQueue.m; sourceTree = "<group>"; };
+		42FDC4B31436304D004DA74D /* WebServiceMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebServiceMessage.h; path = FormNinja/Networking/WebServiceMessage.h; sourceTree = "<group>"; };
+		42FDC4B41436304D004DA74D /* WebServiceMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebServiceMessage.m; path = FormNinja/Networking/WebServiceMessage.m; sourceTree = "<group>"; };
+		42FDC4B614364051004DA74D /* RegistrationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationMessage.h; path = FormNinja/Networking/RegistrationMessage.h; sourceTree = "<group>"; };
+		42FDC4B714364051004DA74D /* RegistrationMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationMessage.m; path = FormNinja/Networking/RegistrationMessage.m; sourceTree = "<group>"; };
+		42FDC4B91436631F004DA74D /* LoginMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginMessage.h; path = FormNinja/Networking/LoginMessage.h; sourceTree = "<group>"; };
+		42FDC4BA14366323004DA74D /* LoginMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginMessage.m; path = FormNinja/Networking/LoginMessage.m; sourceTree = "<group>"; };
 		D904731B13982ADC00B87E4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D90A13DC1382250200857A4C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D917B3E81378D0B000E75140 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = FormNinja/ASI/ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -422,6 +443,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42A750E014100BCC008FD529 /* WebServiceLink */ = {
+			isa = PBXGroup;
+			children = (
+				42A750E214100C04008FD529 /* WebServiceLink.h */,
+				42A750E314100C04008FD529 /* WebServiceLink.m */,
+				42A71960141023E6006894E7 /* RegistrationConnectionHandler.h */,
+				42A71961141023E6006894E7 /* RegistrationConnectionHandler.m */,
+				42ACD54A141BF2E900DE4351 /* LoginConnectionHandler.h */,
+				42ACD54B141BF2E900DE4351 /* LoginConnectionHandler.m */,
+				42FDC4AF14362DE7004DA74D /* WebServiceMessageQueue.h */,
+				42FDC4B014362DE7004DA74D /* WebServiceMessageQueue.m */,
+				42FDC4B31436304D004DA74D /* WebServiceMessage.h */,
+				42FDC4B41436304D004DA74D /* WebServiceMessage.m */,
+				42FDC4B614364051004DA74D /* RegistrationMessage.h */,
+				42FDC4B714364051004DA74D /* RegistrationMessage.m */,
+				42FDC4B91436631F004DA74D /* LoginMessage.h */,
+				42FDC4BA14366323004DA74D /* LoginMessage.m */,
+			);
+			name = WebServiceLink;
+			sourceTree = "<group>";
+		};
 		D917B3D01378D06200E75140 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,6 +821,7 @@
 		F778DD50137DC40B00B444F6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				42A750E014100BCC008FD529 /* WebServiceLink */,
 				D917B3E71378D0A000E75140 /* ASI */,
 				D917B44A1378DEFB00E75140 /* Reachability */,
 			);
@@ -1326,6 +1369,13 @@
 				F7F0DD1613CD5A2B0019565A /* RatingElement.m in Sources */,
 				F7529AC913D0D02300357C67 /* FormRatingElement.m in Sources */,
 				F7396017140B2811002DE9D8 /* RegistrationTest.m in Sources */,
+				42A750E414100C04008FD529 /* WebServiceLink.m in Sources */,
+				42A71962141023E6006894E7 /* RegistrationConnectionHandler.m in Sources */,
+				42ACD54C141BF2E900DE4351 /* LoginConnectionHandler.m in Sources */,
+				42FDC4B114362DE7004DA74D /* WebServiceMessageQueue.m in Sources */,
+				42FDC4B51436304D004DA74D /* WebServiceMessage.m in Sources */,
+				42FDC4B814364052004DA74D /* RegistrationMessage.m in Sources */,
+				42FDC4BB14366326004DA74D /* LoginMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
