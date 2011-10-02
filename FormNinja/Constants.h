@@ -132,9 +132,9 @@
 #define templateUploadURL	@"http://thotstudios.com/formninja/templateUpload.php"
 
     //Current
-#define baseWebServiceUrl @"http://formninja.thotstudios.com"
-#define registerUserUrl @"/_ipad_register.php"
-#define loginUserUrl @"/_ipad_login.php"
+#define baseWebServiceUrl @"https://secure88.inmotionhosting.com/~though16/formninja/"
+#define registerUserUrl @"_ipad_register.php"
+#define loginUserUrl @"_ipad_login.php"
 
 // Group Constants
 #define ALL_GROUPS_STR @"All Groups" /* TODO: localize */
