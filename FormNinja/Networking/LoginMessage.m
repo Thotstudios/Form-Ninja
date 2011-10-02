@@ -113,6 +113,11 @@
     else
     {
         [self.loginDelegate loginSuccessful];
+        
+        [self.queueDelegate messageGaveUsernameToken:(NSString *)[responseDictionary valueForKey:@"userKey"] 
+                                       passwordToken:(NSString *)[responseDictionary valueForKey:@"passKey"] 
+                                            withTime:[NSDate dateWithTimeIntervalSinceNow:((int)[responseDictionary valueForKey:@"days"]*24*60*60)]];
+
         [self.queueDelegate messageFinishedSuccessfully:self];
     }
     [connection release];

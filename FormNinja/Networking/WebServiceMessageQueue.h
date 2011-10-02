@@ -19,13 +19,18 @@
 
 @property (nonatomic, retain) NSMutableArray *messageQueue;
 @property (nonatomic, retain) NSError *error;
+@property (nonatomic, retain) NSString *usertoken, *passtoken;
+@property (nonatomic, retain) NSDate *tokenExpiration;
 
 +(id)sharedInstance;
 -(int)queueStatus;
 -(void)processNextMessage;
 -(void)resumeProcessingQueue;
 -(void)addMessageToQueue:(WebServiceMessage *) message;
+-(void)clearQueue;
 -(BOOL)removeMessageFromQueue:(WebServiceMessage *)message;
+
++ (NSString *) md5:(NSString *)str;
 
 
 @end

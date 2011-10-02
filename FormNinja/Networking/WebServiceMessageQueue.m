@@ -7,11 +7,13 @@
 //
 
 #import "WebServiceMessageQueue.h"
-
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation WebServiceMessageQueue
 @synthesize messageQueue;
 @synthesize error;
+@synthesize usertoken, passtoken;
+@synthesize tokenExpiration;
 
 #pragma mark - Memory Management
 
@@ -31,6 +33,8 @@ static WebServiceMessageQueue *sharedInstance = nil;
     if (self) {
         queueStatus=0;
         self.messageQueue=[NSMutableArray array];
+        /*CHAD*/
+        //Need to load usertoken, passtoken, and tokenExpiration!
     }
     return self;
 }
@@ -120,6 +124,40 @@ static WebServiceMessageQueue *sharedInstance = nil;
     }
 }
 
+-(void)clearQueue
+{
+    [[[messageQueue copy] autorelease] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+     {
+         [[WebServiceMessageQueue sharedInstance] removeMessageFromQueue:(WebServiceMessage *)obj];
+     }];
+    
+    if([messageQueue count]==0)
+    {
+        queueStatus=0;
+    }
+    else
+    {
+        queueStatus=1;
+    }
+}
+
+#pragma mark - Cryptographic functions
+//Functions intended to help with the security of the queue, i. e. password generation
+
++ (NSString *) md5:(NSString *)str {
+    //reference: http://stackoverflow.com/questions/652300/using-md5-hash-on-a-string-in-cocoa
+    const char *cStr = [str UTF8String];
+    unsigned char result[16];
+    CC_MD5( cStr, strlen(cStr), result );
+    return [NSString stringWithFormat:
+            @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
+            result[0], result[1], result[2], result[3], 
+            result[4], result[5], result[6], result[7],
+            result[8], result[9], result[10], result[11],
+            result[12], result[13], result[14], result[15]
+            ]; 
+}
+
 #pragma mark - Delegate Functions
 
 -(void)messageFinishedSuccessfully:(WebServiceMessage *)message
@@ -140,6 +178,16 @@ static WebServiceMessageQueue *sharedInstance = nil;
 {
     queueStatus=3;
     self.error=messageError;
+}
+
+-(void)messageGaveUsernameToken:(NSString *)userToken passwordToken:(NSString *)passToken withTime:(NSDate *)date
+{
+    NSLog(@"user: %@ pass: %@ date: %@",userToken, passToken, [date description]);
+    self.usertoken=userToken;
+    self.passtoken=passToken;
+    self.tokenExpiration=date;
+    /*CHAD*/
+    //persist data
 }
 
 

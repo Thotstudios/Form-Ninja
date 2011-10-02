@@ -13,6 +13,7 @@
 @required
 -(void)messageFinishedSuccessfully:(WebServiceMessage *)message;
 -(void)messageError:(NSError *)error;
+-(void)messageGaveUsernameToken:(NSString *) userToken passwordToken:(NSString *) passToken withTime:(NSDate *) date;
 
 @end
 
