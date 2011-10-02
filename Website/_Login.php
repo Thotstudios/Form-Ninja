@@ -61,9 +61,10 @@ function logUserIn($username, $password)
 	}
 }
 
-function iPadLogin($username, $password)
+function iPadLogin($username, $password, $days="14")
 {
 	$logged=logUserIn($username, $password);
+	//echo $username; echo $password;
 	if($logged['logged'])
 	{	
 		$saltChars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -82,9 +83,11 @@ function iPadLogin($username, $password)
 		$passSalt=MD5($salt);
 		
 		
-		
 		$userKey=hashPasswordWithSalt($username, $userSalt);
 		$passKey=hashPasswordWithSalt($password, $passSalt);
+		
+		//echo $userKey;
+		//echo $passKey;
 		
 		$updater=get_updater_MYSQL();
 		if(!$updater)
@@ -94,16 +97,17 @@ function iPadLogin($username, $password)
 		}
 		else
 		{
-			$query="select userid from ".$GLOBALS['db_prefix']."user where ".$GLOBALS['db_prefix']."user.username='{$username}'"
+			$query="select userid from ".$GLOBALS['db_prefix']."user where ".$GLOBALS['db_prefix']."user.username='{$username}'";
 			$result=$updater->query($query);
 			$userID=$result->fetch_object();
 			$userID=$userID->userid;
-			$query="INSERT INTO ".$GLOBALS['db_prefix']."ipad_login (userid, userKey, passKey, expirationDate) VALUES ('{$userid}', '{$userKey}', '{$passKey}', adddate(now(), interval 14 day)) on duplicate key update userKey='{$userKey}', passKey='{$passKey}', expirationDate=adddate(now(), interval 14 day)";
-			$success=$updater->query()
+			$query="INSERT INTO ".$GLOBALS['db_prefix']."ipad_login (userid, userKey, passKey, expirationDate) VALUES ('{$userid}', '{$userKey}', '{$passKey}', adddate(now(), interval {$days} day)) on duplicate key update userKey='{$userKey}', passKey='{$passKey}', expirationDate=adddate(now(), interval {$days} day)";
+			$success=$updater->query($query);
 			if($success)
 			{
 				$logged['userKey']=$userKey;
 				$logged['passKey']=$passKey;
+				$logged['days']=$days;
 			}
 			else
 			{

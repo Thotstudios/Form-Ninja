@@ -54,6 +54,7 @@ function hashPasswordWithSalt($password, $salt)
 	for($i=0; $i<32; $i++)
 	{
 		$passwordsalt.=$password{$i}.$salt{$i};
+		//echo $passwordsalt."\n";
 	}
 	$passwordsalt=MD5($passwordsalt);
 	return $passwordsalt;
