@@ -73,10 +73,10 @@
 {
     //id log=[WebServiceLink loginWithUserName:[usernameField text] andPassword:[passwordField text] withDelegate:self];
     //self.logger=log;
-    [self fauxRegistrationPressed];
+    [[WebServiceMessageQueue sharedInstance] clearQueue];
+    //[self fauxRegistrationPressed];
     loginMessage=[LoginMessage loginWithUsername:[self.usernameField text] andPassword:[self.passwordField text] withDelegate:self];
     
-    NSLog(@"NOTE:  Since this is supposed to test the queue, the system is now queuing both the registration AND login messages!");
 }
 
 #pragma mark - Web Service Delegates
