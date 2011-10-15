@@ -15,7 +15,7 @@
 @synthesize loginDelegate;
 @synthesize username, password;
 
--(void)processMessage
+-(void)processMessageWithUserToken:(NSString *)userToken andPassToken:(NSString *)passToken
 {
     //as documented at:  https://developer.apple.com/library/ios/#documentation/Cocoa/Conceptual/URLLoadingSystem/Tasks/UsingNSURLConnection.html%23//apple_ref/doc/uid/20001836-170129
 	
@@ -89,7 +89,7 @@
     NSDictionary *responseDictionary = [response JSONValue];
     // release the connection, and the data object
     bool success=([(NSString *)[responseDictionary valueForKey:@"accepted"] isEqualToString:@"true"]);
-    NSLog(@"%@", [responseDictionary valueForKey:@"registered"]);
+    NSLog(@"%@", [responseDictionary valueForKey:@"accepted"]);
     if(!success)
     {
         status=4;

@@ -75,8 +75,15 @@
     //self.logger=log;
     [[WebServiceMessageQueue sharedInstance] clearQueue];
     //[self fauxRegistrationPressed];
-    loginMessage=[LoginMessage loginWithUsername:[self.usernameField text] andPassword:[self.passwordField text] withDelegate:self];
+    self.loginMessage=[LoginMessage loginWithUsername:[self.usernameField text] andPassword:[self.passwordField text] withDelegate:self];
     
+}
+
+-(IBAction) fauxGetGroupsPressed
+{
+    
+    GetGroupsMessage *getGroups=[GetGroupsMessage getGroupsWithDelegate:self];
+    getGroups=nil;
 }
 
 #pragma mark - Web Service Delegates
@@ -106,6 +113,22 @@
 -(void)messageError:(NSError *)messageError
 {
     NSLog(@"Message failure: %@", [messageError description]);
+}
+
+-(void)messageRequiresLogin:(WebServiceMessage *)message
+{
+    NSLog(@"Registration Test: Message requires login!");
+}
+
+//got groups delegate functions
+
+-(void)gotGroups:(NSArray *)groups
+{
+    
+}
+-(void)getGroupsFailedWithError:(NSError *) error
+{
+    NSLog(@"Registrationtest GetGroupsFailedWithError:  error description: %@", [error description]);
 }
 
 @end

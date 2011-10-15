@@ -78,6 +78,26 @@ static WebServiceMessageQueue *sharedInstance = nil;
 
 #pragma mark - Message Functions
 
+//used to create a login message placed at hte head of the queue, and force processing
+-(void)loginToServerWithUsername:(NSString *) username andPassword:(NSString *)password
+{
+    LoginMessage *message=[[LoginMessage alloc] init];
+    
+    message.username=username;
+    message.password=password;
+    
+    message.loginDelegate=nil;
+    message.messageDelegate=nil;
+    
+    [message addToQueue];
+    [message autorelease];
+    
+    [messageQueue insertObject:message atIndex:0];
+    queueStatus=1;
+    [self processNextMessage];
+
+}
+
 -(void)addMessageToQueue:(WebServiceMessage *) message
 {
     NSLog(@"WebServiceMessageQueue: addMessageToQueue");
@@ -104,7 +124,24 @@ static WebServiceMessageQueue *sharedInstance = nil;
 {
     NSLog(@"WebServiceMessageQueue: processNextMessage");
     NSLog(@"%i", [messageQueue count]);
-    [[messageQueue objectAtIndex:0] processMessage];
+    if(tokenExpiration!=nil)
+    {
+        if([(NSDate *)[NSDate date] compare:tokenExpiration] == NSOrderedDescending)
+        {
+            [[messageQueue objectAtIndex:0] processMessageWithUserToken:(NSString *) usertoken andPassToken:(NSString *) passtoken];
+        }
+        else
+        {
+            self.tokenExpiration=nil;
+            self.passtoken=nil;
+            self.usertoken=nil;
+            [[messageQueue objectAtIndex:0] processMessageWithUserToken:(NSString *) nil andPassToken:(NSString *) nil];
+        }
+    }
+    else
+    {
+        [[messageQueue objectAtIndex:0] processMessageWithUserToken:(NSString *) nil andPassToken:(NSString *) nil];
+    }
 }
 -(void)resumeProcessingQueue
 {
@@ -190,6 +227,11 @@ static WebServiceMessageQueue *sharedInstance = nil;
     //persist data
 }
 
+
+-(void)messageRequiresLogin:(WebServiceMessage *)message
+{
+    queueStatus=3;
+}
 
 
 @end

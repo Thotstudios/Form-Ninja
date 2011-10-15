@@ -135,6 +135,7 @@
 #define baseWebServiceUrl @"https://secure88.inmotionhosting.com/~though16/formninja/"
 #define registerUserUrl @"_ipad_register.php"
 #define loginUserUrl @"_ipad_login.php"
+#define getGroupListUrl @"_ipad_get_group_list.php"
 
 // Group Constants
 #define ALL_GROUPS_STR @"All Groups" /* TODO: localize */

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WebServiceMessage.h"
+#import "LoginMessage.h"
 
 @interface WebServiceMessageQueue : NSObject <QueueDelegate> {
     int queueStatus;//Should be a private variable, not set except from inside queue.  NOT THREAD SAFE
@@ -29,6 +30,7 @@
 -(void)addMessageToQueue:(WebServiceMessage *) message;
 -(void)clearQueue;
 -(BOOL)removeMessageFromQueue:(WebServiceMessage *)message;
+-(void)loginToServerWithUsername:(NSString *) username andPassword:(NSString *)password;
 
 + (NSString *) md5:(NSString *)str;
 

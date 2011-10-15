@@ -10,8 +10,9 @@
 #import "WebServiceMessageQueue.h"
 #import "RegistrationMessage.h"
 #import "LoginMessage.h"
+#import "getGroupsMessage.h"
 
-@interface RegistrationTest : UIViewController <RegistrationMessageDelegate, LoginMessageDelegate, MessageDelegate> {
+@interface RegistrationTest : UIViewController <RegistrationMessageDelegate, LoginMessageDelegate, MessageDelegate, GetGroupsMessageDelegate> {
     
 }
 
@@ -22,5 +23,6 @@
 
 -(IBAction) fauxRegistrationPressed;
 -(IBAction) loginPressed;
+-(IBAction) fauxGetGroupsPressed;
 
 @end

@@ -12,6 +12,7 @@
 		421EA44813ACEF4400ED5259 /* editBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 421EA44313ACEF4400ED5259 /* editBlack.png */; };
 		421EA44913ACEF4400ED5259 /* editRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 421EA44413ACEF4400ED5259 /* editRed.png */; };
 		42362F2A137C5C0700D3A363 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42362F29137C5C0700D3A363 /* QuartzCore.framework */; };
+		423E67C31438F24800EE1096 /* getGroupsMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 423E67C21438F24800EE1096 /* getGroupsMessage.m */; };
 		4257214B13AE755E004B8693 /* resumeformGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257214713AE755E004B8693 /* resumeformGray.png */; };
 		4257214C13AE755E004B8693 /* ResumeRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257214813AE755E004B8693 /* ResumeRed.png */; };
 		4257214D13AE755E004B8693 /* ViewformGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257214913AE755E004B8693 /* ViewformGray.png */; };
@@ -184,6 +185,8 @@
 		421EA44313ACEF4400ED5259 /* editBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBlack.png; sourceTree = "<group>"; };
 		421EA44413ACEF4400ED5259 /* editRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editRed.png; sourceTree = "<group>"; };
 		42362F29137C5C0700D3A363 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		423E67C11438F24700EE1096 /* getGroupsMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = getGroupsMessage.h; path = FormNinja/Networking/getGroupsMessage.h; sourceTree = "<group>"; };
+		423E67C21438F24800EE1096 /* getGroupsMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = getGroupsMessage.m; path = FormNinja/Networking/getGroupsMessage.m; sourceTree = "<group>"; };
 		4257214713AE755E004B8693 /* resumeformGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resumeformGray.png; sourceTree = "<group>"; };
 		4257214813AE755E004B8693 /* ResumeRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeRed.png; sourceTree = "<group>"; };
 		4257214913AE755E004B8693 /* ViewformGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ViewformGray.png; sourceTree = "<group>"; };
@@ -460,6 +463,8 @@
 				42FDC4B714364051004DA74D /* RegistrationMessage.m */,
 				42FDC4B91436631F004DA74D /* LoginMessage.h */,
 				42FDC4BA14366323004DA74D /* LoginMessage.m */,
+				423E67C11438F24700EE1096 /* getGroupsMessage.h */,
+				423E67C21438F24800EE1096 /* getGroupsMessage.m */,
 			);
 			name = WebServiceLink;
 			sourceTree = "<group>";
@@ -1376,6 +1381,7 @@
 				42FDC4B51436304D004DA74D /* WebServiceMessage.m in Sources */,
 				42FDC4B814364052004DA74D /* RegistrationMessage.m in Sources */,
 				42FDC4BB14366326004DA74D /* LoginMessage.m in Sources */,
+				423E67C31438F24800EE1096 /* getGroupsMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

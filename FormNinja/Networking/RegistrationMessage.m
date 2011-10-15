@@ -18,7 +18,7 @@
 
 
 
--(void)processMessage
+-(void)processMessageWithUserToken:(NSString *)userToken andPassToken:(NSString *)passToken
 {
     NSLog(@"RegistrationMessage: process message");
     //as documented at:  https://developer.apple.com/library/ios/#documentation/Cocoa/Conceptual/URLLoadingSystem/Tasks/UsingNSURLConnection.html%23//apple_ref/doc/uid/20001836-170129

@@ -23,7 +23,7 @@
     return self;
 }
 
--(void)processMessage
+-(void)processMessageWithUserToken:(NSString *)userToken andPassToken:(NSString *)passToken
 {
     NSLog(@"WebServiceMessage: processMessage");
     //This class doesn't actually send any messages!  Only it's sub-classes will!
