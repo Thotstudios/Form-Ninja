@@ -132,7 +132,7 @@
 #define templateUploadURL	@"http://thotstudios.com/formninja/templateUpload.php"
 
     //Current
-#define baseWebServiceUrl @"https://secure88.inmotionhosting.com/~though16/formninja/"
+#define baseWebServiceUrl @"https://secure88.inmotionhosting.com/~though16/formninja/_ipad/	"
 #define registerUserUrl @"_ipad_register.php"
 #define loginUserUrl @"_ipad_login.php"
 #define getGroupListUrl @"_ipad_get_group_list.php"
